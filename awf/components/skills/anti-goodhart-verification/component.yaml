@@ -3,12 +3,12 @@
   "id": "skill.anti-goodhart-verification",
   "kind": "skill",
   "releases": {
-    "3.4.0-rc.1": {
+    "3.5.0-rc.1": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/anti-goodhart-verification/releases/3.4.0-rc.1/source",
-      "tree_sha256": "83809d33c10fc31efcc7aa696aa55b0a4e2965a9a5de46aa0d21218bb1fb806e",
+      "source_snapshot": "components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source",
+      "tree_sha256": "010d0c43053c78d3666e27931d17f1ad38b6c0842ede5743951b4eedf4f6c61c",
       "depends_on": [],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
@@ -17,7 +17,7 @@
       "capabilities": [
         "domain-agnostic-universal-7-gate-anti-goodhart-and-anti-shortcut-engine",
         "six-mode-degenerate-shortcut-taxonomy-defense",
-        "pre-execution-intra-function-parameter-taint-fixed-point-dataflow",
+        "pre-execution-intra-function-parameter-taint-fixed-point-dataflow-with-control-dependence",
         "extensional-enumeration-and-dict-dispatch-memorization-detection-with-iupac-periodic-table-exemption",
         "docstring-and-math-contract-intent-vs-ast-structure-alignment",
         "information-theoretic-zlib-ncc-test-literal-overlap-detection",
@@ -71,6 +71,13 @@
         "euler-scale-homogeneity-and-asymmetric-rank1-product-null-zero-point-calibrator",
         "autonomous-remediation-closed-loop-differential-pair-audit-and-pareto-candidate-selector",
         "bipolar-sign-reachability-and-multisource-delta-method-variance-propagation-verifier",
+        "mesh-refinement-intensive-invariance-and-high-k-noise-floor-amplification-verifier",
+        "euler-poincare-alternating-sum-digital-topology-6-vs-26-duality-and-supercover-homotopy-verifier",
+        "cumulative-filtration-monotonicity-partition-of-unity-and-heterogeneous-radius-surface-clearance-verifier",
+        "rp2-nematic-director-sign-gauge-lateral-slip-decoupling-and-reciprocal-space-conjugacy-verifier",
+        "weighted-dispersion-mixed-degree-homogeneity-zero-weight-outlier-kish-invariance-and-debiasing-verifier",
+        "nonorthogonal-operator-pencil-metric-shift-gauge-subspace-dominance-and-bipolar-spectral-parity-verifier",
+        "coupled-operator-vector-local-sign-gauge-separated-cluster-locality-and-cauchy-schwarz-collective-bounds-verifier",
         "adaptive-runtime-execution-budget-evaluator-for-scientific-kernels",
         "command-receipt-edit-mtime-freshness-and-scope-narrowing-zero-test-detector",
         "turn-level-agent-claim-fact-checker-against-ast-git-diff-and-receipts",
@@ -93,7 +100,7 @@
       "limitations": [
         "Tier-2 full 7-Gate verification requires instantiating a StationVerificationSpec and an algorithmically independent oracle on small inputs"
       ],
-      "provenance": "Calibrated Scientific Operator Invariant & Remediation Closed-Loop Release 3.4.0-rc.1 of AWF Guard (`skill.anti-goodhart-verification@3.4.0-rc.1`, 66 automated gates): merges Tutor Implementation-Goodhart gates (`G5n`, `G6o`, `G7h`) with 5 domain-agnostic scientific computing gates and 4 AST/engine calibrations (`AG-Calib-01`..`AG-Calib-09`): `verify_pairwise_no_self_interaction_and_symmetry` (`G5o`), `verify_loocv_generalization_and_train_eval_parity` (`G7i`), `verify_scale_homogeneity_and_rank1_null_calibration` (`G3j`), `verify_remediation_closed_loop_and_pareto_candidates` (`G6p`), and `verify_bipolar_reachability_and_multisource_variance` (`G5p`)."
+      "provenance": "Continuum, Digital-Topology, Reciprocal-Diffraction, Weighted-Kish, Non-Orthogonal Quantum Pencil & Coupled Basis Sign-Gauge Invariant Release 3.5.0-rc.1 of AWF Guard (`skill.anti-goodhart-verification@3.5.0-rc.1`, 73 automated gates): adds 7 domain-agnostic scientific computing invariant gates and 6 AST/dataflow/mutation engine calibrations (`AG-Calib-10`..`AG-Calib-22`) on top of `3.4.0-rc.1`: `verify_mesh_refinement_invariance_and_noise_floor` (`G1e`), `verify_euler_poincare_and_digital_duality` (`G5q`), `verify_filtration_monotonicity_and_heterogeneous_radius_clearance` (`G5r`), `verify_rp2_director_gauge_and_reciprocal_conjugacy` (`G3k`), `verify_weighted_dispersion_kish_and_scale_invariance` (`G5s`), `verify_nonorthogonal_pencil_gauge_and_spectral_parity` (`G5t`), and `verify_coupled_basis_sign_gauge_and_locality_bounds` (`G3l`)."
     }
   }
 }

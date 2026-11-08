@@ -3,22 +3,22 @@
   "id": "skill.adaptive-interactive-tutor",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.15": {
+    "1.0.0-rc.16": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.15/source",
-      "tree_sha256": "90e1cf045bbf3de2222f6e2385a63ec97f2a5f8ffc841097a81bbfa5f787d472",
+      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.16/source",
+      "tree_sha256": "cfa3300a435ef73bf881a2f54639789d38e38527ca45a1b425c74ff8c1c1414d",
       "depends_on": [
-        "skill.anti-goodhart-verification@3.4.0-rc.1",
-        "skill.design-anti-goodhart@1.0.0-rc.2",
-        "skill.html-ppt@1.0.0-rc.4"
+        "skill.anti-goodhart-verification@3.5.0-rc.1",
+        "skill.design-anti-goodhart@1.0.0-rc.3",
+        "skill.html-ppt@1.0.0-rc.5"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
-        "Standalone skill.anti-goodhart-verification@3.4.0-rc.1 (AWF Guard, 66 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
-        "Standalone skill.design-anti-goodhart@1.0.0-rc.2 (AWF DesignAG, 18 automated design gates + dual rubrics) for visual/pedagogical/HTML-PPT anti-shortcut verification",
-        "Standalone skill.html-ppt@1.0.0-rc.4 (AWF HTML-PPT 1-Slide-Per-Step enforcer)",
+        "Standalone skill.anti-goodhart-verification@3.5.0-rc.1 (AWF Guard, 66 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
+        "Standalone skill.design-anti-goodhart@1.0.0-rc.3 (AWF DesignAG, 18 automated design gates + dual rubrics + TDD capsule verification) for visual/pedagogical/HTML-PPT anti-shortcut verification",
+        "Standalone skill.html-ppt@1.0.0-rc.5 (AWF HTML-PPT V3 1-Slide-Per-Step + Station-to-Slide TDD + Human Sign-off enforcer)",
         "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review"
       ],
       "capabilities": [
@@ -36,6 +36,7 @@
         "upstream-downstream-lateral-causal-lineage-mapping",
         "open-world-unbiased-cross-domain-structural-isomorphism-hyperlinking",
         "tutor-driven-design-and-bidirectional-feynman-alignment-co-evolution",
+        "station-to-slide-isomorphic-tdd-html-ppt-co-design-and-human-signoff",
         "modular-delegation-to-standalone-skill-anti-goodhart-verification-v3-4",
         "modular-delegation-to-standalone-skill-design-anti-goodhart-v1-0",
         "static-negative-infinity-placeholder-and-magic-number-circuit-breaking",
@@ -51,7 +52,7 @@
         "Heavy multimedia assets (images, animations, interactive web pages) are strictly human-gated (built only after user confirmation or explicit user request)",
         "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms"
       ],
-      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.15) locking to `skill.anti-goodhart-verification@3.4.0-rc.1` (66 automated gates), `skill.design-anti-goodhart@1.0.0-rc.2` (18 automated DesignAG gates + Dual Quantitative Rubrics + 1-Slide-Per-Step D16), and `skill.html-ppt@1.0.0-rc.4` (1-Slide-Per-Step Enforcer)."
+      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.16) locking to `skill.anti-goodhart-verification@3.5.0-rc.1` (66 automated gates), `skill.design-anti-goodhart@1.0.0-rc.3` (18 automated DesignAG gates + Dual Quantitative Rubrics + TDD Station Capsule D16), and `skill.html-ppt@1.0.0-rc.5` (1-Slide-Per-Step + Station-to-Slide TDD + Human Sign-off Enforcer)."
     }
   }
 }

@@ -2,15 +2,15 @@
   "id": "skill.html-ppt",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.4": {
+    "1.0.0-rc.5": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.4/source",
-      "tree_sha256": "9e43b45fb21df1fae14f01853e760b524f643e437fefbf847c6213bf7fe2c475",
+      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.5/source",
+      "tree_sha256": "374d6008fe9c65b2657c3462355e44fc1905273ac7635fd4549eff1203b5aacb",
       "depends_on": [
-        "skill.design-anti-goodhart@1.0.0-rc.2",
-        "skill.anti-goodhart-verification@3.4.0-rc.1"
+        "skill.design-anti-goodhart@1.0.0-rc.3",
+        "skill.anti-goodhart-verification@3.5.0-rc.1"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
@@ -27,6 +27,8 @@
         "concrete-scientific-title-language",
         "strict-single-slide-per-step-microstep-execution",
         "one-hop-topological-slide-manifest-locking",
+        "station-to-slide-tutor-driven-design-tdd-cognitive-capsule-binding",
+        "human-in-the-loop-per-slide-signoff-gate",
         "designag-18gate-and-dual-rubric-automated-enforcement",
         "escape-to-gate-darwinian-regression-evolution"
       ],
@@ -34,7 +36,7 @@
         "HTML rendering and release integrity checks must be paired with scientific source verification",
         "Final visual acceptance includes 1920x1080 rendered-page review under Gate D18"
       ],
-      "provenance": "Release 1.0.0-rc.4 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.4` and standalone workflow `html-ppt@1.0.0-rc.1`), introducing the 4-stage pipeline, strictly 1-Slide-Per-Step atomic micro-step gatekeeper (`scripts/audit_single_slide_step.py`), 1-Hop `slide_manifest.json` topological lock, and Escape-to-Gate evolution flywheel powered by `skill.design-anti-goodhart@1.0.0-rc.2`."
+      "provenance": "Release 1.0.0-rc.5 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.5` and standalone workflow `html-ppt@1.0.0-rc.2`), integrating Station-to-Slide Tutor-Driven Design (`TDD-Slide` cognitive capsule binding) and Human-in-the-Loop per-slide sign-off (`require_human_approval`) into `scripts/audit_single_slide_step.py`, powered by `skill.design-anti-goodhart@1.0.0-rc.3`."
     }
   },
   "schema_version": 1
