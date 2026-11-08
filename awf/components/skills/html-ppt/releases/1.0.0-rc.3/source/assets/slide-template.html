@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Slide title</title>
+  <style>
+    :root {
+      --paper: #f4f2ec;
+      --surface: #fffefa;
+      --ink: #18343b;
+      --muted: #5c7276;
+      --accent: #147e78;
+      --highlight: #e2a83f;
+      --line: #cbd9d5;
+      --canvas-width: 1600px;
+      --canvas-height: 900px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #19353b;
+      font-family: "Aptos", "Segoe UI", "Noto Sans", sans-serif;
+    }
+
+    body { display: grid; place-items: center; }
+
+    #slide {
+      position: relative;
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      padding: 76px 96px 54px;
+      overflow: hidden;
+      transform-origin: center;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    #slide::before {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgb(24 52 59 / 3%) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(24 52 59 / 3%) 1px, transparent 1px);
+      background-size: 40px 40px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .top-rule {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 1;
+      height: 12px;
+      background: linear-gradient(90deg, var(--accent) 0 64%, var(--highlight) 64% 80%, var(--ink) 80%);
+    }
+
+    .page-header, .content, .page-footer { position: relative; z-index: 2; }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 750;
+      letter-spacing: .08em;
+    }
+
+    .section-name, .page-number { margin: 0; }
+    .page-number { color: var(--muted); }
+
+    h1 {
+      grid-column: 1 / -1;
+      max-width: 1320px;
+      margin: 34px 0 12px;
+      font-size: 52px;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+    }
+
+    .lead {
+      grid-column: 1 / -1;
+      max-width: 1260px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.45;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .card {
+      min-width: 0;
+      min-height: 360px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 12px 32px rgb(24 52 59 / 7%);
+    }
+
+    .card h2 { margin: 0 0 16px; font-size: 27px; }
+    .card p { margin: 0; color: var(--muted); font-size: 20px; line-height: 1.5; }
+    .page-footer { position: absolute; right: 96px; bottom: 26px; left: 96px; display: flex; justify-content: space-between; gap: 24px; color: var(--muted); font-size: 15px; }
+    .page-footer p { margin: 0; }
+    .page-footer .source { max-width: 68%; }
+
+    @media print {
+      html, body { background: #fff; }
+      #slide { transform: none !important; }
+      @page { size: 16in 9in; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main id="slide" aria-labelledby="slide-title">
+    <div class="top-rule" aria-hidden="true"></div>
+    <header class="page-header">
+      <p class="section-name">SECTION NAME</p>
+      <p class="page-number" aria-label="Slide 1">01</p>
+    </header>
+
+    <section class="content" aria-label="Main explanation">
+      <h1 id="slide-title">Write the page's main point as its title</h1>
+      <p class="lead">Add one sentence that tells the audience how to read the visual below.</p>
+
+      <article class="card">
+        <h2>Input</h2>
+        <p>Show the source, object, or starting condition the audience needs to recognize.</p>
+      </article>
+      <article class="card">
+        <h2>Action</h2>
+        <p>Show the operation, comparison, or mechanism that connects input to result.</p>
+      </article>
+      <article class="card">
+        <h2>Result</h2>
+        <p>State what changed and include the evidence source or relevant units.</p>
+      </article>
+    </section>
+
+    <footer class="page-footer">
+      <p class="source">Source: add the page-level source or figure attribution here.</p>
+      <p>Optional context, condition, or teaching example label</p>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const slide = document.getElementById("slide");
+      const width = 1600;
+      const height = 900;
+      const fit = () => {
+        const scale = Math.min(window.innerWidth / width, window.innerHeight / height);
+        slide.style.transform = `scale(${scale})`;
+      };
+      window.addEventListener("resize", fit, { passive: true });
+      fit();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "adaptive-interactive-tutor",
+  "release": "1.0.0-rc.14",
+  "status": "candidate",
+  "purpose": "Bidirectional interactive pedagogical, Scale-Adaptive Fractal Curriculum (Chapter -> Station -> 3-Gate Micro-Loop for Mega-Projects), 7-Element Methodological Anatomy, Tutor-Driven Design (TDD / 以教代建) delegating 66-Gate scientific/code verification to skill.anti-goodhart-verification@3.4.0-rc.1 and 18-Gate visual/pedagogical/PPT verification to skill.design-anti-goodhart@1.0.0-rc.1 (AWF DesignAG).",
+  "entry_skills": [
+    "skill.adaptive-interactive-tutor",
+    "skill.anti-goodhart-verification",
+    "skill.design-anti-goodhart",
+    "skill.html-ppt"
+  ],
+  "stages": [
+    {
+      "id": "scope-cardinality-triage-fractal-syllabus-and-atom-manifest",
+      "required": true,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "seven-element-station-anatomy-wittgenstein-and-tier0-premortem",
+      "required": true,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "human-gated-multimedia-testbed-escalation",
+      "condition": "Only when the user explicitly confirms the tutor's multimedia offer OR proactively requests an image, animation, or interactive web demonstration.",
+      "required": false,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "atomic-capsule-implementation-poe-tier1-guard-and-tdd",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "tier2-universal-7-gate-anti-goodhart-seal-and-station-checkoff",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "micro-to-macro-zoom-out-open-world-hyperlinking-and-tdd-solidification",
+      "required": true,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "cognitive-trajectory-html-ppt-synthesis-and-designag-18gate-audit",
+      "condition": "When recording the human cognitive ascent or generating a 16:9 interactive HTML presentation deck audited by AWF DesignAG (18 gates + Dual Rubrics).",
+      "required": false,
+      "skill": "skill.design-anti-goodhart"
+    }
+  ],
+  "engineering_gate": "For Mega-Projects (N > 5 methods), forbid flat 3-4 Loop compression and 1,000+ line monolithic scripts; invoke skill.anti-goodhart-verification@3.4.0-rc.1 (66 gates) for @scientific_atom capsule verification and skill.design-anti-goodhart@1.0.0-rc.1 (18 DesignAG gates + 7 Redlines) for interactive HTML-PPT verification; strictly enforce the Human Gate before generating heavy multimedia; and persist all deliverables inside the project workspace with dual Windows/file:/// paths.",
+  "scientific_gate": "All atomic operator capsules must pass skill.anti-goodhart-verification@3.4.0-rc.1 (66 automated gates) and all HTML-PPT / visual teaching artifacts must pass skill.design-anti-goodhart@1.0.0-rc.1 (18 automated DesignAG gates + zero Redlines + >=80/100 Dual Rubrics).",
+  "candidate_limitations": [
+    "Interactive dialogue pacing depends on learner responses across turns.",
+    "Scientific and world-knowledge questions encountered during tutoring remain subject to the user's global verification rules.",
+    "HTML micro-lab and HTML-PPT visual acceptance requires rendered-page review in the target browser environment."
+  ],
+  "version_lock": "versions.lock"
+}

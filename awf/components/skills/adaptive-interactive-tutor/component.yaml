@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "skill.adaptive-interactive-tutor",
+  "kind": "skill",
+  "releases": {
+    "1.0.0-rc.14": {
+      "status": "candidate",
+      "observed_at": "2026-11-08",
+      "entry_point": "SKILL.md",
+      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.14/source",
+      "tree_sha256": "36777ad8d2fc2bef9d045c782db45a520a9ea06a50f28fa5330e0cf1b6ac2c36",
+      "depends_on": [
+        "skill.anti-goodhart-verification@3.4.0-rc.1",
+        "skill.design-anti-goodhart@1.0.0-rc.1",
+        "skill.html-ppt@1.0.0-rc.3"
+      ],
+      "runtime_requirements": [
+        "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
+        "Standalone skill.anti-goodhart-verification@3.4.0-rc.1 (AWF Guard, 66 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
+        "Standalone skill.design-anti-goodhart@1.0.0-rc.1 (AWF DesignAG, 18 automated design gates + dual rubrics) for visual/pedagogical/HTML-PPT anti-shortcut verification",
+        "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review"
+      ],
+      "capabilities": [
+        "scale-adaptive-fractal-curriculum-tree-chapter-station-microloop",
+        "persistent-master-syllabus-and-station-progress-checklist",
+        "seven-element-methodological-anatomy-per-station",
+        "dual-speed-sequential-and-random-access-station-navigation",
+        "wittgenstein-ladder-bridge-deconstruct-replace",
+        "vygotsky-zpd-scaffolding-and-prerequisite-tracing",
+        "predict-observe-explain-and-harvard-case-cognitive-disequilibrium",
+        "feynman-and-think-aloud-act-r-dual-system-synthesis",
+        "dual-coding-visual-and-diagrammatic-scaffolding-mermaid-ascii-visual-cloze",
+        "human-gated-multimedia-escalation-images-animations-interactive-html-microlabs",
+        "bottom-up-micro-to-macro-zoom-out-and-macro-landscape-positioning",
+        "upstream-downstream-lateral-causal-lineage-mapping",
+        "open-world-unbiased-cross-domain-structural-isomorphism-hyperlinking",
+        "tutor-driven-design-and-bidirectional-feynman-alignment-co-evolution",
+        "modular-delegation-to-standalone-skill-anti-goodhart-verification-v3-4",
+        "modular-delegation-to-standalone-skill-design-anti-goodhart-v1-0",
+        "static-negative-infinity-placeholder-and-magic-number-circuit-breaking",
+        "conservation-symmetry-analytic-gradient-and-convergence-order-property-testing",
+        "six-dimensional-microstep-granularity-and-one-hop-dag-topological-anchoring",
+        "red-blue-adversarial-subagent-decoupled-audit-for-station-capsules",
+        "automatic-station-gate-awf-release-and-cognitive-ledger-writeback-anti-amnesia",
+        "human-cognitive-trajectory-ledger-recording",
+        "cognitive-isomorphic-html-ppt-slide-deck-synthesis-with-designag-18gate-audit"
+      ],
+      "limitations": [
+        "Interactive pedagogical and co-design workflow requires multi-turn user dialogue (one focused question per turn)",
+        "Heavy multimedia assets (images, animations, interactive web pages) are strictly human-gated (built only after user confirmation or explicit user request)",
+        "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms"
+      ],
+      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.14) locking to `skill.anti-goodhart-verification@3.4.0-rc.1` (66 automated gates), `skill.design-anti-goodhart@1.0.0-rc.1` (18 automated DesignAG gates + Dual Quantitative Rubrics), and `skill.html-ppt@1.0.0-rc.3`."
+    }
+  }
+}

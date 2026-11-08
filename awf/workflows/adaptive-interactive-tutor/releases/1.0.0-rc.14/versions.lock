@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "workflow": "adaptive-interactive-tutor",
+  "workflow_release": "1.0.0-rc.14",
+  "locked_at": "2026-11-08",
+  "components": {
+    "skill.adaptive-interactive-tutor": "1.0.0-rc.14",
+    "skill.anti-goodhart-verification": "3.4.0-rc.1",
+    "skill.design-anti-goodhart": "1.0.0-rc.1",
+    "skill.html-ppt": "1.0.0-rc.3"
+  }
+}

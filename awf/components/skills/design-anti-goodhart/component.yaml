@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "skill.design-anti-goodhart",
+  "kind": "skill",
+  "releases": {
+    "1.0.0-rc.1": {
+      "status": "validated",
+      "observed_at": "2026-11-08",
+      "entry_point": "SKILL.md",
+      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source",
+      "tree_sha256": "39ca1ef5711982606668eaa5c60c4d19be440ac0a496f50d87e45a41128f1b24",
+      "depends_on": [
+        "skill.anti-goodhart-verification@3.4.0-rc.1"
+      ],
+      "runtime_requirements": [
+        "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
+        "Python 3.9+ for executing scripts/awf_design_anti_goodhart_gates.py"
+      ],
+      "capabilities": [
+        "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
+        "dual-rubric-quantitative-scorer-optoelectronic-v3-and-supermolecule-5dim",
+        "multiplicative-clarity-times-visual-modality-v0-pure-text-30pct-cap",
+        "seven-redlines-r1-to-r7-circuit-breaker-and-15pt-deduction-cap",
+        "zero-unrendered-latex-and-html-tag-balance-and-grid-orphan-guard",
+        "natural-academic-copywriting-anti-cliche-and-anti-prompt-residue-guard",
+        "acronym-first-use-visible-definition-and-inline-popover-guard",
+        "anti-cartoon-emoji-anti-fake-progressbar-and-anti-ai-decorative-image-guard",
+        "playwright-bounding-box-zero-overlap-zero-clipping-and-whitespace-com-balance",
+        "image-aspect-ratio-subpanel-crop-purity-and-figure-text-explicit-coupling",
+        "wcag-contrast-narrative-foreshadowing-and-causal-why-chain-verification",
+        "interactive-physics-widget-anti-hollow-animation-and-storyboard-microstep-anchor",
+        "multimodal-red-blue-visual-adversarial-critic-protocol"
+      ],
+      "limitations": [
+        "DOM bounding-box probes (D7-D8) accept headless browser/Playwright bounding-box JSON exports or structured layout bundles",
+        "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds"
+      ],
+      "provenance": "Initial release 1.0.0-rc.1 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.1`), codifying 18 automated visual/pedagogical/PPT Anti-Goodhart gates (`D1`-`D18`), 7 Redlines (`R1`-`R7`), and dual quantitative rubrics (`01_optoelectronic_scoring_criteria_v3.md` + `02_supermolecule_SCORING_CRITERIA_5dim.md` with 39 real user feedback items) on top of `skill.anti-goodhart-verification@3.4.0-rc.1`."
+    }
+  }
+}

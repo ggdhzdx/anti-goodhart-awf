@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "anti-goodhart-verification",
+  "release": "3.4.0-rc.1",
+  "status": "validated",
+  "purpose": "Standalone 100% Domain-Agnostic, Self-Hosting & Scientific-Computing-Native Universal 7-Gate Anti-Goodhart Verification Engine (66 Automated Sub-Gates across 17 Integrated Projects + Self-Hosting Dogfood Audit + Scientific Computing Method Development Pack + Tutor-Driven Implementation-Layer Anti-Goodhart Pack + Calibrated Scientific Operator Invariant Pack) incorporating AST Guard, Truth, Reward-Hack-Bench, EvilGenie, GemTest, BenchJack, Goodhart, Jaxtyping, Agent-Guardrails, Aurite Agent-Verifier, ImpossibleBench, FalseGreen/PyNose, Mutmut, Icontract/Deal/CrossHair, SplitGuard/DataLeakage, PitfallsFP/MCA Conditioning, Self-Hosting Dogfood Governance, Analytic Gradient/FD (`G2b`), Convergence Order (`G1d`), SE(3)/Triclinic-PBC/Permutation (`G3i`), Physical Matrix/Unit Invariants (`G5m`), Static -inf Circuit-Breaker (`G5n`), 6D Micro-Step Topological Anchor (`G6o`), Red-Blue Adversarial Decoupling (`G7h`), Pairwise Exchange Symmetry & Self-Interaction Exclusion (`G5o`), Exact LOOCV & Train/Eval Feature Parity (`G7i`), Euler Scale Homogeneity & Asymmetric Rank-1 Null Calibration (`G3j`), Autonomous Remediation Closed-Loop & Pareto Selection (`G6p`), and Bipolar Sign Reachability & Multi-Source Delta-Method Variance (`G5p`).",
+  "entry_skills": [
+    "skill.anti-goodhart-verification"
+  ],
+  "stages": [
+    {
+      "id": "tier0-premortem-boundary-seal-and-atomic-capsule-contract-definition",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "tier1-ast-dataflow-intent-ncc-pair-diff-base64-evilgenie-benchjack-agentverifier-falsegreen-mutmut-splitguard-pitfallsfp-and-cleanroom-audit",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "tier2-meta-guard-metamorphic-jaxtyping-dbc-mca-scientific-pack-sealed-holdout-receipt-trajectory-harness-goodhart-guardrails-impossiblebench-splitguard-selfhosting-and-turn-claim-7-gate-seal",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "ast-call-graph-atom-manifest-dag-and-post-escape-gate-evolution",
+      "required": false,
+      "skill": "skill.anti-goodhart-verification"
+    }
+  ],
+  "engineering_gate": "Forbid 1,000+ line monolithic scripts, functions >160 lines, TODO/FIXME/placeholder stubs or unanchored magic numbers (`G5n`), multi-station leapfrogging or oversized McCabe/HALSTEAD/branch micro-steps (`G6o`), unreviewed single-agent reward self-grading without Red-Blue adversarial audit (`G7h`), intra-group self-interaction leakage (`G5o`), small-sample LOOCV over-parameterization or Train/Eval feature-extractor skew (`G7i`), unscaled hardcoded cutoffs or symmetric-only null baselines (`G3j`), watering-down code fixes (`G6p`), non-negative surrogates for bipolar physical quantities or single-source variance underestimation (`G5p`), hardcoded short optimization loops, unbounded loops/retries, hallucinated tools, LangGraph dead cycles, hardcoded secrets, bare/silent except-pass, silent numeric .get() defaults, dynamic eval/exec sinks, stateful call-counter cheating, conflicting canary spoofing, false-green hollow tests, self-mocking target functions, surviving AST mutants, loose tolerance inflation, in-place mutation of caller input arrays, boundary corner-case failures, pre-split fit/fit_transform data leakage, train/test duplicate row or group/conformer overlap (`splitguard`), explicit matrix inverse multiplication (`inv(A) @ b`), unstabilized `log(sum(exp(x)))`, ill-conditioned floating-point cancellation (`PitfallsFP` / MCA), wrong analytical gradients/forces (`G2b`), degraded numerical convergence orders (`G1d`), broken triclinic PBC minimum-image wrapping (`G3i`), non-Hermitian/non-PSD physical matrices or cross-atom unit mismatches (`G5m`), harness tampering, evaluator logic gaps, friendly-fire verifier over-tightening, symbolic/variadic tensor shape mismatches, out-of-scope file drift, parallel abstraction sprawl, invalid Verity receipts, external solution smuggling, and verbal over-claiming.",
+  "scientific_gate": "All numerical and scientific operators must satisfy all 66 automated gates across G1-G7, including static -inf placeholder/magic-number circuit breaking (`G5n`), 6D micro-step topological anchoring (`G6o`), Red-Blue adversarial audit (`G7h`), pairwise exchange symmetry & intra-group self-interaction exclusion (`G5o`), exact hat-matrix leverage LOOCV & train/eval feature parity (`G7i`), Euler scale homogeneity & asymmetric rank-1 null calibration (`G3j`), autonomous remediation closed-loop & Pareto selection (`G6p`), bipolar sign reachability & multi-source Delta-method variance propagation (`G5p`), 4th-order Richardson finite-difference gradient consistency (`G2b`), asymptotic convergence order O(h^p) (`G1d`), 3D SE(3) rotation/translation + triclinic PBC minimum-image + S_N permutation equivariance (`G3i`), physical matrix Hermiticity/PSD/detailed-balance & cross-atom unit homogeneity (`G5m`), zero-violation self-hosting dogfood integrity (`G6n`), Monte Carlo Arithmetic (MCA) stochastic rounding stability (`G1c`), zero BLAKE2b row-taint leakage (`G7g`), Design-by-Contract input immutability (`G3g`), clean-room AST mutation kill-rate (`G5j`), and dual-path orthogonal oracle verification (`G2`).",
+  "version_lock": "versions.lock"
+}

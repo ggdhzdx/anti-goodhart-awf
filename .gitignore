@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+dist/*
+!dist/*.zip
+!dist/*.sha256

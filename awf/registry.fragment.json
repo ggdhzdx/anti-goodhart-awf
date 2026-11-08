@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "components": [
+    {
+      "descriptor": "components/skills/design-anti-goodhart/component.yaml",
+      "id": "skill.design-anti-goodhart",
+      "kind": "skill",
+      "latest_release": "1.0.0-rc.1"
+    },
+    {
+      "descriptor": "components/skills/anti-goodhart-verification/component.yaml",
+      "id": "skill.anti-goodhart-verification",
+      "kind": "skill",
+      "latest_release": "3.4.0-rc.1"
+    },
+    {
+      "descriptor": "components/skills/adaptive-interactive-tutor/component.yaml",
+      "id": "skill.adaptive-interactive-tutor",
+      "kind": "skill",
+      "latest_release": "1.0.0-rc.14"
+    },
+    {
+      "descriptor": "components/skills/html-ppt/component.yaml",
+      "id": "skill.html-ppt",
+      "kind": "skill",
+      "latest_release": "1.0.0-rc.3"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "design-anti-goodhart",
+      "display_name": "AWF DesignAG",
+      "aliases": [
+        "DesignAG",
+        "design-ag",
+        "designag",
+        "AWF DesignAG",
+        "awf designag",
+        "AWF DesignGuard",
+        "design-guard",
+        "ppt-ag",
+        "PPT-AG",
+        "PPT门禁",
+        "设计门禁",
+        "PPT防偷懒",
+        "design-anti-goodhart"
+      ],
+      "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.1/workflow.yaml",
+      "descriptor_sha256": "d14aa089d1bb6261d96b8d0bc068c7373090fa1665311e9fe6f53d65f2241009",
+      "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.1/versions.lock",
+      "lock_sha256": "eb686304266533836231a1997a067a94d4eab544893d9d7c6182507cfe7d9154",
+      "status": "validated",
+      "releases": {
+        "1.0.0-rc.1": {
+          "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.1/workflow.yaml",
+          "descriptor_sha256": "d14aa089d1bb6261d96b8d0bc068c7373090fa1665311e9fe6f53d65f2241009",
+          "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.1/versions.lock",
+          "lock_sha256": "eb686304266533836231a1997a067a94d4eab544893d9d7c6182507cfe7d9154",
+          "status": "validated"
+        }
+      }
+    },
+    {
+      "id": "anti-goodhart-verification",
+      "display_name": "AWF Guard",
+      "aliases": [
+        "guard",
+        "ag",
+        "7g",
+        "AWF Guard",
+        "awf guard",
+        "awf-guard",
+        "anti-goodhart",
+        "anti-shortcut",
+        "anti-goodhart-verification",
+        "7-gate",
+        "7-Gate",
+        "防偷懒",
+        "防作弊",
+        "验钞",
+        "验钞机",
+        "门禁",
+        "防伪门禁",
+        "七重门禁",
+        "scientific-atom",
+        "atomic-capsule"
+      ],
+      "descriptor": "workflows/anti-goodhart-verification/releases/3.4.0-rc.1/workflow.yaml",
+      "descriptor_sha256": "e526bf949d8175fb1ac54352fca6466713291838ebadd29d3c19f92a02cf0b74",
+      "lock": "workflows/anti-goodhart-verification/releases/3.4.0-rc.1/versions.lock",
+      "lock_sha256": "159de15c5145691ddd1a324474db6f539e930b7a2f05bcae568d99e0e903b14a",
+      "status": "validated",
+      "releases": {
+        "3.4.0-rc.1": {
+          "descriptor": "workflows/anti-goodhart-verification/releases/3.4.0-rc.1/workflow.yaml",
+          "descriptor_sha256": "e526bf949d8175fb1ac54352fca6466713291838ebadd29d3c19f92a02cf0b74",
+          "lock": "workflows/anti-goodhart-verification/releases/3.4.0-rc.1/versions.lock",
+          "lock_sha256": "159de15c5145691ddd1a324474db6f539e930b7a2f05bcae568d99e0e903b14a",
+          "status": "validated"
+        }
+      }
+    },
+    {
+      "id": "adaptive-interactive-tutor",
+      "display_name": "AWF Tutor",
+      "aliases": [
+        "tutor",
+        "AWF Tutor",
+        "awf tutor",
+        "SciTutor",
+        "scitutor",
+        "AWF SciTutor",
+        "ait",
+        "adaptive-interactive-tutor-v4",
+        "导师",
+        "深度学习导师",
+        "adaptive-interactive-tutor-v5",
+        "adaptive-interactive-tutor-v6",
+        "adaptive-interactive-tutor-v7",
+        "以教代建",
+        "TDD Tutor",
+        "tdd-tutor",
+        "adaptive-interactive-tutor-v8",
+        "tutor-ppt",
+        "认知PPT",
+        "adaptive-interactive-tutor-v9",
+        "adaptive-interactive-tutor-v10",
+        "adaptive-interactive-tutor-v11",
+        "adaptive-interactive-tutor-v12",
+        "adaptive-interactive-tutor-v13",
+        "adaptive-interactive-tutor-v14",
+        "adaptive-interactive-tutor-v15",
+        "adaptive-interactive-tutor-v16"
+      ],
+      "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/workflow.yaml",
+      "descriptor_sha256": "bfd10411c034cf167cdaa7e43590d9f900e54640973461c520f3b47f348d1097",
+      "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/versions.lock",
+      "lock_sha256": "7edb49a6d6d7157dbc2af982f35c6722eacd0a5d36c5f5bf1919ee252cd48101",
+      "status": "candidate",
+      "releases": {
+        "1.0.0-rc.14": {
+          "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/workflow.yaml",
+          "descriptor_sha256": "bfd10411c034cf167cdaa7e43590d9f900e54640973461c520f3b47f348d1097",
+          "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/versions.lock",
+          "lock_sha256": "7edb49a6d6d7157dbc2af982f35c6722eacd0a5d36c5f5bf1919ee252cd48101",
+          "status": "candidate"
+        }
+      }
+    }
+  ]
+}

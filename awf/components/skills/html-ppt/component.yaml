@@ -1,0 +1,34 @@
+{
+  "id": "skill.html-ppt",
+  "kind": "skill",
+  "releases": {
+    "1.0.0-rc.3": {
+      "capabilities": [
+        "teaching-narrative-planning",
+        "source-aware-html-slides",
+        "visual-and-interaction-review",
+        "iterative-feedback-learning",
+        "standalone-16x9-slide-starter",
+        "concrete-system-semantics-for-algorithms-and-optimization",
+        "concrete-scientific-title-language"
+      ],
+      "limitations": [
+        "HTML rendering and release integrity checks do not verify the truth of scientific or technical claims",
+        "Visual acceptance depends on review in the intended browser and display environment",
+        "The included slide template is an adaptable example rather than a required visual style",
+        "Concrete-system semantics and title wording still require project-specific evidence, scientifically valid variable definitions, and user review"
+      ],
+      "observed_at": "2026-09-27",
+      "provenance": "Generalized from user-reviewed scientific teaching slides in which meta-instructional titles obscured the concrete chemistry question. Project text, scientific data, structure files, screenshots, code and other project-only assets are excluded.",
+      "runtime_requirements": [
+        "Codex Skill loader",
+        "UTF-8 Markdown reader",
+        "A browser for rendered-page review"
+      ],
+      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.3/source",
+      "status": "candidate",
+      "tree_sha256": "b8192833e0d245d9757183b446fb2b45670c7ade87a33bbf6f6c45fda03aa26a"
+    }
+  },
+  "schema_version": 1
+}

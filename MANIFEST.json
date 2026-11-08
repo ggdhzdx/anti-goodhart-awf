@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "workflows": {
+    "design-anti-goodhart": "1.0.0-rc.1",
+    "anti-goodhart-verification": "3.4.0-rc.1",
+    "adaptive-interactive-tutor": "1.0.0-rc.14"
+  },
+  "locked_skills": {
+    "design-anti-goodhart": "1.0.0-rc.1",
+    "anti-goodhart-verification": "3.4.0-rc.1",
+    "adaptive-interactive-tutor": "1.0.0-rc.14",
+    "html-ppt": "1.0.0-rc.3"
+  },
+  "files": {
+    ".gitignore": {
+      "bytes": 53,
+      "sha256": "bf7fb42f3d344a06eeb94570e493063150137120a7a51a80fc9b615b04ce599b"
+    },
+    "LICENSE": {
+      "bytes": 1064,
+      "sha256": "83f14088c9267068b0ef1a007b0f239c4866b24d39823e5ea1251514fbaa1471"
+    },
+    "LICENSE-SCOPE.md": {
+      "bytes": 224,
+      "sha256": "fbf6c25c156dbcfc1eab57bdf5140ed91ffe3c4aeacbe53073ab617c1615a8e7"
+    },
+    "README.md": {
+      "bytes": 4011,
+      "sha256": "55e8d7969e27335931d70f8c94adfbd58e5f14b2b460d506cb34ba669ac76ff0"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/component.yaml": {
+      "bytes": 3690,
+      "sha256": "2d884a9c6fbc059ec5c5521a2b02aa4605df1a2389eee219de06d76513d9af3c"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.14/source/SKILL.md": {
+      "bytes": 19169,
+      "sha256": "54374fd8e5e58489570aace501ea7513e6a61949b04260b5804980d1fefd69f9"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.14/source/scripts/register_adaptive_tutor_rc14.py": {
+      "bytes": 14094,
+      "sha256": "fedaa74b6e84879353dd5f9ce5984949a043d3db289457bd3d53b77554328de0"
+    },
+    "awf/components/skills/anti-goodhart-verification/component.yaml": {
+      "bytes": 7550,
+      "sha256": "5061aa42cb3b3dce4b2270031e592542a511f953c3561369b061000ef34c189b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.4.0-rc.1/source/SKILL.md": {
+      "bytes": 13168,
+      "sha256": "374e13ff9df992171e2d98f480af08658e0038019f33587658ded2e704606634"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.4.0-rc.1/source/scripts/awf_anti_goodhart_selftest_suite.py": {
+      "bytes": 57603,
+      "sha256": "03e66c2f05705185519e884ca31d050f4a23b8b86cf16b9881cc804a2275c9ce"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.4.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py": {
+      "bytes": 405432,
+      "sha256": "98a07baca5475cddb4864add41ac6c46a1eb7e0b23ceae8ec06786f7d4362b39"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.4.0-rc.1/source/scripts/register_anti_goodhart_v3_4_rc1.py": {
+      "bytes": 19437,
+      "sha256": "e539d0932370b3b7e80423d43250e6234cf60f0380c966e69f165523a22a348b"
+    },
+    "awf/components/skills/design-anti-goodhart/component.yaml": {
+      "bytes": 2513,
+      "sha256": "4f99f2ee31b1caaa60627996a76564989a71950e67df9aa9884b0ec280521bd9"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/SKILL.md": {
+      "bytes": 18298,
+      "sha256": "07c6ea2ad065c648d4e053de08ad02c99eff21a45417810e4a11d4178df181e8"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/references/01_optoelectronic_scoring_criteria_v3.md": {
+      "bytes": 122940,
+      "sha256": "971603709c92957c4f6a28aa599212bf5c7b6e173d0a2a6681d746e7b72df559"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/references/02_supermolecule_SCORING_CRITERIA_5dim.md": {
+      "bytes": 17280,
+      "sha256": "e73d996da2c60e98080fabd6ee6dad242ad76e5198ec09ca0e26d434ca199d0d"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/awf_design_ag_selftest_suite.py": {
+      "bytes": 20242,
+      "sha256": "80ef7ceeaa41e577349475f895b22e6213aa993314d5346f3b9d5445fac9d393"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/awf_design_anti_goodhart_gates.py": {
+      "bytes": 52766,
+      "sha256": "08e1e65ec4c8ac1527ed460bb06b0fc77c855350436269ef29484e40511feb53"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/register_design_anti_goodhart_v1_0_rc1.py": {
+      "bytes": 12598,
+      "sha256": "aaf180d75d5593f3749de26459fd2fbac1af40ffc0727926266d84c2b94ffc2a"
+    },
+    "awf/components/skills/html-ppt/component.yaml": {
+      "bytes": 1605,
+      "sha256": "619a946c4bb531949e12b019ac19ed86a0e58a2509c52c11c7dc67714e8a2f3e"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/PROVENANCE.md": {
+      "bytes": 1144,
+      "sha256": "db458f6f9a00eea6caaa5079127952953b633ff4a417fe42970c78e1db2674d2"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/SKILL.md": {
+      "bytes": 4977,
+      "sha256": "0a063624871e5b5d959789f569c592881f6c1c9b7af485d0c11537c00af50384"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/agents/openai.yaml": {
+      "bytes": 210,
+      "sha256": "f2428bce09e0e9555261a06168388203a28773a4b34284019bb112c26a3406cf"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/assets/slide-template.html": {
+      "bytes": 4839,
+      "sha256": "acdf255c0da4c05145fd7d350df610ef3f14d3dfc67d1c4ef5c7432764098a59"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/references/content-and-evidence.md": {
+      "bytes": 8030,
+      "sha256": "f64fe9ea89566c0e3961fa1cb2876877eb890eb6b7c38b9cb028ea2161050896"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/references/visual-and-interaction-review.md": {
+      "bytes": 4320,
+      "sha256": "b365d2ebf4a2919b0d6f1315a652126187df4769ae137f1b5f7b3c549bbb1ff5"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/tests/test_concrete_system_semantics.py": {
+      "bytes": 854,
+      "sha256": "367952836aecbf8b4c42c1bcaf24dced32ac321e6be58eb95f0a9e2103258322"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/tests/test_concrete_title_language.py": {
+      "bytes": 832,
+      "sha256": "348aeaadc05eb681943ae49341df90c1f942b186feae23d3b10d5ac9544958bd"
+    },
+    "awf/registry.fragment.json": {
+      "bytes": 5343,
+      "sha256": "a2156d81a96d9a0ce4d29362d92e005fce3760ab0192a6255cd50d835afeda57"
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/versions.lock": {
+      "bytes": 351,
+      "sha256": "7edb49a6d6d7157dbc2af982f35c6722eacd0a5d36c5f5bf1919ee252cd48101"
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/workflow.yaml": {
+      "bytes": 3384,
+      "sha256": "bfd10411c034cf167cdaa7e43590d9f900e54640973461c520f3b47f348d1097"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.4.0-rc.1/versions.lock": {
+      "bytes": 211,
+      "sha256": "159de15c5145691ddd1a324474db6f539e930b7a2f05bcae568d99e0e903b14a"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.4.0-rc.1/workflow.yaml": {
+      "bytes": 5461,
+      "sha256": "e526bf949d8175fb1ac54352fca6466713291838ebadd29d3c19f92a02cf0b74"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.1/versions.lock": {
+      "bytes": 253,
+      "sha256": "eb686304266533836231a1997a067a94d4eab544893d9d7c6182507cfe7d9154"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.1/workflow.yaml": {
+      "bytes": 2974,
+      "sha256": "d14aa089d1bb6261d96b8d0bc068c7373090fa1665311e9fe6f53d65f2241009"
+    },
+    "verify.py": {
+      "bytes": 4031,
+      "sha256": "bf311e470cd38fb9d0f3f335fb3ee5238c614122314ce960c9f7f9041eb47cde"
+    }
+  }
+}

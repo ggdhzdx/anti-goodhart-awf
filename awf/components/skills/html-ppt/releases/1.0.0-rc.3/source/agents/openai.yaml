@@ -1,0 +1,4 @@
+interface:
+  display_name: "AWF HTML-PPT"
+  short_description: "Create and review teaching presentations built with HTML"
+  default_prompt: "Use $html-ppt to turn these materials into a clear HTML slide deck."
