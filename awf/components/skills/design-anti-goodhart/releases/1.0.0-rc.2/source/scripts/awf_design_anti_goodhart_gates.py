@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
 AWF DesignAG: Visual, Pedagogical & Slide-Deck Anti-Goodhart Verification Engine
-(`skill.design-anti-goodhart@1.0.0-rc.1`).
+(`skill.design-anti-goodhart@1.0.0-rc.2`).
 
-Implements 18 Automated Design Anti-Goodhart Gates (D1-D18) across 4 Pillars and
-the Dual-Rubric Quantitative Scorer:
+Implements 18 Automated Design Anti-Goodhart Gates (D1-D18) across 4 Pillars,
+strictly enforcing 1-Slide-Per-Step Micro-Step Anchoring (`MAX_MICROSTEP_BATCH_SLIDES = 1`)
++ 1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`), Escape-to-Gate
+Darwinian Regression Evolution, and the Dual-Rubric Quantitative Scorer:
   1. Optoelectronic / Scientific Literature HTML-PPT Rubric v3 (100 pts + R1..R7 up to -15 pts)
   2. Supermolecule / Pedagogical 5-Dimension Rubric (100 pts: 25 + 20 + 20 + 20 + 15)
 Collaborates with Layer-1 `skill.anti-goodhart-verification@3.4.0-rc.1` (`AWF Guard`).
@@ -44,7 +46,7 @@ WCAG_TITLE_CONTRAST_MIN = 3.0
 MIN_BODY_FONT_PX = 16.0
 MAX_FILLER_SLIDE_RATIO = 0.22
 MIN_FULL_DECK_SLIDES = 15
-MAX_MICROSTEP_BATCH_SLIDES = 3
+MAX_MICROSTEP_BATCH_SLIDES = 1
 MAX_CONSECUTIVE_SAME_LAYOUT = 2
 MIN_LAYOUT_SHANNON_ENTROPY = 1.4
 MAX_REDLINE_DEDUCTION = 15.0
@@ -883,11 +885,14 @@ def verify_interactive_physics_and_animations(
 
 def verify_storyboard_microstep_and_layout_diversity(
     storyboard_slides: Sequence[Dict[str, Any]],
-    max_slides_generated_per_step: int = 2,
+    max_slides_generated_per_step: int = 1,
+    unverified_slide_hop_distance: int = 1,
 ) -> Dict[str, Any]:
     """
     Gate D16 (Design-Layer G6o): Enforce pre-generation `SlideStoryboardManifest`,
-    micro-step generation batch size `<= 3` slides per turn, layout archetype diversity
+    strictly 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step <= 1`),
+    1-hop topological slide lock (`unverified_slide_hop_distance == 1`, requiring slide_{k-1}
+    to hold a PASS receipt before unlocking slide_k), layout archetype diversity
     (`<= 2` consecutive identical layouts), and Shannon layout entropy `>= 1.4` bits.
     """
     issues: List[str] = []
@@ -897,10 +902,15 @@ def verify_storyboard_microstep_and_layout_diversity(
             "passed": False,
             "issues": ["Missing SlideStoryboardManifest"],
         }
-    if max_slides_generated_per_step > MAX_MICROSTEP_BATCH_SLIDES:
+    if max_slides_generated_per_step > MAX_MICROSTEP_BATCH_SLIDES or max_slides_generated_per_step < 1:
         issues.append(
-            f"Generation batch size {max_slides_generated_per_step} > {MAX_MICROSTEP_BATCH_SLIDES} "
-            "slides/step causes autoregressive decay"
+            f"Single-slide micro-step violation: generated {max_slides_generated_per_step} slides in one step "
+            f"(strictly <= {MAX_MICROSTEP_BATCH_SLIDES} slide/step allowed)"
+        )
+    if unverified_slide_hop_distance != 1:
+        issues.append(
+            f"Topological 1-hop slide lock violation: unverified_slide_hop_distance={unverified_slide_hop_distance} != 1 "
+            "(previous slide must hold a PASS receipt in slide_manifest.json before generating next slide)"
         )
 
     layouts = [str(s.get("layout_archetype", "unknown")) for s in storyboard_slides]
@@ -931,6 +941,7 @@ def verify_storyboard_microstep_and_layout_diversity(
         "passed": passed,
         "layout_entropy_bits": round(entropy, 4),
         "max_slides_generated_per_step": max_slides_generated_per_step,
+        "unverified_slide_hop_distance": unverified_slide_hop_distance,
         "issues": issues,
     }
 
@@ -1146,7 +1157,8 @@ def run_all_18_design_gates(bundle: Dict[str, Any]) -> Dict[str, Any]:
         verify_interactive_physics_and_animations(html_text, bundle.get("interaction_spec", {})),
         verify_storyboard_microstep_and_layout_diversity(
             bundle.get("storyboard_slides", []),
-            _int_or(bundle, "max_slides_generated_per_step", 2),
+            _int_or(bundle, "max_slides_generated_per_step", 1),
+            _int_or(bundle, "unverified_slide_hop_distance", 1),
         ),
         score_presentation_dual_rubric(bundle.get("dual_rubric_eval", {})),
         evaluate_visual_red_blue_adversarial_audit(

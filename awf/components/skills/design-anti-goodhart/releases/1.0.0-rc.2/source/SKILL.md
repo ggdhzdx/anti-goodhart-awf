@@ -69,7 +69,7 @@ When an LLM is given a textual "PPT / Design Standard", it naturally exploits si
 | **`D13`** | `D13_Narrative_Arc_Background_PriorArt_And_Foreshadowing_Guard` | **`A1` (8 pts), `A2` (4 pts) & Supermolecule `2️⃣` (20 pts)**: Missing macro background (`opus-5.5` skipping what PHOLED is), missing Prior Art, or clue-free blind guessing (`kimi-k3.1`) | Verifies the mandatory 4-stage pedagogical arc: (1) Macro Industry/Daily Context & Fundamental Concept Definition (e.g., PHOLED 25%:75% spin statistics, $100\%$ IQE, why blue is short-lived), (2) Degradation/Bottleneck Mechanism (TPA/TTA), (3) Prior Art Routes & Shared Ceiling (`A2`), (4) Core Innovation + Foreshadowing/Callback hooks; blocks clue-free blind numerical guessing on early slides. |
 | **`D14`** | `D14_Causal_Why_Chain_And_Control_Pair_Tradeoff_Guard` | **`A3` (14 pts), `A4` (7 pts), `A5` (8 pts), `A6` (5 pts) & Redline `R7`**: Bare arrow conclusions without explaining *Why*, missing molecular structures, or conflated baselines | Audits whether mechanism slides explicitly answer the underlying physical/mathematical **Why** questions (e.g., why ETL & SPP resonate, why anticrossing $\sqrt{(\Delta E/2)^2+g^2}>0$ instead of crossing, why flattened dispersion $\text{ODoS} \propto |dE/dk_x|^{-1}$ accelerates EML decay, why low-$Q$ cavity prevents viewing-angle color shift), verifies presence of molecular structures (`A4`), and checks controlled-variable pairing (`2.5x / 4.4x / 2.2x` vs `5.3x` vs `10-14x` normalized) + `Lifetime-Color-Efficiency` trade-off analysis (`A6`). |
 | **`D15`** | `D15_Interactive_Widget_Physics_Linkage_And_Anti_Hollow_Animation_Guard` | **`E1` (7 pts), `E2` (3 pts) & Supermolecule `5️⃣` (15 pts)**: Defined-but-unused `@keyframes` (`gemini-3.8flash`), static fake sliders, reversed physics (`kimiK3` SHG), or missing Quiz | Cross-checks all `@keyframes <name>` declarations in `<style>` against `animation` / `animation-name` bindings in DOM/JS (blocking unmounted hollow animations), verifies interactive sliders/buttons compute coupled physical state updates (`level ∝ 1/PF`, `TTA ∝ 1/PF²`, anticrossing `E_±(g)`), checks physical propagation direction, and checks for end-of-deck interactive Quiz (`E2`) with per-option feedback. |
-| **`D16`** | `D16_Slide_Storyboard_MicroStep_And_Layout_Diversity_Anchor` | **Design-Layer `G6o`**: One-shot 15-slide generation decay & monotonous 3-card template cloning | Requires a pre-generation `SlideStoryboardManifest` specifying each slide's claim title, layout archetype, visual modality ($V_2/V_3$), and target knowledge anchor; enforces micro-step generation ($\le 3$ slides per batch) and rejects $>2$ consecutive slides sharing the exact same layout archetype. |
+| **`D16`** | `D16_Slide_Storyboard_MicroStep_And_Layout_Diversity_Anchor` | **Design-Layer `G6o`**: One-shot or multi-slide batch generation decay & monotonous 3-card template cloning | Requires a pre-generation `SlideStoryboardManifest` specifying each slide's claim title, layout archetype, visual modality ($V_2/V_3$), and target knowledge anchor; strictly enforces **1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`)**, **1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`, requiring `slide_{k-1}` to hold a `PASS` receipt in `slide_manifest.json` before unlocking `slide_k`)**, and rejects $>2$ consecutive slides sharing the exact same layout archetype. |
 
 ---
 
@@ -98,11 +98,11 @@ When an LLM is given a textual "PPT / Design Standard", it naturally exploits si
 
 ```bash
 # 1. Run the 18-Gate + Dual-Rubric Positive/Negative Self-Test Suite
-python /home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/awf_design_anti_goodhart_gates.py --self-test
+python /home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/scripts/awf_design_anti_goodhart_gates.py --self-test
 
 # 2. Run Self-Hosting Dogfood Integrity Audit on DesignAG scripts (via AWF Guard)
-python /home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/awf_design_anti_goodhart_gates.py --audit-self
+python /home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/scripts/awf_design_anti_goodhart_gates.py --audit-self
 
 # 3. Audit an HTML presentation file directly against D1-D6, D15 static/DOM gates
-python /home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/awf_design_anti_goodhart_gates.py --audit-html path/to/deck.html
+python /home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/scripts/awf_design_anti_goodhart_gates.py --audit-html path/to/deck.html
 ```

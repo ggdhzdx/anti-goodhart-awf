@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Co-located AWF registration script for `skill.design-anti-goodhart@1.0.0-rc.1`
-and standalone workflow `design-anti-goodhart@1.0.0-rc.1` (AWF DesignAG).
+Co-located AWF registration script for `skill.design-anti-goodhart@1.0.0-rc.2`
+and standalone workflow `design-anti-goodhart@1.0.0-rc.2` (AWF DesignAG).
+Enforces strictly 1-Slide-Per-Step micro-step generation (`MAX_MICROSTEP_BATCH_SLIDES = 1`)
+and 1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`).
 Strictly follows ADR 0012 and ADR 0022.
 """
 
@@ -43,6 +45,7 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
         ],
         "capabilities": [
             "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
+            "strict-single-slide-per-step-microstep-and-1hop-topological-slide-lock",
             "dual-rubric-quantitative-scorer-optoelectronic-v3-and-supermolecule-5dim",
             "multiplicative-clarity-times-visual-modality-v0-pure-text-30pct-cap",
             "seven-redlines-r1-to-r7-circuit-breaker-and-15pt-deduction-cap",
@@ -61,11 +64,10 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
             "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds",
         ],
         "provenance": (
-            "Initial release 1.0.0-rc.1 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.1`), "
-            "codifying 18 automated visual/pedagogical/PPT Anti-Goodhart gates (`D1`-`D18`), 7 Redlines (`R1`-`R7`), "
-            "and dual quantitative rubrics (`01_optoelectronic_scoring_criteria_v3.md` + "
-            "`02_supermolecule_SCORING_CRITERIA_5dim.md` with 39 real user feedback items) on top of "
-            "`skill.anti-goodhart-verification@3.4.0-rc.1`."
+            "Release 1.0.0-rc.2 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.2`), "
+            "upgrading Gate D16 to strictly enforce 1-Slide-Per-Step micro-step generation "
+            "(`MAX_MICROSTEP_BATCH_SLIDES = 1`) and 1-Hop Slide Topological Locking "
+            "(`unverified_slide_hop_distance == 1`) atop `skill.anti-goodhart-verification@3.4.0-rc.1`."
         ),
     }
 
@@ -74,13 +76,14 @@ def build_workflow_descriptor() -> Dict[str, Any]:
     return {
         "schema_version": 1,
         "id": "design-anti-goodhart",
-        "release": "1.0.0-rc.1",
+        "release": "1.0.0-rc.2",
         "status": "validated",
         "purpose": (
             "Standalone Visual, Pedagogical & Scientific Presentation (HTML-PPT / Editable PPTX) "
             "Anti-Goodhart Verification & Dual-Rubric Scoring Workflow (AWF DesignAG, 18 Automated Design Gates "
-            "`D1`-`D18` + 7 Redlines `R1`-`R7` + Optoelectronic v3 & Supermolecule 5-Dim Quantitative Rubrics), "
-            "layered atop `skill.anti-goodhart-verification@3.4.0-rc.1`."
+            "`D1`-`D18` + Strictly 1-Slide-Per-Step & 1-Hop Topological Slide Lock + 7 Redlines `R1`-`R7` + "
+            "Optoelectronic v3 & Supermolecule 5-Dim Quantitative Rubrics), layered atop "
+            "`skill.anti-goodhart-verification@3.4.0-rc.1`."
         ),
         "entry_skills": [
             "skill.design-anti-goodhart",
@@ -88,7 +91,7 @@ def build_workflow_descriptor() -> Dict[str, Any]:
         ],
         "stages": [
             {
-                "id": "storyboard-microstep-and-layout-diversity-planning-d16",
+                "id": "storyboard-single-slide-microstep-and-layout-diversity-planning-d16",
                 "required": True,
                 "skill": "skill.design-anti-goodhart",
             },
@@ -109,24 +112,23 @@ def build_workflow_descriptor() -> Dict[str, Any]:
             },
         ],
         "engineering_gate": (
-            "Forbid unrendered raw LaTeX tokens (`$`, `\\frac`, `\\sigma`) or missing KaTeX/MathJax (`D1`/`R1`), "
-            "unclosed HTML tags or 3+1/4+1 orphan grid rows (`D2`/`R2`), excessive corner quotes (`「」>3/slide`), "
-            "hollow AI clichés (`赋能/抓手/闭环`), meta-evaluations (`这很深刻`), or prompt residue (`D3`/`R5`), "
-            "undefined acronyms or standalone glossary walls (`D4`), cartoon emojis (`🎯💡🚀`), unanchored fake CSS "
-            "progress bars, AI text-to-image decorative mechanism fakes, or AI watermarks (`D5`/`R4`), default-visible "
-            "teleprompters or slide scrollbars (`D6`/`R6`), overlapping or clipped bounding boxes (`D7`/`R2`), "
-            "canvas overcrowding (`coverage>0.82`) or top-heavy imbalance (`y_cm<0.38`) (`D8`), stretched/squashed "
+            "Strictly enforce 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`) "
+            "and 1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1` in `slide_manifest.json`); "
+            "forbid unrendered raw LaTeX tokens (`D1`/`R1`), unclosed HTML tags or 3+1/4+1 orphan grid rows (`D2`/`R2`), "
+            "excessive corner quotes, AI clichés, meta-evaluations, or prompt residue (`D3`/`R5`), undefined acronyms "
+            "or standalone glossary walls (`D4`), cartoon emojis, fake CSS progress bars, AI decorative mechanism fakes, "
+            "or AI watermarks (`D5`/`R4`), default-visible teleprompters or slide scrollbars (`D6`/`R6`), overlapping or "
+            "clipped bounding boxes (`D7`/`R2`), canvas overcrowding or top-heavy imbalance (`D8`), stretched/squashed "
             "aspect ratios (`D9`), dirty sub-panel crops (`D10`), unreferenced figures (`D11`/`R3`), low WCAG contrast "
             "or cyberpunk neon glow (`D12`), missing background/prior-art/foreshadowing (`D13`), superficial why-chains (`D14`/`R7`), "
-            "hollow animations or non-physical sliders (`D15`), single-shot full-deck generation or repetitive card walls (`D16`), "
-            "pure-text V0 laziness escaping the 30% multiplicative cap (`D17`), and unverified visual claims without "
-            "rendered 1920x1080 PNG Red-Blue adversarial review (`D18`)."
+            "hollow animations or non-physical sliders (`D15`), repetitive card walls (`D16`), pure-text V0 laziness (`D17`), "
+            "and unverified visual claims without rendered 1920x1080 PNG Red-Blue adversarial review (`D18`)."
         ),
         "scientific_gate": (
             "All scientific presentations and interactive teaching decks must pass all 18 DesignAG gates (`D1`-`D18`), "
-            "trigger zero Redlines (`R1`-`R7`), achieve >= 80/100 on both Optoelectronic v3 (`A_i = w_i * C_clarity * V_visual`) "
-            "and Supermolecule 5-Dim quantitative rubrics, and satisfy Layer-1 `skill.anti-goodhart-verification@3.4.0-rc.1` "
-            "self-hosting integrity (`--audit-self`)."
+            "generate and verify strictly 1 slide per step (`max_slides_generated_per_step == 1`), trigger zero Redlines (`R1`-`R7`), "
+            "achieve >= 80/100 on both Optoelectronic v3 (`A_i = w_i * C_clarity * V_visual`) and Supermolecule 5-Dim "
+            "quantitative rubrics, and satisfy Layer-1 `skill.anti-goodhart-verification@3.4.0-rc.1` self-hosting integrity (`--audit-self`)."
         ),
         "version_lock": "versions.lock",
     }
@@ -134,7 +136,7 @@ def build_workflow_descriptor() -> Dict[str, Any]:
 
 def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_id = "skill.design-anti-goodhart"
-    rel_id = "1.0.0-rc.1"
+    rel_id = "1.0.0-rc.2"
     wf_id = "design-anti-goodhart"
     source_rel = f"components/skills/design-anti-goodhart/releases/{rel_id}/source"
     source_dir = awf_root / source_rel
@@ -150,24 +152,20 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
     symlink_count = sum(p.is_symlink() for p in v2_paths)
 
     release_meta = build_release_meta(source_rel, legacy_hash)
-    comp_doc = {
-        "schema_version": 1,
-        "id": comp_id,
-        "kind": "skill",
-        "releases": {rel_id: release_meta},
-    }
+    comp_doc = verify.read_manifest(comp_descriptor_path)
+    comp_doc.setdefault("releases", {})[rel_id] = release_meta
     write_json_yaml(comp_descriptor_path, comp_doc)
     comp_sha = verify.file_sha256(comp_descriptor_path)
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
 
-    attest_rel = "attestations/release-integrity-20261108-design-anti-goodhart-v1-0-rc1.yaml"
+    attest_rel = "attestations/release-integrity-20261108-design-anti-goodhart-v1-0-rc2.yaml"
     attest_path = awf_root / attest_rel
     attest_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-design-anti-goodhart-release-20261108-v1-0-rc1",
-        "provenance": "Validated initial release 1.0.0-rc.1 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.1` and workflow `design-anti-goodhart@1.0.0-rc.1`, 18 automated visual/pedagogical/PPT gates + 7 Redlines + Dual Quantitative Rubrics).",
+        "owner": "awf-design-anti-goodhart-release-20261108-v1-0-rc2",
+        "provenance": "Validated release 1.0.0-rc.2 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.2` and workflow `design-anti-goodhart@1.0.0-rc.2`, enforcing strictly 1-Slide-Per-Step micro-step generation and 1-Hop Slide Topological Lock).",
         "releases": {
             f"{comp_id}@{rel_id}": {
                 "coverage": "tree",
@@ -208,22 +206,11 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
     reg_path = awf_root / "registry.yaml"
     reg = verify.read_manifest(reg_path)
     comps: List[Dict[str, Any]] = reg["components"]
-    comp_entry = {
-        "descriptor": comp_descriptor_rel,
-        "descriptor_sha256": comp_sha,
-        "id": comp_id,
-        "kind": "skill",
-        "latest_release": rel_id,
-    }
-    replaced = False
-    for idx, c in enumerate(comps):
+    for c in comps:
         if c.get("id") == comp_id:
-            comps[idx] = comp_entry
-            replaced = True
+            c["descriptor_sha256"] = comp_sha
+            c["latest_release"] = rel_id
             break
-    if not replaced:
-        comps.append(comp_entry)
-        comps.sort(key=lambda x: str(x.get("id", "")))
 
     if attest_rel not in reg["integrity_attestations"]:
         reg["integrity_attestations"].append(attest_rel)
@@ -234,49 +221,22 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
         req_list.append(ref_str)
         req_list.sort()
 
-    wf_entry = {
-        "id": wf_id,
-        "display_name": "AWF DesignAG",
-        "aliases": [
-            "DesignAG",
-            "design-ag",
-            "designag",
-            "AWF DesignAG",
-            "awf designag",
-            "AWF DesignGuard",
-            "design-guard",
-            "ppt-ag",
-            "PPT-AG",
-            "PPT门禁",
-            "设计门禁",
-            "PPT防偷懒",
-            "design-anti-goodhart",
-        ],
-        "descriptor": wf_descriptor_rel,
-        "descriptor_sha256": wf_sha,
-        "lock": wf_lock_rel,
-        "lock_sha256": lock_sha,
-        "status": "validated",
-        "releases": {
-            rel_id: {
+    wfs: List[Dict[str, Any]] = reg["workflows"]
+    for w in wfs:
+        if w.get("id") == wf_id:
+            w["descriptor"] = wf_descriptor_rel
+            w["descriptor_sha256"] = wf_sha
+            w["lock"] = wf_lock_rel
+            w["lock_sha256"] = lock_sha
+            w["status"] = "validated"
+            w.setdefault("releases", {})[rel_id] = {
                 "descriptor": wf_descriptor_rel,
                 "descriptor_sha256": wf_sha,
                 "lock": wf_lock_rel,
                 "lock_sha256": lock_sha,
                 "status": "validated",
             }
-        },
-    }
-    wfs: List[Dict[str, Any]] = reg["workflows"]
-    wf_replaced = False
-    for idx, w in enumerate(wfs):
-        if w.get("id") == wf_id:
-            wfs[idx] = wf_entry
-            wf_replaced = True
             break
-    if not wf_replaced:
-        wfs.append(wf_entry)
-        wfs.sort(key=lambda x: str(x.get("id", "")))
 
     write_json_yaml(reg_path, reg)
     return {

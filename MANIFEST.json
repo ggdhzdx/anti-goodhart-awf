@@ -1,15 +1,16 @@
 {
   "schema_version": 1,
   "workflows": {
-    "design-anti-goodhart": "1.0.0-rc.1",
+    "design-anti-goodhart": "1.0.0-rc.2",
     "anti-goodhart-verification": "3.4.0-rc.1",
-    "adaptive-interactive-tutor": "1.0.0-rc.14"
+    "adaptive-interactive-tutor": "1.0.0-rc.15",
+    "html-ppt": "1.0.0-rc.1"
   },
   "locked_skills": {
-    "design-anti-goodhart": "1.0.0-rc.1",
+    "design-anti-goodhart": "1.0.0-rc.2",
     "anti-goodhart-verification": "3.4.0-rc.1",
-    "adaptive-interactive-tutor": "1.0.0-rc.14",
-    "html-ppt": "1.0.0-rc.3"
+    "adaptive-interactive-tutor": "1.0.0-rc.15",
+    "html-ppt": "1.0.0-rc.4"
   },
   "files": {
     ".gitattributes": {
@@ -29,20 +30,20 @@
       "sha256": "fbf6c25c156dbcfc1eab57bdf5140ed91ffe3c4aeacbe53073ab617c1615a8e7"
     },
     "README.md": {
-      "bytes": 4011,
-      "sha256": "55e8d7969e27335931d70f8c94adfbd58e5f14b2b460d506cb34ba669ac76ff0"
+      "bytes": 4915,
+      "sha256": "1457bba8c0eeb13127f5fabd4afb7ea94aa0aa52eb77b8ce0fe1272b0b4e631e"
     },
     "awf/components/skills/adaptive-interactive-tutor/component.yaml": {
-      "bytes": 3690,
-      "sha256": "2d884a9c6fbc059ec5c5521a2b02aa4605df1a2389eee219de06d76513d9af3c"
+      "bytes": 3830,
+      "sha256": "e79c8cda970e3d1de05098bdbbb8a5c5740b849337b9ad428581ddd9c7f3585d"
     },
-    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.14/source/SKILL.md": {
-      "bytes": 19169,
-      "sha256": "54374fd8e5e58489570aace501ea7513e6a61949b04260b5804980d1fefd69f9"
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.15/source/SKILL.md": {
+      "bytes": 19740,
+      "sha256": "b09e178c5b05d98b6eb37255a3c63eed955e3030a077060a8a4390386c6e2021"
     },
-    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.14/source/scripts/register_adaptive_tutor_rc14.py": {
-      "bytes": 14094,
-      "sha256": "fedaa74b6e84879353dd5f9ce5984949a043d3db289457bd3d53b77554328de0"
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.15/source/scripts/register_adaptive_tutor_rc15.py": {
+      "bytes": 14123,
+      "sha256": "4003e7a8909bbe56a789142a38c61df126700c071365137af67f29b459f16ff3"
     },
     "awf/components/skills/anti-goodhart-verification/component.yaml": {
       "bytes": 7550,
@@ -65,80 +66,88 @@
       "sha256": "e539d0932370b3b7e80423d43250e6234cf60f0380c966e69f165523a22a348b"
     },
     "awf/components/skills/design-anti-goodhart/component.yaml": {
-      "bytes": 2513,
-      "sha256": "4f99f2ee31b1caaa60627996a76564989a71950e67df9aa9884b0ec280521bd9"
+      "bytes": 2512,
+      "sha256": "7e31c52e8e90cda545f23d95dfb035173b7f3df31684960e93dd4ea67fe6a5b2"
     },
-    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/SKILL.md": {
-      "bytes": 18298,
-      "sha256": "07c6ea2ad065c648d4e053de08ad02c99eff21a45417810e4a11d4178df181e8"
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/SKILL.md": {
+      "bytes": 18528,
+      "sha256": "6b680b3f292d10efa037f2c6e5e62479dd7393a17ad19bd93cd46988022df650"
     },
-    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/references/01_optoelectronic_scoring_criteria_v3.md": {
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/references/01_optoelectronic_scoring_criteria_v3.md": {
       "bytes": 122940,
       "sha256": "971603709c92957c4f6a28aa599212bf5c7b6e173d0a2a6681d746e7b72df559"
     },
-    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/references/02_supermolecule_SCORING_CRITERIA_5dim.md": {
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/references/02_supermolecule_SCORING_CRITERIA_5dim.md": {
       "bytes": 17280,
       "sha256": "e73d996da2c60e98080fabd6ee6dad242ad76e5198ec09ca0e26d434ca199d0d"
     },
-    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/awf_design_ag_selftest_suite.py": {
-      "bytes": 20242,
-      "sha256": "80ef7ceeaa41e577349475f895b22e6213aa993314d5346f3b9d5445fac9d393"
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/scripts/awf_design_ag_selftest_suite.py": {
+      "bytes": 20916,
+      "sha256": "8d7cb81f49a28167b85db39baeb71015d856e73978a398699751d479a7f011fd"
     },
-    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/awf_design_anti_goodhart_gates.py": {
-      "bytes": 52766,
-      "sha256": "08e1e65ec4c8ac1527ed460bb06b0fc77c855350436269ef29484e40511feb53"
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/scripts/awf_design_anti_goodhart_gates.py": {
+      "bytes": 53715,
+      "sha256": "91ab0abe6be42f5fc27db39b0e61f55505ab6d99ba66f2a3e185893c6b48be59"
     },
-    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source/scripts/register_design_anti_goodhart_v1_0_rc1.py": {
-      "bytes": 12598,
-      "sha256": "aaf180d75d5593f3749de26459fd2fbac1af40ffc0727926266d84c2b94ffc2a"
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source/scripts/register_design_anti_goodhart_v1_0_rc2.py": {
+      "bytes": 11860,
+      "sha256": "b1a97d29a314945c8c126294033fed74a7590c6b1e751b45b179010b36f1b9c0"
     },
     "awf/components/skills/html-ppt/component.yaml": {
-      "bytes": 1605,
-      "sha256": "619a946c4bb531949e12b019ac19ed86a0e58a2509c52c11c7dc67714e8a2f3e"
+      "bytes": 2015,
+      "sha256": "23cedd321f655a855c62af2cd31a87d5379f5e5d5676639ec8d07002f59f4a09"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/PROVENANCE.md": {
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/PROVENANCE.md": {
       "bytes": 1144,
       "sha256": "db458f6f9a00eea6caaa5079127952953b633ff4a417fe42970c78e1db2674d2"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/SKILL.md": {
-      "bytes": 4977,
-      "sha256": "0a063624871e5b5d959789f569c592881f6c1c9b7af485d0c11537c00af50384"
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/SKILL.md": {
+      "bytes": 8464,
+      "sha256": "658c38ee68e9c2cc8158a66144c54f8657e600083231fad1ef0f3584e5784f67"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/agents/openai.yaml": {
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/agents/openai.yaml": {
       "bytes": 210,
       "sha256": "f2428bce09e0e9555261a06168388203a28773a4b34284019bb112c26a3406cf"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/assets/slide-template.html": {
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/assets/slide-template.html": {
       "bytes": 4839,
       "sha256": "acdf255c0da4c05145fd7d350df610ef3f14d3dfc67d1c4ef5c7432764098a59"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/references/content-and-evidence.md": {
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/references/content-and-evidence.md": {
       "bytes": 8030,
       "sha256": "f64fe9ea89566c0e3961fa1cb2876877eb890eb6b7c38b9cb028ea2161050896"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/references/visual-and-interaction-review.md": {
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/references/visual-and-interaction-review.md": {
       "bytes": 4320,
       "sha256": "b365d2ebf4a2919b0d6f1315a652126187df4769ae137f1b5f7b3c549bbb1ff5"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/tests/test_concrete_system_semantics.py": {
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/scripts/audit_single_slide_step.py": {
+      "bytes": 17803,
+      "sha256": "535de7cfe28e166f1caed07a906622f2b430d603609308b1c5ec1b9d908147f7"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/scripts/register_html_ppt_rc4.py": {
+      "bytes": 11114,
+      "sha256": "af374e9166a0406001ad570b4ee946ded2387aa0a9af3864d24f8c10834f0208"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/tests/test_concrete_system_semantics.py": {
       "bytes": 854,
       "sha256": "367952836aecbf8b4c42c1bcaf24dced32ac321e6be58eb95f0a9e2103258322"
     },
-    "awf/components/skills/html-ppt/releases/1.0.0-rc.3/source/tests/test_concrete_title_language.py": {
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.4/source/tests/test_concrete_title_language.py": {
       "bytes": 832,
       "sha256": "348aeaadc05eb681943ae49341df90c1f942b186feae23d3b10d5ac9544958bd"
     },
     "awf/registry.fragment.json": {
-      "bytes": 5343,
-      "sha256": "a2156d81a96d9a0ce4d29362d92e005fce3760ab0192a6255cd50d835afeda57"
+      "bytes": 6468,
+      "sha256": "a59a4811ae6f081dd113fda37981448153c48bec19f57ccebd6e79571c8b51d8"
     },
-    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/versions.lock": {
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.15/versions.lock": {
       "bytes": 351,
-      "sha256": "7edb49a6d6d7157dbc2af982f35c6722eacd0a5d36c5f5bf1919ee252cd48101"
+      "sha256": "7548ffed70b030342d1a0542a21ba041ea26038087f23c9908ed5770d5615cd4"
     },
-    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.14/workflow.yaml": {
-      "bytes": 3384,
-      "sha256": "bfd10411c034cf167cdaa7e43590d9f900e54640973461c520f3b47f348d1097"
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.15/workflow.yaml": {
+      "bytes": 3171,
+      "sha256": "7bced313f534cd269bf4de7a9107de08ec55a0253e6f0dbd7a3a03b520716ced"
     },
     "awf/workflows/anti-goodhart-verification/releases/3.4.0-rc.1/versions.lock": {
       "bytes": 211,
@@ -148,17 +157,25 @@
       "bytes": 5461,
       "sha256": "e526bf949d8175fb1ac54352fca6466713291838ebadd29d3c19f92a02cf0b74"
     },
-    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.1/versions.lock": {
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.2/versions.lock": {
       "bytes": 253,
-      "sha256": "eb686304266533836231a1997a067a94d4eab544893d9d7c6182507cfe7d9154"
+      "sha256": "35079938ad3ac4a292ee0de2f1868b88eb147a1694376fa266a99b0dd1769f0c"
     },
-    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.1/workflow.yaml": {
-      "bytes": 2974,
-      "sha256": "d14aa089d1bb6261d96b8d0bc068c7373090fa1665311e9fe6f53d65f2241009"
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.2/workflow.yaml": {
+      "bytes": 3059,
+      "sha256": "d1a062893340832fb21699d84224cfb52a9841a3cea970e517f88b047df44463"
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.1/versions.lock": {
+      "bytes": 277,
+      "sha256": "90e27cda79b913a1c53a55ef2104ecac6f7fcfc3e11abb6febf0c27ae62fdeb6"
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.1/workflow.yaml": {
+      "bytes": 2351,
+      "sha256": "8be3ad27754976d293762d72f5eced127afd607e7c7204de2433442087b0e290"
     },
     "verify.py": {
-      "bytes": 4031,
-      "sha256": "bf311e470cd38fb9d0f3f335fb3ee5238c614122314ce960c9f7f9041eb47cde"
+      "bytes": 4514,
+      "sha256": "a21b8f23a58380bb80a3217646958e7e966c051f0258d345b7e6ed39c22f677d"
     }
   }
 }

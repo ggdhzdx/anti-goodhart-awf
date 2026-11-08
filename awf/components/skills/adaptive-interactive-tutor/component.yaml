@@ -3,21 +3,22 @@
   "id": "skill.adaptive-interactive-tutor",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.14": {
-      "status": "candidate",
+    "1.0.0-rc.15": {
+      "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.14/source",
-      "tree_sha256": "36777ad8d2fc2bef9d045c782db45a520a9ea06a50f28fa5330e0cf1b6ac2c36",
+      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.15/source",
+      "tree_sha256": "90e1cf045bbf3de2222f6e2385a63ec97f2a5f8ffc841097a81bbfa5f787d472",
       "depends_on": [
         "skill.anti-goodhart-verification@3.4.0-rc.1",
-        "skill.design-anti-goodhart@1.0.0-rc.1",
-        "skill.html-ppt@1.0.0-rc.3"
+        "skill.design-anti-goodhart@1.0.0-rc.2",
+        "skill.html-ppt@1.0.0-rc.4"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
         "Standalone skill.anti-goodhart-verification@3.4.0-rc.1 (AWF Guard, 66 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
-        "Standalone skill.design-anti-goodhart@1.0.0-rc.1 (AWF DesignAG, 18 automated design gates + dual rubrics) for visual/pedagogical/HTML-PPT anti-shortcut verification",
+        "Standalone skill.design-anti-goodhart@1.0.0-rc.2 (AWF DesignAG, 18 automated design gates + dual rubrics) for visual/pedagogical/HTML-PPT anti-shortcut verification",
+        "Standalone skill.html-ppt@1.0.0-rc.4 (AWF HTML-PPT 1-Slide-Per-Step enforcer)",
         "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review"
       ],
       "capabilities": [
@@ -50,7 +51,7 @@
         "Heavy multimedia assets (images, animations, interactive web pages) are strictly human-gated (built only after user confirmation or explicit user request)",
         "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms"
       ],
-      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.14) locking to `skill.anti-goodhart-verification@3.4.0-rc.1` (66 automated gates), `skill.design-anti-goodhart@1.0.0-rc.1` (18 automated DesignAG gates + Dual Quantitative Rubrics), and `skill.html-ppt@1.0.0-rc.3`."
+      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.15) locking to `skill.anti-goodhart-verification@3.4.0-rc.1` (66 automated gates), `skill.design-anti-goodhart@1.0.0-rc.2` (18 automated DesignAG gates + Dual Quantitative Rubrics + 1-Slide-Per-Step D16), and `skill.html-ppt@1.0.0-rc.4` (1-Slide-Per-Step Enforcer)."
     }
   }
 }

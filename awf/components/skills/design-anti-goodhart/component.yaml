@@ -3,12 +3,12 @@
   "id": "skill.design-anti-goodhart",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.1": {
+    "1.0.0-rc.2": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.1/source",
-      "tree_sha256": "39ca1ef5711982606668eaa5c60c4d19be440ac0a496f50d87e45a41128f1b24",
+      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.2/source",
+      "tree_sha256": "5eca28246504c1d84f42e899644e7cda3f6169deae93fd4f6f92b58fc88deec5",
       "depends_on": [
         "skill.anti-goodhart-verification@3.4.0-rc.1"
       ],
@@ -18,6 +18,7 @@
       ],
       "capabilities": [
         "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
+        "strict-single-slide-per-step-microstep-and-1hop-topological-slide-lock",
         "dual-rubric-quantitative-scorer-optoelectronic-v3-and-supermolecule-5dim",
         "multiplicative-clarity-times-visual-modality-v0-pure-text-30pct-cap",
         "seven-redlines-r1-to-r7-circuit-breaker-and-15pt-deduction-cap",
@@ -35,7 +36,7 @@
         "DOM bounding-box probes (D7-D8) accept headless browser/Playwright bounding-box JSON exports or structured layout bundles",
         "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds"
       ],
-      "provenance": "Initial release 1.0.0-rc.1 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.1`), codifying 18 automated visual/pedagogical/PPT Anti-Goodhart gates (`D1`-`D18`), 7 Redlines (`R1`-`R7`), and dual quantitative rubrics (`01_optoelectronic_scoring_criteria_v3.md` + `02_supermolecule_SCORING_CRITERIA_5dim.md` with 39 real user feedback items) on top of `skill.anti-goodhart-verification@3.4.0-rc.1`."
+      "provenance": "Release 1.0.0-rc.2 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.2`), upgrading Gate D16 to strictly enforce 1-Slide-Per-Step micro-step generation (`MAX_MICROSTEP_BATCH_SLIDES = 1`) and 1-Hop Slide Topological Locking (`unverified_slide_hop_distance == 1`) atop `skill.anti-goodhart-verification@3.4.0-rc.1`."
     }
   }
 }

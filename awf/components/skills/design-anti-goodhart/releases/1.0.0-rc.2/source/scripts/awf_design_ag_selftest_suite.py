@@ -204,13 +204,24 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
     if res_d15_neg["passed"] or "collide" not in res_d15_neg["unmounted_keyframes"]:
         raise AssertionError(f"D15 failed to catch unmounted @keyframes collide: {res_d15_neg}")
 
-    # D16 Negative: one-shot 15 slides per step + 4 consecutive identical 3-card layouts
-    res_d16_neg = dag.verify_storyboard_microstep_and_layout_diversity(
-        [{"layout_archetype": "three_column_cards"} for _ in range(6)],
-        max_slides_generated_per_step=15,
+    # D16 Negative: >1 slide per step (even 2 slides/step) or unverified_slide_hop_distance != 1 or 4 consecutive identical layouts
+    res_d16_neg_batch2 = dag.verify_storyboard_microstep_and_layout_diversity(
+        [{"layout_archetype": f"layout_{i}"} for i in range(6)],
+        max_slides_generated_per_step=2,
+        unverified_slide_hop_distance=1,
     )
-    if res_d16_neg["passed"]:
-        raise AssertionError("D16 failed to catch one-shot batching and monotonous layout cloning")
+    res_d16_neg_hop = dag.verify_storyboard_microstep_and_layout_diversity(
+        [{"layout_archetype": f"layout_{i}"} for i in range(6)],
+        max_slides_generated_per_step=1,
+        unverified_slide_hop_distance=2,
+    )
+    res_d16_neg_mono = dag.verify_storyboard_microstep_and_layout_diversity(
+        [{"layout_archetype": "three_column_cards"} for _ in range(6)],
+        max_slides_generated_per_step=1,
+        unverified_slide_hop_distance=1,
+    )
+    if res_d16_neg_batch2["passed"] or res_d16_neg_hop["passed"] or res_d16_neg_mono["passed"]:
+        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, or monotonous layout cloning")
 
     # D17 Exact Calibration Check against Section II of `01_optoelectronic_scoring_criteria_v3.md`:
     # "为什么是反交叉" (weight = 4, required = V3):
@@ -342,7 +353,8 @@ def _build_gold_standard_positive_bundle() -> Dict[str, Any]:
             "has_interactive_quiz_with_explanation": True,
         },
         "storyboard_slides": storyboard,
-        "max_slides_generated_per_step": 2,
+        "max_slides_generated_per_step": 1,
+        "unverified_slide_hop_distance": 1,
         "dual_rubric_eval": {
             "min_passing_score": 90.0,
             "optoelectronic_v3": {

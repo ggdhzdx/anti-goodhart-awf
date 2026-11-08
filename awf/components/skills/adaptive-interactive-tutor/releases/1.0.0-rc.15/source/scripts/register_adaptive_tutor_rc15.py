@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 Co-located AWF Release Registration Script for AWF Tutor / SciTutor
-(adaptive-interactive-tutor@1.0.0-rc.14 / V16).
+(adaptive-interactive-tutor@1.0.0-rc.15 / V16).
 Strictly follows ADR 0012 and ADR 0022.
 Locks `skill.anti-goodhart-verification@3.4.0-rc.1` (66 automated gates),
-`skill.design-anti-goodhart@1.0.0-rc.1` (18 automated DesignAG gates),
-and `skill.html-ppt@1.0.0-rc.3`.
+`skill.design-anti-goodhart@1.0.0-rc.2` (18 automated DesignAG gates + 1-Slide-Per-Step D16),
+and `skill.html-ppt@1.0.0-rc.4` (1-Slide-Per-Step Enforcer).
 """
 
 from __future__ import annotations
@@ -41,7 +41,7 @@ def build_release_meta(
     html_ppt_rel: str,
 ) -> Dict[str, Any]:
     return {
-        "status": "candidate",
+        "status": "validated",
         "observed_at": "2026-11-08",
         "entry_point": "SKILL.md",
         "source_snapshot": source_rel,
@@ -55,6 +55,7 @@ def build_release_meta(
             "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
             f"Standalone {guard_id}@{guard_rel} (AWF Guard, 66 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
             f"Standalone {design_ag_id}@{design_ag_rel} (AWF DesignAG, 18 automated design gates + dual rubrics) for visual/pedagogical/HTML-PPT anti-shortcut verification",
+            f"Standalone {html_ppt_id}@{html_ppt_rel} (AWF HTML-PPT 1-Slide-Per-Step enforcer)",
             "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review",
         ],
         "capabilities": [
@@ -88,9 +89,9 @@ def build_release_meta(
             "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms",
         ],
         "provenance": (
-            f"Adaptive Interactive Tutor V16 (1.0.0-rc.14) locking to `{guard_id}@{guard_rel}` (66 automated gates), "
-            f"`{design_ag_id}@{design_ag_rel}` (18 automated DesignAG gates + Dual Quantitative Rubrics), and "
-            f"`{html_ppt_id}@{html_ppt_rel}`."
+            f"Adaptive Interactive Tutor V16 (1.0.0-rc.15) locking to `{guard_id}@{guard_rel}` (66 automated gates), "
+            f"`{design_ag_id}@{design_ag_rel}` (18 automated DesignAG gates + Dual Quantitative Rubrics + 1-Slide-Per-Step D16), and "
+            f"`{html_ppt_id}@{html_ppt_rel}` (1-Slide-Per-Step Enforcer)."
         ),
     }
 
@@ -109,12 +110,13 @@ def build_workflow_doc(
         "schema_version": 1,
         "id": wf_id,
         "release": rel_id,
-        "status": "candidate",
+        "status": "validated",
         "purpose": (
             "Bidirectional interactive pedagogical, Scale-Adaptive Fractal Curriculum (Chapter -> Station -> "
             "3-Gate Micro-Loop for Mega-Projects), 7-Element Methodological Anatomy, Tutor-Driven Design (TDD / 以教代建) "
-            f"delegating 66-Gate scientific/code verification to {guard_id}@{guard_rel} and 18-Gate visual/pedagogical/PPT "
-            f"verification to {design_ag_id}@{design_ag_rel} (AWF DesignAG)."
+            f"delegating 66-Gate scientific/code verification to {guard_id}@{guard_rel}, 18-Gate visual/pedagogical/PPT "
+            f"verification to {design_ag_id}@{design_ag_rel} (AWF DesignAG), and 1-Slide-Per-Step HTML-PPT generation "
+            f"to {html_ppt_id}@1.0.0-rc.4."
         ),
         "entry_skills": [comp_id, guard_id, design_ag_id, html_ppt_id],
         "stages": [
@@ -151,7 +153,7 @@ def build_workflow_doc(
             },
             {
                 "id": "cognitive-trajectory-html-ppt-synthesis-and-designag-18gate-audit",
-                "condition": "When recording the human cognitive ascent or generating a 16:9 interactive HTML presentation deck audited by AWF DesignAG (18 gates + Dual Rubrics).",
+                "condition": "When recording the human cognitive ascent or generating a 16:9 interactive HTML presentation deck audited 1-slide-at-a-time by AWF HTML-PPT + AWF DesignAG (18 gates + Dual Rubrics).",
                 "required": False,
                 "skill": design_ag_id,
             },
@@ -159,18 +161,13 @@ def build_workflow_doc(
         "engineering_gate": (
             f"For Mega-Projects (N > 5 methods), forbid flat 3-4 Loop compression and 1,000+ line monolithic scripts; "
             f"invoke {guard_id}@{guard_rel} (66 gates) for @scientific_atom capsule verification and {design_ag_id}@{design_ag_rel} "
-            f"(18 DesignAG gates + 7 Redlines) for interactive HTML-PPT verification; strictly enforce the Human Gate before "
-            f"generating heavy multimedia; and persist all deliverables inside the project workspace with dual Windows/file:/// paths."
+            f"(18 DesignAG gates + 7 Redlines) + {html_ppt_id}@1.0.0-rc.4 (1-Slide-Per-Step) for interactive HTML-PPT verification; "
+            f"strictly enforce the Human Gate before generating heavy multimedia; and persist all deliverables inside the project workspace with dual Windows/file:/// paths."
         ),
         "scientific_gate": (
             f"All atomic operator capsules must pass {guard_id}@{guard_rel} (66 automated gates) and all HTML-PPT / visual "
             f"teaching artifacts must pass {design_ag_id}@{design_ag_rel} (18 automated DesignAG gates + zero Redlines + >=80/100 Dual Rubrics)."
         ),
-        "candidate_limitations": [
-            "Interactive dialogue pacing depends on learner responses across turns.",
-            "Scientific and world-knowledge questions encountered during tutoring remain subject to the user's global verification rules.",
-            "HTML micro-lab and HTML-PPT visual acceptance requires rendered-page review in the target browser environment.",
-        ],
         "version_lock": "versions.lock",
     }
 
@@ -180,11 +177,11 @@ def main() -> int:
     guard_id = "skill.anti-goodhart-verification"
     guard_rel = "3.4.0-rc.1"
     design_ag_id = "skill.design-anti-goodhart"
-    design_ag_rel = "1.0.0-rc.1"
+    design_ag_rel = "1.0.0-rc.2"
     html_ppt_id = "skill.html-ppt"
-    html_ppt_rel = "1.0.0-rc.3"
+    html_ppt_rel = "1.0.0-rc.4"
     wf_id = "adaptive-interactive-tutor"
-    rel_id = "1.0.0-rc.14"
+    rel_id = "1.0.0-rc.15"
 
     source_rel = f"components/skills/adaptive-interactive-tutor/releases/{rel_id}/source"
     source_dir = AWF_ROOT / source_rel
@@ -217,16 +214,17 @@ def main() -> int:
     write_json_yaml(comp_descriptor_path, comp_doc)
 
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
-    attestation_rel = "attestations/release-integrity-20261108-adaptive-interactive-tutor-rc14.yaml"
+    attestation_rel = "attestations/release-integrity-20261108-adaptive-interactive-tutor-rc15.yaml"
     attestation_path = AWF_ROOT / attestation_rel
     attestation_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-adaptive-interactive-tutor-release-20261108-rc14",
+        "owner": "awf-adaptive-interactive-tutor-release-20261108-rc15",
         "provenance": (
-            f"Validated release 1.0.0-rc.14 of AWF Tutor / SciTutor (skill.adaptive-interactive-tutor@1.0.0-rc.14 / V16) "
-            f"locking to {guard_id}@{guard_rel} (66 gates) and {design_ag_id}@{design_ag_rel} (18 DesignAG gates)."
+            f"Validated release 1.0.0-rc.15 of AWF Tutor / SciTutor (skill.adaptive-interactive-tutor@1.0.0-rc.15 / V16) "
+            f"locking to {guard_id}@{guard_rel} (66 gates), {design_ag_id}@{design_ag_rel} (18 DesignAG gates), "
+            f"and {html_ppt_id}@{html_ppt_rel} (1-Slide-Per-Step)."
         ),
         "releases": {
             f"{comp_id}@{rel_id}": {
@@ -295,7 +293,7 @@ def main() -> int:
     wf_entry["descriptor_sha256"] = wf_desc_sha
     wf_entry["lock"] = wf_lock_rel
     wf_entry["lock_sha256"] = wf_lock_sha
-    wf_entry["status"] = "candidate"
+    wf_entry["status"] = "validated"
     for new_alias in ("adaptive-interactive-tutor-v15", "adaptive-interactive-tutor-v16"):
         if new_alias not in wf_entry.get("aliases", []):
             wf_entry.setdefault("aliases", []).append(new_alias)
@@ -304,7 +302,7 @@ def main() -> int:
         "descriptor_sha256": wf_desc_sha,
         "lock": wf_lock_rel,
         "lock_sha256": wf_lock_sha,
-        "status": "candidate",
+        "status": "validated",
     }
 
     write_json_yaml(registry_path, registry)
