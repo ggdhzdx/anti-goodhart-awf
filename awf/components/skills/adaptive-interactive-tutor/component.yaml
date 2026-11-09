@@ -3,22 +3,22 @@
   "id": "skill.adaptive-interactive-tutor",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.23": {
+    "1.0.0-rc.24": {
       "status": "validated",
-      "observed_at": "2026-11-08",
+      "observed_at": "2026-11-09",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.23/source",
-      "tree_sha256": "8f1b16b6a50f1a2ec872125c18f900055600793d3aff324b05c06b4fc34f5e56",
+      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.24/source",
+      "tree_sha256": "3123624758b6c9370c178993dfd578626c5109b8a46f70b559ac7e86ef6c6435",
       "depends_on": [
-        "skill.anti-goodhart-verification@3.6.0-rc.1",
-        "skill.design-anti-goodhart@1.0.0-rc.10",
-        "skill.html-ppt@1.0.0-rc.12"
+        "skill.anti-goodhart-verification@3.7.0-rc.1",
+        "skill.design-anti-goodhart@1.0.0-rc.11",
+        "skill.html-ppt@1.0.0-rc.13"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
-        "Standalone skill.anti-goodhart-verification@3.6.0-rc.1 (AWF Guard, 73 automated gates)",
-        "Standalone skill.design-anti-goodhart@1.0.0-rc.10 (AWF DesignAG, 18 automated design gates + Stage 0 Global Deck Blueprint + Dual-Stage GDD verification)",
-        "Standalone skill.html-ppt@1.0.0-rc.12 (AWF HTML-PPT V3 Macro-to-Micro Tri-Mode 1-Slide-Per-Step enforcer)",
+        "Standalone skill.anti-goodhart-verification@3.7.0-rc.1 (AWF Guard, 73 automated gates)",
+        "Standalone skill.design-anti-goodhart@1.0.0-rc.11 (AWF DesignAG, 18 automated design gates + Stage 0 Global Deck Blueprint + Dual-Stage GDD verification)",
+        "Standalone skill.html-ppt@1.0.0-rc.13 (AWF HTML-PPT V3 Macro-to-Micro Tri-Mode 1-Slide-Per-Step enforcer)",
         "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review"
       ],
       "capabilities": [
@@ -55,7 +55,7 @@
         "Heavy multimedia assets (images, animations, interactive web pages) are strictly human-gated (built only after user confirmation or explicit user request)",
         "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms"
       ],
-      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.23) locking to `skill.anti-goodhart-verification@3.6.0-rc.1` (73 automated gates), `skill.design-anti-goodhart@1.0.0-rc.10` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16), and `skill.html-ppt@1.0.0-rc.12` (Two-Level Macro-to-Micro Tri-Mode `TDD`, Dual-Stage `GRILL`, and `AUTONOMOUS_DUAL_EVOLVE`)."
+      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.24) locking to `skill.anti-goodhart-verification@3.7.0-rc.1` (73 automated gates), `skill.design-anti-goodhart@1.0.0-rc.11` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16), and `skill.html-ppt@1.0.0-rc.13` (Two-Level Macro-to-Micro Tri-Mode `TDD`, Dual-Stage `GRILL`, and `AUTONOMOUS_DUAL_EVOLVE`)."
     }
   }
 }

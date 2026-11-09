@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "design-anti-goodhart",
+  "release": "1.0.0-rc.11",
+  "status": "validated",
+  "purpose": "Standalone Visual, Pedagogical & Scientific Presentation (HTML-PPT / Editable PPTX) Anti-Goodhart Verification & Dual-Rubric Scoring Workflow (AWF DesignAG, 18 Automated Design Gates `D1`-`D18` + Stage 0 Macro-GDD Global Deck Blueprint Verification + Strictly 1-Slide-Per-Step & 1-Hop Topological Slide Lock + Tri-Mode Verification [`TDD`, Dual-Stage `GDD`, and `AUTONOMOUS_DUAL_EVOLVE`] + 7 Redlines `R1`-`R7` + Optoelectronic v3 & Supermolecule 5-Dim Quantitative Rubrics), layered atop `skill.anti-goodhart-verification@3.7.0-rc.1`.",
+  "entry_skills": [
+    "skill.design-anti-goodhart",
+    "skill.anti-goodhart-verification"
+  ],
+  "stages": [
+    {
+      "id": "stage0-global-deck-blueprint-and-single-slide-microstep-trimode-capsule-d16",
+      "required": true,
+      "skill": "skill.design-anti-goodhart"
+    },
+    {
+      "id": "static-dom-latex-copywriting-acronym-and-anti-fake-visual-breaker-d1-to-d6",
+      "required": true,
+      "skill": "skill.design-anti-goodhart"
+    },
+    {
+      "id": "geometric-bounding-box-whitespace-com-aspect-crop-and-contrast-audit-d7-to-d12",
+      "required": true,
+      "skill": "skill.design-anti-goodhart"
+    },
+    {
+      "id": "pedagogical-narrative-causal-why-chain-interactive-physics-and-redblue-dual-rubric-seal-d13-to-d18",
+      "required": true,
+      "skill": "skill.design-anti-goodhart"
+    }
+  ],
+  "engineering_gate": "Strictly enforce Stage 0 Global Deck Blueprint (`verify_global_deck_blueprint_capsule`), 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`), 1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`), and Tri-Mode verification (`verify_tdd_station_capsule_completeness`, `verify_grill_station_capsule_completeness`, `verify_dual_evolution_feedback_receipt`); forbid all D1-D18 and R1-R7 violations.",
+  "scientific_gate": "All scientific presentations and interactive teaching decks must pass all 18 DesignAG gates (`D1`-`D18`), generate and verify strictly 1 slide per step (`max_slides_generated_per_step == 1`), trigger zero Redlines (`R1`-`R7`), achieve >= 80/100 on both Optoelectronic v3 (`A_i = w_i * C_clarity * V_visual`) and Supermolecule 5-Dim quantitative rubrics, and satisfy Layer-1 `skill.anti-goodhart-verification@3.7.0-rc.1` self-hosting integrity (`--audit-self`).",
+  "version_lock": "versions.lock"
+}

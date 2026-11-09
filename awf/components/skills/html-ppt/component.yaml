@@ -2,15 +2,15 @@
   "id": "skill.html-ppt",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.12": {
+    "1.0.0-rc.13": {
       "status": "validated",
-      "observed_at": "2026-11-08",
+      "observed_at": "2026-11-09",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.12/source",
-      "tree_sha256": "99eeaae780a795a5c13198adfdf95c6005e2a03c16ff95c224aec05020241dc5",
+      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.13/source",
+      "tree_sha256": "ab1db40a8fab60e3354e225c19921141b30d4577c14ff70d295425409869db0d",
       "depends_on": [
-        "skill.design-anti-goodhart@1.0.0-rc.10",
-        "skill.anti-goodhart-verification@3.6.0-rc.1"
+        "skill.design-anti-goodhart@1.0.0-rc.11",
+        "skill.anti-goodhart-verification@3.7.0-rc.1"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
@@ -39,7 +39,7 @@
         "HTML rendering and release integrity checks must be paired with scientific source verification",
         "Final visual acceptance includes 1920x1080 rendered-page review under Gate D18"
       ],
-      "provenance": "Release 1.0.0-rc.12 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.12` and standalone workflow `html-ppt@1.0.0-rc.9`), introducing Stage 0 Macro-GDD Global Deck Blueprint verification and per-slide V3 animation designation enforcement (`designated_v3_animation`), powered by `skill.design-anti-goodhart@1.0.0-rc.10`."
+      "provenance": "Release 1.0.0-rc.13 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.13` and standalone workflow `html-ppt@1.0.0-rc.10`), introducing Stage 0 Macro-GDD Global Deck Blueprint verification and per-slide V3 animation designation enforcement (`designated_v3_animation`), powered by `skill.design-anti-goodhart@1.0.0-rc.11`."
     }
   },
   "schema_version": 1

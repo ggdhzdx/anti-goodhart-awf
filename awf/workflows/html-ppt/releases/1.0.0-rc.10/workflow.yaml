@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "html-ppt",
+  "release": "1.0.0-rc.10",
+  "status": "validated",
+  "purpose": "Self-Evolving, Anti-Goodhart 16:9 Scientific Interactive HTML Presentation Workflow (AWF HTML-PPT V3 / SciSlide) enforcing a Two-Level Macro-to-Micro Tri-Mode Architecture (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 animation slides + Stage 1..N Single-Slide `TDD`, Dual-Stage `GRILL`, or `AUTONOMOUS_DUAL_EVOLVE`), strictly 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`), 1-Hop `slide_manifest.json` topological slide locking (`unverified_slide_hop_distance == 1`), 18 Automated DesignAG Gates (`D1`-`D18`), 7 Redlines (`R1`-`R7`), Dual Quantitative Rubrics (`>=85/100`), Read-Only Red Subagent Visual Audit, and Darwinian Escape-to-Gate evolution.",
+  "entry_skills": [
+    "skill.html-ppt",
+    "skill.design-anti-goodhart",
+    "skill.anti-goodhart-verification"
+  ],
+  "stages": [
+    {
+      "id": "stage0-macro-gdd-global-deck-blueprint-and-stage1-storyboard-manifest-d13-d14-d16",
+      "required": true,
+      "skill": "skill.html-ppt"
+    },
+    {
+      "id": "stage2-paper-figure-subpanel-crop-and-visual-asset-preaudit-d5-d9-d10-d11",
+      "required": true,
+      "skill": "skill.design-anti-goodhart"
+    },
+    {
+      "id": "stage3-trimode-tdd-dualstage-grill-or-autonomous-single-slide-per-step-build-d1-to-d12-d15-d16",
+      "required": true,
+      "skill": "skill.html-ppt"
+    },
+    {
+      "id": "stage4-readonly-red-subagent-visual-audit-dual-rubric-assembly-and-postreview-dual-evolution-d17-d18",
+      "required": true,
+      "skill": "skill.design-anti-goodhart"
+    }
+  ],
+  "engineering_gate": "Strictly enforce Stage 0 Global Deck Blueprint (`global_deck_blueprint` + per-slide `designated_v3_animation`), forbid generating >1 slide per step (`max_slides_generated_per_step == 1`) or unlocking `slide_{k+1}` before `slide_k` holds a verified SHA-256 `PASS` receipt (`unverified_slide_hop_distance == 1`), and enforce all 18 DesignAG gates (`D1`-`D18`) via `scripts/audit_single_slide_step.py`.",
+  "scientific_gate": "All slides must satisfy concrete scientific object/claim title semantics, >=3-step causal Why chains (`D14`), explicit figure-text coupling (`D11`), multiplicative visual modality requirements (`V2/V3` on mechanism slides, capping `V0` pure text at 30%), zero Redlines (`R1`-`R7`), and >=85/100 on both Optoelectronic v3 and Supermolecule 5-Dim quantitative rubrics.",
+  "version_lock": "versions.lock"
+}

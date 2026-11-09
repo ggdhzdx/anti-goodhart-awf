@@ -33,23 +33,23 @@ for rel in sorted(actual - known):
     errors.append(f"unlisted file: {rel}")
 
 expected_locks = {
-    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.10/versions.lock": {
-        "skill.design-anti-goodhart": "1.0.0-rc.10",
-        "skill.anti-goodhart-verification": "3.6.0-rc.1",
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.11/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.11",
+        "skill.anti-goodhart-verification": "3.7.0-rc.1",
     },
-    "awf/workflows/html-ppt/releases/1.0.0-rc.9/versions.lock": {
-        "skill.html-ppt": "1.0.0-rc.12",
-        "skill.design-anti-goodhart": "1.0.0-rc.10",
-        "skill.anti-goodhart-verification": "3.6.0-rc.1",
+    "awf/workflows/html-ppt/releases/1.0.0-rc.10/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.13",
+        "skill.design-anti-goodhart": "1.0.0-rc.11",
+        "skill.anti-goodhart-verification": "3.7.0-rc.1",
     },
-    "awf/workflows/anti-goodhart-verification/releases/3.6.0-rc.1/versions.lock": {
-        "skill.anti-goodhart-verification": "3.6.0-rc.1",
+    "awf/workflows/anti-goodhart-verification/releases/3.7.0-rc.1/versions.lock": {
+        "skill.anti-goodhart-verification": "3.7.0-rc.1",
     },
-    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.23/versions.lock": {
-        "skill.adaptive-interactive-tutor": "1.0.0-rc.23",
-        "skill.anti-goodhart-verification": "3.6.0-rc.1",
-        "skill.design-anti-goodhart": "1.0.0-rc.10",
-        "skill.html-ppt": "1.0.0-rc.12",
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.24/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.24",
+        "skill.anti-goodhart-verification": "3.7.0-rc.1",
+        "skill.design-anti-goodhart": "1.0.0-rc.11",
+        "skill.html-ppt": "1.0.0-rc.13",
     },
     "awf/workflows/scientific-report-authoring/releases/1.0.0-rc.13/versions.lock": {
         "skill.build-scientific-docx": "1.0.0-rc.12",
@@ -90,14 +90,16 @@ for path in ROOT.rglob("*"):
         if re.search(r"BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{20,}", text):
             errors.append(f"credential pattern: {path.relative_to(ROOT)}")
 
-design_script = ROOT / "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.10/source/scripts/awf_design_anti_goodhart_gates.py"
-html_ppt_script = ROOT / "awf/components/skills/html-ppt/releases/1.0.0-rc.12/source/scripts/audit_single_slide_step.py"
-guard_script = ROOT / "awf/components/skills/anti-goodhart-verification/releases/3.6.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py"
+design_script = ROOT / "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.11/source/scripts/awf_design_anti_goodhart_gates.py"
+html_ppt_script = ROOT / "awf/components/skills/html-ppt/releases/1.0.0-rc.13/source/scripts/audit_single_slide_step.py"
+guard_script = ROOT / "awf/components/skills/anti-goodhart-verification/releases/3.7.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py"
 
 for label, cmd in [
     ("DesignAG 18-Gate self-test", [sys.executable, "-B", str(design_script), "--self-test"]),
+    ("DesignAG recursive self-hosting audit", [sys.executable, "-B", str(design_script), "--audit-self"]),
     ("HTML-PPT Tri-Mode 1-Slide-Per-Step self-test", [sys.executable, "-B", str(html_ppt_script), "--self-test"]),
-    ("AWF Guard 73-Gate self-test", [sys.executable, "-B", str(guard_script), "--self-test"]),
+    ("AWF Guard 14-Slot x 74-Subcheck self-test", [sys.executable, "-B", str(guard_script), "--self-test"]),
+    ("AWF Guard recursive self-hosting audit", [sys.executable, "-B", str(guard_script), "--audit-self"]),
 ]:
     proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
     if proc.returncode != 0:
@@ -110,5 +112,5 @@ if errors:
 
 print(
     f"PASS: {len(manifest['files'])} files verified; "
-    "AWF DesignAG (18 gates + Universal Onion Bus) + AWF HTML-PPT + AWF SciWord + AWF FigPPT + AWF Guard (73 gates) + AWF Tutor V16 closure verified"
+    "AWF DesignAG (18 gates + Universal Onion Bus) + AWF HTML-PPT + AWF SciWord + AWF FigPPT + AWF Guard (14 slots x 74 sub-checks + recursive self-audit) + AWF Tutor V16 closure verified"
 )
