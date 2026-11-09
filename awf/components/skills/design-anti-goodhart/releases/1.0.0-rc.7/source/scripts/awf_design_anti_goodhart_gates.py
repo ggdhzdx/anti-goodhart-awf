@@ -1085,16 +1085,19 @@ def verify_global_deck_blueprint_capsule(
     expected_storyboard_count: int = 0,
 ) -> Dict[str, Any]:
     """
-    Verify Stage 0 Macro-GDD Global Deck Blueprint Capsule (`global_deck_blueprint`):
-    Determines the global presentation architecture via a 2-step Macro-GDD loop before any slide is built:
+    Verify Stage 0 Macro-GDD Global Deck Blueprint Capsule (`global_deck_blueprint`) with
+    Elastic Rolling Storyboard & JIT V3 Animation Discovery support:
     1. `macro_thesis_probe`:
        - `executive_core_conflict`: 3-sentence bird's-eye synthesis of the entire work;
        - `human_baseline_alignment`: user's initial response or bird's-eye onboarding closure;
-    2. Three Global Architecture Multiple-Choice Decisions:
-       - `total_slides_mcq`: `options` (>=2 tiers), `selected_option`, and `planned_total_slides`;
+    2. Three Global Architecture Multiple-Choice Decisions (Supporting Elastic Mid-Stream Evolution):
+       - `total_slides_mcq`: `options` (>=2 tiers), `selected_option`, and EITHER `planned_total_slides`
+         OR `elastic_slide_range: [min_slides, max_slides]` (allowing dynamic slide splits/insertions/merges
+         as Q&A progresses via `storyboard_revisions`);
        - `emphasis_allocation_mcq`: `options` (>=2 focus plans), `selected_option`, and `heavy_focus_modules`;
-       - `v3_animation_budget_mcq`: `options` (>=2 animation plans), `selected_option`, and
-         `v3_designated_slide_indices` (exact 1-based slide indices designated for V3 interactive/animated explanation).
+       - `v3_animation_budget_mcq`: `options` (>=2 animation plans), `selected_option`, and EITHER
+         upfront `v3_designated_slide_indices` OR `v3_discovery_policy` in `{"HYBRID_SEED_PLUS_JIT", "JIT_DURING_QA"}`
+         with `min_v3_slides_quota >= 1` (allowing exact V3 animation slides to be decided during Stage 1-3 Q&A).
     """
     issues: List[str] = []
     if not isinstance(global_deck_blueprint, dict) or not global_deck_blueprint:
@@ -1114,22 +1117,38 @@ def verify_global_deck_blueprint_capsule(
         if len(align) < 8:
             issues.append("macro_thesis_probe missing human_baseline_alignment")
 
+    revisions = global_deck_blueprint.get("storyboard_revisions", [])
+    has_revisions = isinstance(revisions, list) and len(revisions) > 0
+
     slides_mcq = global_deck_blueprint.get("total_slides_mcq")
     planned_total = 0
+    min_slides_floor = 1
+    max_slides_ceiling = 0
     if not isinstance(slides_mcq, dict):
-        issues.append("Global blueprint missing total_slides_mcq (how many slides in total)")
+        issues.append("Global blueprint missing total_slides_mcq (initial slide count or elastic range)")
     else:
         opts = slides_mcq.get("options", [])
         sel = str(slides_mcq.get("selected_option", "")).strip()
         planned_total = _int_or(slides_mcq, "planned_total_slides", 0)
+        raw_range = slides_mcq.get("elastic_slide_range", [])
+        if isinstance(raw_range, list) and len(raw_range) == 2:
+            min_slides_floor = int(raw_range[0])
+            max_slides_ceiling = int(raw_range[1])
         if not isinstance(opts, list) or len(opts) < 2 or not sel:
             issues.append("total_slides_mcq must provide >=2 options and a selected_option")
-        if planned_total < 1:
-            issues.append("total_slides_mcq must set planned_total_slides >= 1")
-        elif expected_storyboard_count > 0 and planned_total != expected_storyboard_count:
-            issues.append(
-                f"planned_total_slides ({planned_total}) != storyboard_slides count ({expected_storyboard_count})"
-            )
+        if planned_total < 1 and max_slides_ceiling < 1:
+            issues.append("total_slides_mcq must set planned_total_slides >= 1 or elastic_slide_range [min, max]")
+        elif expected_storyboard_count > 0 and not has_revisions:
+            if max_slides_ceiling >= min_slides_floor >= 1:
+                if not (min_slides_floor <= expected_storyboard_count <= max_slides_ceiling):
+                    issues.append(
+                        f"storyboard_slides count ({expected_storyboard_count}) outside elastic_slide_range "
+                        f"[{min_slides_floor}, {max_slides_ceiling}] without storyboard_revisions"
+                    )
+            elif planned_total >= 1 and planned_total != expected_storyboard_count:
+                issues.append(
+                    f"planned_total_slides ({planned_total}) != storyboard_slides count ({expected_storyboard_count})"
+                )
 
     emp_mcq = global_deck_blueprint.get("emphasis_allocation_mcq")
     focus_mods: List[str] = []
@@ -1148,23 +1167,36 @@ def verify_global_deck_blueprint_capsule(
 
     anim_mcq = global_deck_blueprint.get("v3_animation_budget_mcq")
     v3_indices: List[int] = []
+    v3_policy = "UPFRONT_LOCKED"
+    min_v3_quota = 1
     if not isinstance(anim_mcq, dict):
-        issues.append("Global blueprint missing v3_animation_budget_mcq (which slides use V3 animations/widgets)")
+        issues.append("Global blueprint missing v3_animation_budget_mcq (V3 animation seeds or JIT discovery policy)")
     else:
         opts = anim_mcq.get("options", [])
         sel = str(anim_mcq.get("selected_option", "")).strip()
+        v3_policy = str(anim_mcq.get("v3_discovery_policy", "UPFRONT_LOCKED")).strip().upper()
+        min_v3_quota = _int_or(anim_mcq, "min_v3_slides_quota", 1)
         raw_idx = anim_mcq.get("v3_designated_slide_indices", [])
         if isinstance(raw_idx, list):
             v3_indices = [int(i) for i in raw_idx if isinstance(i, (int, float)) and int(i) >= 1]
         if not isinstance(opts, list) or len(opts) < 2 or not sel:
             issues.append("v3_animation_budget_mcq must provide >=2 options and a selected_option")
-        if len(v3_indices) < 1:
-            issues.append("v3_animation_budget_mcq must designate >=1 slide index in v3_designated_slide_indices")
+        if v3_policy in {"HYBRID_SEED_PLUS_JIT", "JIT_DURING_QA"}:
+            if min_v3_quota < 1:
+                issues.append("v3_animation_budget_mcq with JIT discovery must set min_v3_slides_quota >= 1")
+        elif len(v3_indices) < 1:
+            issues.append(
+                "v3_animation_budget_mcq must designate >=1 slide index in v3_designated_slide_indices "
+                "or set v3_discovery_policy to 'JIT_DURING_QA' / 'HYBRID_SEED_PLUS_JIT' with min_v3_slides_quota >= 1"
+            )
 
     return {
         "passed": len(issues) == 0,
-        "planned_total_slides": planned_total,
+        "planned_total_slides": planned_total or expected_storyboard_count,
+        "elastic_slide_range": [min_slides_floor, max_slides_ceiling] if max_slides_ceiling >= 1 else [],
         "heavy_focus_modules": focus_mods,
+        "v3_discovery_policy": v3_policy,
+        "min_v3_slides_quota": max(min_v3_quota, len(v3_indices)),
         "v3_designated_slide_indices": v3_indices,
         "issues": issues,
     }

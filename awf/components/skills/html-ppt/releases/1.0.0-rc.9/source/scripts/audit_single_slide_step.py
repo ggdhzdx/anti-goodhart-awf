@@ -28,10 +28,10 @@ sys.dont_write_bytecode = True
 
 def _resolve_design_ag_scripts_dir() -> Path:
     candidates = [
+        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.7/source/scripts"),
+        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.7\source\scripts"),
         Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.6/source/scripts"),
         Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.6\source\scripts"),
-        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.5/source/scripts"),
-        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.5\source\scripts"),
         Path(__file__).resolve().parents[2] / "design-anti-goodhart" / "scripts",
     ]
     for c in candidates:
@@ -155,7 +155,7 @@ def init_storyboard_manifest(
         })
 
     manifest_data = {
-        "schema_version": 4,
+        "schema_version": 5,
         "workflow_mode": raw_mode,
         "max_slides_generated_per_step": 1,
         "tdd_mode": tdd_mode,
@@ -166,6 +166,7 @@ def init_storyboard_manifest(
         "total_slides": len(slide_entries),
         "storyboard_slides": slides_spec,
         "slides": slide_entries,
+        "storyboard_revisions": [],
         "dual_evolution_receipts": [],
     }
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -182,6 +183,129 @@ def init_storyboard_manifest(
         "unlocked_slide": "slide_01",
         "unlocked_station": slide_entries[0]["station_id"] if slide_entries else "",
         "manifest_path": str(manifest_path),
+    }
+
+
+def mutate_storyboard_manifest(
+    manifest_path: Path,
+    mutation_spec: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Mid-Stream Elastic Storyboard & JIT V3 Animation Revision Engine:
+    Allows adding/splitting slides (`INSERT_SLIDE` / `SPLIT_SLIDE`), merging/removing future
+    slides (`REMOVE_SLIDE` / `MERGE_SLIDES`), or dynamically promoting/demoting V3 animations
+    (`PROMOTE_V3` / `DEMOTE_V3`) during Stage 1-3 Q&A while preserving the 1-Hop DAG lock
+    and SHA-256 receipts of already-completed slides.
+    """
+    if not manifest_path.is_file():
+        return {"status": "FAIL", "reason": f"Missing slide_manifest.json: {manifest_path}"}
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    slides_list: List[Dict[str, Any]] = manifest.get("slides", [])
+    sb_list: List[Dict[str, Any]] = manifest.get("storyboard_slides", [])
+
+    action = str(mutation_spec.get("action", "")).strip().upper()
+    target_idx = _int_val(mutation_spec, "target_slide_index", 0)
+    reason = str(mutation_spec.get("reason", "")).strip()
+    trigger_source = str(mutation_spec.get("trigger_source", "QA_DISCOVERY")).strip().upper()
+
+    if len(reason) < 6:
+        return {"status": "FAIL", "reason": "Storyboard mutation requires an explicit reason (>=6 chars)"}
+    if target_idx < 1 or target_idx > len(slides_list):
+        return {"status": "FAIL", "reason": f"Invalid target_slide_index {target_idx}"}
+
+    old_total = len(slides_list)
+    if action in {"INSERT_SLIDE", "SPLIT_SLIDE"}:
+        new_slide_spec = mutation_spec.get("new_slide_spec") or {}
+        insert_pos = target_idx  # Insert right after target_slide_index (0-based index == target_idx)
+        is_v3 = bool(new_slide_spec.get("designated_v3_animation", False)) or str(
+            new_slide_spec.get("required_visual_level", "")
+        ).upper().startswith("V3")
+        new_entry = {
+            "slide_index": insert_pos + 1,
+            "slide_id": f"slide_{insert_pos + 1:02d}",
+            "station_id": str(new_slide_spec.get("station_id", f"Station_1.{insert_pos + 1}_split")),
+            "title": str(new_slide_spec.get("title", f"Split Slide {insert_pos + 1}")),
+            "layout_archetype": str(new_slide_spec.get("layout_archetype", "interactive_svg_sandbox_split")),
+            "required_visual_level": "V3" if is_v3 else str(new_slide_spec.get("required_visual_level", "V2")),
+            "designated_v3_animation": is_v3,
+            "tdd_station_capsule": None,
+            "gdd_grill_capsule": None,
+            "human_approved": False,
+            "human_note": "",
+            "status": "LOCKED",
+            "sha256": "",
+            "file_path": "",
+        }
+        slides_list.insert(insert_pos, new_entry)
+        sb_list.insert(
+            insert_pos,
+            {
+                "station_id": new_entry["station_id"],
+                "title": new_entry["title"],
+                "layout_archetype": new_entry["layout_archetype"],
+                "required_visual_level": new_entry["required_visual_level"],
+            },
+        )
+    elif action in {"REMOVE_SLIDE", "MERGE_SLIDES"}:
+        if len(slides_list) <= 1:
+            return {"status": "FAIL", "reason": "Cannot remove the only remaining slide"}
+        target_entry = slides_list[target_idx - 1]
+        if target_entry.get("status") == "PASS":
+            return {"status": "FAIL", "reason": "Cannot remove an already verified (PASS) slide"}
+        gb = manifest.get("global_deck_blueprint") or {}
+        slides_mcq = gb.get("total_slides_mcq") or {}
+        el_range = slides_mcq.get("elastic_slide_range", [])
+        min_floor = int(el_range[0]) if isinstance(el_range, list) and len(el_range) == 2 else 1
+        if len(slides_list) - 1 < min_floor and not bool(mutation_spec.get("human_override_floor", False)):
+            return {
+                "status": "FAIL",
+                "reason": f"Cannot shrink deck ({len(slides_list) - 1}) below elastic min_slides_floor ({min_floor})",
+            }
+        slides_list.pop(target_idx - 1)
+        if target_idx - 1 < len(sb_list):
+            sb_list.pop(target_idx - 1)
+    elif action == "PROMOTE_V3":
+        target_entry = slides_list[target_idx - 1]
+        target_entry["designated_v3_animation"] = True
+        target_entry["required_visual_level"] = "V3"
+    elif action == "DEMOTE_V3":
+        target_entry = slides_list[target_idx - 1]
+        target_entry["designated_v3_animation"] = False
+        target_entry["required_visual_level"] = "V2"
+    else:
+        return {"status": "FAIL", "reason": f"Unsupported mutation action: {action}"}
+
+    # Re-index all slides and maintain 1-Hop UNLOCKED pointer after last PASS slide
+    last_pass = 0
+    for idx, entry in enumerate(slides_list, start=1):
+        entry["slide_index"] = idx
+        entry["slide_id"] = f"slide_{idx:02d}"
+        if entry.get("status") == "PASS" and idx == last_pass + 1:
+            last_pass = idx
+    if last_pass < len(slides_list):
+        nxt_entry = slides_list[last_pass]
+        if nxt_entry.get("status") == "LOCKED":
+            nxt_entry["status"] = "UNLOCKED"
+
+    rev_record = {
+        "action": action,
+        "target_slide_index": target_idx,
+        "trigger_source": trigger_source,
+        "reason": reason,
+        "old_total_slides": old_total,
+        "new_total_slides": len(slides_list),
+    }
+    manifest.setdefault("storyboard_revisions", []).append(rev_record)
+    if isinstance(manifest.get("global_deck_blueprint"), dict):
+        manifest["global_deck_blueprint"].setdefault("storyboard_revisions", []).append(rev_record)
+    manifest["total_slides"] = len(slides_list)
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return {
+        "status": "PASS",
+        "action": action,
+        "old_total_slides": old_total,
+        "new_total_slides": len(slides_list),
+        "total_revisions": len(manifest["storyboard_revisions"]),
     }
 
 
@@ -222,6 +346,9 @@ def record_tdd_station_capsule(
     target_entry = slides_list[slide_index - 1]
     target_entry["tdd_station_capsule"] = tdd_capsule
     target_entry["station_id"] = str(tdd_capsule.get("station_id", target_entry.get("station_id", "")))
+    if bool(tdd_capsule.get("promote_to_v3_animation", False)) or str(tdd_check.get("visual_modality", "")).upper().startswith("V3"):
+        target_entry["designated_v3_animation"] = True
+        target_entry["required_visual_level"] = "V3"
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return {
         "status": "PASS",
@@ -270,6 +397,9 @@ def record_grill_station_capsule(
     target_entry = slides_list[slide_index - 1]
     target_entry["gdd_grill_capsule"] = grill_capsule
     target_entry["station_id"] = str(grill_capsule.get("station_id", target_entry.get("station_id", "")))
+    if bool(grill_capsule.get("promote_to_v3_animation", False)) or str(grill_check.get("visual_modality", "")).upper().startswith("V3"):
+        target_entry["designated_v3_animation"] = True
+        target_entry["required_visual_level"] = "V3"
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return {
         "status": "PASS",
@@ -565,6 +695,27 @@ def assemble_verified_deck(
             "reason": "Cannot assemble deck while slides remain unverified or tampered",
             "unverified_slides": unverified,
         }
+
+    gb = manifest.get("global_deck_blueprint")
+    if isinstance(gb, dict):
+        anim_mcq = gb.get("v3_animation_budget_mcq") or {}
+        min_v3_quota = _int_val(anim_mcq, "min_v3_slides_quota", 0)
+        if min_v3_quota >= 1:
+            v3_count = 0
+            for entry in slides_list:
+                g_cap = entry.get("gdd_grill_capsule") or {}
+                t_cap = entry.get("tdd_station_capsule") or {}
+                mod = str(g_cap.get("visual_modality") or t_cap.get("visual_modality") or entry.get("required_visual_level") or "").upper()
+                if bool(entry.get("designated_v3_animation", False)) or mod.startswith("V3"):
+                    v3_count += 1
+            if v3_count < min_v3_quota:
+                return {
+                    "status": "FAIL",
+                    "reason": (
+                        f"Global V3 Animation Quota Violation: deck has {v3_count} V3 animation slide(s), "
+                        f"below min_v3_slides_quota={min_v3_quota} set in Stage 0 Global Blueprint"
+                    ),
+                }
 
     assembled_html = (
         "<!DOCTYPE html>\n<html lang='zh-CN'>\n<head>\n<meta charset='utf-8'/>\n"
@@ -868,6 +1019,107 @@ def run_selftest() -> Dict[str, Any]:
         if pos_v3_contract.get("status") != "PASS":
             raise AssertionError(f"Expected V3 animation slide to pass: {pos_v3_contract}")
 
+        # --- PART E: Elastic Rolling Blueprint (JIT V3 Discovery + Mid-Stream Slide Split/Merge) ---
+        elastic_manifest = tdir / "elastic_manifest.json"
+        elastic_bp = {
+            "macro_thesis_probe": {
+                "executive_core_conflict": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，利用极化激元反交叉耦合压缩寿命破局",
+                "human_baseline_alignment": "用户表示开头先定 1–4 页弹性区间，哪些加减页、哪些做 V3 动画在后面问答时边走边定",
+            },
+            "total_slides_mcq": {
+                "options": ["A (Recommended): 1–4页弹性精讲档（问答中可动态加减）", "B: 18页固定档"],
+                "selected_option": "A (Recommended): 1–4页弹性精讲档（问答中可动态加减）",
+                "elastic_slide_range": [1, 4],
+            },
+            "emphasis_allocation_mcq": {
+                "options": ["A (Recommended): 重点深挖极化激元反交叉耦合", "B: 重点讲工艺"],
+                "selected_option": "A (Recommended): 重点深挖极化激元反交叉耦合",
+                "heavy_focus_modules": ["极化激元反交叉耦合"],
+            },
+            "v3_animation_budget_mcq": {
+                "options": ["A (Recommended): 全篇保底 >=1 页 V3 动画，具体哪页在问答过程中动态拍板 (JIT_DURING_QA)", "B: 提前锁死"],
+                "selected_option": "A (Recommended): 全篇保底 >=1 页 V3 动画，具体哪页在问答过程中动态拍板 (JIT_DURING_QA)",
+                "v3_discovery_policy": "JIT_DURING_QA",
+                "min_v3_slides_quota": 1,
+                "v3_designated_slide_indices": [],
+            },
+        }
+        init_elastic = init_storyboard_manifest(
+            {
+                "workflow_mode": "GRILL",
+                "grill_mode": True,
+                "global_deck_blueprint": elastic_bp,
+                "narrative_spec": base_narrative,
+                "mechanism_spec": base_mechanism,
+                "storyboard_slides": base_slides[:1],
+            },
+            elastic_manifest,
+        )
+        if init_elastic.get("status") != "PASS":
+            raise AssertionError(f"Elastic blueprint init failed: {init_elastic}")
+
+        # Pass Slide 1 as V2 static diagram
+        record_grill_station_capsule(elastic_manifest, 1, grill_cap_1)
+        audit_single_slide_step(elastic_manifest, 1, s1_path, valid_bundle, slides_generated_in_current_step=1)
+
+        # Check 10a: Trying to assemble now fails because 0 V3 slides were built, violating min_v3_slides_quota=1!
+        neg_jit_quota = assemble_verified_deck(elastic_manifest, tdir / "elastic_deck.html")
+        if neg_jit_quota.get("status") != "FAIL":
+            raise AssertionError(f"Expected assembly to fail when V3 quota (1) not yet met: {neg_jit_quota}")
+
+        # Check 10b: During Q&A, user & agent decide to dynamically SPLIT/INSERT Slide 2 AND promote it to V3 animation!
+        mut_split = mutate_storyboard_manifest(
+            elastic_manifest,
+            {
+                "action": "SPLIT_SLIDE",
+                "target_slide_index": 1,
+                "trigger_source": "QA_DISCOVERY",
+                "reason": "问答中发现极化激元反交叉色散需要单独拆出第 2 页并做 V3 交互动画",
+                "new_slide_spec": {
+                    "station_id": "Station_1.2",
+                    "title": "极化激元反交叉耦合实时色散滑块",
+                    "layout_archetype": "interactive_svg_sandbox_split",
+                    "designated_v3_animation": True,
+                },
+            },
+        )
+        if mut_split.get("status") != "PASS" or mut_split.get("new_total_slides") != 2:
+            raise AssertionError(f"Mid-stream SPLIT_SLIDE failed: {mut_split}")
+
+        # Also test dynamicINSERT + MERGE_SLIDES: insert a 3rd slide then merge it back when user says they already know it
+        mutate_storyboard_manifest(
+            elastic_manifest,
+            {
+                "action": "INSERT_SLIDE",
+                "target_slide_index": 2,
+                "trigger_source": "QA_DISCOVERY",
+                "reason": "临时增加第 3 页备用推导",
+                "new_slide_spec": {"station_id": "Station_1.3", "title": "备用推导页"},
+            },
+        )
+        mut_merge = mutate_storyboard_manifest(
+            elastic_manifest,
+            {
+                "action": "MERGE_SLIDES",
+                "target_slide_index": 3,
+                "trigger_source": "QA_DISCOVERY",
+                "reason": "问答确认用户已熟知该推导，合并删减第 3 页",
+            },
+        )
+        if mut_merge.get("status") != "PASS" or mut_merge.get("new_total_slides") != 2:
+            raise AssertionError(f"Mid-stream MERGE_SLIDES failed: {mut_merge}")
+
+        # Complete Slide 2 with V3 interactive animation and assemble verified deck
+        record_grill_station_capsule(
+            elastic_manifest,
+            2,
+            {**grill_cap_1, "station_id": "Station_1.2", "visual_modality": "V3_interactive_anticrossing_slider"},
+        )
+        audit_single_slide_step(elastic_manifest, 2, s2_path, valid_bundle, slides_generated_in_current_step=1)
+        pos_elastic_asm = assemble_verified_deck(elastic_manifest, tdir / "elastic_deck.html")
+        if pos_elastic_asm.get("status") != "PASS" or pos_elastic_asm.get("total_slides_assembled") != 2:
+            raise AssertionError(f"Expected elastic deck assembly with JIT V3 slide to pass: {pos_elastic_asm}")
+
     return {
         "status": "PASS",
         "selftest": "AWF_HTML_PPT_V3_MacroToMicro_TriMode_TDD_Grill_And_AutonomousDualEvolve",
@@ -881,6 +1133,7 @@ def run_selftest() -> Dict[str, Any]:
             "Mode3_AUTONOMOUS_HeadDown_Build_And_Block_Incomplete_DualEvolution_Receipt",
             "Mode3_AUTONOMOUS_Pass_PostReview_PPT_Patch_And_AWF_Dual_Evolution_Receipt",
             "Stage0_Macro_GDD_Global_Deck_Blueprint_And_V3_Animation_Enforcement",
+            "MidStream_Elastic_Slide_Split_Merge_And_JIT_V3_Animation_Promotion",
         ],
     }
 
@@ -889,6 +1142,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="AWF HTML-PPT V3 Tri-Mode Single-Slide Gatekeeper")
     parser.add_argument("--self-test", action="store_true", help="Run Tri-Mode (TDD / GRILL / AUTONOMOUS_DUAL_EVOLVE) self-test")
     parser.add_argument("--init-storyboard", type=str, default="", help="Path to storyboard.json")
+    parser.add_argument("--mutate-storyboard", type=str, default="", help="Path to mid-stream storyboard mutation JSON")
     parser.add_argument("--manifest", type=str, default="slide_manifest.json", help="Path to slide_manifest.json")
     parser.add_argument("--record-tdd-capsule", type=str, default="", help="Path to Mode 1 TDD station capsule JSON")
     parser.add_argument("--record-grill-capsule", type=str, default="", help="Path to Mode 2 GRILL station capsule JSON")
@@ -908,6 +1162,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.init_storyboard:
         sb_doc = json.loads(Path(args.init_storyboard).read_text(encoding="utf-8"))
         rep = init_storyboard_manifest(sb_doc, Path(args.manifest))
+        print(json.dumps(rep, indent=2, ensure_ascii=False))
+        return 0 if rep.get("status") == "PASS" else 1
+
+    if args.mutate_storyboard:
+        mut_doc = json.loads(Path(args.mutate_storyboard).read_text(encoding="utf-8"))
+        rep = mutate_storyboard_manifest(Path(args.manifest), mut_doc)
         print(json.dumps(rep, indent=2, ensure_ascii=False))
         return 0 if rep.get("status") == "PASS" else 1
 

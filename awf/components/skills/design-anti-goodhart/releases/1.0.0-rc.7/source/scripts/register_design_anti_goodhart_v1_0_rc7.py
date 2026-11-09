@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Co-located AWF registration script for `skill.design-anti-goodhart@1.0.0-rc.6`
-and standalone workflow `design-anti-goodhart@1.0.0-rc.6` (AWF DesignAG).
+Co-located AWF registration script for `skill.design-anti-goodhart@1.0.0-rc.7`
+and standalone workflow `design-anti-goodhart@1.0.0-rc.7` (AWF DesignAG).
 Enforces:
 - Stage 0 Macro-GDD Global Deck Blueprint (`verify_global_deck_blueprint_capsule`: Total Slides MCQ +
   Emphasis Allocation MCQ + V3 Animation Budget MCQ),
@@ -72,7 +72,7 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
             "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds",
         ],
         "provenance": (
-            "Release 1.0.0-rc.6 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.6`), "
+            "Release 1.0.0-rc.7 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.7`), "
             "adding `verify_global_deck_blueprint_capsule` to Gate D16 for Stage 0 Macro-GDD Global Deck Blueprint "
             "verification (Total Slides MCQ, Emphasis Allocation MCQ, and V3 Animation Budget MCQ), "
             "layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
@@ -84,7 +84,7 @@ def build_workflow_descriptor() -> Dict[str, Any]:
     return {
         "schema_version": 1,
         "id": "design-anti-goodhart",
-        "release": "1.0.0-rc.6",
+        "release": "1.0.0-rc.7",
         "status": "validated",
         "purpose": (
             "Standalone Visual, Pedagogical & Scientific Presentation (HTML-PPT / Editable PPTX) "
@@ -139,7 +139,7 @@ def build_workflow_descriptor() -> Dict[str, Any]:
 
 def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_id = "skill.design-anti-goodhart"
-    rel_id = "1.0.0-rc.6"
+    rel_id = "1.0.0-rc.7"
     wf_id = "design-anti-goodhart"
     source_rel = f"components/skills/design-anti-goodhart/releases/{rel_id}/source"
     source_dir = awf_root / source_rel
@@ -161,14 +161,14 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_sha = verify.file_sha256(comp_descriptor_path)
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
 
-    attest_rel = "attestations/release-integrity-20261108-design-anti-goodhart-v1-0-rc6.yaml"
+    attest_rel = "attestations/release-integrity-20261108-design-anti-goodhart-v1-0-rc7.yaml"
     attest_path = awf_root / attest_rel
     attest_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-design-anti-goodhart-release-20261108-v1-0-rc6",
-        "provenance": "Validated release 1.0.0-rc.6 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.6` and workflow `design-anti-goodhart@1.0.0-rc.6`, enforcing Stage 0 Macro-GDD Global Deck Blueprint + Dual-Stage Micro-GDD).",
+        "owner": "awf-design-anti-goodhart-release-20261108-v1-0-rc7",
+        "provenance": "Validated release 1.0.0-rc.7 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.7` and workflow `design-anti-goodhart@1.0.0-rc.7`, enforcing Stage 0 Macro-GDD Global Deck Blueprint + Dual-Stage Micro-GDD).",
         "releases": {
             f"{comp_id}@{rel_id}": {
                 "coverage": "tree",

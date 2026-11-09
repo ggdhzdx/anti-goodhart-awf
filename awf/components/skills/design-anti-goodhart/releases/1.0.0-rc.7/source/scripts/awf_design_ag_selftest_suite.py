@@ -291,6 +291,32 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         },
         expected_storyboard_count=6,
     )
+    res_d16_pos_elastic_jit = dag.verify_global_deck_blueprint_capsule(
+        {
+            "macro_thesis_probe": {
+                "executive_core_conflict": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，需用极化激元反交叉耦合加速抽光",
+                "human_baseline_alignment": "用户希望先定下 4–10 页弹性区间，具体哪页加减和哪页做 V3 动画在后续问答中边走边定",
+            },
+            "total_slides_mcq": {
+                "options": ["A (Recommended): 4–10页弹性精讲档（支持问答中动态增删）", "B: 18页固定档"],
+                "selected_option": "A (Recommended): 4–10页弹性精讲档（支持问答中动态增删）",
+                "elastic_slide_range": [4, 10],
+            },
+            "emphasis_allocation_mcq": {
+                "options": ["A (Recommended): 重点深挖反交叉色散与 TTA 抑制", "B: 重点讲工艺"],
+                "selected_option": "A (Recommended): 重点深挖反交叉色散与 TTA 抑制",
+                "heavy_focus_modules": ["极化激元反交叉耦合", "TTA 抑制"],
+            },
+            "v3_animation_budget_mcq": {
+                "options": ["A (Recommended): 全篇保底 >=2 页 V3 动画，具体哪页在单页问答时动态拍板 (JIT_DURING_QA)", "B: 提前锁死页码"],
+                "selected_option": "A (Recommended): 全篇保底 >=2 页 V3 动画，具体哪页在单页问答时动态拍板 (JIT_DURING_QA)",
+                "v3_discovery_policy": "JIT_DURING_QA",
+                "min_v3_slides_quota": 2,
+                "v3_designated_slide_indices": [],
+            },
+        },
+        expected_storyboard_count=6,
+    )
     if (
         res_d16_neg_batch2["passed"]
         or res_d16_neg_hop["passed"]
@@ -302,8 +328,9 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         or res_d16_neg_grill_no_mcq["passed"]
         or res_d16_neg_dual_evol["passed"]
         or res_d16_neg_global_bp["passed"]
+        or not res_d16_pos_elastic_jit["passed"]
     ):
-        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/MCQ/RubberStamp/GlobalBlueprint/Dual-Evolve violation, or monotonous layout cloning")
+        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/MCQ/RubberStamp/GlobalBlueprint/Dual-Evolve violation, or failed elastic/JIT blueprint")
 
     # D17 Exact Calibration Check against Section II of `01_optoelectronic_scoring_criteria_v3.md`:
     # "为什么是反交叉" (weight = 4, required = V3):

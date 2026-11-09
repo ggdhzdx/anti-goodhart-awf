@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "html-ppt",
-  "release": "1.0.0-rc.5",
+  "release": "1.0.0-rc.6",
   "status": "validated",
   "purpose": "Self-Evolving, Anti-Goodhart 16:9 Scientific Interactive HTML Presentation Workflow (AWF HTML-PPT V3 / SciSlide) enforcing a Two-Level Macro-to-Micro Tri-Mode Architecture (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 animation slides + Stage 1..N Single-Slide `TDD`, Dual-Stage `GRILL`, or `AUTONOMOUS_DUAL_EVOLVE`), strictly 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`), 1-Hop `slide_manifest.json` topological slide locking (`unverified_slide_hop_distance == 1`), 18 Automated DesignAG Gates (`D1`-`D18`), 7 Redlines (`R1`-`R7`), Dual Quantitative Rubrics (`>=85/100`), Read-Only Red Subagent Visual Audit, and Darwinian Escape-to-Gate evolution.",
   "entry_skills": [

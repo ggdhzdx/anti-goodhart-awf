@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "design-anti-goodhart",
-  "release": "1.0.0-rc.6",
+  "release": "1.0.0-rc.7",
   "status": "validated",
   "purpose": "Standalone Visual, Pedagogical & Scientific Presentation (HTML-PPT / Editable PPTX) Anti-Goodhart Verification & Dual-Rubric Scoring Workflow (AWF DesignAG, 18 Automated Design Gates `D1`-`D18` + Stage 0 Macro-GDD Global Deck Blueprint Verification + Strictly 1-Slide-Per-Step & 1-Hop Topological Slide Lock + Tri-Mode Verification [`TDD`, Dual-Stage `GDD`, and `AUTONOMOUS_DUAL_EVOLVE`] + 7 Redlines `R1`-`R7` + Optoelectronic v3 & Supermolecule 5-Dim Quantitative Rubrics), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`.",
   "entry_skills": [
