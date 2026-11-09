@@ -1086,18 +1086,16 @@ def verify_global_deck_blueprint_capsule(
 ) -> Dict[str, Any]:
     """
     Verify Stage 0 Macro-GDD Global Deck Blueprint Capsule (`global_deck_blueprint`) with
-    Elastic Rolling Storyboard & JIT V3 Animation Discovery support:
-    1. `macro_thesis_probe`:
-       - `executive_core_conflict`: 3-sentence bird's-eye synthesis of the entire work;
-       - `human_baseline_alignment`: user's initial response or bird's-eye onboarding closure;
-    2. Three Global Architecture Multiple-Choice Decisions (Supporting Elastic Mid-Stream Evolution):
-       - `total_slides_mcq`: `options` (>=2 tiers), `selected_option`, and EITHER `planned_total_slides`
-         OR `elastic_slide_range: [min_slides, max_slides]` (allowing dynamic slide splits/insertions/merges
-         as Q&A progresses via `storyboard_revisions`);
-       - `emphasis_allocation_mcq`: `options` (>=2 focus plans), `selected_option`, and `heavy_focus_modules`;
-       - `v3_animation_budget_mcq`: `options` (>=2 animation plans), `selected_option`, and EITHER
-         upfront `v3_designated_slide_indices` OR `v3_discovery_policy` in `{"HYBRID_SEED_PLUS_JIT", "JIT_DURING_QA"}`
-         with `min_v3_slides_quota >= 1` (allowing exact V3 animation slides to be decided during Stage 1-3 Q&A).
+    Content & Logical Flow Spine (`logical_flow_mcq`), Unbounded Flow-Driven Slide Count
+    (`slide_count_policy: "UNBOUNDED_FLOW_DRIVEN"` / `"不限"`), Elastic Range, and JIT V3 Discovery:
+    1. `macro_thesis_probe`: `executive_core_conflict` + `human_baseline_alignment`;
+    2. `logical_flow_mcq` (Optional/Recommended primary spine): `options`, `selected_option`, and
+       `logical_flow_spine` (ordered logical steps/modules that drive slide creation naturally);
+    3. `emphasis_allocation_mcq`: `options`, `selected_option`, and `heavy_focus_modules`;
+    4. `total_slides_mcq`: `options`, `selected_option`, and EITHER `slide_count_policy == "UNBOUNDED_FLOW_DRIVEN"`
+       (`"不限"`, where exact slide count emerges naturally as the logical flow is built),
+       `elastic_slide_range: [min_slides, max_slides]`, OR fixed `planned_total_slides`;
+    5. `v3_animation_budget_mcq`: `v3_discovery_policy` in `{"JIT_DURING_QA", "HYBRID_SEED_PLUS_JIT", "UPFRONT_LOCKED"}`.
     """
     issues: List[str] = []
     if not isinstance(global_deck_blueprint, dict) or not global_deck_blueprint:
@@ -1117,6 +1115,19 @@ def verify_global_deck_blueprint_capsule(
         if len(align) < 8:
             issues.append("macro_thesis_probe missing human_baseline_alignment")
 
+    flow_mcq = global_deck_blueprint.get("logical_flow_mcq")
+    flow_spine: List[str] = []
+    if isinstance(flow_mcq, dict):
+        f_opts = flow_mcq.get("options", [])
+        f_sel = str(flow_mcq.get("selected_option", "")).strip()
+        raw_spine = flow_mcq.get("logical_flow_spine", [])
+        if isinstance(raw_spine, list):
+            flow_spine = [str(s).strip() for s in raw_spine if str(s).strip()]
+        if not isinstance(f_opts, list) or len(f_opts) < 2 or not f_sel:
+            issues.append("logical_flow_mcq must provide >=2 options and a selected_option")
+        if len(flow_spine) < 2:
+            issues.append("logical_flow_mcq must define >=2 ordered modules in logical_flow_spine")
+
     revisions = global_deck_blueprint.get("storyboard_revisions", [])
     has_revisions = isinstance(revisions, list) and len(revisions) > 0
 
@@ -1124,21 +1135,35 @@ def verify_global_deck_blueprint_capsule(
     planned_total = 0
     min_slides_floor = 1
     max_slides_ceiling = 0
+    slide_count_policy = "FIXED"
     if not isinstance(slides_mcq, dict):
-        issues.append("Global blueprint missing total_slides_mcq (initial slide count or elastic range)")
+        issues.append("Global blueprint missing total_slides_mcq (unbounded flow-driven, elastic range, or fixed)")
     else:
         opts = slides_mcq.get("options", [])
         sel = str(slides_mcq.get("selected_option", "")).strip()
-        planned_total = _int_or(slides_mcq, "planned_total_slides", 0)
+        raw_policy = str(slides_mcq.get("slide_count_policy", "")).strip().upper()
+        raw_planned = slides_mcq.get("planned_total_slides")
+        is_unbounded = (
+            raw_policy in {"UNBOUNDED_FLOW_DRIVEN", "UNBOUNDED", "FLOW_DRIVEN"}
+            or bool(slides_mcq.get("unbounded_flow_driven", False))
+            or str(raw_planned).strip().upper() in {"UNBOUNDED", "不限", "FLOW_DRIVEN"}
+        )
+        planned_total = 0 if is_unbounded else _int_or(slides_mcq, "planned_total_slides", 0)
         raw_range = slides_mcq.get("elastic_slide_range", [])
         if isinstance(raw_range, list) and len(raw_range) == 2:
             min_slides_floor = int(raw_range[0])
             max_slides_ceiling = int(raw_range[1])
+            slide_count_policy = "ELASTIC_RANGE"
+        if is_unbounded:
+            slide_count_policy = "UNBOUNDED_FLOW_DRIVEN"
         if not isinstance(opts, list) or len(opts) < 2 or not sel:
             issues.append("total_slides_mcq must provide >=2 options and a selected_option")
-        if planned_total < 1 and max_slides_ceiling < 1:
-            issues.append("total_slides_mcq must set planned_total_slides >= 1 or elastic_slide_range [min, max]")
-        elif expected_storyboard_count > 0 and not has_revisions:
+        if not is_unbounded and planned_total < 1 and max_slides_ceiling < 1:
+            issues.append(
+                "total_slides_mcq must set slide_count_policy='UNBOUNDED_FLOW_DRIVEN' ('不限'), "
+                "elastic_slide_range [min, max], or planned_total_slides >= 1"
+            )
+        elif not is_unbounded and expected_storyboard_count > 0 and not has_revisions:
             if max_slides_ceiling >= min_slides_floor >= 1:
                 if not (min_slides_floor <= expected_storyboard_count <= max_slides_ceiling):
                     issues.append(
@@ -1192,6 +1217,8 @@ def verify_global_deck_blueprint_capsule(
 
     return {
         "passed": len(issues) == 0,
+        "slide_count_policy": slide_count_policy,
+        "logical_flow_spine": flow_spine or focus_mods,
         "planned_total_slides": planned_total or expected_storyboard_count,
         "elastic_slide_range": [min_slides_floor, max_slides_ceiling] if max_slides_ceiling >= 1 else [],
         "heavy_focus_modules": focus_mods,

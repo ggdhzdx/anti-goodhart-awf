@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Co-located AWF registration script for `skill.html-ppt@1.0.0-rc.9`
-and standalone workflow `html-ppt@1.0.0-rc.6` (AWF HTML-PPT V3 / SciSlide).
+Co-located AWF registration script for `skill.html-ppt@1.0.0-rc.10`
+and standalone workflow `html-ppt@1.0.0-rc.7` (AWF HTML-PPT V3 / SciSlide).
 Enforces Two-Level Macro-to-Micro Tri-Mode Architecture:
 - Stage 0 Macro-GDD Global Deck Blueprint (`global_deck_blueprint`: Total Slides MCQ + Emphasis Allocation MCQ +
   V3 Animation Budget MCQ, cross-checked at each single-slide step),
@@ -42,7 +42,7 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
         "source_snapshot": source_rel,
         "tree_sha256": legacy_hash,
         "depends_on": [
-            "skill.design-anti-goodhart@1.0.0-rc.7",
+            "skill.design-anti-goodhart@1.0.0-rc.8",
             "skill.anti-goodhart-verification@3.6.0-rc.1",
         ],
         "runtime_requirements": [
@@ -73,10 +73,10 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
             "Final visual acceptance includes 1920x1080 rendered-page review under Gate D18",
         ],
         "provenance": (
-            "Release 1.0.0-rc.9 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.9` and standalone workflow "
-            "`html-ppt@1.0.0-rc.6`), introducing Stage 0 Macro-GDD Global Deck Blueprint verification and "
+            "Release 1.0.0-rc.10 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.10` and standalone workflow "
+            "`html-ppt@1.0.0-rc.7`), introducing Stage 0 Macro-GDD Global Deck Blueprint verification and "
             "per-slide V3 animation designation enforcement (`designated_v3_animation`), powered by "
-            "`skill.design-anti-goodhart@1.0.0-rc.7`."
+            "`skill.design-anti-goodhart@1.0.0-rc.8`."
         ),
     }
 
@@ -85,7 +85,7 @@ def build_workflow_descriptor() -> Dict[str, Any]:
     return {
         "schema_version": 1,
         "id": "html-ppt",
-        "release": "1.0.0-rc.6",
+        "release": "1.0.0-rc.7",
         "status": "validated",
         "purpose": (
             "Self-Evolving, Anti-Goodhart 16:9 Scientific Interactive HTML Presentation Workflow "
@@ -142,9 +142,9 @@ def build_workflow_descriptor() -> Dict[str, Any]:
 
 def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_id = "skill.html-ppt"
-    comp_rel_id = "1.0.0-rc.9"
+    comp_rel_id = "1.0.0-rc.10"
     wf_id = "html-ppt"
-    wf_rel_id = "1.0.0-rc.6"
+    wf_rel_id = "1.0.0-rc.7"
     source_rel = f"components/skills/html-ppt/releases/{comp_rel_id}/source"
     source_dir = awf_root / source_rel
     comp_descriptor_rel = "components/skills/html-ppt/component.yaml"
@@ -165,14 +165,14 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_sha = verify.file_sha256(comp_descriptor_path)
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
 
-    attest_rel = "attestations/release-integrity-20261108-html-ppt-rc9.yaml"
+    attest_rel = "attestations/release-integrity-20261108-html-ppt-rc10.yaml"
     attest_path = awf_root / attest_rel
     attest_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-html-ppt-release-20261108-rc9",
-        "provenance": "Validated release 1.0.0-rc.9 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.9` and standalone workflow `html-ppt@1.0.0-rc.6`, enforcing Stage 0 Macro-GDD Global Deck Blueprint + Per-Slide V3 Animation Designation + Dual-Stage Micro-GDD).",
+        "owner": "awf-html-ppt-release-20261108-rc10",
+        "provenance": "Validated release 1.0.0-rc.10 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.10` and standalone workflow `html-ppt@1.0.0-rc.7`, enforcing Stage 0 Macro-GDD Global Deck Blueprint + Per-Slide V3 Animation Designation + Dual-Stage Micro-GDD).",
         "releases": {
             f"{comp_id}@{comp_rel_id}": {
                 "coverage": "tree",
@@ -203,7 +203,7 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
         "locked_at": "2026-11-08",
         "components": {
             comp_id: comp_rel_id,
-            "skill.design-anti-goodhart": "1.0.0-rc.7",
+            "skill.design-anti-goodhart": "1.0.0-rc.8",
             "skill.anti-goodhart-verification": "3.6.0-rc.1",
         },
     }

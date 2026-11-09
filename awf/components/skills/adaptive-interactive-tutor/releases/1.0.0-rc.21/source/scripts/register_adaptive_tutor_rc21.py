@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 Co-located AWF Release Registration Script for AWF Tutor / SciTutor
-(adaptive-interactive-tutor@1.0.0-rc.20 / V16 Macro-to-Micro Tri-Mode GDD Edition).
+(adaptive-interactive-tutor@1.0.0-rc.21 / V16 Macro-to-Micro Tri-Mode GDD Edition).
 Strictly follows ADR 0012 and ADR 0022.
 Locks `skill.anti-goodhart-verification@3.6.0-rc.1` (73 automated gates),
-`skill.design-anti-goodhart@1.0.0-rc.7` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16),
-and `skill.html-ppt@1.0.0-rc.9` (Two-Level Macro-to-Micro Tri-Mode 1-Slide-Per-Step Enforcer).
+`skill.design-anti-goodhart@1.0.0-rc.8` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16),
+and `skill.html-ppt@1.0.0-rc.10` (Two-Level Macro-to-Micro Tri-Mode 1-Slide-Per-Step Enforcer).
 """
 
 from __future__ import annotations
@@ -93,7 +93,7 @@ def build_release_meta(
             "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms",
         ],
         "provenance": (
-            f"Adaptive Interactive Tutor V16 (1.0.0-rc.20) locking to `{guard_id}@{guard_rel}` (73 automated gates), "
+            f"Adaptive Interactive Tutor V16 (1.0.0-rc.21) locking to `{guard_id}@{guard_rel}` (73 automated gates), "
             f"`{design_ag_id}@{design_ag_rel}` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16), and "
             f"`{html_ppt_id}@{html_ppt_rel}` (Two-Level Macro-to-Micro Tri-Mode `TDD`, Dual-Stage `GRILL`, and `AUTONOMOUS_DUAL_EVOLVE`)."
         ),
@@ -186,11 +186,11 @@ def main() -> int:
     guard_id = "skill.anti-goodhart-verification"
     guard_rel = "3.6.0-rc.1"
     design_ag_id = "skill.design-anti-goodhart"
-    design_ag_rel = "1.0.0-rc.7"
+    design_ag_rel = "1.0.0-rc.8"
     html_ppt_id = "skill.html-ppt"
-    html_ppt_rel = "1.0.0-rc.9"
+    html_ppt_rel = "1.0.0-rc.10"
     wf_id = "adaptive-interactive-tutor"
-    rel_id = "1.0.0-rc.20"
+    rel_id = "1.0.0-rc.21"
 
     source_rel = f"components/skills/adaptive-interactive-tutor/releases/{rel_id}/source"
     source_dir = AWF_ROOT / source_rel
@@ -224,15 +224,15 @@ def main() -> int:
     comp_sha = verify.file_sha256(comp_descriptor_path)
 
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
-    attestation_rel = "attestations/release-integrity-20261108-adaptive-interactive-tutor-rc20.yaml"
+    attestation_rel = "attestations/release-integrity-20261108-adaptive-interactive-tutor-rc21.yaml"
     attestation_path = AWF_ROOT / attestation_rel
     attestation_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-adaptive-interactive-tutor-release-20261108-rc20",
+        "owner": "awf-adaptive-interactive-tutor-release-20261108-rc21",
         "provenance": (
-            f"Validated release 1.0.0-rc.20 of AWF Tutor / SciTutor (skill.adaptive-interactive-tutor@1.0.0-rc.20 / V16 Macro-to-Micro GDD) "
+            f"Validated release 1.0.0-rc.21 of AWF Tutor / SciTutor (skill.adaptive-interactive-tutor@1.0.0-rc.21 / V16 Macro-to-Micro GDD) "
             f"locking to {guard_id}@{guard_rel} (73 gates), {design_ag_id}@{design_ag_rel} (18 DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16), "
             f"and {html_ppt_id}@{html_ppt_rel} (Macro-to-Micro Tri-Mode 1-Slide-Per-Step)."
         ),

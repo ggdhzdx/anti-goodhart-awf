@@ -28,10 +28,10 @@ sys.dont_write_bytecode = True
 
 def _resolve_design_ag_scripts_dir() -> Path:
     candidates = [
+        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.8/source/scripts"),
+        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.8\source\scripts"),
         Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.7/source/scripts"),
         Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.7\source\scripts"),
-        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.6/source/scripts"),
-        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.6\source\scripts"),
         Path(__file__).resolve().parents[2] / "design-anti-goodhart" / "scripts",
     ]
     for c in candidates:
@@ -141,6 +141,7 @@ def init_storyboard_manifest(
             "slide_index": idx,
             "slide_id": f"slide_{idx:02d}",
             "station_id": station_id,
+            "flow_module": str(s.get("flow_module", "")),
             "title": str(s.get("title", f"Slide {idx}")),
             "layout_archetype": str(s.get("layout_archetype", "split_left_fig_right_guided_steps")),
             "required_visual_level": "V3" if is_v3_focus else str(s.get("required_visual_level", "V2")),
@@ -155,7 +156,7 @@ def init_storyboard_manifest(
         })
 
     manifest_data = {
-        "schema_version": 5,
+        "schema_version": 6,
         "workflow_mode": raw_mode,
         "max_slides_generated_per_step": 1,
         "tdd_mode": tdd_mode,
@@ -191,11 +192,11 @@ def mutate_storyboard_manifest(
     mutation_spec: Dict[str, Any],
 ) -> Dict[str, Any]:
     """
-    Mid-Stream Elastic Storyboard & JIT V3 Animation Revision Engine:
-    Allows adding/splitting slides (`INSERT_SLIDE` / `SPLIT_SLIDE`), merging/removing future
-    slides (`REMOVE_SLIDE` / `MERGE_SLIDES`), or dynamically promoting/demoting V3 animations
-    (`PROMOTE_V3` / `DEMOTE_V3`) during Stage 1-3 Q&A while preserving the 1-Hop DAG lock
-    and SHA-256 receipts of already-completed slides.
+    Mid-Stream Elastic Storyboard, Unbounded Flow-Driven Slide Growth & JIT V3 Animation Engine:
+    Allows appending/splitting/inserting slides along the logical flow (`APPEND_FLOW_SLIDE`,
+    `INSERT_SLIDE`, `SPLIT_SLIDE`), merging/removing future slides (`REMOVE_SLIDE`, `MERGE_SLIDES`),
+    or dynamically promoting/demoting V3 animations (`PROMOTE_V3`, `DEMOTE_V3`) during Stage 1-3 Q&A
+    while preserving the 1-Hop DAG lock and SHA-256 receipts of already-completed slides.
     """
     if not manifest_path.is_file():
         return {"status": "FAIL", "reason": f"Missing slide_manifest.json: {manifest_path}"}
@@ -204,7 +205,7 @@ def mutate_storyboard_manifest(
     sb_list: List[Dict[str, Any]] = manifest.get("storyboard_slides", [])
 
     action = str(mutation_spec.get("action", "")).strip().upper()
-    target_idx = _int_val(mutation_spec, "target_slide_index", 0)
+    target_idx = _int_val(mutation_spec, "target_slide_index", len(slides_list))
     reason = str(mutation_spec.get("reason", "")).strip()
     trigger_source = str(mutation_spec.get("trigger_source", "QA_DISCOVERY")).strip().upper()
 
@@ -214,17 +215,18 @@ def mutate_storyboard_manifest(
         return {"status": "FAIL", "reason": f"Invalid target_slide_index {target_idx}"}
 
     old_total = len(slides_list)
-    if action in {"INSERT_SLIDE", "SPLIT_SLIDE"}:
+    if action in {"APPEND_FLOW_SLIDE", "INSERT_SLIDE", "SPLIT_SLIDE"}:
         new_slide_spec = mutation_spec.get("new_slide_spec") or {}
-        insert_pos = target_idx  # Insert right after target_slide_index (0-based index == target_idx)
+        insert_pos = len(slides_list) if action == "APPEND_FLOW_SLIDE" else target_idx
         is_v3 = bool(new_slide_spec.get("designated_v3_animation", False)) or str(
             new_slide_spec.get("required_visual_level", "")
         ).upper().startswith("V3")
         new_entry = {
             "slide_index": insert_pos + 1,
             "slide_id": f"slide_{insert_pos + 1:02d}",
-            "station_id": str(new_slide_spec.get("station_id", f"Station_1.{insert_pos + 1}_split")),
-            "title": str(new_slide_spec.get("title", f"Split Slide {insert_pos + 1}")),
+            "station_id": str(new_slide_spec.get("station_id", f"Station_1.{insert_pos + 1}_flow")),
+            "flow_module": str(new_slide_spec.get("flow_module", "")),
+            "title": str(new_slide_spec.get("title", f"Flow Slide {insert_pos + 1}")),
             "layout_archetype": str(new_slide_spec.get("layout_archetype", "interactive_svg_sandbox_split")),
             "required_visual_level": "V3" if is_v3 else str(new_slide_spec.get("required_visual_level", "V2")),
             "designated_v3_animation": is_v3,
@@ -241,6 +243,7 @@ def mutate_storyboard_manifest(
             insert_pos,
             {
                 "station_id": new_entry["station_id"],
+                "flow_module": new_entry["flow_module"],
                 "title": new_entry["title"],
                 "layout_archetype": new_entry["layout_archetype"],
                 "required_visual_level": new_entry["required_visual_level"],
@@ -698,6 +701,17 @@ def assemble_verified_deck(
 
     gb = manifest.get("global_deck_blueprint")
     if isinstance(gb, dict):
+        flow_mcq = gb.get("logical_flow_mcq") or {}
+        raw_spine = flow_mcq.get("logical_flow_spine", [])
+        if isinstance(raw_spine, list) and len(raw_spine) >= 2:
+            if len(slides_list) < len(raw_spine):
+                return {
+                    "status": "FAIL",
+                    "reason": (
+                        f"Logical Flow Spine Incomplete: Stage 0 defined {len(raw_spine)} logical flow modules "
+                        f"({raw_spine}), but only {len(slides_list)} slide(s) were built"
+                    ),
+                }
         anim_mcq = gb.get("v3_animation_budget_mcq") or {}
         min_v3_quota = _int_val(anim_mcq, "min_v3_slides_quota", 0)
         if min_v3_quota >= 1:
@@ -1019,17 +1033,26 @@ def run_selftest() -> Dict[str, Any]:
         if pos_v3_contract.get("status") != "PASS":
             raise AssertionError(f"Expected V3 animation slide to pass: {pos_v3_contract}")
 
-        # --- PART E: Elastic Rolling Blueprint (JIT V3 Discovery + Mid-Stream Slide Split/Merge) ---
+        # --- PART E: Unbounded Flow-Driven Blueprint ("页数不限，顺着逻辑流程自然确定") + JIT V3 Discovery ---
         elastic_manifest = tdir / "elastic_manifest.json"
         elastic_bp = {
             "macro_thesis_probe": {
                 "executive_core_conflict": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，利用极化激元反交叉耦合压缩寿命破局",
-                "human_baseline_alignment": "用户表示开头先定 1–4 页弹性区间，哪些加减页、哪些做 V3 动画在后面问答时边走边定",
+                "human_baseline_alignment": "用户表示开头先确定内容和逻辑演进主线，页数选『不限』顺着逻辑自然长出，动画也边问边定",
+            },
+            "logical_flow_mcq": {
+                "options": [
+                    "A (Recommended): 1.自旋统计与TTA死结 -> 2.极化激元反交叉破局原理与色散验证",
+                    "B: 结论先行倒叙主线",
+                ],
+                "selected_option": "A (Recommended): 1.自旋统计与TTA死结 -> 2.极化激元反交叉破局原理与色散验证",
+                "logical_flow_spine": ["1.自旋统计与TTA死结", "2.极化激元反交叉破局原理与色散验证"],
             },
             "total_slides_mcq": {
-                "options": ["A (Recommended): 1–4页弹性精讲档（问答中可动态加减）", "B: 18页固定档"],
-                "selected_option": "A (Recommended): 1–4页弹性精讲档（问答中可动态加减）",
-                "elastic_slide_range": [1, 4],
+                "options": ["A (Recommended): 页数不限（顺着逻辑流程做，需要几页自然确定）", "B: 10–14页紧凑档"],
+                "selected_option": "A (Recommended): 页数不限（顺着逻辑流程做，需要几页自然确定）",
+                "slide_count_policy": "UNBOUNDED_FLOW_DRIVEN",
+                "planned_total_slides": "不限",
             },
             "emphasis_allocation_mcq": {
                 "options": ["A (Recommended): 重点深挖极化激元反交叉耦合", "B: 重点讲工艺"],

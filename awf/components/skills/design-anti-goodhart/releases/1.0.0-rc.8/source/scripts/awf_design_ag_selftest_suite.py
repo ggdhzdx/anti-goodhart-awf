@@ -297,10 +297,19 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
                 "executive_core_conflict": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，需用极化激元反交叉耦合加速抽光",
                 "human_baseline_alignment": "用户希望先定下 4–10 页弹性区间，具体哪页加减和哪页做 V3 动画在后续问答中边走边定",
             },
+            "logical_flow_mcq": {
+                "options": [
+                    "A (Recommended): 痛点死结 -> 极化激元反交叉破局原理 -> 寿命压缩与TTA抑制铁证 -> 代价与边界",
+                    "B: 结论先行倒叙主线",
+                ],
+                "selected_option": "A (Recommended): 痛点死结 -> 极化激元反交叉破局原理 -> 寿命压缩与TTA抑制铁证 -> 代价与边界",
+                "logical_flow_spine": ["痛点死结", "极化激元反交叉破局原理", "寿命压缩与TTA抑制铁证", "代价与边界"],
+            },
             "total_slides_mcq": {
-                "options": ["A (Recommended): 4–10页弹性精讲档（支持问答中动态增删）", "B: 18页固定档"],
-                "selected_option": "A (Recommended): 4–10页弹性精讲档（支持问答中动态增删）",
-                "elastic_slide_range": [4, 10],
+                "options": ["A (Recommended): 页数不限（顺着逻辑流程做，需要几页自然确定）", "B: 4–10页弹性精讲档"],
+                "selected_option": "A (Recommended): 页数不限（顺着逻辑流程做，需要几页自然确定）",
+                "slide_count_policy": "UNBOUNDED_FLOW_DRIVEN",
+                "planned_total_slides": "不限",
             },
             "emphasis_allocation_mcq": {
                 "options": ["A (Recommended): 重点深挖反交叉色散与 TTA 抑制", "B: 重点讲工艺"],

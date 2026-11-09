@@ -3,14 +3,14 @@ name: design-anti-goodhart
 description: Visual, Pedagogical & Slide-Deck Anti-Goodhart Verification and Dual-Rubric Scoring Engine (AWF DesignAG / DesignGuard / 设计门禁 / PPT防偷懒) with 18 Automated Design Gates (D1-D18), 7 Redline Circuit-Breakers (R1-R7), Multiplicative Clarity-by-Visual-Modality Scoring (capping V0 pure-text slides at 30%), DOM/Bounding-Box Zero-Overlap & Zero-Clipping Probes, Aspect-Ratio & Sub-Panel Crop Purity Guards, Anti-AI-MetaTone Copywriting Scanners, Acronym First-Use Visible Definition & Popover Guards, Interactive Physics Linkage Auditors, and Multimodal Red-Blue Visual Adversarial Review. Use whenever building, auditing, scoring, or reviewing HTML presentations (HTML-PPT), editable scientific PowerPoint decks (PPTX), or visual teaching slides.
 ---
 
-# AWF DesignAG: Visual, Pedagogical & Presentation Anti-Goodhart Engine (`skill.design-anti-goodhart@1.0.0-rc.7`)
+# AWF DesignAG: Visual, Pedagogical & Presentation Anti-Goodhart Engine (`skill.design-anti-goodhart@1.0.0-rc.8`)
 
 ## 1. Canonical Locations & Co-Located Rubric Authorities
 
-- **AWF Authoritative Source (`1.0.0-rc.7`)**:
-  - Skill Spec: `Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.7\source\SKILL.md`
-  - Automated 18-Gate & Dual-Rubric Engine: `Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.7\source\scripts\awf_design_anti_goodhart_gates.py`
-  - 18-Gate Positive/Negative Self-Test Suite: `Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.7\source\scripts\awf_design_ag_selftest_suite.py`
+- **AWF Authoritative Source (`1.0.0-rc.8`)**:
+  - Skill Spec: `Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.8\source\SKILL.md`
+  - Automated 18-Gate & Dual-Rubric Engine: `Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.8\source\scripts\awf_design_anti_goodhart_gates.py`
+  - 18-Gate Positive/Negative Self-Test Suite: `Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.8\source\scripts\awf_design_ag_selftest_suite.py`
 - **Co-Located Authoritative Rubric References**:
   1. **Rubric Mode 1 — Deep Scientific Literature / Optoelectronic HTML-PPT Rubric v3 (`100 pts + R1..R7 up to -15 pts`)**:
      [`references/01_optoelectronic_scoring_criteria_v3.md`](references/01_optoelectronic_scoring_criteria_v3.md) (5 Categories `A–E`, 17 Scoring Items, 15 Domain Knowledge Anchors with $A_i = \text{Weight}_i \times \text{Clarity} \times \text{VisualCoeff}$, derived from 39 real user feedback items across 13 models).

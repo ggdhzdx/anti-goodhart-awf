@@ -1,9 +1,9 @@
 ---
 name: html-ppt
-description: Build, audit, and evolve 16:9 scientific interactive HTML presentations (AWF HTML-PPT / SciSlide) under a Two-Level Macro-to-Micro Tri-Mode Architecture (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 animation slides + Stage 1..N Single-Slide `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`), strictly enforcing 1-Slide-Per-Step (`max_slides_generated_per_step == 1`) and 1-Hop Slide Topological Lock (`slide_manifest.json`), gated by `skill.design-anti-goodhart@1.0.0-rc.7` (AWF DesignAG) and `skill.anti-goodhart-verification@3.6.0-rc.1` (AWF Guard). Use whenever creating, revising, or auditing HTML slide decks, scientific paper walkthroughs, or teaching presentations.
+description: Build, audit, and evolve 16:9 scientific interactive HTML presentations (AWF HTML-PPT / SciSlide) under a Two-Level Macro-to-Micro Tri-Mode Architecture (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 animation slides + Stage 1..N Single-Slide `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`), strictly enforcing 1-Slide-Per-Step (`max_slides_generated_per_step == 1`) and 1-Hop Slide Topological Lock (`slide_manifest.json`), gated by `skill.design-anti-goodhart@1.0.0-rc.8` (AWF DesignAG) and `skill.anti-goodhart-verification@3.6.0-rc.1` (AWF Guard). Use whenever creating, revising, or auditing HTML slide decks, scientific paper walkthroughs, or teaching presentations.
 ---
 
-# AWF HTML-PPT V3 (`skill.html-ppt@1.0.0-rc.9` — Two-Level Macro-to-Micro Tri-Mode Engine: Stage 0 Global Deck Blueprint MCQs [Total Slides + Focus Modules + V3 Animation Budget] + Stage 1..N `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`, Strictly 1-Slide-Per-Step & `AWF DesignAG` 18-Gate Enforcement)
+# AWF HTML-PPT V3 (`skill.html-ppt@1.0.0-rc.10` — Two-Level Macro-to-Micro Tri-Mode Engine: Stage 0 Global Deck Blueprint MCQs [Total Slides + Focus Modules + V3 Animation Budget] + Stage 1..N `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`, Strictly 1-Slide-Per-Step & `AWF DesignAG` 18-Gate Enforcement)
 
 An anti-Goodhart, self-evolving scientific HTML presentation authoring and verification engine. To prevent mid-deck attention collapse, template cloning, unrendered LaTeX leaks, overlapping/clipped DOM boxes, and pure-text laziness (`V0 = 0.30` cap), **AWF HTML-PPT V3 strictly forbids generating multiple slides in a single step** and supports a **Tri-Mode Execution Architecture** (`workflow_mode: "TDD" | "GRILL" | "AUTONOMOUS_DUAL_EVOLVE"`). Regardless of mode, every slide (`slides/slide_XX.html`) is generated, rendered, and audited **one slide per step** before unlocking the next slide in `slide_manifest.json`.
 
@@ -15,13 +15,13 @@ An anti-Goodhart, self-evolving scientific HTML presentation authoring and verif
 Before generating `storyboard.json` or writing `slide_01.html`, the Agent determines the **global architecture** with the human in two steps:
 1. **Step 0.A — 全篇核心冲突一刀探底 (`macro_thesis_probe`)**:
    - Synthesizes the entire paper/topic into a 3-sentence **Bird's-Eye Conflict Formula** (`executive_core_conflict`: Bottleneck Ceiling $\to$ Core Physical Knob $\to$ Quantitative Breakthrough) and probes the user's baseline familiarity (`human_baseline_alignment`; if the user hasn't read the paper yet, provides a 1-minute bird's-eye onboarding map first).
-2. **Step 0.B — 全局导演三联选择题（支持弹性区间与问答中动态演进，`total_slides_mcq` + `emphasis_allocation_mcq` + `v3_animation_budget_mcq`）**:
-   - **MCQ 1 (`total_slides_mcq` — 一共多少页？固定页数或弹性区间)**: Presents $\ge 2$ pacing tiers and locks EITHER an exact `planned_total_slides` OR an **Elastic Slide Range (`elastic_slide_range: [min_slides, max_slides]`, e.g., `[14, 22]`)**. As Q&A progresses in Stage 1–3, the user or Agent can dynamically add/split slides (`SPLIT_SLIDE` / `INSERT_SLIDE`) when a mechanism needs deeper unpacking, or merge/remove future slides (`MERGE_SLIDES` / `REMOVE_SLIDE`) when the user already knows a section well, via `--mutate-storyboard` (`mutate_storyboard_manifest`).
-   - **MCQ 2 (`emphasis_allocation_mcq` — 哪些方面重点讲？)**: Ranks all mechanisms by `Counter-Intuitiveness × Rubric Weight` and presents $\ge 2$ focus-weighting options so the user chooses `heavy_focus_modules` (which get 2–3 consecutive deep-dive slides instead of 1-page summaries).
-   - **MCQ 3 (`v3_animation_budget_mcq` — 哪些设计动画/交互讲？先锁定种子页或边问边定 `JIT_DURING_QA`)**: Supports three discovery policies (`v3_discovery_policy`):
-     1. `"UPFRONT_LOCKED"`: Lock exact 1-based slide indices (`v3_designated_slide_indices`) at Stage 0;
-     2. `"HYBRID_SEED_PLUS_JIT"`: Lock 1–2 obvious core animation seed slides at Stage 0 AND promote additional slides during Stage 1–3 Q&A;
-     3. `"JIT_DURING_QA"`: Do **not** force premature slide-number guessing at Stage 0 (`v3_designated_slide_indices: []`); instead, lock a minimum deck animation quota (`min_v3_slides_quota >= 1`, e.g. 3 V3 slides across the deck) and decide **which exact slides get V3 interactive sliders/animations during each slide's Q&A** (`PROMOTE_V3` or `promote_to_v3_animation: true` in the station capsule; Stage 4 `assemble_verified_deck` verifies that total V3 slides $\ge$ `min_v3_slides_quota`).
+2. **Step 0.B — 全局导演选择题（以「内容与逻辑演进流程」为核心，支持「页数不限，顺着逻辑自然长出」，`logical_flow_mcq` + `emphasis_allocation_mcq` + `total_slides_mcq` + `v3_animation_budget_mcq`）**:
+   - **MCQ 1 (`logical_flow_mcq` — 内容与逻辑演进流程怎么走？首要核心)**: Establishes the ordered causal narrative spine (`logical_flow_spine`, e.g., `["1. 痛点死结", "2. 核心破局旋钮与物理机理", "3. 控制变量实验铁证", "4. 代价与适用边界"]`).
+   - **MCQ 2 (`emphasis_allocation_mcq` — 哪些方面重点深挖？)**: Ranks all mechanisms by `Counter-Intuitiveness × Rubric Weight` so the user selects `heavy_focus_modules`.
+   - **MCQ 3 (`total_slides_mcq` — 页数策略：默认推荐「不限，顺着逻辑自然确定」)**:
+     1. **`A (Recommended)` 页数不限 / 顺着逻辑流程自然生长 (`slide_count_policy: "UNBOUNDED_FLOW_DRIVEN"`, `planned_total_slides: "不限"`)**: Do **not** guess an artificial total slide count upfront! Instead, follow `logical_flow_spine` step by step—each logical module organically takes as many slides as needed (`APPEND_FLOW_SLIDE` / `SPLIT_SLIDE` / `MERGE_SLIDES` via `--mutate-storyboard`) until every module in `logical_flow_spine` is clearly explained.
+     2. **`B` 弹性页数区间 (`elastic_slide_range: [min_slides, max_slides]`)** or **`C` 固定时长页数 (`planned_total_slides`)**.
+   - **MCQ 4 (`v3_animation_budget_mcq` — 哪些设计动画/交互讲？默认推荐边问边定 `JIT_DURING_QA`)**: Supports `"JIT_DURING_QA"` (decide which exact slides get `V3` interactive sliders/animations during each slide's Q&A along the logical flow, while enforcing `min_v3_slides_quota >= 1` at final deck assembly), `"HYBRID_SEED_PLUS_JIT"`, or `"UPFRONT_LOCKED"`.
 
 ### Mode 1: `TDD` — Tutor-Driven Design（以教代建模式，`tdd_mode: true`）
 - **Workflow**: `1 Tutor Station == 1 TDD Cognitive Capsule == 1 Slide`.
@@ -52,7 +52,7 @@ Before generating `storyboard.json` or writing `slide_01.html`, the Agent determ
 
 1. **Strictly 1 Slide Per Step (`max_slides_generated_per_step == 1`)**:
    - Never generate a monolithic multi-slide HTML file in one shot, and never batch 2 or more slides in a single step.
-   - Each slide lives in its own isolated module (`slides/slide_01.html`, `slides/slide_02.html`, ...) and is individually audited via [`scripts/audit_single_slide_step.py`](scripts/audit_single_slide_step.py) against `skill.design-anti-goodhart@1.0.0-rc.7` (`AWF DesignAG`).
+   - Each slide lives in its own isolated module (`slides/slide_01.html`, `slides/slide_02.html`, ...) and is individually audited via [`scripts/audit_single_slide_step.py`](scripts/audit_single_slide_step.py) against `skill.design-anti-goodhart@1.0.0-rc.8` (`AWF DesignAG`).
 2. **1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`)**:
    - Tracked in `slide_manifest.json`. At initialization, only `slide_01` (`Station_1.1`) is `"UNLOCKED"`; `slide_02..N` are `"LOCKED"`.
    - `slide_{k+1}` is unlocked **if and only if** `slide_k` has passed all per-slide DesignAG gates (`D1`–`D12`, `D15`, `D16`) with zero Redlines (`R1`–`R7`) and its SHA-256 receipt is recorded as `"status": "PASS"` in `slide_manifest.json`.
