@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Co-located AWF registration script for `skill.design-anti-goodhart@1.0.0-rc.4`
-and standalone workflow `design-anti-goodhart@1.0.0-rc.4` (AWF DesignAG).
+Co-located AWF registration script for `skill.design-anti-goodhart@1.0.0-rc.5`
+and standalone workflow `design-anti-goodhart@1.0.0-rc.5` (AWF DesignAG).
 Enforces strictly 1-Slide-Per-Step micro-step generation (`MAX_MICROSTEP_BATCH_SLIDES = 1`),
 1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`), and Tri-Mode verification:
 (1) Tutor-Driven Design (`tdd_station_capsule`),
-(2) Grill-Driven Design (`gdd_grill_capsule`),
+(2) Dual-Stage Grill-Driven Design (`gdd_grill_capsule`: 3-Part Anchored Mechanism Grill +
+    Anti-Rubber-Stamp Re-Grill + Bottleneck-to-Slide Mapping + Slide Design MCQ),
 (3) Autonomous Draft + Post-Review Dual-Evolution (`dual_evolution_feedback_receipt`).
 Strictly follows ADR 0012 and ADR 0022.
 """
@@ -50,7 +51,7 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
             "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
             "strict-single-slide-per-step-microstep-and-1hop-topological-slide-lock",
             "station-to-slide-tutor-driven-design-tdd-cognitive-capsule-verification",
-            "grill-driven-design-gdd-quiz-teach-on-miss-and-regrill-capsule-verification",
+            "dual-stage-grill-driven-design-3part-mechanism-grill-anti-rubberstamp-and-slide-design-mcq",
             "autonomous-draft-post-review-dual-evolution-ppt-and-awf-upgrade-verification",
             "dual-rubric-quantitative-scorer-optoelectronic-v3-and-supermolecule-5dim",
             "multiplicative-clarity-times-visual-modality-v0-pure-text-30pct-cap",
@@ -70,10 +71,11 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
             "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds",
         ],
         "provenance": (
-            "Release 1.0.0-rc.4 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.4`), "
-            "upgrading Gate D16 to verify all 3 authoring modes: (1) Tutor-Driven Design (`tdd_station_capsule`), "
-            "(2) Grill-Driven Design (`gdd_grill_capsule`), and (3) Autonomous Draft + Post-Review Dual-Evolution "
-            "(`dual_evolution_feedback_receipt`), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
+            "Release 1.0.0-rc.5 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.5`), "
+            "upgrading Gate D16 `verify_grill_station_capsule_completeness` to enforce Dual-Stage Grill-Driven Design "
+            "(Stage 1: 4-Archetype 3-Part Anchored Mechanism Grill + Anti-Rubber-Stamp Re-Grill; Stage 2: "
+            "`bottleneck_to_slide_mapping` + `slide_design_mcq` multiple-choice slide design decision), "
+            "layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
         ),
     }
 
@@ -82,15 +84,15 @@ def build_workflow_descriptor() -> Dict[str, Any]:
     return {
         "schema_version": 1,
         "id": "design-anti-goodhart",
-        "release": "1.0.0-rc.4",
+        "release": "1.0.0-rc.5",
         "status": "validated",
         "purpose": (
             "Standalone Visual, Pedagogical & Scientific Presentation (HTML-PPT / Editable PPTX) "
             "Anti-Goodhart Verification & Dual-Rubric Scoring Workflow (AWF DesignAG, 18 Automated Design Gates "
             "`D1`-`D18` + Strictly 1-Slide-Per-Step & 1-Hop Topological Slide Lock + Tri-Mode Verification "
-            "[Tutor-Driven Design `TDD`, Grill-Driven Design `GDD`, and Autonomous Draft + Dual-Evolution] + "
-            "7 Redlines `R1`-`R7` + Optoelectronic v3 & Supermolecule 5-Dim Quantitative Rubrics), "
-            "layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
+            "[Tutor-Driven Design `TDD`, Dual-Stage Grill-Driven Design `GDD` with 3-Part Mechanism Grill & Slide Design MCQ, "
+            "and Autonomous Draft + Dual-Evolution] + 7 Redlines `R1`-`R7` + Optoelectronic v3 & Supermolecule 5-Dim "
+            "Quantitative Rubrics), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
         ),
         "entry_skills": [
             "skill.design-anti-goodhart",
@@ -121,17 +123,9 @@ def build_workflow_descriptor() -> Dict[str, Any]:
         "engineering_gate": (
             "Strictly enforce 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`), "
             "1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`), and Tri-Mode verification "
-            "(`verify_tdd_station_capsule_completeness`, `verify_grill_station_capsule_completeness`, "
-            "`verify_dual_evolution_feedback_receipt`); "
-            "forbid unrendered raw LaTeX tokens (`D1`/`R1`), unclosed HTML tags or 3+1/4+1 orphan grid rows (`D2`/`R2`), "
-            "excessive corner quotes, AI clichés, meta-evaluations, or prompt residue (`D3`/`R5`), undefined acronyms "
-            "or standalone glossary walls (`D4`), cartoon emojis, fake CSS progress bars, AI decorative mechanism fakes, "
-            "or AI watermarks (`D5`/`R4`), default-visible teleprompters or slide scrollbars (`D6`/`R6`), overlapping or "
-            "clipped bounding boxes (`D7`/`R2`), canvas overcrowding or top-heavy imbalance (`D8`), stretched/squashed "
-            "aspect ratios (`D9`), dirty sub-panel crops (`D10`), unreferenced figures (`D11`/`R3`), low WCAG contrast "
-            "or cyberpunk neon glow (`D12`), missing background/prior-art/foreshadowing (`D13`), superficial why-chains (`D14`/`R7`), "
-            "hollow animations or non-physical sliders (`D15`), repetitive card walls (`D16`), pure-text V0 laziness (`D17`), "
-            "and unverified visual claims without rendered 1920x1080 PNG Red-Blue adversarial review (`D18`)."
+            "(`verify_tdd_station_capsule_completeness`, `verify_grill_station_capsule_completeness` [enforcing "
+            "3-part mechanism grill, anti-rubber-stamp re-grill, bottleneck-to-slide mapping, and Slide Design MCQ], "
+            "`verify_dual_evolution_feedback_receipt`); forbid all D1-D18 and R1-R7 violations."
         ),
         "scientific_gate": (
             "All scientific presentations and interactive teaching decks must pass all 18 DesignAG gates (`D1`-`D18`), "
@@ -145,7 +139,7 @@ def build_workflow_descriptor() -> Dict[str, Any]:
 
 def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_id = "skill.design-anti-goodhart"
-    rel_id = "1.0.0-rc.4"
+    rel_id = "1.0.0-rc.5"
     wf_id = "design-anti-goodhart"
     source_rel = f"components/skills/design-anti-goodhart/releases/{rel_id}/source"
     source_dir = awf_root / source_rel
@@ -167,14 +161,14 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_sha = verify.file_sha256(comp_descriptor_path)
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
 
-    attest_rel = "attestations/release-integrity-20261108-design-anti-goodhart-v1-0-rc4.yaml"
+    attest_rel = "attestations/release-integrity-20261108-design-anti-goodhart-v1-0-rc5.yaml"
     attest_path = awf_root / attest_rel
     attest_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-design-anti-goodhart-release-20261108-v1-0-rc4",
-        "provenance": "Validated release 1.0.0-rc.4 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.4` and workflow `design-anti-goodhart@1.0.0-rc.4`, enforcing 1-Slide-Per-Step, 1-Hop Slide Topological Lock, and Tri-Mode verification [TDD, Grill-Driven Design, and Autonomous Draft + Dual-Evolution]).",
+        "owner": "awf-design-anti-goodhart-release-20261108-v1-0-rc5",
+        "provenance": "Validated release 1.0.0-rc.5 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.5` and workflow `design-anti-goodhart@1.0.0-rc.5`, enforcing Dual-Stage Grill-Driven Design with 3-Part Mechanism Grill, Anti-Rubber-Stamp Re-Grill, Bottleneck-to-Slide Mapping, and Slide Design MCQ).",
         "releases": {
             f"{comp_id}@{rel_id}": {
                 "coverage": "tree",

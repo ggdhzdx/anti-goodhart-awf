@@ -930,15 +930,35 @@ def verify_tdd_station_capsule_completeness(
     }
 
 
+VALID_GRILL_ARCHETYPES = {
+    "PARADOX_BOTTLENECK",
+    "KNOB_TURNING_PREDICTION",
+    "TRADEOFF_BREAKDOWN",
+    "ISOMORPHIC_REGRILL",
+}
+RUBBER_STAMP_REGRILL_RE = re.compile(
+    r"(?:听懂了吗|明白了吗|清楚了吗|懂了吧|听明白了吗|do you understand)",
+    re.IGNORECASE,
+)
+
+
 def verify_grill_station_capsule_completeness(
     gdd_grill_capsule: Optional[Dict[str, Any]],
 ) -> Dict[str, Any]:
     """
-    Verify Grill-Driven Design (GDD / 以考代建) 1-Station-to-1-Slide Capsule completeness:
-    The Agent starts by quizzing/grilling the user (`grill_question`). If the user answers,
-    it deepens/validates; if the user misses or says '不会', it immediately teaches the
-    mechanism (`teaching_and_regrill_closure`) and re-grills until mastered, then crystallizes
-    the exact bottleneck and Q&A defense into `slide_0k.html` (`V2/V3` + `hidden_teleprompter_qa`).
+    Verify Dual-Stage Grill-Driven Design (GDD / 以考代建) 1-Station-to-1-Slide Capsule completeness:
+    Stage 1 (Mechanism Grill):
+      - `question_archetype` in `VALID_GRILL_ARCHETYPES` (4-Archetype Grill Ladder);
+      - `grill_question`: 3-part anchored prompt (Given Anchor + Paradox/Conflict + Razor Question);
+      - `user_response_state` in `{'ANSWERED_DIRECTLY', 'TAUGHT_ON_MISS_AND_REGRILLED'}`;
+      - `teaching_and_regrill_closure`: Teach-on-Miss + Isomorphic Re-Grill verification
+        (strictly forbids rubber-stamp questions like '听懂了吗/明白了吗').
+    Stage 2 (Bridge to PPT Creation & Slide Design MCQ):
+      - `bottleneck_to_slide_mapping`: explicit mapping from the grilled cognitive bottleneck
+        to the slide's headline assertion and visual centerpiece;
+      - `slide_design_mcq`: structured multiple-choice design question (`design_question`,
+        `options` >= 2 concrete visual/layout choices, and `selected_option` chosen by the user);
+      - `visual_modality` (`V2/V3`) and `hidden_teleprompter_qa`.
     """
     issues: List[str] = []
     if not isinstance(gdd_grill_capsule, dict) or not gdd_grill_capsule:
@@ -948,25 +968,52 @@ def verify_grill_station_capsule_completeness(
         }
 
     station_id = str(gdd_grill_capsule.get("station_id", "")).strip()
+    archetype = str(gdd_grill_capsule.get("question_archetype", "")).strip().upper()
     grill_q = str(gdd_grill_capsule.get("grill_question", "")).strip()
     resp_state = str(gdd_grill_capsule.get("user_response_state", "")).strip().upper()
     closure = str(gdd_grill_capsule.get("teaching_and_regrill_closure", "")).strip()
+    mapping = str(gdd_grill_capsule.get("bottleneck_to_slide_mapping", "")).strip()
+    design_mcq = gdd_grill_capsule.get("slide_design_mcq")
     modality = str(gdd_grill_capsule.get("visual_modality", "")).strip().upper()
     teleprompter_qa = str(gdd_grill_capsule.get("hidden_teleprompter_qa", "")).strip()
 
     valid_states = {"ANSWERED_DIRECTLY", "TAUGHT_ON_MISS_AND_REGRILLED"}
     if len(station_id) < 2:
         issues.append("GDD capsule missing valid station_id (e.g. 'Station_1.1')")
-    if len(grill_q) < 8:
-        issues.append("GDD capsule missing upfront grill_question posed to the learner")
+    if archetype not in VALID_GRILL_ARCHETYPES:
+        issues.append(
+            f"GDD capsule question_archetype='{archetype}' must be in {sorted(VALID_GRILL_ARCHETYPES)}"
+        )
+    if len(grill_q) < 15:
+        issues.append("GDD capsule missing 3-part anchored grill_question (Anchor + Conflict + Razor Question)")
     if resp_state not in valid_states:
         issues.append(
             f"GDD capsule user_response_state='{resp_state}' must be in {sorted(valid_states)}"
         )
-    if len(closure) < 10:
+    if len(closure) < 12:
         issues.append(
-            "GDD capsule missing teaching_and_regrill_closure (teach-on-miss explanation & follow-up re-grill verification)"
+            "GDD capsule missing teaching_and_regrill_closure (teach-on-miss explanation & follow-up isomorphic re-grill)"
         )
+    elif RUBBER_STAMP_REGRILL_RE.search(closure):
+        issues.append(
+            "GDD capsule rubber-stamp re-grill violation: never ask '听懂了吗/明白了吗'; must verify with an isomorphic re-grill question"
+        )
+    if len(mapping) < 10:
+        issues.append(
+            "GDD capsule missing bottleneck_to_slide_mapping (how the grilled bottleneck maps to this slide's visual centerpiece)"
+        )
+    if not isinstance(design_mcq, dict):
+        issues.append("GDD capsule missing slide_design_mcq (must ask user a multiple-choice question on how to design the slide)")
+    else:
+        dq = str(design_mcq.get("design_question", "")).strip()
+        opts = design_mcq.get("options", [])
+        sel = str(design_mcq.get("selected_option", "")).strip()
+        if len(dq) < 8:
+            issues.append("GDD slide_design_mcq missing design_question")
+        if not isinstance(opts, list) or len(opts) < 2:
+            issues.append("GDD slide_design_mcq must provide >=2 concrete layout/visual options (A/B/C)")
+        if len(sel) < 1:
+            issues.append("GDD slide_design_mcq missing selected_option (user's chosen slide design option)")
     if not (modality.startswith("V2") or modality.startswith("V3")):
         issues.append(
             f"GDD capsule visual_modality='{modality}' must be V2 or V3 (V0/V1 forbidden)"
@@ -977,6 +1024,7 @@ def verify_grill_station_capsule_completeness(
     return {
         "passed": len(issues) == 0,
         "station_id": station_id,
+        "question_archetype": archetype,
         "user_response_state": resp_state,
         "visual_modality": modality,
         "issues": issues,

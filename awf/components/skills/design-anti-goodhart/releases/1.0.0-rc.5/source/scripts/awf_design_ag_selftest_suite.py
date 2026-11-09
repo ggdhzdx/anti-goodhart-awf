@@ -242,6 +242,32 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         grill_mode=True,
         gdd_grill_capsule=None,
     )
+    res_d16_neg_grill_rubberstamp = dag.verify_grill_station_capsule_completeness({
+        "station_id": "Station_1.1",
+        "question_archetype": "PARADOX_BOTTLENECK",
+        "grill_question": "【锚点】光激发总产生单重态；【冲突】电激发下荧光 IQE 被锁死在 25%；【追问】为什么 75% 去了三重态？",
+        "user_response_state": "TAUGHT_ON_MISS_AND_REGRILLED",
+        "teaching_and_regrill_closure": "我用四枚硬币给你讲完了自旋统计，你听懂了吗？",
+        "bottleneck_to_slide_mapping": "将 1:3 自旋简并度与 TTA 滚降作为本页左右双栏核心视觉对比",
+        "slide_design_mcq": {
+            "design_question": "本页主视觉采用哪种布局？",
+            "options": ["A (Recommended): 左能级图+右TTA步进卡片", "B: 顶部时间轴+三列卡片"],
+            "selected_option": "A",
+        },
+        "visual_modality": "V2_fig1a_spin_diagram",
+        "hidden_teleprompter_qa": "按 S 键展示 TADF 与磷光的对比追问",
+    })
+    res_d16_neg_grill_no_mcq = dag.verify_grill_station_capsule_completeness({
+        "station_id": "Station_1.1",
+        "question_archetype": "PARADOX_BOTTLENECK",
+        "grill_question": "【锚点】光激发总产生单重态；【冲突】电激发下荧光 IQE 被锁死在 25%；【追问】为什么 75% 去了三重态？",
+        "user_response_state": "TAUGHT_ON_MISS_AND_REGRILLED",
+        "teaching_and_regrill_closure": "讲透自旋简并度后追问 TADF 理论极限，用户准确答出 100%",
+        "bottleneck_to_slide_mapping": "将 1:3 自旋简并度与 TTA 滚降作为本页左右双栏核心视觉对比",
+        "slide_design_mcq": None,
+        "visual_modality": "V2_fig1a_spin_diagram",
+        "hidden_teleprompter_qa": "按 S 键展示 TADF 与磷光的对比追问",
+    })
     res_d16_neg_dual_evol = dag.verify_dual_evolution_feedback_receipt({
         "human_feedback_summary": "能级图缺少反交叉能隙标尺",
         "affected_slides_patched": ["slide_02"],
@@ -256,9 +282,11 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         or res_d16_neg_tdd_missing["passed"]
         or res_d16_neg_tdd_v0["passed"]
         or res_d16_neg_grill_missing["passed"]
+        or res_d16_neg_grill_rubberstamp["passed"]
+        or res_d16_neg_grill_no_mcq["passed"]
         or res_d16_neg_dual_evol["passed"]
     ):
-        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/Dual-Evolve violation, or monotonous layout cloning")
+        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/MCQ/RubberStamp/Dual-Evolve violation, or monotonous layout cloning")
 
     # D17 Exact Calibration Check against Section II of `01_optoelectronic_scoring_criteria_v3.md`:
     # "为什么是反交叉" (weight = 4, required = V3):
@@ -404,9 +432,20 @@ def _build_gold_standard_positive_bundle() -> Dict[str, Any]:
         "grill_mode": True,
         "gdd_grill_capsule": {
             "station_id": "Station_1.1",
-            "grill_question": "考题 1：为什么荧光 OLED 的内量子效率天花板是 25%，而重原子磷光虽然达到 100% 却在蓝光高亮度下快速烧屏？",
+            "question_archetype": "PARADOX_BOTTLENECK",
+            "grill_question": "【锚点】光激发总是产生单重态 S1；【冲突】电激发下传统荧光 OLED 内量子效率上限被锁在 25%，而重原子磷光虽达 100% 却在蓝光高亮度下快速烧屏；【追问】75% 三重态自旋简并度与微秒级长寿命是如何共同导致高亮度 TTA/TPA 烧屏的？",
             "user_response_state": "TAUGHT_ON_MISS_AND_REGRILLED",
-            "teaching_and_regrill_closure": "用户起初未答出 TPA/TTA 与微秒级寿命的平方关系；用漏水蓄水池类比讲透后追问『把寿命压短 2 倍对 TTA 速率有何影响』，用户准确答出降低 4 倍",
+            "teaching_and_regrill_closure": "用户起初未答出 TPA/TTA 与微秒级寿命的平方关系；用漏水蓄水池类比讲透后立刻变式追问『把三重态辐射寿命压短 2 倍对双分子 TTA 淬灭速率有何定量影响』，用户准确答出降低 4 倍",
+            "bottleneck_to_slide_mapping": "将用户在『微秒级寿命平方放大 TTA 烧屏』上的卡壳点直接转化为本页左侧能级漏斗图与右侧 Purcell 抽光交互滑块的视觉核心",
+            "slide_design_mcq": {
+                "design_question": "为了最直观呈现刚才通关的『75% 三重态积压 -> TTA 烧屏 -> Purcell 加速破局』，这一页 PPT 你选哪种视觉与排版方案？",
+                "options": [
+                    "A (Recommended): 左栏原图 Fig.1a/b 能级寿命对比 + 右栏 Purcell 因子实时交互滑块（V3）",
+                    "B: 顶部全宽三阶段激子动力学流程图 + 底部双列公式卡片（V2）",
+                    "C: 荧光/磷光/极化激元三代器件雷达图对比（V2）",
+                ],
+                "selected_option": "A (Recommended): 左栏原图 Fig.1a/b 能级寿命对比 + 右栏 Purcell 因子实时交互滑块（V3）",
+            },
             "visual_modality": "V3_interactive_purcell_and_fig1ab",
             "hidden_teleprompter_qa": "按 S 键展示刚才烤问中易卡壳的 TTA 二阶动力学与 Purcell 加速问答",
         },

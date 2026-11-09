@@ -3,12 +3,12 @@
   "id": "skill.design-anti-goodhart",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.4": {
+    "1.0.0-rc.5": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source",
-      "tree_sha256": "26094824a6d7a8a13aeabbec650cc592637c4e0b2110e74e409a9aeb3b4e4780",
+      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.5/source",
+      "tree_sha256": "3ce1fbd3d0db33f8f97c632290c01cb30e742b204fd0cb3601376d1823b1ec99",
       "depends_on": [
         "skill.anti-goodhart-verification@3.6.0-rc.1"
       ],
@@ -20,7 +20,7 @@
         "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
         "strict-single-slide-per-step-microstep-and-1hop-topological-slide-lock",
         "station-to-slide-tutor-driven-design-tdd-cognitive-capsule-verification",
-        "grill-driven-design-gdd-quiz-teach-on-miss-and-regrill-capsule-verification",
+        "dual-stage-grill-driven-design-3part-mechanism-grill-anti-rubberstamp-and-slide-design-mcq",
         "autonomous-draft-post-review-dual-evolution-ppt-and-awf-upgrade-verification",
         "dual-rubric-quantitative-scorer-optoelectronic-v3-and-supermolecule-5dim",
         "multiplicative-clarity-times-visual-modality-v0-pure-text-30pct-cap",
@@ -39,7 +39,7 @@
         "DOM bounding-box probes (D7-D8) accept headless browser/Playwright bounding-box JSON exports or structured layout bundles",
         "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds"
       ],
-      "provenance": "Release 1.0.0-rc.4 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.4`), upgrading Gate D16 to verify all 3 authoring modes: (1) Tutor-Driven Design (`tdd_station_capsule`), (2) Grill-Driven Design (`gdd_grill_capsule`), and (3) Autonomous Draft + Post-Review Dual-Evolution (`dual_evolution_feedback_receipt`), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
+      "provenance": "Release 1.0.0-rc.5 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.5`), upgrading Gate D16 `verify_grill_station_capsule_completeness` to enforce Dual-Stage Grill-Driven Design (Stage 1: 4-Archetype 3-Part Anchored Mechanism Grill + Anti-Rubber-Stamp Re-Grill; Stage 2: `bottleneck_to_slide_mapping` + `slide_design_mcq` multiple-choice slide design decision), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
     }
   }
 }

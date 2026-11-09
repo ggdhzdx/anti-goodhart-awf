@@ -28,10 +28,10 @@ sys.dont_write_bytecode = True
 
 def _resolve_design_ag_scripts_dir() -> Path:
     candidates = [
+        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.5/source/scripts"),
+        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.5\source\scripts"),
         Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/scripts"),
         Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.4\source\scripts"),
-        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.3/source/scripts"),
-        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.3\source\scripts"),
         Path(__file__).resolve().parents[2] / "design-anti-goodhart" / "scripts",
     ]
     for c in candidates:
@@ -700,17 +700,43 @@ def run_selftest() -> Dict[str, Any]:
         if init_grill.get("status") != "PASS":
             raise AssertionError(f"Grill manifest init failed: {init_grill}")
 
-        # Check 6a: Auditing slide_01 in GRILL mode without gdd_grill_capsule is blocked
+        # Check 6a: Auditing slide_01 in GRILL mode without gdd_grill_capsule or with rubber-stamp/missing MCQ is blocked
         neg_no_grill = audit_single_slide_step(grill_manifest, 1, s1_path, valid_bundle, slides_generated_in_current_step=1)
-        if neg_no_grill.get("status") != "FAIL":
-            raise AssertionError(f"Expected GRILL mode block without gdd_grill_capsule: {neg_no_grill}")
+        neg_rubber_grill = record_grill_station_capsule(
+            grill_manifest,
+            1,
+            {
+                "station_id": "Station_1.1",
+                "question_archetype": "PARADOX_BOTTLENECK",
+                "grill_question": "【锚点】光激发总是产生 S1；【冲突】电激发下传统荧光 IQE 被死锁在 25%；【追问】为什么 75% 去了三重态？",
+                "user_response_state": "TAUGHT_ON_MISS_AND_REGRILLED",
+                "teaching_and_regrill_closure": "给你讲完了自旋统计，你听懂了吗？",
+                "bottleneck_to_slide_mapping": "将 1:3 自旋简并度映射为左栏能级图",
+                "slide_design_mcq": None,
+                "visual_modality": "V2_spin_degeneracy_and_soc_diagram",
+                "hidden_teleprompter_qa": "按 S 键展示 TADF 追问",
+            },
+        )
+        if neg_no_grill.get("status") != "FAIL" or neg_rubber_grill.get("status") != "FAIL":
+            raise AssertionError(f"Expected GRILL mode block without valid Dual-Stage capsule: {neg_no_grill}, {neg_rubber_grill}")
 
-        # Check 6b: Record Grill-First + Teach-on-Miss + Re-grill capsule and pass slide_01
+        # Check 6b: Record Dual-Stage GDD capsule (Stage 1: 3-Part Grill + Isomorphic Re-grill; Stage 2: Bottleneck Mapping + Slide Design MCQ) and pass slide_01
         grill_cap_1 = {
             "station_id": "Station_1.1",
-            "grill_question": "上来拷问：电激发下为什么单重态与三重态比例是 1:3，且传统荧光器件内量子效率上限被死锁在 25%？",
+            "question_archetype": "PARADOX_BOTTLENECK",
+            "grill_question": "【锚点】光激发总是产生单重态 S1；【冲突】换成电激发时传统荧光器件内量子效率上限却被死锁在 25%；【追问】为什么电激发会强行分走 75% 给三重态 T1？背后的自旋简并度怎么算？",
             "user_response_state": "TAUGHT_ON_MISS_AND_REGRILLED",
-            "teaching_and_regrill_closure": "先用四枚硬币自旋投影讲清 1 个反对称单重态 vs 3 个对称三重态，再追问重原子旋轨耦合如何打破禁阻，用户成功答出 100% IQE 路径",
+            "teaching_and_regrill_closure": "先用四枚硬币自旋投影讲清 1 个反对称单重态 vs 3 个对称三重态，再变式追问重原子旋轨耦合或小 ΔE_ST 的 TADF 如何打破禁阻，用户成功答出 100% IQE 路径",
+            "bottleneck_to_slide_mapping": "将用户在『1:3 自旋统计简并度与三重态微秒级长寿命积压』上的卡壳点直接转化为本页左侧能级漏斗图与右侧对比卡片的视觉C位",
+            "slide_design_mcq": {
+                "design_question": "刚把『1:3 自旋统计与 75% 三重态去向』烤问通关，这一页 PPT（slide_01）你选哪种视觉与布局呈现方案？",
+                "options": [
+                    "A (Recommended): 左栏原图 Fig.1a 自旋统计能级漏斗 + 右栏荧光/磷光三步因果卡片（V2）",
+                    "B: 顶部全宽激子复合时间轴 + 底部双栏数据表（V2）",
+                    "C: 带单重态/三重态比例与旋轨耦合强度实时滑块的交互式能级模拟器（V3）",
+                ],
+                "selected_option": "A (Recommended): 左栏原图 Fig.1a 自旋统计能级漏斗 + 右栏荧光/磷光三步因果卡片（V2）",
+            },
             "visual_modality": "V2_spin_degeneracy_and_soc_diagram",
             "hidden_teleprompter_qa": "按 S 键展示评委连环追问：为什么热激发延迟荧光 TADF 不靠重原子也能利用 75% 三重态？",
         }

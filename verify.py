@@ -33,23 +33,23 @@ for rel in sorted(actual - known):
     errors.append(f"unlisted file: {rel}")
 
 expected_locks = {
-    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.4/versions.lock": {
-        "skill.design-anti-goodhart": "1.0.0-rc.4",
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.5/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.5",
         "skill.anti-goodhart-verification": "3.6.0-rc.1",
     },
-    "awf/workflows/html-ppt/releases/1.0.0-rc.3/versions.lock": {
-        "skill.html-ppt": "1.0.0-rc.6",
-        "skill.design-anti-goodhart": "1.0.0-rc.4",
+    "awf/workflows/html-ppt/releases/1.0.0-rc.4/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.5",
         "skill.anti-goodhart-verification": "3.6.0-rc.1",
     },
     "awf/workflows/anti-goodhart-verification/releases/3.6.0-rc.1/versions.lock": {
         "skill.anti-goodhart-verification": "3.6.0-rc.1",
     },
-    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.17/versions.lock": {
-        "skill.adaptive-interactive-tutor": "1.0.0-rc.17",
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.18/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.18",
         "skill.anti-goodhart-verification": "3.6.0-rc.1",
-        "skill.design-anti-goodhart": "1.0.0-rc.4",
-        "skill.html-ppt": "1.0.0-rc.6",
+        "skill.design-anti-goodhart": "1.0.0-rc.5",
+        "skill.html-ppt": "1.0.0-rc.7",
     },
 }
 
@@ -83,8 +83,8 @@ for path in ROOT.rglob("*"):
         if re.search(r"BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{20,}", text):
             errors.append(f"credential pattern: {path.relative_to(ROOT)}")
 
-design_script = ROOT / "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/scripts/awf_design_anti_goodhart_gates.py"
-html_ppt_script = ROOT / "awf/components/skills/html-ppt/releases/1.0.0-rc.6/source/scripts/audit_single_slide_step.py"
+design_script = ROOT / "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.5/source/scripts/awf_design_anti_goodhart_gates.py"
+html_ppt_script = ROOT / "awf/components/skills/html-ppt/releases/1.0.0-rc.7/source/scripts/audit_single_slide_step.py"
 guard_script = ROOT / "awf/components/skills/anti-goodhart-verification/releases/3.6.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py"
 
 for label, cmd in [
@@ -103,5 +103,5 @@ if errors:
 
 print(
     f"PASS: {len(manifest['files'])} files verified; "
-    "AWF DesignAG (18 gates + Tri-Mode) + AWF HTML-PPT (Tri-Mode 1-Slide-Per-Step) + AWF Guard (73 gates) + AWF Tutor V16 closure verified"
+    "AWF DesignAG (18 gates + Dual-Stage GDD) + AWF HTML-PPT (Tri-Mode 1-Slide-Per-Step) + AWF Guard (73 gates) + AWF Tutor V16 closure verified"
 )
