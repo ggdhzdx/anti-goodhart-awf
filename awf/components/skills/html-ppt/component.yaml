@@ -2,15 +2,15 @@
   "id": "skill.html-ppt",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.5": {
+    "1.0.0-rc.6": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.5/source",
-      "tree_sha256": "374d6008fe9c65b2657c3462355e44fc1905273ac7635fd4549eff1203b5aacb",
+      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.6/source",
+      "tree_sha256": "00617f92081d893f2cabf06889fc5572f6dc0ff8d2fe27df7bee7c0f2ec4a51d",
       "depends_on": [
-        "skill.design-anti-goodhart@1.0.0-rc.3",
-        "skill.anti-goodhart-verification@3.5.0-rc.1"
+        "skill.design-anti-goodhart@1.0.0-rc.4",
+        "skill.anti-goodhart-verification@3.6.0-rc.1"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
@@ -28,6 +28,8 @@
         "strict-single-slide-per-step-microstep-execution",
         "one-hop-topological-slide-manifest-locking",
         "station-to-slide-tutor-driven-design-tdd-cognitive-capsule-binding",
+        "grill-driven-design-quiz-first-teach-on-miss-and-regrill-capsule-binding",
+        "autonomous-headdown-build-with-postreview-ppt-and-awf-dual-evolution",
         "human-in-the-loop-per-slide-signoff-gate",
         "designag-18gate-and-dual-rubric-automated-enforcement",
         "escape-to-gate-darwinian-regression-evolution"
@@ -36,7 +38,7 @@
         "HTML rendering and release integrity checks must be paired with scientific source verification",
         "Final visual acceptance includes 1920x1080 rendered-page review under Gate D18"
       ],
-      "provenance": "Release 1.0.0-rc.5 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.5` and standalone workflow `html-ppt@1.0.0-rc.2`), integrating Station-to-Slide Tutor-Driven Design (`TDD-Slide` cognitive capsule binding) and Human-in-the-Loop per-slide sign-off (`require_human_approval`) into `scripts/audit_single_slide_step.py`, powered by `skill.design-anti-goodhart@1.0.0-rc.3`."
+      "provenance": "Release 1.0.0-rc.6 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.6` and standalone workflow `html-ppt@1.0.0-rc.3`), introducing the Tri-Mode Execution Architecture (`TDD` Tutor-Driven Design, `GRILL` Grill-Driven Design with Quiz-First & Teach-on-Miss, and `AUTONOMOUS_DUAL_EVOLVE` Head-Down Build + Post-Review PPT & AWF Dual-Evolution) powered by `skill.design-anti-goodhart@1.0.0-rc.4`."
     }
   },
   "schema_version": 1

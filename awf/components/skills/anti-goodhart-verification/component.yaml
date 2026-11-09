@@ -3,12 +3,12 @@
   "id": "skill.anti-goodhart-verification",
   "kind": "skill",
   "releases": {
-    "3.5.0-rc.1": {
+    "3.6.0-rc.1": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source",
-      "tree_sha256": "010d0c43053c78d3666e27931d17f1ad38b6c0842ede5743951b4eedf4f6c61c",
+      "source_snapshot": "components/skills/anti-goodhart-verification/releases/3.6.0-rc.1/source",
+      "tree_sha256": "33a263093c04542bef83d5911899a7607e23cb50d4cbd96d2ea6ca273b453e0c",
       "depends_on": [],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
@@ -16,6 +16,8 @@
       ],
       "capabilities": [
         "domain-agnostic-universal-7-gate-anti-goodhart-and-anti-shortcut-engine",
+        "canonical-14-orthogonal-universal-slot-consolidation-with-74-subcheck-preservation",
+        "open-ended-declarative-universal-slot-law-injector-s1-s3-s5",
         "six-mode-degenerate-shortcut-taxonomy-defense",
         "pre-execution-intra-function-parameter-taint-fixed-point-dataflow-with-control-dependence",
         "extensional-enumeration-and-dict-dispatch-memorization-detection-with-iupac-periodic-table-exemption",
@@ -100,7 +102,7 @@
       "limitations": [
         "Tier-2 full 7-Gate verification requires instantiating a StationVerificationSpec and an algorithmically independent oracle on small inputs"
       ],
-      "provenance": "Continuum, Digital-Topology, Reciprocal-Diffraction, Weighted-Kish, Non-Orthogonal Quantum Pencil & Coupled Basis Sign-Gauge Invariant Release 3.5.0-rc.1 of AWF Guard (`skill.anti-goodhart-verification@3.5.0-rc.1`, 73 automated gates): adds 7 domain-agnostic scientific computing invariant gates and 6 AST/dataflow/mutation engine calibrations (`AG-Calib-10`..`AG-Calib-22`) on top of `3.4.0-rc.1`: `verify_mesh_refinement_invariance_and_noise_floor` (`G1e`), `verify_euler_poincare_and_digital_duality` (`G5q`), `verify_filtration_monotonicity_and_heterogeneous_radius_clearance` (`G5r`), `verify_rp2_director_gauge_and_reciprocal_conjugacy` (`G3k`), `verify_weighted_dispersion_kish_and_scale_invariance` (`G5s`), `verify_nonorthogonal_pencil_gauge_and_spectral_parity` (`G5t`), and `verify_coupled_basis_sign_gauge_and_locality_bounds` (`G3l`)."
+      "provenance": "7 Major Gates x 14 Orthogonal Universal Slots Consolidated Release 3.6.0-rc.1 of AWF Guard (`skill.anti-goodhart-verification@3.6.0-rc.1`): permanently bounds top-level receipt slots at 14 Orthogonal Universal Slots (`CANONICAL_14_UNIVERSAL_SLOTS`) while preserving all 74 concrete sub-checks in `slot_subchecks_verified`, and adds the open-ended declarative slot law evaluator (`evaluate_universal_declarative_slots`: `s1_1_regime_probes`, `s3_1_equivariance_laws`, `s5_1_manifold_laws`) so arbitrary new mathematical symmetries and conservation laws can be verified declaratively without adding new gate functions."
     }
   }
 }

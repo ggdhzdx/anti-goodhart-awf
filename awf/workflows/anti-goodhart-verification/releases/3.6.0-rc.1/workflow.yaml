@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "anti-goodhart-verification",
+  "release": "3.6.0-rc.1",
+  "status": "validated",
+  "purpose": "Standalone 100% Domain-Agnostic, Self-Hosting & Scientific-Computing-Native Universal 7-Gate x 14-Slot Anti-Goodhart Verification Engine (14 Orthogonal Universal Slots consolidating 74 Automated Sub-Checks + Open-Ended Declarative Slot Law Injector v3.6.0-rc.1).",
+  "entry_skills": [
+    "skill.anti-goodhart-verification"
+  ],
+  "stages": [
+    {
+      "id": "tier0-premortem-boundary-seal-and-atomic-capsule-contract-definition",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "tier1-ast-dataflow-intent-ncc-pair-diff-base64-evilgenie-benchjack-agentverifier-falsegreen-mutmut-splitguard-pitfallsfp-and-cleanroom-audit",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "tier2-meta-guard-metamorphic-jaxtyping-dbc-mca-scientific-pack-sealed-holdout-receipt-trajectory-harness-goodhart-guardrails-impossiblebench-splitguard-selfhosting-and-turn-claim-7-gate-seal",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "ast-call-graph-atom-manifest-dag-and-post-escape-gate-evolution",
+      "required": false,
+      "skill": "skill.anti-goodhart-verification"
+    }
+  ],
+  "engineering_gate": "Forbid 1,000+ line monolithic scripts, functions >160 lines, TODO/FIXME/placeholder stubs or unanchored magic numbers (`G5n`), multi-station leapfrogging or oversized McCabe/HALSTEAD/branch micro-steps (`G6o`), unreviewed single-agent reward self-grading without Red-Blue adversarial audit (`G7h`), intra-group self-interaction leakage (`G5o`), small-sample LOOCV over-parameterization or Train/Eval feature-extractor skew (`G7i`), unscaled hardcoded cutoffs or symmetric-only null baselines (`G3j`), watering-down code fixes (`G6p`), non-negative surrogates for bipolar physical quantities or single-source variance underestimation (`G5p`), grid-dependent intensive drift (`G1e`), violated Euler-Poincare or 6-vs-26 digital duality (`G5q`), point-to-center distance ignoring heterogeneous radii (`G5r`), director sign-flip sensitivity or center-to-center lateral-slip inflation (`G3k`), unweighted std or zero-weight outlier distortion (`G5s`), omitted Lowdin S^{-1/2} orthogonalization (`G5t`), unpaired basis sign flips or disconnected-cluster ghost delocalization (`G3l`), surviving AST mutants (`G5j`), loose tolerance inflation (`G5k`), in-place mutation (`G3g`), pre-split data leakage (`G6m`/`G7g`), ill-conditioned floating-point cancellation (`G5l`/`G1c`), and verbal over-claiming (`G7c`).",
+  "scientific_gate": "All numerical and scientific operators must satisfy the 14 Canonical Orthogonal Universal Slots (`S1.1`..`S7.3`, consolidating 74 concrete sub-checks across G1-G7), with any domain-specific symmetries or manifold laws injected declaratively via `universal_slot_laws_spec` (`evaluate_universal_declarative_slots`).",
+  "version_lock": "versions.lock"
+}

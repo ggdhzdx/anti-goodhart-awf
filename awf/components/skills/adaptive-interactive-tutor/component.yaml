@@ -3,22 +3,22 @@
   "id": "skill.adaptive-interactive-tutor",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.16": {
+    "1.0.0-rc.17": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.16/source",
-      "tree_sha256": "cfa3300a435ef73bf881a2f54639789d38e38527ca45a1b425c74ff8c1c1414d",
+      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.17/source",
+      "tree_sha256": "ba2b7bf23e0f83bc1923926096748ee4284456c31a9c8dc76d19ef6fcdb8ce9b",
       "depends_on": [
-        "skill.anti-goodhart-verification@3.5.0-rc.1",
-        "skill.design-anti-goodhart@1.0.0-rc.3",
-        "skill.html-ppt@1.0.0-rc.5"
+        "skill.anti-goodhart-verification@3.6.0-rc.1",
+        "skill.design-anti-goodhart@1.0.0-rc.4",
+        "skill.html-ppt@1.0.0-rc.6"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
-        "Standalone skill.anti-goodhart-verification@3.5.0-rc.1 (AWF Guard, 66 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
-        "Standalone skill.design-anti-goodhart@1.0.0-rc.3 (AWF DesignAG, 18 automated design gates + dual rubrics + TDD capsule verification) for visual/pedagogical/HTML-PPT anti-shortcut verification",
-        "Standalone skill.html-ppt@1.0.0-rc.5 (AWF HTML-PPT V3 1-Slide-Per-Step + Station-to-Slide TDD + Human Sign-off enforcer)",
+        "Standalone skill.anti-goodhart-verification@3.6.0-rc.1 (AWF Guard, 73 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
+        "Standalone skill.design-anti-goodhart@1.0.0-rc.4 (AWF DesignAG, 18 automated design gates + dual rubrics + Tri-Mode TDD/Grill/Dual-Evolve verification)",
+        "Standalone skill.html-ppt@1.0.0-rc.6 (AWF HTML-PPT V3 Tri-Mode `TDD`, `GRILL`, `AUTONOMOUS_DUAL_EVOLVE` 1-Slide-Per-Step enforcer)",
         "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review"
       ],
       "capabilities": [
@@ -36,8 +36,10 @@
         "upstream-downstream-lateral-causal-lineage-mapping",
         "open-world-unbiased-cross-domain-structural-isomorphism-hyperlinking",
         "tutor-driven-design-and-bidirectional-feynman-alignment-co-evolution",
+        "grill-driven-design-quiz-first-teach-on-miss-and-regrill-station-loop",
+        "autonomous-headdown-build-with-postreview-ppt-and-awf-dual-evolution",
         "station-to-slide-isomorphic-tdd-html-ppt-co-design-and-human-signoff",
-        "modular-delegation-to-standalone-skill-anti-goodhart-verification-v3-4",
+        "modular-delegation-to-standalone-skill-anti-goodhart-verification-v3-5",
         "modular-delegation-to-standalone-skill-design-anti-goodhart-v1-0",
         "static-negative-infinity-placeholder-and-magic-number-circuit-breaking",
         "conservation-symmetry-analytic-gradient-and-convergence-order-property-testing",
@@ -48,11 +50,11 @@
         "cognitive-isomorphic-html-ppt-slide-deck-synthesis-with-designag-18gate-audit"
       ],
       "limitations": [
-        "Interactive pedagogical and co-design workflow requires multi-turn user dialogue (one focused question per turn)",
+        "Interactive pedagogical and co-design workflow requires multi-turn user dialogue in TDD and GRILL modes",
         "Heavy multimedia assets (images, animations, interactive web pages) are strictly human-gated (built only after user confirmation or explicit user request)",
         "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms"
       ],
-      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.16) locking to `skill.anti-goodhart-verification@3.5.0-rc.1` (66 automated gates), `skill.design-anti-goodhart@1.0.0-rc.3` (18 automated DesignAG gates + Dual Quantitative Rubrics + TDD Station Capsule D16), and `skill.html-ppt@1.0.0-rc.5` (1-Slide-Per-Step + Station-to-Slide TDD + Human Sign-off Enforcer)."
+      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.17) locking to `skill.anti-goodhart-verification@3.6.0-rc.1` (73 automated gates), `skill.design-anti-goodhart@1.0.0-rc.4` (18 automated DesignAG gates + Dual Quantitative Rubrics + Tri-Mode D16), and `skill.html-ppt@1.0.0-rc.6` (Tri-Mode `TDD`, `GRILL`, and `AUTONOMOUS_DUAL_EVOLVE` 1-Slide-Per-Step Enforcer)."
     }
   }
 }

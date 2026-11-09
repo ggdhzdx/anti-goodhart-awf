@@ -3,14 +3,14 @@
   "id": "skill.design-anti-goodhart",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.3": {
+    "1.0.0-rc.4": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.3/source",
-      "tree_sha256": "fe16345ff56bdef9a8071bebbf7a22d14e770b0e589ba33d03ab632c8e52ec03",
+      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source",
+      "tree_sha256": "26094824a6d7a8a13aeabbec650cc592637c4e0b2110e74e409a9aeb3b4e4780",
       "depends_on": [
-        "skill.anti-goodhart-verification@3.5.0-rc.1"
+        "skill.anti-goodhart-verification@3.6.0-rc.1"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
@@ -20,6 +20,8 @@
         "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
         "strict-single-slide-per-step-microstep-and-1hop-topological-slide-lock",
         "station-to-slide-tutor-driven-design-tdd-cognitive-capsule-verification",
+        "grill-driven-design-gdd-quiz-teach-on-miss-and-regrill-capsule-verification",
+        "autonomous-draft-post-review-dual-evolution-ppt-and-awf-upgrade-verification",
         "dual-rubric-quantitative-scorer-optoelectronic-v3-and-supermolecule-5dim",
         "multiplicative-clarity-times-visual-modality-v0-pure-text-30pct-cap",
         "seven-redlines-r1-to-r7-circuit-breaker-and-15pt-deduction-cap",
@@ -37,7 +39,7 @@
         "DOM bounding-box probes (D7-D8) accept headless browser/Playwright bounding-box JSON exports or structured layout bundles",
         "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds"
       ],
-      "provenance": "Release 1.0.0-rc.3 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.3`), upgrading Gate D16 with Station-to-Slide Tutor-Driven Design (`tdd_station_capsule`) completeness verification atop 1-Slide-Per-Step and 1-Hop Slide Topological Locking."
+      "provenance": "Release 1.0.0-rc.4 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.4`), upgrading Gate D16 to verify all 3 authoring modes: (1) Tutor-Driven Design (`tdd_station_capsule`), (2) Grill-Driven Design (`gdd_grill_capsule`), and (3) Autonomous Draft + Post-Review Dual-Evolution (`dual_evolution_feedback_receipt`), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
     }
   }
 }

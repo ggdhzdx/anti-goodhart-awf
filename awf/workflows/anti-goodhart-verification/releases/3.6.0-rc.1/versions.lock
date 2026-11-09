@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "workflow": "anti-goodhart-verification",
+  "workflow_release": "3.6.0-rc.1",
+  "locked_at": "2026-11-08",
+  "components": {
+    "skill.anti-goodhart-verification": "3.6.0-rc.1"
+  }
+}
