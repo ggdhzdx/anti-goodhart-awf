@@ -28,10 +28,10 @@ sys.dont_write_bytecode = True
 
 def _resolve_design_ag_scripts_dir() -> Path:
     candidates = [
+        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.9/source/scripts"),
+        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.9\source\scripts"),
         Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.8/source/scripts"),
         Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.8\source\scripts"),
-        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.7/source/scripts"),
-        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.7\source\scripts"),
         Path(__file__).resolve().parents[2] / "design-anti-goodhart" / "scripts",
     ]
     for c in candidates:
@@ -106,6 +106,7 @@ def init_storyboard_manifest(
 
     require_human_approval = bool(storyboard_doc.get("require_human_approval", False))
     global_blueprint = storyboard_doc.get("global_deck_blueprint")
+    onion_capsule = storyboard_doc.get("onion_peeling_capsule")
 
     d13 = dag.verify_narrative_arc_and_foreshadowing(storyboard_doc.get("narrative_spec", {}))
     d14 = dag.verify_causal_why_chain_and_tradeoffs(storyboard_doc.get("mechanism_spec", {}))
@@ -114,6 +115,7 @@ def init_storyboard_manifest(
         max_slides_generated_per_step=1,
         unverified_slide_hop_distance=1,
         global_deck_blueprint=global_blueprint,
+        onion_peeling_capsule=onion_capsule,
     )
 
     failed_gates = [g["gate"] for g in (d13, d14, d16) if not g.get("passed")]
@@ -156,7 +158,7 @@ def init_storyboard_manifest(
         })
 
     manifest_data = {
-        "schema_version": 6,
+        "schema_version": 7,
         "workflow_mode": raw_mode,
         "max_slides_generated_per_step": 1,
         "tdd_mode": tdd_mode,
@@ -164,6 +166,7 @@ def init_storyboard_manifest(
         "autonomous_dual_evolve_mode": autonomous_dual_evolve_mode,
         "require_human_approval": require_human_approval,
         "global_deck_blueprint": global_blueprint,
+        "onion_peeling_capsule": onion_capsule,
         "total_slides": len(slide_entries),
         "storyboard_slides": slides_spec,
         "slides": slide_entries,
@@ -184,6 +187,112 @@ def init_storyboard_manifest(
         "unlocked_slide": "slide_01",
         "unlocked_station": slide_entries[0]["station_id"] if slide_entries else "",
         "manifest_path": str(manifest_path),
+    }
+
+
+def peel_onion_trunk_subframe(
+    manifest_path: Path,
+    trunk_peel_spec: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Hierarchical Onion Peeling Engine (分级洋葱剥皮流程 — 进入某一个主干，确定该主干内的细分框架):
+    1. Verifies that all existing leaf slides of any currently peeled trunk have passed (`status == "PASS"`)
+       before peeling the next macro trunk (`trunk_id`);
+    2. Validates `trunk_subframe_mcq` and 1-hop trunk order via `dag.verify_onion_peeling_capsule`;
+    3. Materializes `LEAF_SLIDE` sub-nodes of the newly peeled trunk into `slides` and unlocks the
+       first newly materialized leaf slide.
+    """
+    dag = _load_design_ag_module()
+    if not manifest_path.is_file():
+        return {"status": "FAIL", "reason": f"Missing slide_manifest.json: {manifest_path}"}
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    onion = manifest.get("onion_peeling_capsule")
+    if not isinstance(onion, dict):
+        return {"status": "FAIL", "reason": "Manifest has no onion_peeling_capsule"}
+
+    slides_list: List[Dict[str, Any]] = manifest.get("slides", [])
+    sb_list: List[Dict[str, Any]] = manifest.get("storyboard_slides", [])
+    unfinished = [s["slide_id"] for s in slides_list if s.get("status") != "PASS"]
+    if unfinished:
+        return {
+            "status": "FAIL",
+            "reason": f"Cannot peel next onion trunk while leaf slides of current trunk remain unfinished: {unfinished}",
+        }
+
+    # Mark previously PEELING trunks as PASS now that their leaf slides are all PASS
+    layer0 = onion.get("layer0_macro_frame") or {}
+    mcq0 = layer0.get("macro_trunks_mcq") or {}
+    macro_trunks: List[Dict[str, Any]] = mcq0.get("macro_trunks", [])
+    target_tid = str(trunk_peel_spec.get("trunk_id", "")).strip()
+    for t in macro_trunks:
+        if isinstance(t, dict) and str(t.get("status", "")).upper() == "PEELING":
+            t["status"] = "PASS"
+
+    # Candidate update to onion capsule
+    peeled_trunks: List[Dict[str, Any]] = list(onion.get("peeled_trunks", []))
+    peeled_trunks.append(trunk_peel_spec)
+    candidate_onion = {**onion, "peeled_trunks": peeled_trunks}
+    on_check = dag.verify_onion_peeling_capsule(candidate_onion)
+    if not on_check.get("passed"):
+        return {
+            "status": "FAIL",
+            "reason": "Onion trunk peeling violated 1-hop trunk order or sub-framework MCQ contract",
+            "onion_check": on_check,
+        }
+
+    for t in macro_trunks:
+        if isinstance(t, dict) and str(t.get("trunk_id", "")).strip() == target_tid:
+            t["status"] = "PEELING"
+
+    sub_mcq = trunk_peel_spec.get("trunk_subframe_mcq") or {}
+    sub_nodes = sub_mcq.get("sub_nodes", [])
+    added_slides: List[str] = []
+    for node in sub_nodes:
+        if not isinstance(node, dict):
+            continue
+        if str(node.get("node_type", "LEAF_SLIDE")).upper() == "LEAF_SLIDE":
+            new_idx = len(slides_list) + 1
+            is_v3 = bool(node.get("designated_v3_animation", False)) or str(
+                node.get("required_visual_level", "")
+            ).upper().startswith("V3")
+            new_entry = {
+                "slide_index": new_idx,
+                "slide_id": f"slide_{new_idx:02d}",
+                "station_id": str(node.get("node_id", f"Station_{target_tid}_{new_idx}")),
+                "flow_module": target_tid,
+                "title": str(node.get("title", f"{target_tid} Slide {new_idx}")),
+                "layout_archetype": str(node.get("layout_archetype", "interactive_svg_sandbox_split")),
+                "required_visual_level": "V3" if is_v3 else str(node.get("required_visual_level", "V2")),
+                "designated_v3_animation": is_v3,
+                "tdd_station_capsule": None,
+                "gdd_grill_capsule": None,
+                "human_approved": False,
+                "human_note": "",
+                "status": "UNLOCKED" if len(added_slides) == 0 else "LOCKED",
+                "sha256": "",
+                "file_path": "",
+            }
+            slides_list.append(new_entry)
+            sb_list.append(
+                {
+                    "station_id": new_entry["station_id"],
+                    "flow_module": target_tid,
+                    "title": new_entry["title"],
+                    "layout_archetype": new_entry["layout_archetype"],
+                    "required_visual_level": new_entry["required_visual_level"],
+                }
+            )
+            added_slides.append(new_entry["slide_id"])
+
+    onion["peeled_trunks"] = peeled_trunks
+    manifest["onion_peeling_capsule"] = onion
+    manifest["total_slides"] = len(slides_list)
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return {
+        "status": "PASS",
+        "peeled_trunk_id": target_tid,
+        "added_leaf_slides": added_slides,
+        "total_slides": len(slides_list),
     }
 
 
@@ -699,6 +808,22 @@ def assemble_verified_deck(
             "unverified_slides": unverified,
         }
 
+    onion = manifest.get("onion_peeling_capsule")
+    if isinstance(onion, dict):
+        layer0 = onion.get("layer0_macro_frame") or {}
+        mcq0 = layer0.get("macro_trunks_mcq") or {}
+        trunks = mcq0.get("macro_trunks", [])
+        unpeeled_trunks = [
+            str(t.get("trunk_id", ""))
+            for t in trunks
+            if isinstance(t, dict) and str(t.get("status", "UNPEELED")).upper() == "UNPEELED"
+        ]
+        if unpeeled_trunks:
+            return {
+                "status": "FAIL",
+                "reason": f"Onion Peeling Incomplete: macro trunks still UNPEELED: {unpeeled_trunks}",
+            }
+
     gb = manifest.get("global_deck_blueprint")
     if isinstance(gb, dict):
         flow_mcq = gb.get("logical_flow_mcq") or {}
@@ -1143,6 +1268,88 @@ def run_selftest() -> Dict[str, Any]:
         if pos_elastic_asm.get("status") != "PASS" or pos_elastic_asm.get("total_slides_assembled") != 2:
             raise AssertionError(f"Expected elastic deck assembly with JIT V3 slide to pass: {pos_elastic_asm}")
 
+        # --- PART F: Hierarchical Onion Peeling Flow (Layer 0 Coarse Trunks -> Layer 1 Trunk Sub-Frame -> Leaf Slide) ---
+        onion_manifest = tdir / "onion_manifest.json"
+        onion_cap = {
+            "layer0_macro_frame": {
+                "core_thesis": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，利用极化激元反交叉耦合压缩寿命破局",
+                "macro_trunks_mcq": {
+                    "options": ["A (Recommended): 主干1(痛点死结) -> 主干2(反交叉破局机理)", "B: 倒叙主干"],
+                    "selected_option": "A (Recommended): 主干1(痛点死结) -> 主干2(反交叉破局机理)",
+                    "macro_trunks": [
+                        {"trunk_id": "Trunk_1", "title": "痛点死结", "status": "PEELING"},
+                        {"trunk_id": "Trunk_2", "title": "反交叉破局机理", "status": "UNPEELED"},
+                    ],
+                },
+            },
+            "peeled_trunks": [
+                {
+                    "trunk_id": "Trunk_1",
+                    "trunk_subframe_mcq": {
+                        "options": ["A (Recommended): 主干1内先做1页自旋统计与TTA死结", "B: 拆成3页"],
+                        "selected_option": "A (Recommended): 主干1内先做1页自旋统计与TTA死结",
+                        "sub_nodes": [
+                            {"node_id": "Station_1.1", "node_type": "LEAF_SLIDE", "title": "电激发自旋统计决定磷光路线"}
+                        ],
+                    },
+                }
+            ],
+        }
+        init_onion = init_storyboard_manifest(
+            {
+                "workflow_mode": "GRILL",
+                "grill_mode": True,
+                "onion_peeling_capsule": onion_cap,
+                "narrative_spec": base_narrative,
+                "mechanism_spec": base_mechanism,
+                "storyboard_slides": base_slides[:1],
+            },
+            onion_manifest,
+        )
+        if init_onion.get("status") != "PASS":
+            raise AssertionError(f"Onion init failed: {init_onion}")
+
+        # Pass Trunk_1's leaf slide
+        record_grill_station_capsule(onion_manifest, 1, grill_cap_1)
+        audit_single_slide_step(onion_manifest, 1, s1_path, valid_bundle, slides_generated_in_current_step=1)
+
+        # Check 11a: Trying to assemble deck while Trunk_2 is still UNPEELED is blocked!
+        neg_unpeeled = assemble_verified_deck(onion_manifest, tdir / "onion_deck.html")
+        if neg_unpeeled.get("status") != "FAIL":
+            raise AssertionError(f"Expected assembly failure while Trunk_2 is UNPEELED: {neg_unpeeled}")
+
+        # Check 11b: Peel Trunk_2 (entering Trunk_2 and deciding its sub-framework -> materializes slide_02)
+        peel_t2 = peel_onion_trunk_subframe(
+            onion_manifest,
+            {
+                "trunk_id": "Trunk_2",
+                "trunk_subframe_mcq": {
+                    "options": ["A (Recommended): 主干2细分为极化激元反交叉耦合 V3 交互动画页", "B: 静态图"],
+                    "selected_option": "A (Recommended): 主干2细分为极化激元反交叉耦合 V3 交互动画页",
+                    "sub_nodes": [
+                        {
+                            "node_id": "Station_2.1",
+                            "node_type": "LEAF_SLIDE",
+                            "title": "极化激元反交叉耦合加速辐射衰减",
+                            "designated_v3_animation": True,
+                        }
+                    ],
+                },
+            },
+        )
+        if peel_t2.get("status") != "PASS" or peel_t2.get("total_slides") != 2:
+            raise AssertionError(f"Peeling Trunk_2 failed: {peel_t2}")
+
+        record_grill_station_capsule(
+            onion_manifest,
+            2,
+            {**grill_cap_1, "station_id": "Station_2.1", "visual_modality": "V3_interactive_rabi_splitting"},
+        )
+        audit_single_slide_step(onion_manifest, 2, s2_path, valid_bundle, slides_generated_in_current_step=1)
+        pos_onion_asm = assemble_verified_deck(onion_manifest, tdir / "onion_deck.html")
+        if pos_onion_asm.get("status") != "PASS" or pos_onion_asm.get("total_slides_assembled") != 2:
+            raise AssertionError(f"Expected Onion Peeling deck assembly to pass: {pos_onion_asm}")
+
     return {
         "status": "PASS",
         "selftest": "AWF_HTML_PPT_V3_MacroToMicro_TriMode_TDD_Grill_And_AutonomousDualEvolve",
@@ -1157,6 +1364,7 @@ def run_selftest() -> Dict[str, Any]:
             "Mode3_AUTONOMOUS_Pass_PostReview_PPT_Patch_And_AWF_Dual_Evolution_Receipt",
             "Stage0_Macro_GDD_Global_Deck_Blueprint_And_V3_Animation_Enforcement",
             "MidStream_Elastic_Slide_Split_Merge_And_JIT_V3_Animation_Promotion",
+            "Hierarchical_Onion_Peeling_Layer0_CoarseFrame_To_Layer1_TrunkSubFrame_To_LeafSlide",
         ],
     }
 
@@ -1165,6 +1373,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="AWF HTML-PPT V3 Tri-Mode Single-Slide Gatekeeper")
     parser.add_argument("--self-test", action="store_true", help="Run Tri-Mode (TDD / GRILL / AUTONOMOUS_DUAL_EVOLVE) self-test")
     parser.add_argument("--init-storyboard", type=str, default="", help="Path to storyboard.json")
+    parser.add_argument("--peel-onion-trunk", type=str, default="", help="Path to Onion Layer 1 trunk sub-framework peel JSON")
     parser.add_argument("--mutate-storyboard", type=str, default="", help="Path to mid-stream storyboard mutation JSON")
     parser.add_argument("--manifest", type=str, default="slide_manifest.json", help="Path to slide_manifest.json")
     parser.add_argument("--record-tdd-capsule", type=str, default="", help="Path to Mode 1 TDD station capsule JSON")
@@ -1185,6 +1394,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.init_storyboard:
         sb_doc = json.loads(Path(args.init_storyboard).read_text(encoding="utf-8"))
         rep = init_storyboard_manifest(sb_doc, Path(args.manifest))
+        print(json.dumps(rep, indent=2, ensure_ascii=False))
+        return 0 if rep.get("status") == "PASS" else 1
+
+    if args.peel_onion_trunk:
+        peel_doc = json.loads(Path(args.peel_onion_trunk).read_text(encoding="utf-8"))
+        rep = peel_onion_trunk_subframe(Path(args.manifest), peel_doc)
         print(json.dumps(rep, indent=2, ensure_ascii=False))
         return 0 if rep.get("status") == "PASS" else 1
 

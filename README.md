@@ -10,7 +10,7 @@ Public, portable distribution of the **Agent Workflow Foundry (AWF)** two-layer 
    - **Dual Quantitative Rubric Scorer**:
      - *Mode 1 — Organic Optoelectronic / OLED Deep-Mechanism Rubric v3* (`01_optoelectronic_scoring_criteria_v3.md`, 100 pts + `R1`–`R7` up to `-15` pts, enforcing the multiplicative law $A_i = w_i \times C_{\text{clarity}} \times V_{\text{visual}}$ that caps `V0` pure-text slides at `30%`).
      - *Mode 2 — Supramolecular & Popular-Science 5-Dimension Rubric* (`02_supermolecule_SCORING_CRITERIA_5dim.md`, 100 pts calibrated against 39 real user feedback items).
-2. **`AWF HTML-PPT V3` (`html-ppt@1.0.0-rc.3` / `skill.html-ppt@1.0.0-rc.8`)**:
+2. **`AWF HTML-PPT V3` (`html-ppt@1.0.0-rc.3` / `skill.html-ppt@1.0.0-rc.9`)**:
    - **Tri-Mode 1-Slide-Per-Step Enforcer (`audit_single_slide_step.py`)**: Physically forbids batch-generating `>1` slide in a single step, enforces sequential 1-hop unlocking via `slide_manifest.json`, and supports:
      - `--record-tdd-capsule` (Mode 1: Tutor-Driven Design),
      - `--record-grill-capsule` (Mode 2: Grill-Driven Design — quiz first, teach on miss, keep grilling),
@@ -24,7 +24,7 @@ Public, portable distribution of the **Agent Workflow Foundry (AWF)** two-layer 
 ## Included Locked Closure
 
 - `skill.design-anti-goodhart@1.0.0-rc.4` (`awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/`)
-- `skill.html-ppt@1.0.0-rc.8` (`awf/components/skills/html-ppt/releases/1.0.0-rc.8/source/`)
+- `skill.html-ppt@1.0.0-rc.9` (`awf/components/skills/html-ppt/releases/1.0.0-rc.9/source/`)
 - `skill.anti-goodhart-verification@3.5.0-rc.1` (`awf/components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source/`)
 - `skill.adaptive-interactive-tutor@1.0.0-rc.17` (`awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.17/source/`)
 - Workflow descriptors & exact `versions.lock` files under `awf/workflows/`
@@ -41,7 +41,7 @@ python awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/scr
 python awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/scripts/awf_design_anti_goodhart_gates.py --audit-self
 
 # 3. Run AWF HTML-PPT V3 Tri-Mode (TDD / GRILL / AUTONOMOUS_DUAL_EVOLVE) self-test directly
-python awf/components/skills/html-ppt/releases/1.0.0-rc.8/source/scripts/audit_single_slide_step.py --self-test
+python awf/components/skills/html-ppt/releases/1.0.0-rc.9/source/scripts/audit_single_slide_step.py --self-test
 
 # 4. Run AWF Guard 73-gate self-test & self-hosting audit directly
 python awf/components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py --self-test

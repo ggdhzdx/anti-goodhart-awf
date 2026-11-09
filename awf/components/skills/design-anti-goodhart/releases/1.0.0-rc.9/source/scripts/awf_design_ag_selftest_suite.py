@@ -326,6 +326,55 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         },
         expected_storyboard_count=6,
     )
+    res_d16_neg_onion = dag.verify_onion_peeling_capsule({
+        "layer0_macro_frame": {
+            "core_thesis": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，利用极化激元反交叉耦合压缩寿命破局",
+            "macro_trunks_mcq": {
+                "options": ["A (Recommended): 主干1痛点 -> 主干2反交叉机理", "B: 倒叙主干"],
+                "selected_option": "A",
+                "macro_trunks": [
+                    {"trunk_id": "Trunk_1", "title": "痛点死结", "status": "UNPEELED"},
+                    {"trunk_id": "Trunk_2", "title": "反交叉机理", "status": "PEELING"},
+                ],
+            },
+        },
+        "peeled_trunks": [
+            {
+                "trunk_id": "Trunk_2",  # Violates 1-hop trunk peeling order because Trunk_1 is still UNPEELED!
+                "trunk_subframe_mcq": {
+                    "options": ["A", "B"],
+                    "selected_option": "A",
+                    "sub_nodes": [{"node_id": "Sub_2.1", "node_type": "LEAF_SLIDE", "title": "色散关系"}],
+                },
+            }
+        ],
+    })
+    res_d16_pos_onion = dag.verify_onion_peeling_capsule({
+        "layer0_macro_frame": {
+            "core_thesis": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，利用极化激元反交叉耦合压缩寿命破局",
+            "macro_trunks_mcq": {
+                "options": ["A (Recommended): 主干1痛点 -> 主干2反交叉机理", "B: 倒叙主干"],
+                "selected_option": "A (Recommended): 主干1痛点 -> 主干2反交叉机理",
+                "macro_trunks": [
+                    {"trunk_id": "Trunk_1", "title": "痛点死结", "status": "PEELING"},
+                    {"trunk_id": "Trunk_2", "title": "反交叉机理", "status": "UNPEELED"},
+                ],
+            },
+        },
+        "peeled_trunks": [
+            {
+                "trunk_id": "Trunk_1",
+                "trunk_subframe_mcq": {
+                    "options": ["A (Recommended): 细分为 1.1 自旋统计 与 1.2 TTA 淬灭两页", "B: 合成一页"],
+                    "selected_option": "A (Recommended): 细分为 1.1 自旋统计 与 1.2 TTA 淬灭两页",
+                    "sub_nodes": [
+                        {"node_id": "Sub_1.1", "node_type": "LEAF_SLIDE", "title": "自旋统计与三重态比例"},
+                        {"node_id": "Sub_1.2", "node_type": "LEAF_SLIDE", "title": "高亮度 TTA 烧屏机制"},
+                    ],
+                },
+            }
+        ],
+    })
     if (
         res_d16_neg_batch2["passed"]
         or res_d16_neg_hop["passed"]
@@ -338,8 +387,10 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         or res_d16_neg_dual_evol["passed"]
         or res_d16_neg_global_bp["passed"]
         or not res_d16_pos_elastic_jit["passed"]
+        or res_d16_neg_onion["passed"]
+        or not res_d16_pos_onion["passed"]
     ):
-        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/MCQ/RubberStamp/GlobalBlueprint/Dual-Evolve violation, or failed elastic/JIT blueprint")
+        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/MCQ/RubberStamp/GlobalBlueprint/Onion/Dual-Evolve violation")
 
     # D17 Exact Calibration Check against Section II of `01_optoelectronic_scoring_criteria_v3.md`:
     # "为什么是反交叉" (weight = 4, required = V3):

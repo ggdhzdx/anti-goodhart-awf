@@ -1,9 +1,9 @@
 ---
 name: html-ppt
-description: Build, audit, and evolve 16:9 scientific interactive HTML presentations (AWF HTML-PPT / SciSlide) under a Two-Level Macro-to-Micro Tri-Mode Architecture (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 animation slides + Stage 1..N Single-Slide `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`), strictly enforcing 1-Slide-Per-Step (`max_slides_generated_per_step == 1`) and 1-Hop Slide Topological Lock (`slide_manifest.json`), gated by `skill.design-anti-goodhart@1.0.0-rc.8` (AWF DesignAG) and `skill.anti-goodhart-verification@3.6.0-rc.1` (AWF Guard). Use whenever creating, revising, or auditing HTML slide decks, scientific paper walkthroughs, or teaching presentations.
+description: Build, audit, and evolve 16:9 scientific interactive HTML presentations (AWF HTML-PPT / SciSlide) under a Two-Level Macro-to-Micro Tri-Mode Architecture (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 animation slides + Stage 1..N Single-Slide `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`), strictly enforcing 1-Slide-Per-Step (`max_slides_generated_per_step == 1`) and 1-Hop Slide Topological Lock (`slide_manifest.json`), gated by `skill.design-anti-goodhart@1.0.0-rc.9` (AWF DesignAG) and `skill.anti-goodhart-verification@3.6.0-rc.1` (AWF Guard). Use whenever creating, revising, or auditing HTML slide decks, scientific paper walkthroughs, or teaching presentations.
 ---
 
-# AWF HTML-PPT V3 (`skill.html-ppt@1.0.0-rc.10` — Two-Level Macro-to-Micro Tri-Mode Engine: Stage 0 Global Deck Blueprint MCQs [Total Slides + Focus Modules + V3 Animation Budget] + Stage 1..N `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`, Strictly 1-Slide-Per-Step & `AWF DesignAG` 18-Gate Enforcement)
+# AWF HTML-PPT V3 (`skill.html-ppt@1.0.0-rc.11` — Two-Level Macro-to-Micro Tri-Mode Engine: Stage 0 Global Deck Blueprint MCQs [Total Slides + Focus Modules + V3 Animation Budget] + Stage 1..N `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`, Strictly 1-Slide-Per-Step & `AWF DesignAG` 18-Gate Enforcement)
 
 An anti-Goodhart, self-evolving scientific HTML presentation authoring and verification engine. To prevent mid-deck attention collapse, template cloning, unrendered LaTeX leaks, overlapping/clipped DOM boxes, and pure-text laziness (`V0 = 0.30` cap), **AWF HTML-PPT V3 strictly forbids generating multiple slides in a single step** and supports a **Tri-Mode Execution Architecture** (`workflow_mode: "TDD" | "GRILL" | "AUTONOMOUS_DUAL_EVOLVE"`). Regardless of mode, every slide (`slides/slide_XX.html`) is generated, rendered, and audited **one slide per step** before unlocking the next slide in `slide_manifest.json`.
 
@@ -22,6 +22,10 @@ Before generating `storyboard.json` or writing `slide_01.html`, the Agent determ
      1. **`A (Recommended)` 页数不限 / 顺着逻辑流程自然生长 (`slide_count_policy: "UNBOUNDED_FLOW_DRIVEN"`, `planned_total_slides: "不限"`)**: Do **not** guess an artificial total slide count upfront! Instead, follow `logical_flow_spine` step by step—each logical module organically takes as many slides as needed (`APPEND_FLOW_SLIDE` / `SPLIT_SLIDE` / `MERGE_SLIDES` via `--mutate-storyboard`) until every module in `logical_flow_spine` is clearly explained.
      2. **`B` 弹性页数区间 (`elastic_slide_range: [min_slides, max_slides]`)** or **`C` 固定时长页数 (`planned_total_slides`)**.
    - **MCQ 4 (`v3_animation_budget_mcq` — 哪些设计动画/交互讲？默认推荐边问边定 `JIT_DURING_QA`)**: Supports `"JIT_DURING_QA"` (decide which exact slides get `V3` interactive sliders/animations during each slide's Q&A along the logical flow, while enforcing `min_v3_slides_quota >= 1` at final deck assembly), `"HYBRID_SEED_PLUS_JIT"`, or `"UPFRONT_LOCKED"`.
+3. **Step 0.C — 分级洋葱剥皮演进流程 (`onion_peeling_capsule` + `--peel-onion-trunk`)**:
+   - **Layer 0 (最外层粗框架 `layer0_macro_frame`)**: Only locks the 3–5 coarsest macro trunks (`macro_trunks_mcq`: `Trunk_1`, `Trunk_2`, ..., where `Trunk_2..M` start as `"UNPEELED"`).
+   - **Layer 1..K (进入某一个主干，确定该主干内的细分框架 `peel_onion_trunk_subframe`)**: When entering `Trunk_m`, the Agent peels open *only* `Trunk_m` (`trunk_subframe_mcq`), deciding which sub-points inside `Trunk_m` become atomic `LEAF_SLIDE` pages (or recursive `SUB_BRANCH` layers), enforced by a 1-Hop Trunk Order Lock (`Trunk_{m+1}` cannot be peeled while `Trunk_m`'s leaf slides are unfinished).
+   - **Leaf Layer (最终到单页内容与视觉确定)**: Each `LEAF_SLIDE` undergoes Single-Slide Mechanism Grill / TDD Q&A + Slide Visual/Animation MCQ (`V2` vs `V3`) $\to$ 1-Slide HTML generation & 18-gate `DesignAG` audit. Stage 4 assembly verifies that 100% of `macro_trunks` have been peeled (zero `"UNPEELED"` trunks remaining).
 
 ### Mode 1: `TDD` — Tutor-Driven Design（以教代建模式，`tdd_mode: true`）
 - **Workflow**: `1 Tutor Station == 1 TDD Cognitive Capsule == 1 Slide`.
@@ -52,7 +56,7 @@ Before generating `storyboard.json` or writing `slide_01.html`, the Agent determ
 
 1. **Strictly 1 Slide Per Step (`max_slides_generated_per_step == 1`)**:
    - Never generate a monolithic multi-slide HTML file in one shot, and never batch 2 or more slides in a single step.
-   - Each slide lives in its own isolated module (`slides/slide_01.html`, `slides/slide_02.html`, ...) and is individually audited via [`scripts/audit_single_slide_step.py`](scripts/audit_single_slide_step.py) against `skill.design-anti-goodhart@1.0.0-rc.8` (`AWF DesignAG`).
+   - Each slide lives in its own isolated module (`slides/slide_01.html`, `slides/slide_02.html`, ...) and is individually audited via [`scripts/audit_single_slide_step.py`](scripts/audit_single_slide_step.py) against `skill.design-anti-goodhart@1.0.0-rc.9` (`AWF DesignAG`).
 2. **1-Hop Slide Topological Lock (`unverified_slide_hop_distance == 1`)**:
    - Tracked in `slide_manifest.json`. At initialization, only `slide_01` (`Station_1.1`) is `"UNLOCKED"`; `slide_02..N` are `"LOCKED"`.
    - `slide_{k+1}` is unlocked **if and only if** `slide_k` has passed all per-slide DesignAG gates (`D1`–`D12`, `D15`, `D16`) with zero Redlines (`R1`–`R7`) and its SHA-256 receipt is recorded as `"status": "PASS"` in `slide_manifest.json`.

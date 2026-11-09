@@ -1229,6 +1229,86 @@ def verify_global_deck_blueprint_capsule(
     }
 
 
+def verify_onion_peeling_capsule(
+    onion_capsule: Optional[Dict[str, Any]],
+) -> Dict[str, Any]:
+    """
+    Verify Hierarchical Onion Peeling Capsule (`onion_peeling_capsule` — 分级洋葱剥皮流程):
+    1. Layer 0 (`layer0_macro_frame` — 最粗的全局主干框架):
+       - `core_thesis`: bird's-eye core conflict synthesis;
+       - `macro_trunks_mcq`: `options` (>=2), `selected_option`, and `macro_trunks` (>=2 coarse trunks);
+    2. Layer 1..K (`peeled_trunks` — 进入某一个主干后确定的主干内细分框架):
+       - Each peeled trunk references a valid `trunk_id`, includes `trunk_subframe_mcq` (`options` >=2,
+         `selected_option`), and defines >=1 `sub_nodes` (`LEAF_SLIDE` or recursive `SUB_BRANCH`);
+       - Enforces sequential 1-hop trunk peeling (`Trunk_{m+1}` cannot be peeled while `Trunk_m` is `UNPEELED`).
+    """
+    issues: List[str] = []
+    if not isinstance(onion_capsule, dict) or not onion_capsule:
+        return {"passed": False, "issues": ["Missing onion_peeling_capsule"]}
+
+    layer0 = onion_capsule.get("layer0_macro_frame")
+    trunk_order: List[str] = []
+    trunk_status_map: Dict[str, str] = {}
+    if not isinstance(layer0, dict):
+        issues.append("Onion capsule missing layer0_macro_frame (coarsest outer framework)")
+    else:
+        thesis = str(layer0.get("core_thesis", "")).strip()
+        if len(thesis) < 10:
+            issues.append("layer0_macro_frame missing core_thesis")
+        mcq0 = layer0.get("macro_trunks_mcq")
+        if not isinstance(mcq0, dict):
+            issues.append("layer0_macro_frame missing macro_trunks_mcq")
+        else:
+            opts = mcq0.get("options", [])
+            sel = str(mcq0.get("selected_option", "")).strip()
+            trunks = mcq0.get("macro_trunks", [])
+            if not isinstance(opts, list) or len(opts) < 2 or not sel:
+                issues.append("macro_trunks_mcq must provide >=2 options and a selected_option")
+            if not isinstance(trunks, list) or len(trunks) < 2:
+                issues.append("macro_trunks_mcq must define >=2 coarse macro_trunks")
+            else:
+                for t in trunks:
+                    if isinstance(t, dict) and str(t.get("trunk_id", "")).strip():
+                        tid = str(t["trunk_id"]).strip()
+                        trunk_order.append(tid)
+                        trunk_status_map[tid] = str(t.get("status", "UNPEELED")).strip().upper()
+
+    peeled_list = onion_capsule.get("peeled_trunks", [])
+    if not isinstance(peeled_list, list):
+        issues.append("peeled_trunks must be a list")
+    else:
+        for pt in peeled_list:
+            if not isinstance(pt, dict):
+                continue
+            tid = str(pt.get("trunk_id", "")).strip()
+            if tid not in trunk_status_map:
+                issues.append(f"Peeled trunk '{tid}' not found in layer0 macro_trunks")
+            else:
+                idx = trunk_order.index(tid)
+                if idx > 0 and trunk_status_map.get(trunk_order[idx - 1]) == "UNPEELED":
+                    issues.append(
+                        f"Onion 1-hop trunk order violation: cannot peel '{tid}' while previous trunk '{trunk_order[idx - 1]}' is still UNPEELED"
+                    )
+            sub_mcq = pt.get("trunk_subframe_mcq")
+            if not isinstance(sub_mcq, dict):
+                issues.append(f"Peeled trunk '{tid}' missing trunk_subframe_mcq (sub-framework decision inside trunk)")
+            else:
+                s_opts = sub_mcq.get("options", [])
+                s_sel = str(sub_mcq.get("selected_option", "")).strip()
+                nodes = sub_mcq.get("sub_nodes", [])
+                if not isinstance(s_opts, list) or len(s_opts) < 2 or not s_sel:
+                    issues.append(f"trunk_subframe_mcq for '{tid}' must have >=2 options and a selected_option")
+                if not isinstance(nodes, list) or len(nodes) < 1:
+                    issues.append(f"trunk_subframe_mcq for '{tid}' must define >=1 sub_nodes")
+
+    return {
+        "passed": len(issues) == 0,
+        "macro_trunk_count": len(trunk_order),
+        "peeled_trunk_count": len(peeled_list) if isinstance(peeled_list, list) else 0,
+        "issues": issues,
+    }
+
+
 def verify_storyboard_microstep_and_layout_diversity(
     storyboard_slides: Sequence[Dict[str, Any]],
     max_slides_generated_per_step: int = 1,
@@ -1239,6 +1319,7 @@ def verify_storyboard_microstep_and_layout_diversity(
     gdd_grill_capsule: Optional[Dict[str, Any]] = None,
     dual_evolution_receipt: Optional[Dict[str, Any]] = None,
     global_deck_blueprint: Optional[Dict[str, Any]] = None,
+    onion_peeling_capsule: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """
     Gate D16 (Design-Layer G6o + Tri-Mode Macro-to-Micro Execution Anchor):
@@ -1268,6 +1349,10 @@ def verify_storyboard_microstep_and_layout_diversity(
         gb_res = verify_global_deck_blueprint_capsule(global_deck_blueprint, len(storyboard_slides))
         if not gb_res["passed"]:
             issues.extend(gb_res["issues"])
+    if onion_peeling_capsule is not None:
+        on_res = verify_onion_peeling_capsule(onion_peeling_capsule)
+        if not on_res["passed"]:
+            issues.extend(on_res["issues"])
     if tdd_mode or tdd_station_capsule is not None:
         tdd_res = verify_tdd_station_capsule_completeness(tdd_station_capsule)
         if not tdd_res["passed"]:
