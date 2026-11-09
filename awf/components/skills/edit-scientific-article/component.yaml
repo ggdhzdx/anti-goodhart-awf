@@ -1,0 +1,47 @@
+{
+  "id": "skill.edit-scientific-article",
+  "kind": "skill",
+  "releases": {
+    "1.0.0-rc.10": {
+      "status": "validated",
+      "observed_at": "2026-10-28",
+      "source_snapshot": "components/skills/edit-scientific-article/releases/1.0.0-rc.10/source",
+      "tree_sha256": "dd89c896ea77874eb79aa8c3a104b3e907fff8d8582805e629be2223c2f8d471",
+      "runtime_requirements": [
+        "Codex Skill loader",
+        "UTF-8 Markdown reader"
+      ],
+      "capabilities": [
+        "scientific-prose-editing",
+        "plain-language-before-formula-explanation",
+        "causal-chain-and-evidence-audit",
+        "reproducible-methods-and-figure-discussion",
+        "positive-interpretation-and-evidence-calibration",
+        "natural-scholarly-voice-anti-ai-cliche",
+        "grant-proposal-specialist-and-generalist-readability",
+        "pure-continuous-journal-prose-no-bullets-or-internal-codes",
+        "four-way-figure-caption-text-table-readback-synchronization",
+        "metric-onboarding-and-quantitative-capacity-accounting",
+        "measured-objective-scholarly-tone-de-exaggeration-and-de-absolutization",
+        "causal-panel-ordering-and-peak-vs-ensemble-distinction",
+        "complete-three-pillar-force-field-disclosure-and-standalone-unpacked-esi-notes",
+        "artifact-first-disk-provenance-methods-and-esi-authoring",
+        "zero-synthetic-validation-curve-enforcement",
+        "computational-chemistry-referee-8-point-audit-gate",
+        "formula-plugin-arithmetic-closure-and-kitagawa-oaxaca-table-sync",
+        "multi-role-6-persona-iterative-audit-and-fix-loop",
+        "operational-replication-completeness-and-zero-panel-duplication-gate",
+        "word-com-pdf-page-level-visual-inspection-gate",
+        "domain-agnostic-cross-disciplinary-writing-and-review-rules",
+        "lossy-compression-three-point-semantic-preservation-gate",
+        "four-role-three-round-preemptive-peer-review-closed-loop"
+      ],
+      "limitations": [
+        "Does not validate scientific claims without source evidence",
+        "Project-specific terminology and conclusions remain project data",
+        "DOCX mechanics require skill.build-scientific-docx"
+      ]
+    }
+  },
+  "schema_version": 1
+}

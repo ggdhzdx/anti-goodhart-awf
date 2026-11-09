@@ -5,7 +5,7 @@
       "descriptor": "components/skills/design-anti-goodhart/component.yaml",
       "id": "skill.design-anti-goodhart",
       "kind": "skill",
-      "latest_release": "1.0.0-rc.9"
+      "latest_release": "1.0.0-rc.10"
     },
     {
       "descriptor": "components/skills/anti-goodhart-verification/component.yaml",
@@ -17,13 +17,31 @@
       "descriptor": "components/skills/adaptive-interactive-tutor/component.yaml",
       "id": "skill.adaptive-interactive-tutor",
       "kind": "skill",
-      "latest_release": "1.0.0-rc.22"
+      "latest_release": "1.0.0-rc.23"
     },
     {
       "descriptor": "components/skills/html-ppt/component.yaml",
       "id": "skill.html-ppt",
       "kind": "skill",
-      "latest_release": "1.0.0-rc.11"
+      "latest_release": "1.0.0-rc.12"
+    },
+    {
+      "descriptor": "components/skills/edit-scientific-article/component.yaml",
+      "id": "skill.edit-scientific-article",
+      "kind": "skill",
+      "latest_release": "1.0.0-rc.10"
+    },
+    {
+      "descriptor": "components/skills/build-scientific-docx/component.yaml",
+      "id": "skill.build-scientific-docx",
+      "kind": "skill",
+      "latest_release": "1.0.0-rc.12"
+    },
+    {
+      "descriptor": "components/skills/build-editable-figure-pptx/component.yaml",
+      "id": "skill.build-editable-figure-pptx",
+      "kind": "skill",
+      "latest_release": "1.0.0-rc.2"
     }
   ],
   "workflows": [
@@ -45,17 +63,17 @@
         "PPT防偷懒",
         "design-anti-goodhart"
       ],
-      "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.9/workflow.yaml",
-      "descriptor_sha256": "6602cd31cce8ff155666237b29c6a171c1f66b547a7cfb5e8fd9ff67c0c14de3",
-      "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.9/versions.lock",
-      "lock_sha256": "d6d96f44d131308bfe5b50a2e2db2325b52dcb855f94b1f43cded762f928006f",
+      "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.10/workflow.yaml",
+      "descriptor_sha256": "e4cc265743696e7a71ecb946b33fddd1a7c29eea18b73db36c9b3e2c6e00f181",
+      "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.10/versions.lock",
+      "lock_sha256": "81b4e53f42a173333671191ff01cb377b513977b2a21a0ef930b0f9f6994c315",
       "status": "validated",
       "releases": {
-        "1.0.0-rc.9": {
-          "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.9/workflow.yaml",
-          "descriptor_sha256": "6602cd31cce8ff155666237b29c6a171c1f66b547a7cfb5e8fd9ff67c0c14de3",
-          "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.9/versions.lock",
-          "lock_sha256": "d6d96f44d131308bfe5b50a2e2db2325b52dcb855f94b1f43cded762f928006f",
+        "1.0.0-rc.10": {
+          "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.10/workflow.yaml",
+          "descriptor_sha256": "e4cc265743696e7a71ecb946b33fddd1a7c29eea18b73db36c9b3e2c6e00f181",
+          "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.10/versions.lock",
+          "lock_sha256": "81b4e53f42a173333671191ff01cb377b513977b2a21a0ef930b0f9f6994c315",
           "status": "validated"
         }
       }
@@ -136,17 +154,17 @@
         "grill-driven-design",
         "GDD"
       ],
-      "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.22/workflow.yaml",
-      "descriptor_sha256": "175ddd6a6d30fb17ca048d2e266da8d01604d976a8d3a47c0d46f7ef4d90d6f5",
-      "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.22/versions.lock",
-      "lock_sha256": "4488f45c5dfa18fccb0f80ce6c91ada1ba49be9a0174bb76b42fc17199a7b34d",
+      "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.23/workflow.yaml",
+      "descriptor_sha256": "96f8256bf3e75d6ce7b3cb0c65604c5c2ac7fb040237c6b133bb28e282d59a00",
+      "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.23/versions.lock",
+      "lock_sha256": "90e3aa9b9c9277c4938e2a55d598194de4fc1b59a4455766201d4d0dc14fe3e8",
       "status": "validated",
       "releases": {
-        "1.0.0-rc.22": {
-          "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.22/workflow.yaml",
-          "descriptor_sha256": "175ddd6a6d30fb17ca048d2e266da8d01604d976a8d3a47c0d46f7ef4d90d6f5",
-          "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.22/versions.lock",
-          "lock_sha256": "4488f45c5dfa18fccb0f80ce6c91ada1ba49be9a0174bb76b42fc17199a7b34d",
+        "1.0.0-rc.23": {
+          "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.23/workflow.yaml",
+          "descriptor_sha256": "96f8256bf3e75d6ce7b3cb0c65604c5c2ac7fb040237c6b133bb28e282d59a00",
+          "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.23/versions.lock",
+          "lock_sha256": "90e3aa9b9c9277c4938e2a55d598194de4fc1b59a4455766201d4d0dc14fe3e8",
           "status": "validated"
         }
       }
@@ -167,18 +185,74 @@
         "html-ppt-v2",
         "html-ppt-v3"
       ],
-      "descriptor": "workflows/html-ppt/releases/1.0.0-rc.8/workflow.yaml",
-      "descriptor_sha256": "58e855c6d5f74de30dc7b39d9f0a2b2c67263d1ed7bd63258f8561983404a35d",
-      "lock": "workflows/html-ppt/releases/1.0.0-rc.8/versions.lock",
-      "lock_sha256": "4298545649b7ed340347bf2245cc5ede4bb7feba9105003982a3de9627800b09",
+      "descriptor": "workflows/html-ppt/releases/1.0.0-rc.9/workflow.yaml",
+      "descriptor_sha256": "911553637dedf8bf60b306951146f53968cfcb18cafd031351c80403e61a6fca",
+      "lock": "workflows/html-ppt/releases/1.0.0-rc.9/versions.lock",
+      "lock_sha256": "7ab656d539abf253cc7756b0cb5272816f35590d6369af23eb9818943f45b6ec",
       "status": "validated",
       "releases": {
-        "1.0.0-rc.8": {
-          "descriptor": "workflows/html-ppt/releases/1.0.0-rc.8/workflow.yaml",
-          "descriptor_sha256": "58e855c6d5f74de30dc7b39d9f0a2b2c67263d1ed7bd63258f8561983404a35d",
-          "lock": "workflows/html-ppt/releases/1.0.0-rc.8/versions.lock",
-          "lock_sha256": "4298545649b7ed340347bf2245cc5ede4bb7feba9105003982a3de9627800b09",
+        "1.0.0-rc.9": {
+          "descriptor": "workflows/html-ppt/releases/1.0.0-rc.9/workflow.yaml",
+          "descriptor_sha256": "911553637dedf8bf60b306951146f53968cfcb18cafd031351c80403e61a6fca",
+          "lock": "workflows/html-ppt/releases/1.0.0-rc.9/versions.lock",
+          "lock_sha256": "7ab656d539abf253cc7756b0cb5272816f35590d6369af23eb9818943f45b6ec",
           "status": "validated"
+        }
+      }
+    },
+    {
+      "aliases": [
+        "scientific Word",
+        "scientific writing",
+        "AWF Scientific Report",
+        "AWF SciWord",
+        "SciWord"
+      ],
+      "descriptor": "workflows/scientific-report-authoring/releases/1.0.0-rc.13/workflow.yaml",
+      "descriptor_sha256": "78fc99a8ec8978e22f525e7ac3cb149d76ecc7cd7cd6c022d782ae0492f1784e",
+      "display_name": "AWF Scientific Report",
+      "id": "scientific-report-authoring",
+      "lock": "workflows/scientific-report-authoring/releases/1.0.0-rc.13/versions.lock",
+      "lock_sha256": "c9e63cd30ab111fa3a63a94fc59b497eac5c2b202be7bb4ed5ee0ebd328c4537",
+      "releases": {
+        "1.0.0-rc.13": {
+          "descriptor": "workflows/scientific-report-authoring/releases/1.0.0-rc.13/workflow.yaml",
+          "descriptor_sha256": "78fc99a8ec8978e22f525e7ac3cb149d76ecc7cd7cd6c022d782ae0492f1784e",
+          "lock": "workflows/scientific-report-authoring/releases/1.0.0-rc.13/versions.lock",
+          "lock_sha256": "c9e63cd30ab111fa3a63a94fc59b497eac5c2b202be7bb4ed5ee0ebd328c4537",
+          "status": "validated"
+        }
+      }
+    },
+    {
+      "id": "editable-figure-pptx",
+      "display_name": "AWF FigPPT",
+      "aliases": [
+        "FigPPT",
+        "figppt",
+        "AWF FigPPT",
+        "awf-figppt",
+        "SciFig",
+        "scifig",
+        "AWF SciFig",
+        "editable-figure-pptx",
+        "figure-pptx",
+        "拆图",
+        "图片分解",
+        "可编辑论文图PPT"
+      ],
+      "descriptor": "workflows/editable-figure-pptx/releases/1.0.0-rc.2/workflow.yaml",
+      "descriptor_sha256": "d181a9a1a4c5f1700125b0868ae0cca4e0f342ced4e95fed5dfc6349c3cda728",
+      "lock": "workflows/editable-figure-pptx/releases/1.0.0-rc.2/versions.lock",
+      "lock_sha256": "e166c2f808e2c8e68232b37ba630606e793a7cbcaaf4bc843e3fd46f52b0e9fd",
+      "status": "candidate",
+      "releases": {
+        "1.0.0-rc.2": {
+          "descriptor": "workflows/editable-figure-pptx/releases/1.0.0-rc.2/workflow.yaml",
+          "descriptor_sha256": "d181a9a1a4c5f1700125b0868ae0cca4e0f342ced4e95fed5dfc6349c3cda728",
+          "lock": "workflows/editable-figure-pptx/releases/1.0.0-rc.2/versions.lock",
+          "lock_sha256": "e166c2f808e2c8e68232b37ba630606e793a7cbcaaf4bc843e3fd46f52b0e9fd",
+          "status": "candidate"
         }
       }
     }

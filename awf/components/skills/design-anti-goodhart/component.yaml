@@ -3,12 +3,12 @@
   "id": "skill.design-anti-goodhart",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.9": {
+    "1.0.0-rc.10": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.9/source",
-      "tree_sha256": "8245f357709facb100f4eecdd06d08c5033840b90a6e1235a9c268c34e22a5f7",
+      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.10/source",
+      "tree_sha256": "1289e8ac625e58565b9056f71e4af40b3039114bb9927baaea7177530edb84f7",
       "depends_on": [
         "skill.anti-goodhart-verification@3.6.0-rc.1"
       ],
@@ -40,7 +40,7 @@
         "DOM bounding-box probes (D7-D8) accept headless browser/Playwright bounding-box JSON exports or structured layout bundles",
         "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds"
       ],
-      "provenance": "Release 1.0.0-rc.9 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.9`), adding `verify_global_deck_blueprint_capsule` to Gate D16 for Stage 0 Macro-GDD Global Deck Blueprint verification (Total Slides MCQ, Emphasis Allocation MCQ, and V3 Animation Budget MCQ), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
+      "provenance": "Release 1.0.0-rc.10 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.10`), adding `verify_global_deck_blueprint_capsule` to Gate D16 for Stage 0 Macro-GDD Global Deck Blueprint verification (Total Slides MCQ, Emphasis Allocation MCQ, and V3 Animation Budget MCQ), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
     }
   }
 }

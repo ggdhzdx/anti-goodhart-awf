@@ -1,0 +1,10 @@
+{
+  "components": {
+    "skill.build-scientific-docx": "1.0.0-rc.12",
+    "skill.edit-scientific-article": "1.0.0-rc.10"
+  },
+  "locked_at": "2026-10-28",
+  "schema_version": 1,
+  "workflow": "scientific-report-authoring",
+  "workflow_release": "1.0.0-rc.13"
+}

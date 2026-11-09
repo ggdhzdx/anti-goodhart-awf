@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "skill.build-editable-figure-pptx",
+  "kind": "skill",
+  "name": "build-editable-figure-pptx",
+  "summary": "Decompose composite scientific manuscript and SI figures into one-subpanel-per-slide editable PowerPoint (.pptx) decks where every title, axis label, tick label, legend, and annotation is a draggable native PowerPoint shape.",
+  "owners": [
+    "zc"
+  ],
+  "releases": {
+    "1.0.0-rc.2": {
+      "status": "candidate",
+      "observed_at": "2026-10-28",
+      "entry_point": "SKILL.md",
+      "source_snapshot": "components/skills/build-editable-figure-pptx/releases/1.0.0-rc.2/source",
+      "tree_sha256": "6201364903cc9d54141faa87f0b2fe2ed28759d18a51633048a67496ac50a77c",
+      "depends_on": [],
+      "capabilities": [
+        "clean-rgb-palette-transparency-stripping",
+        "2d-plot-ink-margin-scanner-mode-a-and-mode-b",
+        "pixel-and-data-to-pptx-affine-coordinate-bridge",
+        "native-openxml-subscript-superscript-typography",
+        "4-slot-openxml-uniform-font-enforcement-latin-ea-cs-sym-and-theme",
+        "vector-shape-legend-builder-without-symbol-fallback",
+        "colorbar-get-ylim-contour-bin-alignment",
+        "automated-pptx-editability-trns-and-font-auditor",
+        "windows-powerpoint-com-slide-png-exporter"
+      ],
+      "limitations": [
+        "PowerPoint slide-to-PNG COM export (export-png) requires a Windows host with Microsoft PowerPoint installed; building and auditing .pptx files works on both Linux and Windows."
+      ],
+      "provenance": "Upgraded in 2026-10-28 duanTN Figure 6 campaign to enforce 4-slot OpenXML fonts (latin/ea/cs/sym + endParaRPr + theme1.xml) preventing zh-CN East Asian ambiguous-width Greek/symbol fallback, add native vector shape legend markers (add_ppt_vector_legend), and align contourf colorbar ticks via cbar.ax.get_ylim()."
+    }
+  }
+}

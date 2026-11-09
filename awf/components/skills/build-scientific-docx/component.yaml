@@ -1,0 +1,56 @@
+{
+  "id": "skill.build-scientific-docx",
+  "kind": "skill",
+  "releases": {
+    "1.0.0-rc.12": {
+      "status": "validated",
+      "observed_at": "2026-10-28",
+      "source_snapshot": "components/skills/build-scientific-docx/releases/1.0.0-rc.12/source",
+      "tree_sha256": "b132c63509b21dcd17caabd6122f000531eb9161e178d6c2aad9ba55098bc28a",
+      "runtime_requirements": [
+        "Python 3.10+",
+        "python-docx 1.x",
+        "lxml"
+      ],
+      "capabilities": [
+        "strict-latex-subset-to-native-omml",
+        "inline-omml-placeholder-conversion",
+        "auto-sanitized-omml-closing-braces-and-extended-operators",
+        "unclipped-display-equation-and-drawing-layout",
+        "semantic-nary-delimiter-function-and-accent-omml",
+        "user-edited-docx-preservation",
+        "docx-package-and-equation-audit",
+        "baseline-aware-media-delta-detection",
+        "real-report-formula-corpus-regression",
+        "figure-content-synchronization-gate",
+        "print-scale-figure-typography-gate",
+        "multi-panel-composite-figure-plotbox-alignment-and-font-uniformity-gate",
+        "four-way-figure-caption-text-table-readback-synchronization",
+        "zero-residual-latex-markdown-and-table-pipe-safety-audit",
+        "no-exaggerated-or-overly-absolute-claims-audit",
+        "english-only-table-cells-and-standalone-unpacked-esi-audit",
+        "table-cell-iter-paragraphs-gc-id-collision-fix",
+        "standalone-single-line-split-display-equations-gate",
+        "zero-raw-sub-superscript-ascii-syntax-in-prose-and-tables-gate",
+        "cross-project-disk-provenance-concordance-gate",
+        "xml-run-level-zero-raw-ascii-sub-superscript-gate",
+        "xml-omathpara-no-merged-display-equations-gate",
+        "transition-state-ddagger-dagger-permil-perp-parallel-omml-support",
+        "figure-script-no-synthetic-random-static-source-gate",
+        "expanded-internal-debugging-jargon-filter",
+        "inline-omml-font-size-bold-color-inheritance-from-paragraph-rpr",
+        "latex-greek-and-prefix-command-space-absorption",
+        "table-column-consistency-and-row-split-protection-gate",
+        "dom-safe-w-drawing-detection-and-dynamic-template-style-inheritance",
+        "no-residual-publisher-template-placeholders-gate",
+        "word-native-track-changes-and-right-margin-rationale-comments-builder"
+      ],
+      "limitations": [
+        "The bundled parser supports a documented LaTeX subset rather than full TeX",
+        "Linux package checks do not prove visual compatibility with every Microsoft Word version",
+        "Media-delta checks require an explicit allowance for intentionally added figures"
+      ]
+    }
+  },
+  "schema_version": 1
+}

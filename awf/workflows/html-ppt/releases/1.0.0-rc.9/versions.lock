@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "workflow": "html-ppt",
+  "workflow_release": "1.0.0-rc.9",
+  "locked_at": "2026-11-08",
+  "components": {
+    "skill.html-ppt": "1.0.0-rc.12",
+    "skill.design-anti-goodhart": "1.0.0-rc.10",
+    "skill.anti-goodhart-verification": "3.6.0-rc.1"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "editable-figure-pptx",
+  "release": "1.0.0-rc.2",
+  "status": "candidate",
+  "purpose": "Decompose composite scientific manuscript and Supporting Information figures into one-subpanel-per-slide (plus composite overview) PowerPoint (.pptx) decks with clean cropped graphical canvases, 100% uniform 4-slot OpenXML fonts (e.g. Arial across latin/ea/cs/sym and theme XMLs), vector legend markers, and draggable native PowerPoint textboxes, badges, and chemical formulas.",
+  "entry_skills": [
+    "skill.build-editable-figure-pptx"
+  ],
+  "components": [
+    {
+      "id": "skill.build-editable-figure-pptx",
+      "release": "1.0.0-rc.2",
+      "optional": false,
+      "purpose": "Decompose composite figures into sub-panel crops with palette-transparency stripping, affine pixel/data-to-slide coordinate bridges, 4-slot OpenXML uniform font enforcement, vector legend markers, and native OpenXML text shapes."
+    }
+  ],
+  "stages": [
+    {
+      "id": "inspect-and-scan-subpanel-margins",
+      "required": true,
+      "skill": "skill.build-editable-figure-pptx",
+      "description": "Load composite figures via load_clean_rgb (stripping palette PNG transparency=(0,0,0) chunks) and scan outward ink profiles around 2D plot boxes to separate tick numbers from outer axis titles."
+    },
+    {
+      "id": "crop-and-bridge-subpanels",
+      "required": true,
+      "skill": "skill.build-editable-figure-pptx",
+      "description": "Erase baked-in outer titles/legends, crop each sub-panel (or render text-free Matplotlib base graphics with cbar.ax.get_ylim() colorbar bounds), and establish exact DataToPptBridge / MplPanelBridge coordinate transforms."
+    },
+    {
+      "id": "assemble-native-pptx-shapes",
+      "required": true,
+      "skill": "skill.build-editable-figure-pptx",
+      "description": "Place composite overview and one-subpanel-per-slide 16:9 canvases, overlay native PowerPoint textboxes, rotated Y-axis titles, vector-marker legends (add_ppt_vector_legend), and OpenXML subscripts/superscripts, and save via save_presentation_with_uniform_font."
+    },
+    {
+      "id": "audit-and-visual-qa",
+      "required": true,
+      "skill": "skill.build-editable-figure-pptx",
+      "description": "Run editable_figure_pptx_kit.py audit --require-font Arial to verify zero tRNS black-transparency violations, 100% single-font purity, and native shape editability, and export slide PNGs via PowerPoint COM for visual QA."
+    }
+  ],
+  "engineering_gate": "editable_figure_pptx_kit.py audit --require-font Arial passes with 0 trns_black_violations, 0 font_violations, and 0 sparse_text_slides; self_test.py passes all positive and negative checks.",
+  "scientific_gate": "All numerical values, axis units, colorbar tick positions, chemical formulas, and tick alignments in the decomposed PowerPoint slides match the authoritative manuscript figures without clipping, font fallback, or aspect-ratio distortion.",
+  "candidate_limitations": [
+    "PowerPoint COM PNG slide rendering (export-png) requires Windows PowerPoint; building and auditing .pptx files works cross-platform on Linux and Windows."
+  ],
+  "version_lock": "versions.lock"
+}

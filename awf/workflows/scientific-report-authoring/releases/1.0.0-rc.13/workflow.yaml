@@ -1,0 +1,45 @@
+{
+  "candidate_limitations": [
+    "Scientific claims still require independent evidence review.",
+    "The bundled equation converter supports a strict documented LaTeX subset.",
+    "A Microsoft Word desktop opening and visual check remains external to Linux-only validation."
+  ],
+  "entry_skills": [
+    "skill.edit-scientific-article",
+    "skill.build-scientific-docx"
+  ],
+  "id": "scientific-report-authoring",
+  "purpose": "Author, revise, and audit scientific manuscripts, technical reports, grant proposals, and Supporting Information (ESI) across disciplines with domain-agnostic writing/review rules, Lossy-Compression 3-Point Semantic Preservation gates, 4-Role x 3-Round iterative peer-review closed loops, DOM-safe in-place DOCX editing, residual template placeholder gates, Word native Track Changes (<w:ins>/<w:del>) + right-margin rationale comments (<w:comment>), inline OMML style inheritance, and artifact-first disk provenance verification.",
+  "release": "1.0.0-rc.13",
+  "schema_version": 1,
+  "scientific_gate": "Clear writing and valid DOCX structure do not establish that a proposed scientific mechanism is correct; all methods, protocols, and validation plots must be parsed directly from disk artifacts and pass audit_docx.py --provenance-dir.",
+  "stages": [
+    {
+      "id": "identify-authoritative-manuscript",
+      "required": true,
+      "skill": "skill.edit-scientific-article"
+    },
+    {
+      "id": "edit-content-and-evidence-chain",
+      "required": true,
+      "skill": "skill.edit-scientific-article"
+    },
+    {
+      "id": "build-or-revise-versioned-docx",
+      "required": true,
+      "skill": "skill.build-scientific-docx"
+    },
+    {
+      "id": "synchronize-figures-with-revised-content",
+      "required": true,
+      "skill": "skill.build-scientific-docx"
+    },
+    {
+      "id": "audit-native-equations-and-package",
+      "required": true,
+      "skill": "skill.build-scientific-docx"
+    }
+  ],
+  "status": "validated",
+  "version_lock": "versions.lock"
+}

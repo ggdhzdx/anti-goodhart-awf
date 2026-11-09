@@ -1,49 +1,49 @@
-# AWF Anti-Goodhart Suite (`AWF DesignAG` + `AWF Guard` + `AWF HTML-PPT` + `AWF Tutor`)
+# AWF Anti-Goodhart Universal Input-Onion-Output Suite (`AWF DesignAG` + `AWF Guard` + `AWF HTML-PPT` + `AWF Tutor` + `AWF SciWord` + `AWF FigPPT`)
 
-Public, portable distribution of the **Agent Workflow Foundry (AWF)** two-layer Anti-Goodhart verification, **Tri-Mode (`TDD` / `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`) 1-Slide-Per-Step HTML-PPT**, and co-evolutionary tutoring suite:
+Public, portable distribution of the **Agent Workflow Foundry (AWF)** 8-Role Universal Input-Understanding-Output Onion Control Bus (`EvidenceIngest` $\to$ `AWF Tutor / Onion Peeling + DevilReviewer` $\to$ `OmniArtifactHub` [driving `AWF HTML-PPT`, `AWF SciWord`, and `AWF FigPPT`] $\to$ `AWF DesignAG` 18-Gate + `AWF Guard` 73-Gate Verification):
 
-1. **`AWF DesignAG` (`design-anti-goodhart@1.0.0-rc.4` / `skill.design-anti-goodhart@1.0.0-rc.4`)**:
-   - **18 Automated Design & Pedagogical Gates (`D1`–`D18`)** and **7 Redlines (`R1`–`R7`)** for scientific presentations (`HTML-PPT` & editable `PPTX`), including **strict 1-Slide-Per-Step micro-step enforcement (`max_slides_generated_per_step == 1`)**, **1-Hop Slide Topological Locking (`unverified_slide_hop_distance == 1`)**, and **Tri-Mode verification in `D16`**:
-     - Mode 1 (`TDD` / Tutor-Driven Design): `verify_tdd_station_capsule_completeness`
-     - Mode 2 (`GRILL` / Grill-Driven Design): `verify_grill_station_capsule_completeness` (Quiz-First $\to$ Teach-on-Miss $\to$ Re-Grill closure)
-     - Mode 3 (`AUTONOMOUS_DUAL_EVOLVE` / Head-Down Build + Post-Review Dual-Evolution): `verify_dual_evolution_feedback_receipt` (simultaneously patching the PPT and recording AWF HTML-PPT / DesignAG gate + negative canary upgrades).
-   - **Dual Quantitative Rubric Scorer**:
-     - *Mode 1 — Organic Optoelectronic / OLED Deep-Mechanism Rubric v3* (`01_optoelectronic_scoring_criteria_v3.md`, 100 pts + `R1`–`R7` up to `-15` pts, enforcing the multiplicative law $A_i = w_i \times C_{\text{clarity}} \times V_{\text{visual}}$ that caps `V0` pure-text slides at `30%`).
-     - *Mode 2 — Supramolecular & Popular-Science 5-Dimension Rubric* (`02_supermolecule_SCORING_CRITERIA_5dim.md`, 100 pts calibrated against 39 real user feedback items).
-2. **`AWF HTML-PPT V3` (`html-ppt@1.0.0-rc.3` / `skill.html-ppt@1.0.0-rc.9`)**:
-   - **Tri-Mode 1-Slide-Per-Step Enforcer (`audit_single_slide_step.py`)**: Physically forbids batch-generating `>1` slide in a single step, enforces sequential 1-hop unlocking via `slide_manifest.json`, and supports:
-     - `--record-tdd-capsule` (Mode 1: Tutor-Driven Design),
-     - `--record-grill-capsule` (Mode 2: Grill-Driven Design — quiz first, teach on miss, keep grilling),
-     - `--apply-feedback-dual-upgrade` (Mode 3: Head-down autonomous draft + post-review dual-evolution of both the PPT and `AWF HTML-PPT` / `DesignAG`),
-     - `--human-approve-slide` (optional per-slide human sign-off gate).
-3. **`AWF Guard` (`anti-goodhart-verification@3.5.0-rc.1` / `skill.anti-goodhart-verification@3.5.0-rc.1`)**:
-   - **73 Automated Code & Scientific Computing Anti-Goodhart Gates (`G1`–`G7`)**: Static `-inf` placeholder/magic-number circuit-breaker (`G5n`), 6-Dimensional Micro-Step Sufficiency & 1-Hop Topological DAG Anchor (`G6o`), Red-Blue Adversarial Auditor Decoupled Game (`G7h`), Analytical Gradient vs. 4th-Order Richardson Finite-Difference (`G2b`), Asymptotic Convergence Order $O(h^p)$ (`G1d`), 3D $SE(3)$ + Triclinic PBC Minimum-Image + $S_N$ Permutation Equivariance (`G3i`), Physical Matrix Hermiticity/PSD/Detailed-Balance (`G5m`), Pairwise Exchange Symmetry & Self-Interaction Exclusion (`G5o`), Exact Hat-Matrix LOOCV (`G7i`), Euler Scale Homogeneity (`G3j`), Autonomous Remediation Closed-Loop (`G6p`), Bipolar Sign Reachability (`G5p`), Mutmut AST Mutation Kill-Rate (`G5j`), SplitGuard BLAKE2b Row-Taint Leakage (`G7g`), Monte Carlo Arithmetic Conditioning (`G1c`), and `@scientific_atom` Physical-Unit/Symbolic-Shape Contract Bus.
-4. **`AWF Tutor V16` (`adaptive-interactive-tutor@1.0.0-rc.17` / `skill.adaptive-interactive-tutor@1.0.0-rc.17`)**:
-   - Scale-Adaptive Fractal Curriculum (`Chapter -> Station -> 3-Gate Micro-Loop`), 7-Element Methodological Anatomy, and Tri-Mode Co-Design (`TDD`, `GRILL`, `AUTONOMOUS_DUAL_EVOLVE`) delegating code verification to `AWF Guard`, 1-Slide-Per-Step generation to `AWF HTML-PPT`, and visual/PPT verification to `AWF DesignAG`.
+1. **`AWF DesignAG` (`design-anti-goodhart@1.0.0-rc.10` / `skill.design-anti-goodhart@1.0.0-rc.10`)**:
+   - **18 Automated Design & Pedagogical Gates (`D1`–`D18`)** and **7 Redlines (`R1`–`R7`)**, including:
+     - **Hierarchical Onion Peeling (`verify_onion_peeling_capsule`)**: Layer 0 Coarse Trunks $\to$ Layer 1..K Trunk Sub-Framework $\to$ Leaf Slide / Section / Figure Panel;
+     - **Universal I/O Onion Control Bus (`verify_universal_io_onion_bus_capsule`)**: Enforces Role 1 (`EvidenceIngest` / `evidence_ingest_ledger`), Role 2 (`DevilReviewer` / `devil_advocate_review`), and Role 3 (`OmniArtifactHub` / `cross_artifact_targets` $\subseteq \{\text{HTML\_PPT}, \text{SCI\_WORD}, \text{FIG\_PPTX}\}$);
+     - **Tri-Mode Execution in `D16` (`TDD`, `GRILL`, `AUTONOMOUS_DUAL_EVOLVE`)** + **Strict 1-Unit-Per-Step & 1-Hop Topological Lock**.
+2. **`AWF HTML-PPT V3` (`html-ppt@1.0.0-rc.9` / `skill.html-ppt@1.0.0-rc.12`)**:
+   - **Tri-Mode 1-Slide-Per-Step & Cross-Artifact Enforcer (`audit_single_slide_step.py`)**: Supports `--peel-onion-trunk`, `--mutate-storyboard` (`UNBOUNDED_FLOW_DRIVEN` / `"不限"`), `--record-cross-artifact-unit` (`SCI_WORD` & `FIG_PPTX`), `--record-tdd-capsule`, `--record-grill-capsule`, and `--apply-feedback-dual-upgrade`.
+3. **`AWF SciWord` (`scientific-report-authoring@1.0.0-rc.13` / `skill.edit-scientific-article@1.0.0-rc.10` + `skill.build-scientific-docx@1.0.0-rc.12`)**:
+   - **Scientific Paper & Report Authoring (`SCI_WORD` Output Channel)**: Driven by the same Onion Peeling tree and `EvidenceIngest` ledger to generate/revise scientific manuscripts and native-OMML Word (`.docx`) documents 1 section per step.
+4. **`AWF FigPPT / SciFig` (`editable-figure-pptx@1.0.0-rc.2` / `skill.build-editable-figure-pptx@1.0.0-rc.2`)**:
+   - **Editable Scientific Composite Figure Deck (`FIG_PPTX` Output Channel)**: Decomposes and builds publication-grade widescreen editable PowerPoint (`.pptx`) figures where 100% of labels, ticks, legends, and badges are native OpenXML shapes.
+5. **`AWF Guard` (`anti-goodhart-verification@3.6.0-rc.1` / `skill.anti-goodhart-verification@3.6.0-rc.1`)**:
+   - **73 Automated Code & Scientific Computing Anti-Goodhart Gates (`G1`–`G7`)**.
+6. **`AWF Tutor V16` (`adaptive-interactive-tutor@1.0.0-rc.23` / `skill.adaptive-interactive-tutor@1.0.0-rc.23`)**:
+   - Scale-Adaptive Fractal Curriculum (`Chapter -> Station -> 3-Gate Micro-Loop`), 7-Element Methodological Anatomy, Hierarchical Onion Peeling, and Tri-Mode Co-Design (`TDD`, `GRILL`, `AUTONOMOUS_DUAL_EVOLVE`).
 
 ## Included Locked Closure
 
-- `skill.design-anti-goodhart@1.0.0-rc.4` (`awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/`)
-- `skill.html-ppt@1.0.0-rc.9` (`awf/components/skills/html-ppt/releases/1.0.0-rc.9/source/`)
-- `skill.anti-goodhart-verification@3.5.0-rc.1` (`awf/components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source/`)
-- `skill.adaptive-interactive-tutor@1.0.0-rc.17` (`awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.17/source/`)
+- `skill.design-anti-goodhart@1.0.0-rc.10` (`awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.10/source/`)
+- `skill.html-ppt@1.0.0-rc.12` (`awf/components/skills/html-ppt/releases/1.0.0-rc.12/source/`)
+- `skill.edit-scientific-article@1.0.0-rc.10` (`awf/components/skills/edit-scientific-article/releases/1.0.0-rc.10/source/`)
+- `skill.build-scientific-docx@1.0.0-rc.12` (`awf/components/skills/build-scientific-docx/releases/1.0.0-rc.12/source/`)
+- `skill.build-editable-figure-pptx@1.0.0-rc.2` (`awf/components/skills/build-editable-figure-pptx/releases/1.0.0-rc.2/source/`)
+- `skill.anti-goodhart-verification@3.6.0-rc.1` (`awf/components/skills/anti-goodhart-verification/releases/3.6.0-rc.1/source/`)
+- `skill.adaptive-interactive-tutor@1.0.0-rc.23` (`awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.23/source/`)
 - Workflow descriptors & exact `versions.lock` files under `awf/workflows/`
 - Mergeable registry fragment at `awf/registry.fragment.json`
 
 ## Quick Verification
 
 ```bash
-# 1. Verify full repository manifest, hashes, locks, AST syntax, and run all 73 + 18 + Tri-Mode 1-Slide-Per-Step self-tests
+# 1. Verify full repository manifest, hashes, locks, AST syntax, and run all 73 + 18 + 12-Check Universal Onion Bus self-tests
 python verify.py
 
 # 2. Run AWF DesignAG 18-gate positive/negative self-test & self-hosting audit directly
-python awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/scripts/awf_design_anti_goodhart_gates.py --self-test
-python awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/scripts/awf_design_anti_goodhart_gates.py --audit-self
+python awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.10/source/scripts/awf_design_anti_goodhart_gates.py --self-test
+python awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.10/source/scripts/awf_design_anti_goodhart_gates.py --audit-self
 
-# 3. Run AWF HTML-PPT V3 Tri-Mode (TDD / GRILL / AUTONOMOUS_DUAL_EVOLVE) self-test directly
-python awf/components/skills/html-ppt/releases/1.0.0-rc.9/source/scripts/audit_single_slide_step.py --self-test
+# 3. Run AWF HTML-PPT V3 Universal Onion Bus & Tri-Mode (12 checks) self-test directly
+python awf/components/skills/html-ppt/releases/1.0.0-rc.12/source/scripts/audit_single_slide_step.py --self-test
 
 # 4. Run AWF Guard 73-gate self-test & self-hosting audit directly
-python awf/components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py --self-test
-python awf/components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py --audit-self
+python awf/components/skills/anti-goodhart-verification/releases/3.6.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py --self-test
+python awf/components/skills/anti-goodhart-verification/releases/3.6.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py --audit-self
 ```
