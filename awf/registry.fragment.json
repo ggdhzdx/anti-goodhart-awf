@@ -5,7 +5,7 @@
       "descriptor": "components/skills/design-anti-goodhart/component.yaml",
       "id": "skill.design-anti-goodhart",
       "kind": "skill",
-      "latest_release": "1.0.0-rc.5"
+      "latest_release": "1.0.0-rc.6"
     },
     {
       "descriptor": "components/skills/anti-goodhart-verification/component.yaml",
@@ -17,13 +17,13 @@
       "descriptor": "components/skills/adaptive-interactive-tutor/component.yaml",
       "id": "skill.adaptive-interactive-tutor",
       "kind": "skill",
-      "latest_release": "1.0.0-rc.18"
+      "latest_release": "1.0.0-rc.19"
     },
     {
       "descriptor": "components/skills/html-ppt/component.yaml",
       "id": "skill.html-ppt",
       "kind": "skill",
-      "latest_release": "1.0.0-rc.7"
+      "latest_release": "1.0.0-rc.8"
     }
   ],
   "workflows": [
@@ -45,17 +45,17 @@
         "PPT防偷懒",
         "design-anti-goodhart"
       ],
-      "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.5/workflow.yaml",
-      "descriptor_sha256": "480e794c2fef7ee4a5214b963df6a735cde3215a208b6e52588c7b632a291f1f",
-      "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.5/versions.lock",
-      "lock_sha256": "de145bce615b4d36fc38770e9c067b76b0b5e7807e909bb99b01f0d8bdc71ba4",
+      "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.6/workflow.yaml",
+      "descriptor_sha256": "eaba74c61809cb97a6f4b78e2b9d23aa22ade70fb73c38eaa93894f7c5f884c4",
+      "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.6/versions.lock",
+      "lock_sha256": "9b938300acb0c66dc374a3cd963609f96a8b35527c295cca338295ec8f2c9788",
       "status": "validated",
       "releases": {
-        "1.0.0-rc.5": {
-          "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.5/workflow.yaml",
-          "descriptor_sha256": "480e794c2fef7ee4a5214b963df6a735cde3215a208b6e52588c7b632a291f1f",
-          "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.5/versions.lock",
-          "lock_sha256": "de145bce615b4d36fc38770e9c067b76b0b5e7807e909bb99b01f0d8bdc71ba4",
+        "1.0.0-rc.6": {
+          "descriptor": "workflows/design-anti-goodhart/releases/1.0.0-rc.6/workflow.yaml",
+          "descriptor_sha256": "eaba74c61809cb97a6f4b78e2b9d23aa22ade70fb73c38eaa93894f7c5f884c4",
+          "lock": "workflows/design-anti-goodhart/releases/1.0.0-rc.6/versions.lock",
+          "lock_sha256": "9b938300acb0c66dc374a3cd963609f96a8b35527c295cca338295ec8f2c9788",
           "status": "validated"
         }
       }
@@ -136,17 +136,17 @@
         "grill-driven-design",
         "GDD"
       ],
-      "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.18/workflow.yaml",
-      "descriptor_sha256": "c0758503eb1da4a8bdddc2b5648b38478ced58e60271b89a798f5884bcd99628",
-      "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.18/versions.lock",
-      "lock_sha256": "adf36e1bbaad381001f52d5c71fde625b38ee4eb88b32cd2db4655c3ca27ffc8",
+      "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.19/workflow.yaml",
+      "descriptor_sha256": "00d7fb60d566c0c30ec0752d33890fac3e6ca91a6c7f7fae6ae0cc637a9e8be0",
+      "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.19/versions.lock",
+      "lock_sha256": "283571ea6ffa386d112947917b4c8ee185534cd9231d888141516b73cfc76fb4",
       "status": "validated",
       "releases": {
-        "1.0.0-rc.18": {
-          "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.18/workflow.yaml",
-          "descriptor_sha256": "c0758503eb1da4a8bdddc2b5648b38478ced58e60271b89a798f5884bcd99628",
-          "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.18/versions.lock",
-          "lock_sha256": "adf36e1bbaad381001f52d5c71fde625b38ee4eb88b32cd2db4655c3ca27ffc8",
+        "1.0.0-rc.19": {
+          "descriptor": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.19/workflow.yaml",
+          "descriptor_sha256": "00d7fb60d566c0c30ec0752d33890fac3e6ca91a6c7f7fae6ae0cc637a9e8be0",
+          "lock": "workflows/adaptive-interactive-tutor/releases/1.0.0-rc.19/versions.lock",
+          "lock_sha256": "283571ea6ffa386d112947917b4c8ee185534cd9231d888141516b73cfc76fb4",
           "status": "validated"
         }
       }
@@ -167,17 +167,17 @@
         "html-ppt-v2",
         "html-ppt-v3"
       ],
-      "descriptor": "workflows/html-ppt/releases/1.0.0-rc.4/workflow.yaml",
-      "descriptor_sha256": "96107fb1e301d7413b094e938bc8436857f9c3fed4c7009416675c834313643f",
-      "lock": "workflows/html-ppt/releases/1.0.0-rc.4/versions.lock",
-      "lock_sha256": "408ad599add2d925add5f74506130cb6f93b5a7facda52b2beeed41f606bb04d",
+      "descriptor": "workflows/html-ppt/releases/1.0.0-rc.5/workflow.yaml",
+      "descriptor_sha256": "1c2fb8bfcdbfe25f1eb33b583d084b9019bdd7906504ddb20d3545f7350bb0f0",
+      "lock": "workflows/html-ppt/releases/1.0.0-rc.5/versions.lock",
+      "lock_sha256": "9bb8b0ca8452c7c1ee01b2a84fbc6e5ba730da1372e4563cb357bd8e674ef057",
       "status": "validated",
       "releases": {
-        "1.0.0-rc.4": {
-          "descriptor": "workflows/html-ppt/releases/1.0.0-rc.4/workflow.yaml",
-          "descriptor_sha256": "96107fb1e301d7413b094e938bc8436857f9c3fed4c7009416675c834313643f",
-          "lock": "workflows/html-ppt/releases/1.0.0-rc.4/versions.lock",
-          "lock_sha256": "408ad599add2d925add5f74506130cb6f93b5a7facda52b2beeed41f606bb04d",
+        "1.0.0-rc.5": {
+          "descriptor": "workflows/html-ppt/releases/1.0.0-rc.5/workflow.yaml",
+          "descriptor_sha256": "1c2fb8bfcdbfe25f1eb33b583d084b9019bdd7906504ddb20d3545f7350bb0f0",
+          "lock": "workflows/html-ppt/releases/1.0.0-rc.5/versions.lock",
+          "lock_sha256": "9bb8b0ca8452c7c1ee01b2a84fbc6e5ba730da1372e4563cb357bd8e674ef057",
           "status": "validated"
         }
       }

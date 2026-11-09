@@ -1080,6 +1080,96 @@ def verify_dual_evolution_feedback_receipt(
     }
 
 
+def verify_global_deck_blueprint_capsule(
+    global_deck_blueprint: Optional[Dict[str, Any]],
+    expected_storyboard_count: int = 0,
+) -> Dict[str, Any]:
+    """
+    Verify Stage 0 Macro-GDD Global Deck Blueprint Capsule (`global_deck_blueprint`):
+    Determines the global presentation architecture via a 2-step Macro-GDD loop before any slide is built:
+    1. `macro_thesis_probe`:
+       - `executive_core_conflict`: 3-sentence bird's-eye synthesis of the entire work;
+       - `human_baseline_alignment`: user's initial response or bird's-eye onboarding closure;
+    2. Three Global Architecture Multiple-Choice Decisions:
+       - `total_slides_mcq`: `options` (>=2 tiers), `selected_option`, and `planned_total_slides`;
+       - `emphasis_allocation_mcq`: `options` (>=2 focus plans), `selected_option`, and `heavy_focus_modules`;
+       - `v3_animation_budget_mcq`: `options` (>=2 animation plans), `selected_option`, and
+         `v3_designated_slide_indices` (exact 1-based slide indices designated for V3 interactive/animated explanation).
+    """
+    issues: List[str] = []
+    if not isinstance(global_deck_blueprint, dict) or not global_deck_blueprint:
+        return {
+            "passed": False,
+            "issues": ["Missing global_deck_blueprint (Stage 0 Macro-GDD global deck decisions not recorded)"],
+        }
+
+    probe = global_deck_blueprint.get("macro_thesis_probe")
+    if not isinstance(probe, dict):
+        issues.append("Global blueprint missing macro_thesis_probe")
+    else:
+        conflict = str(probe.get("executive_core_conflict", "")).strip()
+        align = str(probe.get("human_baseline_alignment", "")).strip()
+        if len(conflict) < 12:
+            issues.append("macro_thesis_probe missing executive_core_conflict (bird's-eye core conflict synthesis)")
+        if len(align) < 8:
+            issues.append("macro_thesis_probe missing human_baseline_alignment")
+
+    slides_mcq = global_deck_blueprint.get("total_slides_mcq")
+    planned_total = 0
+    if not isinstance(slides_mcq, dict):
+        issues.append("Global blueprint missing total_slides_mcq (how many slides in total)")
+    else:
+        opts = slides_mcq.get("options", [])
+        sel = str(slides_mcq.get("selected_option", "")).strip()
+        planned_total = _int_or(slides_mcq, "planned_total_slides", 0)
+        if not isinstance(opts, list) or len(opts) < 2 or not sel:
+            issues.append("total_slides_mcq must provide >=2 options and a selected_option")
+        if planned_total < 1:
+            issues.append("total_slides_mcq must set planned_total_slides >= 1")
+        elif expected_storyboard_count > 0 and planned_total != expected_storyboard_count:
+            issues.append(
+                f"planned_total_slides ({planned_total}) != storyboard_slides count ({expected_storyboard_count})"
+            )
+
+    emp_mcq = global_deck_blueprint.get("emphasis_allocation_mcq")
+    focus_mods: List[str] = []
+    if not isinstance(emp_mcq, dict):
+        issues.append("Global blueprint missing emphasis_allocation_mcq (which aspects to emphasize)")
+    else:
+        opts = emp_mcq.get("options", [])
+        sel = str(emp_mcq.get("selected_option", "")).strip()
+        raw_mods = emp_mcq.get("heavy_focus_modules", [])
+        if isinstance(raw_mods, list):
+            focus_mods = [str(m).strip() for m in raw_mods if str(m).strip()]
+        if not isinstance(opts, list) or len(opts) < 2 or not sel:
+            issues.append("emphasis_allocation_mcq must provide >=2 options and a selected_option")
+        if len(focus_mods) < 1:
+            issues.append("emphasis_allocation_mcq must list >=1 heavy_focus_modules for deep-dive emphasis")
+
+    anim_mcq = global_deck_blueprint.get("v3_animation_budget_mcq")
+    v3_indices: List[int] = []
+    if not isinstance(anim_mcq, dict):
+        issues.append("Global blueprint missing v3_animation_budget_mcq (which slides use V3 animations/widgets)")
+    else:
+        opts = anim_mcq.get("options", [])
+        sel = str(anim_mcq.get("selected_option", "")).strip()
+        raw_idx = anim_mcq.get("v3_designated_slide_indices", [])
+        if isinstance(raw_idx, list):
+            v3_indices = [int(i) for i in raw_idx if isinstance(i, (int, float)) and int(i) >= 1]
+        if not isinstance(opts, list) or len(opts) < 2 or not sel:
+            issues.append("v3_animation_budget_mcq must provide >=2 options and a selected_option")
+        if len(v3_indices) < 1:
+            issues.append("v3_animation_budget_mcq must designate >=1 slide index in v3_designated_slide_indices")
+
+    return {
+        "passed": len(issues) == 0,
+        "planned_total_slides": planned_total,
+        "heavy_focus_modules": focus_mods,
+        "v3_designated_slide_indices": v3_indices,
+        "issues": issues,
+    }
+
+
 def verify_storyboard_microstep_and_layout_diversity(
     storyboard_slides: Sequence[Dict[str, Any]],
     max_slides_generated_per_step: int = 1,
@@ -1089,17 +1179,14 @@ def verify_storyboard_microstep_and_layout_diversity(
     grill_mode: bool = False,
     gdd_grill_capsule: Optional[Dict[str, Any]] = None,
     dual_evolution_receipt: Optional[Dict[str, Any]] = None,
+    global_deck_blueprint: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """
-    Gate D16 (Design-Layer G6o + Tri-Mode Execution Anchor):
-    Enforce pre-generation `SlideStoryboardManifest`, strictly 1-Slide-Per-Step micro-step
-    generation (`max_slides_generated_per_step <= 1`), 1-hop topological slide lock
-    (`unverified_slide_hop_distance == 1`), and Tri-Mode integrity:
-    - Mode 1 (`tdd_mode`): Tutor-Driven Design (`tdd_station_capsule`),
-    - Mode 2 (`grill_mode`): Grill-Driven Design (`gdd_grill_capsule`),
-    - Mode 3 (`AUTONOMOUS_DUAL_EVOLVE`): Head-down 1-slide-per-step build + post-review
-      dual-upgrade (`dual_evolution_receipt` upgrading both the PPT and AWF HTML-PPT/DesignAG),
-    plus layout archetype diversity (`<= 2` consecutive identical layouts) & Shannon entropy `>= 1.4` bits.
+    Gate D16 (Design-Layer G6o + Tri-Mode Macro-to-Micro Execution Anchor):
+    Enforce pre-generation `SlideStoryboardManifest`, optional Stage 0 `global_deck_blueprint`
+    (total slides MCQ + emphasis allocation MCQ + V3 animation budget MCQ), strictly 1-Slide-Per-Step
+    micro-step generation (`max_slides_generated_per_step <= 1`), 1-hop topological slide lock
+    (`unverified_slide_hop_distance == 1`), and Tri-Mode integrity (`TDD`, `GRILL`, `AUTONOMOUS_DUAL_EVOLVE`).
     """
     issues: List[str] = []
     if not storyboard_slides:
@@ -1118,6 +1205,10 @@ def verify_storyboard_microstep_and_layout_diversity(
             f"Topological 1-hop slide lock violation: unverified_slide_hop_distance={unverified_slide_hop_distance} != 1 "
             "(previous slide must hold a PASS receipt in slide_manifest.json before generating next slide)"
         )
+    if global_deck_blueprint is not None:
+        gb_res = verify_global_deck_blueprint_capsule(global_deck_blueprint, len(storyboard_slides))
+        if not gb_res["passed"]:
+            issues.extend(gb_res["issues"])
     if tdd_mode or tdd_station_capsule is not None:
         tdd_res = verify_tdd_station_capsule_completeness(tdd_station_capsule)
         if not tdd_res["passed"]:
@@ -1382,6 +1473,7 @@ def run_all_18_design_gates(bundle: Dict[str, Any]) -> Dict[str, Any]:
             bool(bundle.get("grill_mode", False)),
             bundle.get("gdd_grill_capsule"),
             bundle.get("dual_evolution_receipt"),
+            bundle.get("global_deck_blueprint"),
         ),
         score_presentation_dual_rubric(bundle.get("dual_rubric_eval", {})),
         evaluate_visual_red_blue_adversarial_audit(
@@ -1404,10 +1496,10 @@ def run_all_18_design_gates(bundle: Dict[str, Any]) -> Dict[str, Any]:
 
 def _resolve_awf_guard_scripts_dir() -> Path:
     candidates = [
+        Path("/home/zc/agent_workflows/components/skills/anti-goodhart-verification/releases/3.6.0-rc.1/source/scripts"),
+        Path(r"Z:\agent_workflows\components\skills\anti-goodhart-verification\releases\3.6.0-rc.1\source\scripts"),
         Path("/home/zc/agent_workflows/components/skills/anti-goodhart-verification/releases/3.5.0-rc.1/source/scripts"),
         Path(r"Z:\agent_workflows\components\skills\anti-goodhart-verification\releases\3.5.0-rc.1\source\scripts"),
-        Path("/home/zc/agent_workflows/components/skills/anti-goodhart-verification/releases/3.4.0-rc.1/source/scripts"),
-        Path(r"Z:\agent_workflows\components\skills\anti-goodhart-verification\releases\3.4.0-rc.1\source\scripts"),
         Path(__file__).resolve().parents[2] / "anti-goodhart-verification" / "scripts",
     ]
     for c in candidates:

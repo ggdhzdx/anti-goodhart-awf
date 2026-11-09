@@ -275,6 +275,22 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         "target_gate_or_rule_id": "",
         "negative_canary_fixture": "",
     })
+    res_d16_neg_global_bp = dag.verify_global_deck_blueprint_capsule(
+        {
+            "macro_thesis_probe": {
+                "executive_core_conflict": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，需用极化激元反交叉耦合加速抽光",
+                "human_baseline_alignment": "用户确认以反交叉色散与控制变量对比作为全篇主线",
+            },
+            "total_slides_mcq": {
+                "options": ["A (Recommended): 6页精简档", "B: 18页深度档"],
+                "selected_option": "A",
+                "planned_total_slides": 18,  # Mismatches expected_storyboard_count=6!
+            },
+            "emphasis_allocation_mcq": {"options": ["A", "B"], "selected_option": "A", "heavy_focus_modules": []},
+            "v3_animation_budget_mcq": {"options": ["A", "B"], "selected_option": "A", "v3_designated_slide_indices": []},
+        },
+        expected_storyboard_count=6,
+    )
     if (
         res_d16_neg_batch2["passed"]
         or res_d16_neg_hop["passed"]
@@ -285,8 +301,9 @@ def _verify_pillar3_and_pillar4_pedagogical_and_scoring_gates() -> None:
         or res_d16_neg_grill_rubberstamp["passed"]
         or res_d16_neg_grill_no_mcq["passed"]
         or res_d16_neg_dual_evol["passed"]
+        or res_d16_neg_global_bp["passed"]
     ):
-        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/MCQ/RubberStamp/Dual-Evolve violation, or monotonous layout cloning")
+        raise AssertionError("D16 failed to catch >1 slide/step, 1-hop lock bypass, TDD/Grill/MCQ/RubberStamp/GlobalBlueprint/Dual-Evolve violation, or monotonous layout cloning")
 
     # D17 Exact Calibration Check against Section II of `01_optoelectronic_scoring_criteria_v3.md`:
     # "为什么是反交叉" (weight = 4, required = V3):
@@ -420,6 +437,37 @@ def _build_gold_standard_positive_bundle() -> Dict[str, Any]:
         "storyboard_slides": storyboard,
         "max_slides_generated_per_step": 1,
         "unverified_slide_hop_distance": 1,
+        "global_deck_blueprint": {
+            "macro_thesis_probe": {
+                "executive_core_conflict": "蓝光磷光 PHOLED 因微秒级长寿命触发双分子 TTA/TPA 烧屏，本文利用等离激元-激子极化激元反交叉耦合压缩辐射寿命并突破寿命天花板",
+                "human_baseline_alignment": "用户通过全篇鸟瞰探底确认：以『自旋痛点 -> 极化激元反交叉色散 -> 器件对照』为主线",
+            },
+            "total_slides_mcq": {
+                "options": [
+                    "A (Recommended): 6页核心机理精炼演示档",
+                    "B: 18页完整学术报告标准档",
+                    "C: 26页组会全推导百科档",
+                ],
+                "selected_option": "A (Recommended): 6页核心机理精炼演示档",
+                "planned_total_slides": 6,
+            },
+            "emphasis_allocation_mcq": {
+                "options": [
+                    "A (Recommended): 重点深挖『反交叉强耦合哈密顿量』与『色散展平加速辐射衰减 ODoS』两大物理机制（占 50% 篇幅）",
+                    "B: 重点展开多组器件工程工艺与材料合成表征",
+                ],
+                "selected_option": "A (Recommended): 重点深挖『反交叉强耦合哈密顿量』与『色散展平加速辐射衰减 ODoS』两大物理机制（占 50% 篇幅）",
+                "heavy_focus_modules": ["极化激元反交叉强耦合", "色散展平与态密度 ODoS 加速"],
+            },
+            "v3_animation_budget_mcq": {
+                "options": [
+                    "A (Recommended): 在第 1 页（Purcell 压缩 TTA 滑块）与第 2 页（反交叉能级劈裂动态滑块）部署 V3 交互动画，其余采用 V2 高清原图拆解",
+                    "B: 全程仅用静态论文原图 V2",
+                ],
+                "selected_option": "A (Recommended): 在第 1 页（Purcell 压缩 TTA 滑块）与第 2 页（反交叉能级劈裂动态滑块）部署 V3 交互动画，其余采用 V2 高清原图拆解",
+                "v3_designated_slide_indices": [1, 2],
+            },
+        },
         "tdd_mode": True,
         "tdd_station_capsule": {
             "station_id": "Station_1.1",

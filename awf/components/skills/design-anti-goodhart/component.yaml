@@ -3,12 +3,12 @@
   "id": "skill.design-anti-goodhart",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.5": {
+    "1.0.0-rc.6": {
       "status": "validated",
       "observed_at": "2026-11-08",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.5/source",
-      "tree_sha256": "3ce1fbd3d0db33f8f97c632290c01cb30e742b204fd0cb3601376d1823b1ec99",
+      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.6/source",
+      "tree_sha256": "68908ef58dafea5005df8496ff05585fadc326aa492036fbddb5aa8996175e6d",
       "depends_on": [
         "skill.anti-goodhart-verification@3.6.0-rc.1"
       ],
@@ -18,6 +18,7 @@
       ],
       "capabilities": [
         "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
+        "stage0-macro-gdd-global-deck-blueprint-total-slides-emphasis-and-v3-animation-budget-mcq",
         "strict-single-slide-per-step-microstep-and-1hop-topological-slide-lock",
         "station-to-slide-tutor-driven-design-tdd-cognitive-capsule-verification",
         "dual-stage-grill-driven-design-3part-mechanism-grill-anti-rubberstamp-and-slide-design-mcq",
@@ -39,7 +40,7 @@
         "DOM bounding-box probes (D7-D8) accept headless browser/Playwright bounding-box JSON exports or structured layout bundles",
         "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds"
       ],
-      "provenance": "Release 1.0.0-rc.5 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.5`), upgrading Gate D16 `verify_grill_station_capsule_completeness` to enforce Dual-Stage Grill-Driven Design (Stage 1: 4-Archetype 3-Part Anchored Mechanism Grill + Anti-Rubber-Stamp Re-Grill; Stage 2: `bottleneck_to_slide_mapping` + `slide_design_mcq` multiple-choice slide design decision), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
+      "provenance": "Release 1.0.0-rc.6 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.6`), adding `verify_global_deck_blueprint_capsule` to Gate D16 for Stage 0 Macro-GDD Global Deck Blueprint verification (Total Slides MCQ, Emphasis Allocation MCQ, and V3 Animation Budget MCQ), layered atop `skill.anti-goodhart-verification@3.6.0-rc.1`."
     }
   }
 }

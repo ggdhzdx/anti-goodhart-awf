@@ -28,10 +28,10 @@ sys.dont_write_bytecode = True
 
 def _resolve_design_ag_scripts_dir() -> Path:
     candidates = [
+        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.6/source/scripts"),
+        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.6\source\scripts"),
         Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.5/source/scripts"),
         Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.5\source\scripts"),
-        Path("/home/zc/agent_workflows/components/skills/design-anti-goodhart/releases/1.0.0-rc.4/source/scripts"),
-        Path(r"Z:\agent_workflows\components\skills\design-anti-goodhart\releases\1.0.0-rc.4\source\scripts"),
         Path(__file__).resolve().parents[2] / "design-anti-goodhart" / "scripts",
     ]
     for c in candidates:
@@ -105,6 +105,7 @@ def init_storyboard_manifest(
             autonomous_dual_evolve_mode = True
 
     require_human_approval = bool(storyboard_doc.get("require_human_approval", False))
+    global_blueprint = storyboard_doc.get("global_deck_blueprint")
 
     d13 = dag.verify_narrative_arc_and_foreshadowing(storyboard_doc.get("narrative_spec", {}))
     d14 = dag.verify_causal_why_chain_and_tradeoffs(storyboard_doc.get("mechanism_spec", {}))
@@ -112,6 +113,7 @@ def init_storyboard_manifest(
         slides_spec,
         max_slides_generated_per_step=1,
         unverified_slide_hop_distance=1,
+        global_deck_blueprint=global_blueprint,
     )
 
     failed_gates = [g["gate"] for g in (d13, d14, d16) if not g.get("passed")]
@@ -123,16 +125,26 @@ def init_storyboard_manifest(
             "details": {"D13": d13, "D14": d14, "D16": d16},
         }
 
+    v3_designated_set = set()
+    if isinstance(global_blueprint, dict):
+        anim_mcq = global_blueprint.get("v3_animation_budget_mcq", {})
+        if isinstance(anim_mcq, dict):
+            for idx_val in anim_mcq.get("v3_designated_slide_indices", []):
+                if isinstance(idx_val, (int, float)):
+                    v3_designated_set.add(int(idx_val))
+
     slide_entries: List[Dict[str, Any]] = []
     for idx, s in enumerate(slides_spec, start=1):
         station_id = str(s.get("station_id", f"Station_1.{idx}"))
+        is_v3_focus = (idx in v3_designated_set) or str(s.get("required_visual_level", "")).upper().startswith("V3")
         slide_entries.append({
             "slide_index": idx,
             "slide_id": f"slide_{idx:02d}",
             "station_id": station_id,
             "title": str(s.get("title", f"Slide {idx}")),
             "layout_archetype": str(s.get("layout_archetype", "split_left_fig_right_guided_steps")),
-            "required_visual_level": str(s.get("required_visual_level", "V2")),
+            "required_visual_level": "V3" if is_v3_focus else str(s.get("required_visual_level", "V2")),
+            "designated_v3_animation": is_v3_focus,
             "tdd_station_capsule": s.get("tdd_station_capsule"),
             "gdd_grill_capsule": s.get("gdd_grill_capsule"),
             "human_approved": False,
@@ -143,13 +155,14 @@ def init_storyboard_manifest(
         })
 
     manifest_data = {
-        "schema_version": 3,
+        "schema_version": 4,
         "workflow_mode": raw_mode,
         "max_slides_generated_per_step": 1,
         "tdd_mode": tdd_mode,
         "grill_mode": grill_mode,
         "autonomous_dual_evolve_mode": autonomous_dual_evolve_mode,
         "require_human_approval": require_human_approval,
+        "global_deck_blueprint": global_blueprint,
         "total_slides": len(slide_entries),
         "storyboard_slides": slides_spec,
         "slides": slide_entries,
@@ -314,6 +327,25 @@ def audit_single_slide_step(
             "reason": "Single-Slide Micro-Step, 1-Hop Topological Lock, or TDD/Grill Capsule Violation (D16)",
             "D16": d16,
         }
+
+    if bool(target_entry.get("designated_v3_animation", False)):
+        obs_mod = ""
+        if isinstance(grill_capsule, dict) and grill_capsule.get("visual_modality"):
+            obs_mod = str(grill_capsule.get("visual_modality", "")).upper()
+        elif isinstance(tdd_capsule, dict) and tdd_capsule.get("visual_modality"):
+            obs_mod = str(tdd_capsule.get("visual_modality", "")).upper()
+        else:
+            obs_mod = str(slide_bundle.get("visual_modality", target_entry.get("required_visual_level", ""))).upper()
+        if not obs_mod.startswith("V3"):
+            return {
+                "status": "FAIL",
+                "effective_reward": float("-inf"),
+                "slide_index": slide_index,
+                "reason": (
+                    f"Global Deck Blueprint V3 Animation Contract Violation: Slide {slide_index} was designated "
+                    f"for V3 interactive/animated explanation in Stage 0 Global Blueprint, but got '{obs_mod}'"
+                ),
+            }
 
     if not slide_html_path.is_file():
         return {"status": "FAIL", "reason": f"Missing slide HTML file: {slide_html_path}"}
@@ -786,9 +818,59 @@ def run_selftest() -> Dict[str, Any]:
         if pos_dual.get("status") != "PASS" or pos_dual.get("total_dual_evolution_receipts") != 1:
             raise AssertionError(f"Complete dual-evolution upgrade failed: {pos_dual}")
 
+        # --- PART D: Stage 0 Macro-GDD Global Deck Blueprint & V3 Animation Designation Enforcement ---
+        macro_manifest = tdir / "macro_manifest.json"
+        global_bp = {
+            "macro_thesis_probe": {
+                "executive_core_conflict": "蓝光磷光微秒级寿命引发高亮度 TTA 烧屏，利用极化激元反交叉耦合压缩寿命破局",
+                "human_baseline_alignment": "用户确认以自旋统计与极化激元反交叉为核心主线",
+            },
+            "total_slides_mcq": {
+                "options": ["A (Recommended): 1页核心演示", "B: 18页完整版"],
+                "selected_option": "A (Recommended): 1页核心演示",
+                "planned_total_slides": 1,
+            },
+            "emphasis_allocation_mcq": {
+                "options": ["A (Recommended): 重点深挖极化激元反交叉与 TTA 抑制", "B: 重点讲工艺"],
+                "selected_option": "A (Recommended): 重点深挖极化激元反交叉与 TTA 抑制",
+                "heavy_focus_modules": ["极化激元反交叉耦合", "TTA 双分子淬灭抑制"],
+            },
+            "v3_animation_budget_mcq": {
+                "options": ["A (Recommended): 第 1 页强制采用 V3 交互动画滑块讲透寿命压缩", "B: 仅用静态图"],
+                "selected_option": "A (Recommended): 第 1 页强制采用 V3 交互动画滑块讲透寿命压缩",
+                "v3_designated_slide_indices": [1],
+            },
+        }
+        init_macro = init_storyboard_manifest(
+            {
+                "workflow_mode": "GRILL",
+                "grill_mode": True,
+                "global_deck_blueprint": global_bp,
+                "narrative_spec": base_narrative,
+                "mechanism_spec": base_mechanism,
+                "storyboard_slides": base_slides[:1],
+            },
+            macro_manifest,
+        )
+        if init_macro.get("status") != "PASS":
+            raise AssertionError(f"Macro blueprint init failed: {init_macro}")
+
+        # Check 9a: Slide 1 was globally designated for V3 animation in global_deck_blueprint;
+        # submitting a V2 capsule (`grill_cap_1` has `V2_...`) must be blocked!
+        record_grill_station_capsule(macro_manifest, 1, grill_cap_1)
+        neg_v3_downgrade = audit_single_slide_step(macro_manifest, 1, s1_path, valid_bundle, slides_generated_in_current_step=1)
+        if neg_v3_downgrade.get("status") != "FAIL":
+            raise AssertionError(f"Expected V3 animation downgrade to V2 to be blocked: {neg_v3_downgrade}")
+
+        # Check 9b: Upgrading capsule to V3 interactive animation satisfies the Global Deck Blueprint V3 contract!
+        record_grill_station_capsule(macro_manifest, 1, {**grill_cap_1, "visual_modality": "V3_interactive_purcell_slider"})
+        pos_v3_contract = audit_single_slide_step(macro_manifest, 1, s1_path, valid_bundle, slides_generated_in_current_step=1)
+        if pos_v3_contract.get("status") != "PASS":
+            raise AssertionError(f"Expected V3 animation slide to pass: {pos_v3_contract}")
+
     return {
         "status": "PASS",
-        "selftest": "AWF_HTML_PPT_V3_TriMode_TDD_Grill_And_AutonomousDualEvolve",
+        "selftest": "AWF_HTML_PPT_V3_MacroToMicro_TriMode_TDD_Grill_And_AutonomousDualEvolve",
         "checks_passed": [
             "Block_Out_Of_Order_Slide_Leapfrogging_HopDistance_2",
             "Block_MultiSlide_Batch_Generation_Per_Step_GT_1",
@@ -798,6 +880,7 @@ def run_selftest() -> Dict[str, Any]:
             "Mode2_GRILL_Block_Without_Capsule_And_Pass_With_Grill_TeachOnMiss_Regrill_Capsule",
             "Mode3_AUTONOMOUS_HeadDown_Build_And_Block_Incomplete_DualEvolution_Receipt",
             "Mode3_AUTONOMOUS_Pass_PostReview_PPT_Patch_And_AWF_Dual_Evolution_Receipt",
+            "Stage0_Macro_GDD_Global_Deck_Blueprint_And_V3_Animation_Enforcement",
         ],
     }
 

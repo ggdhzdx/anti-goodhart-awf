@@ -1,15 +1,24 @@
 ---
 name: html-ppt
-description: Build, audit, and evolve 16:9 scientific interactive HTML presentations (AWF HTML-PPT / SciSlide) under a Tri-Mode Execution Architecture (`TDD` Tutor-Driven Design, `GRILL` Dual-Stage Grill-Driven Design with 3-Part Mechanism Quiz + Teach-on-Miss + Isomorphic Re-Grill + Slide Design Multiple-Choice Question `slide_design_mcq`, and `AUTONOMOUS_DUAL_EVOLVE` Head-Down 1-Slide-Per-Step Build + Post-Review PPT & AWF Dual-Evolution), strictly enforcing 1-Slide-Per-Step (`max_slides_generated_per_step == 1`), 1-Hop Slide Topological Lock (`slide_manifest.json`), and optional Human-in-the-Loop Sign-off Gate, gated by `skill.design-anti-goodhart@1.0.0-rc.5` (AWF DesignAG, 18 Automated Design Gates D1-D18 + 7 Redlines R1-R7 + Dual Quantitative Rubrics) and `skill.anti-goodhart-verification@3.6.0-rc.1` (AWF Guard). Use whenever creating, revising, or auditing HTML slide decks, scientific paper walkthroughs, or teaching presentations.
+description: Build, audit, and evolve 16:9 scientific interactive HTML presentations (AWF HTML-PPT / SciSlide) under a Two-Level Macro-to-Micro Tri-Mode Architecture (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 animation slides + Stage 1..N Single-Slide `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`), strictly enforcing 1-Slide-Per-Step (`max_slides_generated_per_step == 1`) and 1-Hop Slide Topological Lock (`slide_manifest.json`), gated by `skill.design-anti-goodhart@1.0.0-rc.6` (AWF DesignAG) and `skill.anti-goodhart-verification@3.6.0-rc.1` (AWF Guard). Use whenever creating, revising, or auditing HTML slide decks, scientific paper walkthroughs, or teaching presentations.
 ---
 
-# AWF HTML-PPT V3 (`skill.html-ppt@1.0.0-rc.7` — Tri-Mode Execution Engine: `TDD` Tutor-Driven Design, `GRILL` Dual-Stage Grill-Driven Design [3-Part Mechanism Grill + Slide Design MCQ] & `AUTONOMOUS_DUAL_EVOLVE` Head-Down Build + Post-Review Dual-Evolution, Strictly 1-Slide-Per-Step, 1-Hop Topological Lock & `AWF DesignAG` 18-Gate Enforcement)
+# AWF HTML-PPT V3 (`skill.html-ppt@1.0.0-rc.8` — Two-Level Macro-to-Micro Tri-Mode Engine: Stage 0 Global Deck Blueprint MCQs [Total Slides + Focus Modules + V3 Animation Budget] + Stage 1..N `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`, Strictly 1-Slide-Per-Step & `AWF DesignAG` 18-Gate Enforcement)
 
 An anti-Goodhart, self-evolving scientific HTML presentation authoring and verification engine. To prevent mid-deck attention collapse, template cloning, unrendered LaTeX leaks, overlapping/clipped DOM boxes, and pure-text laziness (`V0 = 0.30` cap), **AWF HTML-PPT V3 strictly forbids generating multiple slides in a single step** and supports a **Tri-Mode Execution Architecture** (`workflow_mode: "TDD" | "GRILL" | "AUTONOMOUS_DUAL_EVOLVE"`). Regardless of mode, every slide (`slides/slide_XX.html`) is generated, rendered, and audited **one slide per step** before unlocking the next slide in `slide_manifest.json`.
 
 ---
 
-## 1. Tri-Mode Execution Architecture (`TDD` / `GRILL` / `AUTONOMOUS_DUAL_EVOLVE`)
+## 1. Two-Level Macro-to-Micro Tri-Mode Architecture (`Stage 0 Global Blueprint` + `TDD / GRILL / AUTONOMOUS_DUAL_EVOLVE`)
+
+### Stage 0: Macro-GDD Global Deck Blueprint（全局总纲烤问与三联选择题拍板，`global_deck_blueprint`）
+Before generating `storyboard.json` or writing `slide_01.html`, the Agent determines the **global architecture** with the human in two steps:
+1. **Step 0.A — 全篇核心冲突一刀探底 (`macro_thesis_probe`)**:
+   - Synthesizes the entire paper/topic into a 3-sentence **Bird's-Eye Conflict Formula** (`executive_core_conflict`: Bottleneck Ceiling $\to$ Core Physical Knob $\to$ Quantitative Breakthrough) and probes the user's baseline familiarity (`human_baseline_alignment`; if the user hasn't read the paper yet, provides a 1-minute bird's-eye onboarding map first).
+2. **Step 0.B — 全局导演三联选择题 (`total_slides_mcq` + `emphasis_allocation_mcq` + `v3_animation_budget_mcq`)**:
+   - **MCQ 1 (`total_slides_mcq` — 一共多少页？)**: Presents $\ge 2$ pacing tiers (e.g., `A (Recommended): 16-20页深度精讲档`, `B: 10-14页高密度快节奏答辩档`, `C: 24-30页全推导百科档`) and locks `planned_total_slides` (which Gate `D16` cross-checks against `len(storyboard_slides)`).
+   - **MCQ 2 (`emphasis_allocation_mcq` — 哪些方面重点讲？)**: Ranks all mechanisms by `Counter-Intuitiveness × Rubric Weight` and presents $\ge 2$ focus-weighting options so the user chooses `heavy_focus_modules` (which get 2–3 consecutive deep-dive slides instead of 1-page summaries).
+   - **MCQ 3 (`v3_animation_budget_mcq` — 哪些设计动画/交互讲？)**: Identifies stations involving continuous parameter coupling, temporal dynamics, or 3D geometry and presents $\ge 2$ animation budget plans, locking `v3_designated_slide_indices` (exact 1-based slide numbers that **must** be implemented as `V3` interactive sliders or step-by-step SVG animations; downgrading any designated `V3` slide to `V2/V0` during Stage 3 immediately triggers `FAIL` in `audit_single_slide_step.py`!).
 
 ### Mode 1: `TDD` — Tutor-Driven Design（以教代建模式，`tdd_mode: true`）
 - **Workflow**: `1 Tutor Station == 1 TDD Cognitive Capsule == 1 Slide`.

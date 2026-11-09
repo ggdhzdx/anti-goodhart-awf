@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Co-located AWF registration script for `skill.html-ppt@1.0.0-rc.7`
-and standalone workflow `html-ppt@1.0.0-rc.4` (AWF HTML-PPT V3 / SciSlide).
-Enforces Tri-Mode Execution Architecture:
-1. Mode 1 (`TDD` Tutor-Driven Design),
-2. Mode 2 (`GRILL` Dual-Stage Grill-Driven Design: 3-Part Anchored Mechanism Grill +
-   Teach-on-Miss + Anti-Rubber-Stamp Isomorphic Re-Grill + Bottleneck-to-Slide Mapping +
-   Slide Design Multiple-Choice Question `slide_design_mcq`),
-3. Mode 3 (`AUTONOMOUS_DUAL_EVOLVE` Head-Down 1-Slide-Per-Step Build + Post-Review PPT & AWF Dual-Evolution),
+Co-located AWF registration script for `skill.html-ppt@1.0.0-rc.8`
+and standalone workflow `html-ppt@1.0.0-rc.5` (AWF HTML-PPT V3 / SciSlide).
+Enforces Two-Level Macro-to-Micro Tri-Mode Architecture:
+- Stage 0 Macro-GDD Global Deck Blueprint (`global_deck_blueprint`: Total Slides MCQ + Emphasis Allocation MCQ +
+  V3 Animation Budget MCQ, cross-checked at each single-slide step),
+- Mode 1 (`TDD` Tutor-Driven Design),
+- Mode 2 (`GRILL` Dual-Stage Grill-Driven Design: 3-Part Mechanism Grill + Slide Design MCQ),
+- Mode 3 (`AUTONOMOUS_DUAL_EVOLVE` Head-Down Build + Post-Review PPT & AWF Dual-Evolution),
 strictly 1-Slide-Per-Step micro-step execution, and 1-Hop `slide_manifest.json` topological lock.
 Strictly follows ADR 0012 and ADR 0022.
 """
@@ -42,7 +42,7 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
         "source_snapshot": source_rel,
         "tree_sha256": legacy_hash,
         "depends_on": [
-            "skill.design-anti-goodhart@1.0.0-rc.5",
+            "skill.design-anti-goodhart@1.0.0-rc.6",
             "skill.anti-goodhart-verification@3.6.0-rc.1",
         ],
         "runtime_requirements": [
@@ -58,6 +58,7 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
             "standalone-16x9-slide-starter",
             "concrete-system-semantics-for-algorithms-and-optimization",
             "concrete-scientific-title-language",
+            "stage0-macro-gdd-global-deck-blueprint-total-slides-emphasis-and-v3-animation-contract",
             "strict-single-slide-per-step-microstep-execution",
             "one-hop-topological-slide-manifest-locking",
             "station-to-slide-tutor-driven-design-tdd-cognitive-capsule-binding",
@@ -72,11 +73,10 @@ def build_release_meta(source_rel: str, legacy_hash: str) -> Dict[str, Any]:
             "Final visual acceptance includes 1920x1080 rendered-page review under Gate D18",
         ],
         "provenance": (
-            "Release 1.0.0-rc.7 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.7` and standalone workflow "
-            "`html-ppt@1.0.0-rc.4`), upgrading Mode 2 (`GRILL`) to Dual-Stage Grill-Driven Design "
-            "(Stage 1: 3-Part Anchored Mechanism Grill + Anti-Rubber-Stamp Isomorphic Re-Grill; Stage 2: "
-            "`bottleneck_to_slide_mapping` + `slide_design_mcq` multiple-choice slide design decision), "
-            "powered by `skill.design-anti-goodhart@1.0.0-rc.5`."
+            "Release 1.0.0-rc.8 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.8` and standalone workflow "
+            "`html-ppt@1.0.0-rc.5`), introducing Stage 0 Macro-GDD Global Deck Blueprint verification and "
+            "per-slide V3 animation designation enforcement (`designated_v3_animation`), powered by "
+            "`skill.design-anti-goodhart@1.0.0-rc.6`."
         ),
     }
 
@@ -85,14 +85,14 @@ def build_workflow_descriptor() -> Dict[str, Any]:
     return {
         "schema_version": 1,
         "id": "html-ppt",
-        "release": "1.0.0-rc.4",
+        "release": "1.0.0-rc.5",
         "status": "validated",
         "purpose": (
             "Self-Evolving, Anti-Goodhart 16:9 Scientific Interactive HTML Presentation Workflow "
-            "(AWF HTML-PPT V3 / SciSlide) enforcing a Tri-Mode Execution Architecture (`TDD` Tutor-Driven Design, "
-            "`GRILL` Dual-Stage Grill-Driven Design with 3-Part Mechanism Grill, Anti-Rubber-Stamp Re-Grill & "
-            "Slide Design MCQ, and `AUTONOMOUS_DUAL_EVOLVE` Head-Down 1-Slide-Per-Step Build + Post-Review PPT & "
-            "AWF Dual-Evolution), strictly 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`), "
+            "(AWF HTML-PPT V3 / SciSlide) enforcing a Two-Level Macro-to-Micro Tri-Mode Architecture "
+            "(Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, and exact V3 "
+            "animation slides + Stage 1..N Single-Slide `TDD`, Dual-Stage `GRILL`, or `AUTONOMOUS_DUAL_EVOLVE`), "
+            "strictly 1-Slide-Per-Step micro-step generation (`max_slides_generated_per_step == 1`), "
             "1-Hop `slide_manifest.json` topological slide locking (`unverified_slide_hop_distance == 1`), "
             "18 Automated DesignAG Gates (`D1`-`D18`), 7 Redlines (`R1`-`R7`), Dual Quantitative Rubrics (`>=85/100`), "
             "Read-Only Red Subagent Visual Audit, and Darwinian Escape-to-Gate evolution."
@@ -104,7 +104,7 @@ def build_workflow_descriptor() -> Dict[str, Any]:
         ],
         "stages": [
             {
-                "id": "stage1-storyboard-contract-and-trimode-manifest-initialization-d13-d14-d16",
+                "id": "stage0-macro-gdd-global-deck-blueprint-and-stage1-storyboard-manifest-d13-d14-d16",
                 "required": True,
                 "skill": "skill.html-ppt",
             },
@@ -125,11 +125,9 @@ def build_workflow_descriptor() -> Dict[str, Any]:
             },
         ],
         "engineering_gate": (
-            "Strictly forbid generating >1 slide per step (`max_slides_generated_per_step == 1`) or unlocking "
-            "`slide_{k+1}` before `slide_k` holds a verified SHA-256 `PASS` receipt in `slide_manifest.json` "
-            "(`unverified_slide_hop_distance == 1`); enforce Mode 1 (`tdd_station_capsule`), Mode 2 (`gdd_grill_capsule` "
-            "with 3-Part Mechanism Grill, Anti-Rubber-Stamp Re-Grill, Bottleneck-to-Slide Mapping & `slide_design_mcq`), "
-            "or Mode 3 (`AUTONOMOUS_DUAL_EVOLVE` with post-review `dual_evolution_feedback_receipt`); enforce all 18 "
+            "Strictly enforce Stage 0 Global Deck Blueprint (`global_deck_blueprint` + per-slide `designated_v3_animation`), "
+            "forbid generating >1 slide per step (`max_slides_generated_per_step == 1`) or unlocking `slide_{k+1}` before "
+            "`slide_k` holds a verified SHA-256 `PASS` receipt (`unverified_slide_hop_distance == 1`), and enforce all 18 "
             "DesignAG gates (`D1`-`D18`) via `scripts/audit_single_slide_step.py`."
         ),
         "scientific_gate": (
@@ -144,9 +142,9 @@ def build_workflow_descriptor() -> Dict[str, Any]:
 
 def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_id = "skill.html-ppt"
-    comp_rel_id = "1.0.0-rc.7"
+    comp_rel_id = "1.0.0-rc.8"
     wf_id = "html-ppt"
-    wf_rel_id = "1.0.0-rc.4"
+    wf_rel_id = "1.0.0-rc.5"
     source_rel = f"components/skills/html-ppt/releases/{comp_rel_id}/source"
     source_dir = awf_root / source_rel
     comp_descriptor_rel = "components/skills/html-ppt/component.yaml"
@@ -167,14 +165,14 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
     comp_sha = verify.file_sha256(comp_descriptor_path)
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
 
-    attest_rel = "attestations/release-integrity-20261108-html-ppt-rc7.yaml"
+    attest_rel = "attestations/release-integrity-20261108-html-ppt-rc8.yaml"
     attest_path = awf_root / attest_rel
     attest_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-html-ppt-release-20261108-rc7",
-        "provenance": "Validated release 1.0.0-rc.7 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.7` and standalone workflow `html-ppt@1.0.0-rc.4`, enforcing Tri-Mode Execution Architecture with Dual-Stage GDD: 3-Part Mechanism Grill + Slide Design MCQ).",
+        "owner": "awf-html-ppt-release-20261108-rc8",
+        "provenance": "Validated release 1.0.0-rc.8 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.8` and standalone workflow `html-ppt@1.0.0-rc.5`, enforcing Stage 0 Macro-GDD Global Deck Blueprint + Per-Slide V3 Animation Designation + Dual-Stage Micro-GDD).",
         "releases": {
             f"{comp_id}@{comp_rel_id}": {
                 "coverage": "tree",
@@ -205,7 +203,7 @@ def register_all(awf_root: Path) -> Dict[str, Any]:
         "locked_at": "2026-11-08",
         "components": {
             comp_id: comp_rel_id,
-            "skill.design-anti-goodhart": "1.0.0-rc.5",
+            "skill.design-anti-goodhart": "1.0.0-rc.6",
             "skill.anti-goodhart-verification": "3.6.0-rc.1",
         },
     }

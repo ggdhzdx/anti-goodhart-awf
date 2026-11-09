@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 Co-located AWF Release Registration Script for AWF Tutor / SciTutor
-(adaptive-interactive-tutor@1.0.0-rc.18 / V16 Tri-Mode Dual-Stage GDD Edition).
+(adaptive-interactive-tutor@1.0.0-rc.19 / V16 Macro-to-Micro Tri-Mode GDD Edition).
 Strictly follows ADR 0012 and ADR 0022.
 Locks `skill.anti-goodhart-verification@3.6.0-rc.1` (73 automated gates),
-`skill.design-anti-goodhart@1.0.0-rc.5` (18 automated DesignAG gates + Dual-Stage GDD D16),
-and `skill.html-ppt@1.0.0-rc.7` (Tri-Mode `TDD` / Dual-Stage `GRILL` / `AUTONOMOUS_DUAL_EVOLVE` 1-Slide-Per-Step Enforcer).
+`skill.design-anti-goodhart@1.0.0-rc.6` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16),
+and `skill.html-ppt@1.0.0-rc.8` (Two-Level Macro-to-Micro Tri-Mode 1-Slide-Per-Step Enforcer).
 """
 
 from __future__ import annotations
@@ -53,9 +53,9 @@ def build_release_meta(
         ],
         "runtime_requirements": [
             "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
-            f"Standalone {guard_id}@{guard_rel} (AWF Guard, 73 automated gates) for 7-Gate, @scientific_atom, 6D micro-step anchoring, and Red-Blue adversarial verification",
-            f"Standalone {design_ag_id}@{design_ag_rel} (AWF DesignAG, 18 automated design gates + dual rubrics + Dual-Stage GDD verification)",
-            f"Standalone {html_ppt_id}@{html_ppt_rel} (AWF HTML-PPT V3 Tri-Mode `TDD`, Dual-Stage `GRILL`, `AUTONOMOUS_DUAL_EVOLVE` 1-Slide-Per-Step enforcer)",
+            f"Standalone {guard_id}@{guard_rel} (AWF Guard, 73 automated gates)",
+            f"Standalone {design_ag_id}@{design_ag_rel} (AWF DesignAG, 18 automated design gates + Stage 0 Global Deck Blueprint + Dual-Stage GDD verification)",
+            f"Standalone {html_ppt_id}@{html_ppt_rel} (AWF HTML-PPT V3 Macro-to-Micro Tri-Mode 1-Slide-Per-Step enforcer)",
             "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review",
         ],
         "capabilities": [
@@ -72,6 +72,7 @@ def build_release_meta(
             "bottom-up-micro-to-macro-zoom-out-and-macro-landscape-positioning",
             "upstream-downstream-lateral-causal-lineage-mapping",
             "open-world-unbiased-cross-domain-structural-isomorphism-hyperlinking",
+            "stage0-macro-gdd-global-deck-blueprint-total-slides-emphasis-and-v3-animation-mcqs",
             "tutor-driven-design-and-bidirectional-feynman-alignment-co-evolution",
             "dual-stage-grill-driven-design-3part-mechanism-grill-and-slide-design-mcq",
             "autonomous-headdown-build-with-postreview-ppt-and-awf-dual-evolution",
@@ -92,9 +93,9 @@ def build_release_meta(
             "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms",
         ],
         "provenance": (
-            f"Adaptive Interactive Tutor V16 (1.0.0-rc.18) locking to `{guard_id}@{guard_rel}` (73 automated gates), "
-            f"`{design_ag_id}@{design_ag_rel}` (18 automated DesignAG gates + Dual Quantitative Rubrics + Dual-Stage GDD D16), and "
-            f"`{html_ppt_id}@{html_ppt_rel}` (Tri-Mode `TDD`, Dual-Stage `GRILL` [3-Part Mechanism Grill + Slide Design MCQ], and `AUTONOMOUS_DUAL_EVOLVE`)."
+            f"Adaptive Interactive Tutor V16 (1.0.0-rc.19) locking to `{guard_id}@{guard_rel}` (73 automated gates), "
+            f"`{design_ag_id}@{design_ag_rel}` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16), and "
+            f"`{html_ppt_id}@{html_ppt_rel}` (Two-Level Macro-to-Micro Tri-Mode `TDD`, Dual-Stage `GRILL`, and `AUTONOMOUS_DUAL_EVOLVE`)."
         ),
     }
 
@@ -117,17 +118,17 @@ def build_workflow_doc(
         "status": "validated",
         "purpose": (
             "Bidirectional interactive pedagogical, Scale-Adaptive Fractal Curriculum (Chapter -> Station -> "
-            "3-Gate Micro-Loop for Mega-Projects), 7-Element Methodological Anatomy, and Tri-Mode Co-Design Engine "
-            "(`TDD` Tutor-Driven Design, `GRILL` Dual-Stage Grill-Driven Design with 3-Part Mechanism Grill, "
-            "Anti-Rubber-Stamp Re-Grill & Slide Design MCQ, and `AUTONOMOUS_DUAL_EVOLVE` Head-Down Build + Post-Review "
-            f"PPT & AWF Dual-Evolution), delegating 73-Gate scientific/code verification to {guard_id}@{guard_rel}, "
-            f"18-Gate visual/pedagogical/PPT verification to {design_ag_id}@{design_ag_rel} (AWF DesignAG), and "
-            f"Tri-Mode 1-Slide-Per-Step HTML-PPT generation to {html_ppt_id}@{html_ppt_rel}."
+            "3-Gate Micro-Loop for Mega-Projects), 7-Element Methodological Anatomy, and Two-Level Macro-to-Micro "
+            "Tri-Mode Co-Design Engine (Stage 0 Global Deck Blueprint MCQs deciding total slides, heavy focus modules, "
+            "and V3 animation slides + Stage 1..N `TDD`, Dual-Stage `GRILL` & `AUTONOMOUS_DUAL_EVOLVE`), delegating "
+            f"73-Gate scientific/code verification to {guard_id}@{guard_rel}, 18-Gate visual/pedagogical/PPT "
+            f"verification to {design_ag_id}@{design_ag_rel} (AWF DesignAG), and Tri-Mode 1-Slide-Per-Step "
+            f"HTML-PPT generation to {html_ppt_id}@{html_ppt_rel}."
         ),
         "entry_skills": [comp_id, guard_id, design_ag_id, html_ppt_id],
         "stages": [
             {
-                "id": "scope-cardinality-and-trimode-triage-fractal-syllabus-and-manifests",
+                "id": "stage0-macro-gdd-global-deck-blueprint-and-trimode-triage",
                 "required": True,
                 "skill": comp_id,
             },
@@ -159,7 +160,7 @@ def build_workflow_doc(
             },
             {
                 "id": "trimode-tdd-dualstage-grill-or-autonomous-html-ppt-synthesis-and-postreview-dual-evolution",
-                "condition": "When building or evolving a 16:9 interactive HTML presentation deck via TDD, Dual-Stage GRILL, or AUTONOMOUS_DUAL_EVOLVE mode under AWF HTML-PPT + AWF DesignAG (18 gates + Dual Rubrics).",
+                "condition": "When building or evolving a 16:9 interactive HTML presentation deck via Stage 0 Global Blueprint + TDD, Dual-Stage GRILL, or AUTONOMOUS_DUAL_EVOLVE mode under AWF HTML-PPT + AWF DesignAG (18 gates + Dual Rubrics).",
                 "required": False,
                 "skill": design_ag_id,
             },
@@ -167,10 +168,10 @@ def build_workflow_doc(
         "engineering_gate": (
             f"For Mega-Projects (N > 5 methods), forbid flat 3-4 Loop compression and 1,000+ line monolithic scripts; "
             f"invoke {guard_id}@{guard_rel} (73 gates) for @scientific_atom capsule verification and {design_ag_id}@{design_ag_rel} "
-            f"(18 DesignAG gates + 7 Redlines) + {html_ppt_id}@{html_ppt_rel} (Tri-Mode `TDD`, Dual-Stage `GRILL` [3-Part Mechanism "
-            f"Grill + Anti-Rubber-Stamp Re-Grill + Bottleneck-to-Slide Mapping + Slide Design MCQ], `AUTONOMOUS_DUAL_EVOLVE` "
-            f"1-Slide-Per-Step Enforcer) for interactive HTML-PPT verification; strictly enforce the Human Gate before "
-            f"generating heavy multimedia; and persist all deliverables inside the project workspace with dual Windows/file:/// paths."
+            f"(18 DesignAG gates + 7 Redlines) + {html_ppt_id}@{html_ppt_rel} (Stage 0 Global Blueprint + Tri-Mode `TDD`, "
+            f"Dual-Stage `GRILL`, `AUTONOMOUS_DUAL_EVOLVE` 1-Slide-Per-Step Enforcer) for interactive HTML-PPT verification; "
+            f"strictly enforce the Human Gate before generating heavy multimedia; and persist all deliverables inside the "
+            f"project workspace with dual Windows/file:/// paths."
         ),
         "scientific_gate": (
             f"All atomic operator capsules must pass {guard_id}@{guard_rel} (73 automated gates) and all HTML-PPT / visual "
@@ -185,11 +186,11 @@ def main() -> int:
     guard_id = "skill.anti-goodhart-verification"
     guard_rel = "3.6.0-rc.1"
     design_ag_id = "skill.design-anti-goodhart"
-    design_ag_rel = "1.0.0-rc.5"
+    design_ag_rel = "1.0.0-rc.6"
     html_ppt_id = "skill.html-ppt"
-    html_ppt_rel = "1.0.0-rc.7"
+    html_ppt_rel = "1.0.0-rc.8"
     wf_id = "adaptive-interactive-tutor"
-    rel_id = "1.0.0-rc.18"
+    rel_id = "1.0.0-rc.19"
 
     source_rel = f"components/skills/adaptive-interactive-tutor/releases/{rel_id}/source"
     source_dir = AWF_ROOT / source_rel
@@ -223,17 +224,17 @@ def main() -> int:
     comp_sha = verify.file_sha256(comp_descriptor_path)
 
     metadata_sha256 = verify.canonical_object_sha256(release_meta)
-    attestation_rel = "attestations/release-integrity-20261108-adaptive-interactive-tutor-rc18.yaml"
+    attestation_rel = "attestations/release-integrity-20261108-adaptive-interactive-tutor-rc19.yaml"
     attestation_path = AWF_ROOT / attestation_rel
     attestation_doc = {
         "schema_version": 1,
         "digest_contract": "awf-tree-v2",
         "observed_at": "2026-11-08",
-        "owner": "awf-adaptive-interactive-tutor-release-20261108-rc18",
+        "owner": "awf-adaptive-interactive-tutor-release-20261108-rc19",
         "provenance": (
-            f"Validated release 1.0.0-rc.18 of AWF Tutor / SciTutor (skill.adaptive-interactive-tutor@1.0.0-rc.18 / V16 Dual-Stage GDD) "
-            f"locking to {guard_id}@{guard_rel} (73 gates), {design_ag_id}@{design_ag_rel} (18 DesignAG gates + Dual-Stage GDD D16), "
-            f"and {html_ppt_id}@{html_ppt_rel} (Tri-Mode `TDD`, Dual-Stage `GRILL` [3-Part Mechanism Grill + Slide Design MCQ], `AUTONOMOUS_DUAL_EVOLVE`)."
+            f"Validated release 1.0.0-rc.19 of AWF Tutor / SciTutor (skill.adaptive-interactive-tutor@1.0.0-rc.19 / V16 Macro-to-Micro GDD) "
+            f"locking to {guard_id}@{guard_rel} (73 gates), {design_ag_id}@{design_ag_rel} (18 DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16), "
+            f"and {html_ppt_id}@{html_ppt_rel} (Macro-to-Micro Tri-Mode 1-Slide-Per-Step)."
         ),
         "releases": {
             f"{comp_id}@{rel_id}": {
