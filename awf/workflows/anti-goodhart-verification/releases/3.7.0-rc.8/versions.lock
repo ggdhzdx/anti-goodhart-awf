@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "workflow": "anti-goodhart-verification",
+  "workflow_release": "3.7.0-rc.8",
+  "locked_at": "2026-11-11",
+  "components": {
+    "skill.anti-goodhart-verification": "3.7.0-rc.8",
+    "skill.manage-agent-workflows": "1.0.2",
+    "tool.awf-repository-verifier": "1.0.0-rc.3"
+  }
+}

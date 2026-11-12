@@ -3,18 +3,19 @@
   "id": "skill.design-anti-goodhart",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.11": {
+    "1.0.0-rc.13": {
       "status": "validated",
-      "observed_at": "2026-11-09",
+      "observed_at": "2026-11-10",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.11/source",
-      "tree_sha256": "321993a2ff3573b1be8bbd23cfdf9811cafe629d19804c6aacfdbb2395647b3c",
+      "source_snapshot": "components/skills/design-anti-goodhart/releases/1.0.0-rc.13/source",
+      "tree_sha256": "3a61a48b7f5fee655b56e1a84660b96475f6554b1545a66afa2e03254c88c228",
       "depends_on": [
-        "skill.anti-goodhart-verification@3.7.0-rc.1"
+        "skill.anti-goodhart-verification@3.7.0-rc.7"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
-        "Python 3.9+ for executing scripts/awf_design_anti_goodhart_gates.py"
+        "Python 3.9+ for executing scripts/awf_design_anti_goodhart_gates.py",
+        "Pillow and cryptography (Ed25519) for DesignAG evidence validation; runner-owned public-key policy for final acceptance"
       ],
       "capabilities": [
         "visual-pedagogical-and-html-ppt-anti-goodhart-18-gate-verification-engine",
@@ -34,13 +35,24 @@
         "image-aspect-ratio-subpanel-crop-purity-and-figure-text-explicit-coupling",
         "wcag-contrast-narrative-foreshadowing-and-causal-why-chain-verification",
         "interactive-physics-widget-anti-hollow-animation-and-storyboard-microstep-anchor",
-        "multimodal-red-blue-visual-adversarial-critic-protocol"
+        "multimodal-red-blue-visual-adversarial-critic-protocol",
+        "guard-rc7-compatible-composed-execution",
+        "exact-release-imports-without-fallback",
+        "complete-fixed-rubric-without-default-grades",
+        "artifact-bound-authorized-render-and-review-evidence",
+        "explicit-draft-versus-final-acceptance"
       ],
       "limitations": [
-        "DOM bounding-box probes (D7-D8) accept headless browser/Playwright bounding-box JSON exports or structured layout bundles",
-        "Sub-panel crop purity (D10) validates normalized crop coordinates or rendered crop metadata against whitespace and sliced-caption thresholds"
+        "Integration tests use synthetic fixtures; actual decks still require rendered-page and scientific source review",
+        "Trusted runner must own the public-key policy, expected artifacts and run ID; keys/trust are not provisioned by this package",
+        "Separate signatures prove authorized attestation and byte binding, not scientific truth or reviewer independence of judgment",
+        "Capture profile supports offline self-contained HTML static slide initial states; dynamic/generated views and interactions require separate assessment",
+        "Remaining D1-D16 layout and scientific metadata are not all independently measured; only D17/D18 force-PASS mutations are tested here",
+        "The fixed 15-criterion scientific knowledge rubric is the co-located optoelectronic rubric; other subjects require an explicit reviewed rubric successor",
+        "Shared engineering closure is workflows/design-anti-goodhart/releases/1.0.0-rc.13/source and must accompany archives"
       ],
-      "provenance": "Release 1.0.0-rc.11 of AWF DesignAG (`skill.design-anti-goodhart@1.0.0-rc.11`), adding `verify_global_deck_blueprint_capsule` to Gate D16 for Stage 0 Macro-GDD Global Deck Blueprint verification (Total Slides MCQ, Emphasis Allocation MCQ, and V3 Animation Budget MCQ), layered atop `skill.anti-goodhart-verification@3.7.0-rc.1`."
+      "provenance": "D17/D18 evidence hardening; reports/designag-evidence-validation-20261110T085800Z/validation.json sha256=b7c11b2c31716600ae100e5de34a279e95a97e408f412412f18b5cc23188fdac",
+      "change_summary": "Require complete fixed 15-criterion scoring and separately authorized, byte-bound, full-static-frame screenshot review; distinguish assembly from acceptance."
     }
   }
 }

@@ -2,20 +2,21 @@
   "id": "skill.html-ppt",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.13": {
+    "1.0.0-rc.15": {
       "status": "validated",
-      "observed_at": "2026-11-09",
+      "observed_at": "2026-11-10",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.13/source",
-      "tree_sha256": "ab1db40a8fab60e3354e225c19921141b30d4577c14ff70d295425409869db0d",
+      "source_snapshot": "components/skills/html-ppt/releases/1.0.0-rc.15/source",
+      "tree_sha256": "7f16398f91cd43567163b0a853b2516a9d27543066b4fc2f6c756e1f34600ff3",
       "depends_on": [
-        "skill.design-anti-goodhart@1.0.0-rc.11",
-        "skill.anti-goodhart-verification@3.7.0-rc.1"
+        "skill.design-anti-goodhart@1.0.0-rc.13",
+        "skill.anti-goodhart-verification@3.7.0-rc.7"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
         "Python 3.9+ for executing scripts/audit_single_slide_step.py and AWF DesignAG",
-        "A browser or Playwright headless Chromium for 1920x1080 rendered-page review"
+        "A browser or Playwright headless Chromium for 1920x1080 rendered-page review",
+        "Pillow and cryptography (Ed25519) for DesignAG evidence validation; runner-owned public-key policy for final acceptance"
       ],
       "capabilities": [
         "teaching-narrative-planning",
@@ -33,13 +34,24 @@
         "autonomous-headdown-build-with-postreview-ppt-and-awf-dual-evolution",
         "human-in-the-loop-per-slide-signoff-gate",
         "designag-18gate-and-dual-rubric-automated-enforcement",
-        "escape-to-gate-darwinian-regression-evolution"
+        "escape-to-gate-darwinian-regression-evolution",
+        "guard-rc7-compatible-composed-execution",
+        "exact-release-imports-without-fallback",
+        "complete-fixed-rubric-without-default-grades",
+        "artifact-bound-authorized-render-and-review-evidence",
+        "explicit-draft-versus-final-acceptance"
       ],
       "limitations": [
-        "HTML rendering and release integrity checks must be paired with scientific source verification",
-        "Final visual acceptance includes 1920x1080 rendered-page review under Gate D18"
+        "Integration tests use synthetic fixtures; actual decks still require rendered-page and scientific source review",
+        "Trusted runner must own the public-key policy, expected artifacts and run ID; keys/trust are not provisioned by this package",
+        "Separate signatures prove authorized attestation and byte binding, not scientific truth or reviewer independence of judgment",
+        "Capture profile supports offline self-contained HTML static slide initial states; dynamic/generated views and interactions require separate assessment",
+        "Remaining D1-D16 layout and scientific metadata are not all independently measured; only D17/D18 force-PASS mutations are tested here",
+        "The fixed 15-criterion scientific knowledge rubric is the co-located optoelectronic rubric; other subjects require an explicit reviewed rubric successor",
+        "Shared engineering closure is workflows/design-anti-goodhart/releases/1.0.0-rc.13/source and must accompany archives"
       ],
-      "provenance": "Release 1.0.0-rc.13 of AWF HTML-PPT (`skill.html-ppt@1.0.0-rc.13` and standalone workflow `html-ppt@1.0.0-rc.10`), introducing Stage 0 Macro-GDD Global Deck Blueprint verification and per-slide V3 animation designation enforcement (`designated_v3_animation`), powered by `skill.design-anti-goodhart@1.0.0-rc.11`."
+      "provenance": "D17/D18 evidence hardening; reports/designag-evidence-validation-20261110T085800Z/validation.json sha256=b7c11b2c31716600ae100e5de34a279e95a97e408f412412f18b5cc23188fdac",
+      "change_summary": "Require complete fixed 15-criterion scoring and separately authorized, byte-bound, full-static-frame screenshot review; distinguish assembly from acceptance."
     }
   },
   "schema_version": 1

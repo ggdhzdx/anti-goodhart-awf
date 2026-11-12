@@ -3,23 +3,24 @@
   "id": "skill.adaptive-interactive-tutor",
   "kind": "skill",
   "releases": {
-    "1.0.0-rc.24": {
+    "1.0.0-rc.26": {
       "status": "validated",
-      "observed_at": "2026-11-09",
+      "observed_at": "2026-11-10",
       "entry_point": "SKILL.md",
-      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.24/source",
-      "tree_sha256": "3123624758b6c9370c178993dfd578626c5109b8a46f70b559ac7e86ef6c6435",
+      "source_snapshot": "components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.26/source",
+      "tree_sha256": "84b0d3bf3952b35736603cbd159208117ec728b9f33b467b79a0a4e3ebaa79c0",
       "depends_on": [
-        "skill.anti-goodhart-verification@3.7.0-rc.1",
-        "skill.design-anti-goodhart@1.0.0-rc.11",
-        "skill.html-ppt@1.0.0-rc.13"
+        "skill.anti-goodhart-verification@3.7.0-rc.7",
+        "skill.design-anti-goodhart@1.0.0-rc.13",
+        "skill.html-ppt@1.0.0-rc.15"
       ],
       "runtime_requirements": [
         "UTF-8 Markdown Skill loader (Antigravity / Codex / Pi / Grok)",
-        "Standalone skill.anti-goodhart-verification@3.7.0-rc.1 (AWF Guard, 73 automated gates)",
-        "Standalone skill.design-anti-goodhart@1.0.0-rc.11 (AWF DesignAG, 18 automated design gates + Stage 0 Global Deck Blueprint + Dual-Stage GDD verification)",
-        "Standalone skill.html-ppt@1.0.0-rc.13 (AWF HTML-PPT V3 Macro-to-Micro Tri-Mode 1-Slide-Per-Step enforcer)",
-        "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review"
+        "Standalone skill.anti-goodhart-verification@3.7.0-rc.7 (AWF Guard, 14 slots / 74 subchecks)",
+        "Standalone skill.design-anti-goodhart@1.0.0-rc.13 (AWF DesignAG, 18 automated design gates + Stage 0 Global Deck Blueprint + Dual-Stage GDD verification)",
+        "Standalone skill.html-ppt@1.0.0-rc.15 (AWF HTML-PPT V3 Macro-to-Micro Tri-Mode 1-Slide-Per-Step enforcer)",
+        "Browser for on-demand interactive HTML micro-labs and HTML-PPT rendered-page review",
+        "Pillow and cryptography (Ed25519) for DesignAG evidence validation; runner-owned public-key policy for final acceptance"
       ],
       "capabilities": [
         "scale-adaptive-fractal-curriculum-tree-chapter-station-microloop",
@@ -48,14 +49,24 @@
         "red-blue-adversarial-subagent-decoupled-audit-for-station-capsules",
         "automatic-station-gate-awf-release-and-cognitive-ledger-writeback-anti-amnesia",
         "human-cognitive-trajectory-ledger-recording",
-        "cognitive-isomorphic-html-ppt-slide-deck-synthesis-with-designag-18gate-audit"
+        "cognitive-isomorphic-html-ppt-slide-deck-synthesis-with-designag-18gate-audit",
+        "guard-rc7-compatible-composed-execution",
+        "exact-release-imports-without-fallback",
+        "complete-fixed-rubric-without-default-grades",
+        "artifact-bound-authorized-render-and-review-evidence",
+        "explicit-draft-versus-final-acceptance"
       ],
       "limitations": [
-        "Interactive pedagogical and co-design workflow requires multi-turn user dialogue in TDD and GRILL modes",
-        "Heavy multimedia assets (images, animations, interactive web pages) are strictly human-gated (built only after user confirmation or explicit user request)",
-        "Scientific and domain claims during STEM tutoring and HTML-PPT generation must remain grounded in verified physical/mathematical mechanisms"
+        "Integration tests use synthetic fixtures; actual decks still require rendered-page and scientific source review",
+        "Trusted runner must own the public-key policy, expected artifacts and run ID; keys/trust are not provisioned by this package",
+        "Separate signatures prove authorized attestation and byte binding, not scientific truth or reviewer independence of judgment",
+        "Capture profile supports offline self-contained HTML static slide initial states; dynamic/generated views and interactions require separate assessment",
+        "Remaining D1-D16 layout and scientific metadata are not all independently measured; only D17/D18 force-PASS mutations are tested here",
+        "The fixed 15-criterion scientific knowledge rubric is the co-located optoelectronic rubric; other subjects require an explicit reviewed rubric successor",
+        "Shared engineering closure is workflows/design-anti-goodhart/releases/1.0.0-rc.13/source and must accompany archives"
       ],
-      "provenance": "Adaptive Interactive Tutor V16 (1.0.0-rc.24) locking to `skill.anti-goodhart-verification@3.7.0-rc.1` (73 automated gates), `skill.design-anti-goodhart@1.0.0-rc.11` (18 automated DesignAG gates + Stage 0 Global Blueprint + Dual-Stage GDD D16), and `skill.html-ppt@1.0.0-rc.13` (Two-Level Macro-to-Micro Tri-Mode `TDD`, Dual-Stage `GRILL`, and `AUTONOMOUS_DUAL_EVOLVE`)."
+      "provenance": "D17/D18 evidence hardening; reports/designag-evidence-validation-20261110T085800Z/validation.json sha256=b7c11b2c31716600ae100e5de34a279e95a97e408f412412f18b5cc23188fdac",
+      "change_summary": "Require complete fixed 15-criterion scoring and separately authorized, byte-bound, full-static-frame screenshot review; distinguish assembly from acceptance."
     }
   }
 }

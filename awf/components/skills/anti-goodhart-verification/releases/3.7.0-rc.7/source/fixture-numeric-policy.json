@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "files": {
+    "test_modular_integrity.py": {
+      "source_sha256": "2b622948718bb68502c4b4de7cddde9b23ed8cbb7d7ab8d9832b643972108fd1",
+      "allowed_numeric_literals": [],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "test_nonfinite_campaign.py": {
+      "source_sha256": "f0b5ff79be0c995a4587e461dccd14133b874b9f0746aba6fe11952285e4b949",
+      "allowed_numeric_literals": [],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "test_rc3_contracts.py": {
+      "source_sha256": "fe760a70333600ce69b1e2ce8e6997ea8f38a92f8ac53006a962b9158aec9850",
+      "allowed_numeric_literals": [
+        1e-15,
+        1e-12,
+        1e-10,
+        0.001
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "test_function_line_limit.py": {
+      "source_sha256": "935948fbbdaf70f712ff8210499bf55fbc67340b5b3c5776a8e0b40db1818d71",
+      "allowed_numeric_literals": [],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_anti_goodhart_selftest_suite.py": {
+      "source_sha256": "6bf43460136b292e9e5f001a67813d242e39002287a041bfa0c4020d29ce3194",
+      "allowed_numeric_literals": [],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_anti_goodhart_negative_controls.py": {
+      "source_sha256": "84646899da183c30db14d597b0a1964c9df1eb53c2272016ca178e9d6590d87c",
+      "allowed_numeric_literals": [
+        0.0,
+        1e-300,
+        1e-12,
+        1e-09,
+        1e-08,
+        1e-06,
+        1e-05,
+        0.001,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.08,
+        0.09,
+        0.1,
+        0.12,
+        0.15,
+        0.2,
+        0.25,
+        0.5,
+        0.85,
+        1.0,
+        1.8,
+        2.0,
+        2.1,
+        2.5,
+        3.0,
+        3.2,
+        3.45,
+        3.5,
+        3.55,
+        3.6,
+        3.9,
+        4.0,
+        5.0,
+        6.0,
+        6.1,
+        7.5,
+        8.0,
+        9.9,
+        10.0,
+        12.1,
+        25.0,
+        26.0,
+        40.0,
+        44.0,
+        50.0,
+        90.0,
+        94.0,
+        100.0,
+        1000.0,
+        1000000000.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_anti_goodhart_mutation_adequacy.py": {
+      "source_sha256": "51a0d52b911cc65f241b68fae5aeeb8e4aa0b597994589c3ac0dfe59417f071d",
+      "allowed_numeric_literals": [
+        1.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "probe_ag_v37.py": {
+      "source_sha256": "c90b0b3f355f530c4b20a416d36c80ec20c1e35dc93f47e175ba209aa88b1131",
+      "allowed_numeric_literals": [
+        0.0,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.5,
+        1.0,
+        2.0,
+        3.5,
+        50.0,
+        100.0,
+        1000000000.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/__init__.py": {
+      "source_sha256": "7d024e1345d0006ec565f02d82e95da914998f371fbd5803e4bbfabeb00b86a6",
+      "allowed_numeric_literals": [],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/ast_and_truth.py": {
+      "source_sha256": "b3eff7471dcb89cf37fcd5e41c1625e7c6b04b1c94587ab94ca3910c1ecfe81a",
+      "allowed_numeric_literals": [
+        1.0,
+        2.0,
+        100.0,
+        105.0,
+        110.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/build_selftest_atoms_and_oracle.py": {
+      "source_sha256": "cead6dbb0e58090a82817f30f81337e7f485437fa2098c6ef80f9718ff1d47a8",
+      "allowed_numeric_literals": [
+        0.0,
+        0.5,
+        3.141592653589793,
+        4.0,
+        100.0,
+        200000.0,
+        1000000.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/calibrated_morph_and_optics_pack.py": {
+      "source_sha256": "c63446575e3c3d23df117a8a5081b7d8fad533bd448b5886bf33caef027b8a24",
+      "allowed_numeric_literals": [],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/calibrated_scientific_pack_v34.py": {
+      "source_sha256": "10400f3cbf70f7318ba5ea51f8f3c465f35490b7be3d1a37c9c21fd791387d75",
+      "allowed_numeric_literals": [
+        0.0,
+        1e-09,
+        1e-08,
+        1e-06,
+        0.2,
+        0.25,
+        0.5,
+        0.9,
+        1.0,
+        2.0,
+        2.1,
+        2.5,
+        3.0,
+        3.2,
+        3.9,
+        4.0,
+        5.0,
+        6.0,
+        6.1,
+        8.0,
+        9.9,
+        12.1
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/gemtest_benchjack_and_goodhart.py": {
+      "source_sha256": "096e31983a6c565dc8cc94e66dea4457c169444235184947b1afbb27f499ea8f",
+      "allowed_numeric_literals": [
+        1e-09,
+        0.5,
+        0.75,
+        1.0,
+        2.5,
+        42.0,
+        50.0,
+        100.0,
+        999.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/guardrails_aurite_impossible_and_falsegreen.py": {
+      "source_sha256": "1d4d0825ebd59b08398d5ae54149469a1c5b91d247b504591d5a359af0db9ad1",
+      "allowed_numeric_literals": [
+        10.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/mutmut_dbc_splitguard_and_pitfallsfp.py": {
+      "source_sha256": "21d4447e43a1649fff0b13bbe121eff8bd4eff4828a685e7673e5f7f0cd6cf79",
+      "allowed_numeric_literals": [
+        0.0,
+        1e-12,
+        1e-09,
+        1e-07,
+        1e-05,
+        0.0001,
+        0.1,
+        0.49,
+        0.5,
+        0.8,
+        0.85,
+        5.0,
+        50.0,
+        100.0,
+        1000.0,
+        999999.0,
+        1000000.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/runner.py": {
+      "source_sha256": "351e72f4f18c27ed2336db3ef152df257e824300906d0ae69b14ae8c0b9821c8",
+      "allowed_numeric_literals": [
+        0.0,
+        1e-10,
+        1e-09,
+        0.01,
+        0.02,
+        0.05,
+        0.15,
+        0.2,
+        0.4,
+        0.63,
+        0.634,
+        0.7,
+        0.89,
+        0.92,
+        0.95,
+        1.0,
+        1.5,
+        2.0,
+        3.0,
+        195.0,
+        200.0,
+        205.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/scientific_computing_pack.py": {
+      "source_sha256": "04cc94e8695a8c22314b456c3a84bf9731f7933a9596fd485888bac8954f287e",
+      "allowed_numeric_literals": [
+        0.0,
+        1e-09,
+        0.01,
+        0.025,
+        0.05,
+        0.1,
+        0.2,
+        0.25,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.8,
+        0.9,
+        1.0,
+        1.1,
+        1.3,
+        1.5,
+        1.8,
+        1.95,
+        2.0,
+        2.1,
+        2.5,
+        3.8,
+        4.0,
+        4.2,
+        4.5
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/trajectory_and_evilgenie.py": {
+      "source_sha256": "adab171ddfa52e2f3b28474d9d888e927330e5ad7cde7b229fae0aca7a2083de",
+      "allowed_numeric_literals": [
+        0.001,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/tutor_implementation_goodhart.py": {
+      "source_sha256": "eb9df991504ef3ef91d943162ba9a5bb1fe934b27c42de0e58a602aea190ea29",
+      "allowed_numeric_literals": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        5.89
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "test_execution_flow.py": {
+      "source_sha256": "3c5c8fcc6556ecb9c7dc932b4b7d4c8076f4155f993fcb343e0f879f117a262a",
+      "allowed_numeric_literals": [],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/geometry_checks.py": {
+      "source_sha256": "2c263d2ee46fb53fc5cd74e57d74aaaad9932c6c35523da6bdcaccf8f8026dda",
+      "allowed_numeric_literals": [
+        0.0,
+        1.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/statistical_checks.py": {
+      "source_sha256": "7b88064eb98fb58e7b584bbc1feddf987f2c90dd6e194049545800ad7baedafe",
+      "allowed_numeric_literals": [
+        0.0,
+        1.0,
+        2.0,
+        3.45,
+        3.5,
+        3.55,
+        3.6,
+        25.0,
+        50.0,
+        100.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/matrix_checks.py": {
+      "source_sha256": "b8251c3e2c22a3f440866fbc4a58a24027d728587bdb33848474d170ec3cdc5a",
+      "allowed_numeric_literals": [
+        0.0,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.08,
+        0.09,
+        0.1,
+        0.12,
+        0.15,
+        0.25,
+        1.0,
+        7.5,
+        8.0,
+        1000.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/coupled_declarative_scenario.py": {
+      "source_sha256": "b7f1e1c21248e3d0fe5ad96e080d14634639435f83002da405b8040c36db11b3",
+      "allowed_numeric_literals": [
+        0.0,
+        1e-12,
+        1e-10,
+        1e-09,
+        1e-06,
+        1e-05,
+        0.04,
+        0.85,
+        1.0,
+        1.8,
+        2.0,
+        4.0,
+        10.0,
+        40.0,
+        44.0,
+        90.0,
+        94.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "awf_guard_selftests/geometry_fixtures.py": {
+      "source_sha256": "6b01d3e4c2a3960225770e0d79c10d4c6fb5875e81cc7f992d1338b3782adde0",
+      "allowed_numeric_literals": [
+        0.0,
+        0.2,
+        0.25,
+        0.4,
+        0.5,
+        0.7,
+        1.0,
+        1.2,
+        1.5,
+        1.8,
+        2.0,
+        3.5,
+        4.5,
+        100.0
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    },
+    "test_evidence_escapes.py": {
+      "source_sha256": "9072e356a738e5ce8e2a1165582b99c41ed82afcb3a64dedd2cf3c8a3ac6df27",
+      "allowed_numeric_literals": [
+        1.23456789
+      ],
+      "reason": "Reviewed numeric regression inputs and deliberate faulty operators; pinned bytes, never inferred from a caller-selected name"
+    }
+  }
+}
