@@ -1,0 +1,7 @@
+# Coordinated Engineering Closure (`DesignAG 1.0.0-rc.17` + `HTML-PPT 1.0.0-rc.19` + `Tutor 1.0.0-rc.30`)
+
+Co-located verification and release-closure utilities for the **Unconditional Zero Slide-Count MCQ Law (Pure Logic & Need Driven)** + **Unread-PDF AI Value-vs-Routine Triage & Reader-Intent / JIT Grill Emphasis** upgrade layered on top of Inline-SVG >=18px Typography, Beyond-PDF 4-Rung Background Synthesis, and D17/D18 cryptographic evidence hardening:
+
+- `skill.design-anti-goodhart@1.0.0-rc.17` (`workflow.design-anti-goodhart@1.0.0-rc.17`): Replaces `total_slides_mcq` validation in `design_background_bridge.py` (`verify_logic_driven_slide_count_policy`) and Gate `D16` with an unconditional Zero Slide-Count MCQ rule—rejecting any `total_slides_mcq`, fixed `planned_total_slides`, `elastic_slide_range`, or smuggled slide-count question/option in other MCQs so total slide count grows purely from logical closure and cognitive need (`UNBOUNDED_FLOW_DRIVEN`).
+- `skill.html-ppt@1.0.0-rc.19` (`workflow.html-ppt@1.0.0-rc.16`): Pins `skill.design-anti-goodhart@1.0.0-rc.17`, removes Step 0.B `total_slides_mcq` completely, and expands `--self-test` to 17 checks covering unconditional rejection of `total_slides_mcq` and fixed page totals.
+- `skill.adaptive-interactive-tutor@1.0.0-rc.30` (`workflow.adaptive-interactive-tutor@1.0.0-rc.30`): Updates locked delegation closure to `skill.design-anti-goodhart@1.0.0-rc.17` and `skill.html-ppt@1.0.0-rc.19`, explicitly banning slide-count selection MCQs and fixed page totals.

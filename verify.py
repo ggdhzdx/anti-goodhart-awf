@@ -38,9 +38,130 @@ expected_locks = {
         "skill.anti-goodhart-verification": "3.7.0-rc.7",
         "tool.awf-repository-verifier": "1.0.0-rc.2",
     },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.14/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.14",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.15/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.15",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.16/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.16",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.17/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.17",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.18/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.18",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.19/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.19",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.20/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.20",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.21/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.21",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.22/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.22",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.23/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.23",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.24/versions.lock": {
+        "skill.design-anti-goodhart": "1.0.0-rc.24",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
     "awf/workflows/html-ppt/releases/1.0.0-rc.12/versions.lock": {
         "skill.html-ppt": "1.0.0-rc.15",
         "skill.design-anti-goodhart": "1.0.0-rc.13",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.13/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.16",
+        "skill.design-anti-goodhart": "1.0.0-rc.14",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.14/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.17",
+        "skill.design-anti-goodhart": "1.0.0-rc.15",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.15/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.18",
+        "skill.design-anti-goodhart": "1.0.0-rc.16",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.16/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.19",
+        "skill.design-anti-goodhart": "1.0.0-rc.17",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.17/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.20",
+        "skill.design-anti-goodhart": "1.0.0-rc.18",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.18/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.21",
+        "skill.design-anti-goodhart": "1.0.0-rc.19",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.19/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.22",
+        "skill.design-anti-goodhart": "1.0.0-rc.20",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.20/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.23",
+        "skill.design-anti-goodhart": "1.0.0-rc.21",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.21/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.24",
+        "skill.design-anti-goodhart": "1.0.0-rc.22",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.22/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.25",
+        "skill.design-anti-goodhart": "1.0.0-rc.23",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.23/versions.lock": {
+        "skill.html-ppt": "1.0.0-rc.26",
+        "skill.design-anti-goodhart": "1.0.0-rc.24",
         "skill.anti-goodhart-verification": "3.7.0-rc.7",
         "tool.awf-repository-verifier": "1.0.0-rc.2",
     },
@@ -54,6 +175,83 @@ expected_locks = {
         "skill.anti-goodhart-verification": "3.7.0-rc.7",
         "skill.design-anti-goodhart": "1.0.0-rc.13",
         "skill.html-ppt": "1.0.0-rc.15",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.27/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.27",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.14",
+        "skill.html-ppt": "1.0.0-rc.16",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.28/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.28",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.15",
+        "skill.html-ppt": "1.0.0-rc.17",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.29/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.29",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.16",
+        "skill.html-ppt": "1.0.0-rc.18",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.30/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.30",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.17",
+        "skill.html-ppt": "1.0.0-rc.19",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.31/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.31",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.18",
+        "skill.html-ppt": "1.0.0-rc.20",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.32/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.32",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.19",
+        "skill.html-ppt": "1.0.0-rc.21",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.33/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.33",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.20",
+        "skill.html-ppt": "1.0.0-rc.22",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.34/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.34",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.21",
+        "skill.html-ppt": "1.0.0-rc.23",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.35/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.35",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.22",
+        "skill.html-ppt": "1.0.0-rc.24",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.36/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.36",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.23",
+        "skill.html-ppt": "1.0.0-rc.25",
+        "tool.awf-repository-verifier": "1.0.0-rc.2",
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.37/versions.lock": {
+        "skill.adaptive-interactive-tutor": "1.0.0-rc.37",
+        "skill.anti-goodhart-verification": "3.7.0-rc.7",
+        "skill.design-anti-goodhart": "1.0.0-rc.24",
+        "skill.html-ppt": "1.0.0-rc.26",
         "tool.awf-repository-verifier": "1.0.0-rc.2",
     },
     "awf/workflows/scientific-report-authoring/releases/1.0.0-rc.13/versions.lock": {
@@ -95,14 +293,22 @@ for path in ROOT.rglob("*"):
         if re.search(r"BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{20,}", text):
             errors.append(f"credential pattern: {path.relative_to(ROOT)}")
 
-design_script = ROOT / "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.13/source/scripts/awf_design_anti_goodhart_gates.py"
-html_ppt_script = ROOT / "awf/components/skills/html-ppt/releases/1.0.0-rc.15/source/scripts/audit_single_slide_step.py"
+design_dir = ROOT / "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.24/source"
+design_script = design_dir / "scripts/awf_design_anti_goodhart_gates.py"
+design_ev = design_dir / "design_tests/test_evidence.py"
+public_route = ROOT / "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.24/source/test_public_route.py"
+html_dir = ROOT / "awf/components/skills/html-ppt/releases/1.0.0-rc.26/source"
+html_ppt_script = html_dir / "scripts/audit_single_slide_step.py"
 guard_script = ROOT / "awf/components/skills/anti-goodhart-verification/releases/3.7.0-rc.8/source/scripts/awf_universal_anti_goodhart_gates.py"
 
 for label, cmd in [
     ("DesignAG 18-Gate self-test", [sys.executable, "-B", str(design_script), "--self-test"]),
     ("DesignAG recursive self-hosting audit", [sys.executable, "-B", str(design_script), "--audit-self"]),
-    ("HTML-PPT Tri-Mode 1-Slide-Per-Step self-test", [sys.executable, "-B", str(html_ppt_script), "--self-test"]),
+    ("DesignAG adversarial evidence suite", [sys.executable, "-B", str(design_ev)]),
+    ("DesignAG + HTML-PPT public route verification", [sys.executable, "-B", str(public_route)]),
+    ("HTML-PPT Tri-Mode 23-Check self-test", [sys.executable, "-B", str(html_ppt_script), "--self-test"]),
+    ("HTML-PPT concrete system semantics test", [sys.executable, "-B", str(html_dir / "tests/test_concrete_system_semantics.py")]),
+    ("HTML-PPT concrete title language test", [sys.executable, "-B", str(html_dir / "tests/test_concrete_title_language.py")]),
     ("AWF Guard 14-Slot x 74-Subcheck self-test", [sys.executable, "-B", str(guard_script), "--self-test"]),
     ("AWF Guard recursive self-hosting audit", [sys.executable, "-B", str(guard_script), "--audit-self"]),
 ]:
@@ -117,5 +323,5 @@ if errors:
 
 print(
     f"PASS: {len(manifest['files'])} files verified; "
-    "AWF DesignAG (18 gates + Universal Onion Bus) + AWF HTML-PPT + AWF SciWord + AWF FigPPT + AWF Guard (14 slots x 74 sub-checks + recursive self-audit) + AWF Tutor V16 closure verified"
+    "AWF DesignAG (18 gates + Canvas-vs-Dialogue Anti-Dilution + 3-Step Wittgenstein/7-Element/Teach-on-Miss + Pre-Background Paper-Recipe Leak Guard & Opening Rung-1 Macro-Stakes HTML Grounding + Outsider Anti-Collusion Blind Reader + 2x Large Typography >=32px/>=42px/>=56px + <=260-Char Low-Density Budget + Lossless Multi-Slide Split & Clickable Detail Popovers + Beyond-PDF Background Bridge + Zero Slide-Count MCQ + Universal Onion Bus) + AWF HTML-PPT (23 checks) + AWF SciWord + AWF FigPPT + AWF Guard (14 slots x 74 sub-checks + recursive self-audit) + AWF Tutor V16 closure verified"
 )

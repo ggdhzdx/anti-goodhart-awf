@@ -1,0 +1,7 @@
+# Coordinated Engineering Closure (`DesignAG 1.0.0-rc.16` + `HTML-PPT 1.0.0-rc.18` + `Tutor 1.0.0-rc.29`)
+
+Co-located verification and release-closure utilities for the **Unread-PDF AI Value-vs-Routine Triage & Reader-Intent / JIT Grill Emphasis** upgrade layered on top of Inline-SVG >=18px Typography, Beyond-PDF 4-Rung Background Synthesis, and D17/D18 cryptographic evidence hardening:
+
+- `skill.design-anti-goodhart@1.0.0-rc.16` (`workflow.design-anti-goodhart@1.0.0-rc.16`): Extends `design_background_bridge.py` and Gate `D16` (`verify_global_deck_blueprint_capsule` + `verify_onion_peeling_capsule`) with `verify_ai_value_triage`, `verify_unread_pdf_emphasis_alignment` (supporting `INTENT_MAPPED_AI_RECOMMENDED`, `AI_SEED_PLUS_JIT`, and `JIT_DURING_GRILL`, while blocking cold `"以下哪些模块需要作为重头戏展开讲"` paper-module catalog quizzes on unread-PDF users), and `verify_onion_trunk_context_preview`.
+- `skill.html-ppt@1.0.0-rc.18` (`workflow.html-ppt@1.0.0-rc.15`): Pins `skill.design-anti-goodhart@1.0.0-rc.16`, extends `mutate_storyboard_manifest` with `PROMOTE_HEAVY_FOCUS` and `COMPRESS_ROUTINE_MODULE` for live Grill bottleneck-driven emphasis adjustment, and expands `--self-test` to 16 checks.
+- `skill.adaptive-interactive-tutor@1.0.0-rc.29` (`workflow.adaptive-interactive-tutor@1.0.0-rc.29`): Updates locked delegation closure to `skill.design-anti-goodhart@1.0.0-rc.16` and `skill.html-ppt@1.0.0-rc.18`.
