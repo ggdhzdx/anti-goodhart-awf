@@ -1,0 +1,64 @@
+# Visual and interaction review
+
+## Establish the visual system
+
+Choose the output shape and target screen before detailed layout. For a standard presentation, 16:9 is a practical default; follow an existing project canvas or a user's explicit format when provided. Define a small set of colors, typography, spacing, borders, and diagram styles, then reuse those choices consistently.
+
+Give each page a clear reading order:
+
+1. Page role or section, when useful.
+2. Main claim or action.
+3. The diagram, data, image, or example that carries the explanation.
+4. Concise source and context notes.
+
+Use text size, weight, spacing, alignment, and grouping to show importance. Color can reinforce meaning, while labels, line styles, or shapes keep the page understandable without color alone.
+
+## Keep layout within its real bounds
+
+- Use layout primitives that can shrink: CSS Grid columns such as `minmax(0, 1fr)` and `min-width: 0` on nested items.
+- Allow long labels and English terms to wrap intentionally with `overflow-wrap` or an equivalent rule.
+- Keep a number with its unit together when splitting them would change how the value is read.
+- Check text against the actual target resolution and installed fonts; character counts and DOM dimensions alone do not reveal visual crowding.
+- **Inline `<svg>`, visible HTML typography & non-hollow card fill limits (`DesignAG` Gates `D3`, `D6` & `D8`)**:
+  - Every `<text>` / `<tspan>` inside an inline `<svg>` must explicitly declare and render at an effective font size **$\ge 32\text{ px}$** (`MIN_INLINE_SVG_FONT_PX = 32.0`, accounting for `viewBox` scaling).
+  - Every visible HTML `<style>` rule and inline `style="font-size:..."` (including headers, badges, pills, table cells, buttons, and footers) must stay **$\ge 32\text{ px}$** (`MIN_VISIBLE_HTML_FONT_PX = 18.0`).
+  - Body/card paragraphs `<p>` and list items `<li>` must stay **$\ge 42\text{ px}$** (`23–25 px` recommended) on `1920×1080` HD canvases ($\ge 20\text{ px}$ on `1600×900` canvases) so text remains crisp even when auto-scaled onto `125%/150%` DPI laptop screens.
+  - **Never build hollow under-filled text boxes**: Do NOT put `justify-content: space-between` or tall fixed pixel heights (`>= 220px`) on pure-text cards (`title + short paragraph`) that push small text to the bottom of a half-empty white box (`inner_fill_ratio >= 0.48`, `max_child_gap_px <= 64px`). Use `justify-content: flex-start; gap: 12px–16px` and size typography generously to fill the card naturally.
+  - **Zero AI self-scaffolding labels on visible slides (`Gate D3`)**: Never print rubric/workflow self-notes meant for the AI (`背景导读第 1 阶`, `领域背景铺垫`, `背景知识补齐 · Rung 1`, `宏观产业痛点`, `伏笔回收`, `交互实验 #3`, `具体系统目标权衡与下游实验决策`). Write every visible header, badge, and footer strictly for a human scientific audience.
+  - Single-slide visible characters must stay **$\le 260$**, and inline `<svg>` `<text>` nodes must stay **$\le 22$ substantive labels** ($\le 30$ total). When a diagram or comparison exceeds these bounds, split it across two slides rather than shrinking fonts or stacking redundant side/bottom cards.
+- Crop images only when the crop preserves the device, object, or relationship being explained. Record the source for photographs and adapted graphics.
+
+## Draw process diagrams as paths
+
+For every flow line, verify its start point, destination, direction, equipment port, and whether it crosses another line. Give different streams distinct attachment points where their meaning differs. Reroute lines to avoid crossings; if a crossing is necessary, make the bridge or gap visually explicit.
+
+For SVG arrows, keep marker size independent of stroke width when line widths vary. `markerUnits="userSpaceOnUse"` is a reliable default for a consistent arrowhead size. Leave visible line before the arrowhead and end the arrow at the intended boundary. Review the complete path at presentation size so arrowheads do not appear detached, doubled, or merged with a device outline.
+
+For a process explanation, show material flow, energy input, operating stages, and recycle paths when they affect the mechanism. Pair a real installation image with an original simplified diagram when the audience needs both scale and process logic. Label what the source confirms and what the diagram simplifies.
+
+## Place controls with the state they change
+
+Give each interaction one clear owner. A host page can own teaching order and explanatory notes; an embedded scientific viewer can own camera, element display, or geometry controls. Keep a control inside the rendering context when it changes viewer state, and synchronize other page information through a single documented event or interface.
+
+For modal or full-screen viewers, preserve the same rendering instance when state continuity matters. Inspect how parent stacking contexts and backdrops affect pointer input. Test the visible hit target at screen coordinates and operate it with a real pointer event; access through a frame locator alone only proves that the control exists.
+
+Provide visible focus, descriptive button labels, keyboard operation, and a clear way to close overlays. Preserve useful state when opening and closing a larger view. If the host and viewer both display a sequence, define one playback owner and use events to update the other display.
+
+## Browser review checklist
+
+Review at the intended browser, zoom, aspect ratio, and screen resolution. For each page, inspect:
+
+- Text clipping, line breaks, font substitution, and units separated from values.
+- Card edges, margins, image crop, and alignment with neighboring pages.
+- Diagram paths, arrow direction, connector endpoints, crossings, and occlusion.
+- Contrast, text hierarchy, labels, and the distinction between source results and illustrations.
+- Keyboard focus and operation, button hit targets, modal open/close, playback state, and resizing.
+- Console errors, failed local assets, and unexpected network requests.
+
+For interactive pages, exercise the controls a presenter will actually use. Use screenshots to review appearance and browser events to review behavior; neither check replaces the other.
+
+## 5-Scale Physical-Entity Fidelity, Evolutionary Generation & Masked Blind Check
+
+- Real-world entities (ATOM_ORBITAL, MOLECULE_SUPRAMOLECULE, NANO_PHASE_MORPHOLOGY, DEVICE_EXPERIMENT, BIO_MACRO_SYSTEM) must never use bare <circle>+<line> stick figures.
+- Image generation requires N>=4 orthogonal Gen-0 candidates (>=3 camera topologies, >=3 media, prompt Jaccard <=0.55) + Gen-1+ critique-guided refinement (--verify-image-tournament --check-disk-pixels).
+- Verify physical object legibility using Stage A CSS text-masked PNGs (--verify-blind-object-recognition) before checking full-slide labels.

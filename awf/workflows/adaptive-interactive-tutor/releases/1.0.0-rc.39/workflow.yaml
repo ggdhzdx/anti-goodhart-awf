@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "adaptive-interactive-tutor",
+  "release": "1.0.0-rc.39",
+  "status": "validated",
+  "purpose": "Bidirectional interactive pedagogical, Scale-Adaptive Fractal Curriculum (Chapter -> Station -> 3-Gate Micro-Loop for Mega-Projects), 7-Element Methodological Anatomy, and Two-Level Macro-to-Micro Tri-Mode Co-Design Engine (Stage 0 Global Deck Blueprint MCQs heavy focus modules, and V3 animation slides + Stage 1..N `TDD`, Dual-Stage `GRILL` & `AUTONOMOUS_DUAL_EVOLVE`), delegating 80-Subcheck scientific/code & Dual-Entry Physics Red-Team verification to skill.anti-goodhart-verification@3.8.0-rc.1, 18-Gate visual/pedagogical/PPT verification to skill.design-anti-goodhart@1.0.0-rc.25 (AWF DesignAG), and Tri-Mode 1-Slide-Per-Step HTML-PPT generation to skill.html-ppt@1.0.0-rc.27.",
+  "entry_skills": [
+    "skill.adaptive-interactive-tutor",
+    "skill.anti-goodhart-verification",
+    "skill.design-anti-goodhart",
+    "skill.html-ppt"
+  ],
+  "stages": [
+    {
+      "id": "stage0-macro-gdd-global-deck-blueprint-and-trimode-triage",
+      "required": true,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "seven-element-station-anatomy-or-dualstage-grill-loop",
+      "required": true,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "human-gated-multimedia-testbed-escalation",
+      "condition": "Only when the user explicitly confirms the tutor's multimedia offer OR proactively requests an image, animation, or interactive web demonstration.",
+      "required": false,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "atomic-capsule-implementation-poe-tier1-guard-and-tdd",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "tier2-universal-7-gate-anti-goodhart-seal-and-station-checkoff",
+      "required": true,
+      "skill": "skill.anti-goodhart-verification"
+    },
+    {
+      "id": "micro-to-macro-zoom-out-open-world-hyperlinking-and-tdd-solidification",
+      "required": true,
+      "skill": "skill.adaptive-interactive-tutor"
+    },
+    {
+      "id": "trimode-tdd-dualstage-grill-or-autonomous-html-ppt-synthesis-and-postreview-dual-evolution",
+      "condition": "When building or evolving a 16:9 interactive HTML presentation deck via Stage 0 Global Blueprint + TDD, Dual-Stage GRILL, or AUTONOMOUS_DUAL_EVOLVE mode under AWF HTML-PPT + AWF DesignAG (18 gates + Dual Rubrics).",
+      "required": false,
+      "skill": "skill.design-anti-goodhart"
+    }
+  ],
+  "engineering_gate": "Split by cohesive responsibility; line counts are advisory unless explicitly bounded. Verify science with Guard 3.8.0-rc.1 and presentation evidence with DesignAG 1.0.0-rc.25 / HTML-PPT 1.0.0-rc.27. Structural assembly is not final acceptance; absent authorized review remains REVIEW_REQUIRED. Exact dependency files must exist; mixed releases fail closed. Preserve actual execution counts and matching upstream verification receipts. Enforce Role 0 Beyond-PDF 4-Rung Domain Background Synthesis (`domain_background_bridge`), Briefing-First `FOUNDATION_INTUITION_BUILD` grill anchors, and zero internal framework codeword leaks. Enforce `MIN_INLINE_SVG_FONT_PX = 18.0` and single-slide character/SVG-label overload caps. Enforce Unread-PDF AI Value-vs-Routine Triage (`ai_value_triage`) and Reader-Intent / `JIT_DURING_GRILL` emphasis alignment. Enforce Unconditional Zero Slide-Count MCQ Law (no slide-count questions or fixed total pages; purely logic- and need-driven growth). Enforce Zero AI Self-Scaffolding Slide Meta-Labels (`D3`), `MIN_VISIBLE_HTML_FONT_PX = 18.0`, `MIN_HD_CARD_BODY_FONT_PX = 22.0` on `1920x1080` slides, and Hollow Text-Card Underfill Prevention (`D6` & `D8`). Enforce Zero AI Self-Scaffolding Slide Meta-Labels (`D3`), `MIN_VISIBLE_HTML_FONT_PX = 18.0`, `MIN_HD_CARD_BODY_FONT_PX = 22.0` on `1920x1080` slides, and Hollow Text-Card Underfill Prevention (`D6` & `D8`). Enforce Intra-Slide Semantic Coherence, Zero Bare-Noun Bottom Ballast Strips (`D3`/`D4`/`D6`/`D8`/`D16`), and Anti-Collusion Blind Reader Reconstruction (`D18`). Enforce Dual-Entry Physics Red-Team (pre_code 4-axis critique and post_hoc_audit --audit-existing stripped-AST triangulation), G4d feature variance canary, G3m spin/slip sensitivity, G1f unit-cell convergence, G5u physical bounds, and G6q outer-glue lock.",
+  "scientific_gate": "All atomic operator capsules must pass skill.anti-goodhart-verification@3.8.0-rc.1 (14 slots / 80 subchecks) and all HTML-PPT / visual teaching artifacts must pass skill.design-anti-goodhart@1.0.0-rc.25 (18 automated DesignAG gates + zero Redlines + >=80/100 Dual Rubrics). D17/D18 require complete fixed scoring and trusted byte-bound full-static-frame evidence; signature validity alone does not prove scientific correctness.",
+  "version_lock": "versions.lock",
+  "engineering_source": "workflows/design-anti-goodhart/releases/1.0.0-rc.25/source",
+  "engineering_source_tree_sha256": "b7aa85f00dc7502e70da4372339e7ce8f8a80f58864ae57c49532a9cf3eb1683",
+  "known_limitations": [
+    "Integration tests use synthetic fixtures; actual decks still require rendered-page and scientific source review",
+    "Trusted runner must own the public-key policy, expected artifacts and run ID; keys/trust are not provisioned by this package",
+    "Separate signatures prove authorized attestation and byte binding, not scientific truth or reviewer independence of judgment",
+    "Capture profile supports offline self-contained HTML static slide initial states; dynamic/generated views and interactions require separate assessment",
+    "Remaining D1-D16 layout and scientific metadata are not all independently measured; only D17/D18 force-PASS mutations are tested here",
+    "The fixed 15-criterion scientific knowledge rubric is the co-located optoelectronic rubric; other subjects require an explicit reviewed rubric successor",
+    "Shared engineering closure is workflows/design-anti-goodhart/releases/1.0.0-rc.25/source and must accompany archives"
+  ]
+}

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Slide title</title>
+  <style>
+    :root {
+      --paper: #f6f5f0;
+      --surface: #ffffff;
+      --ink: #111827;
+      --muted: #475569;
+      --accent: #1e40af;
+      --teal: #0f766e;
+      --line: #cbd5e1;
+      --canvas-width: 1920px;
+      --canvas-height: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #1b2430;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .slide {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      padding: 52px 88px;
+      overflow: hidden;
+      transform-origin: center center;
+      transform: translate(-50%, -50%) scale(1);
+      color: var(--ink);
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 32px;
+      font-weight: 750;
+      color: var(--accent);
+    }
+
+    .slide-title {
+      font-size: 58px;
+      line-height: 1.18;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+    }
+
+    .content {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .visual-box, .card {
+      padding: 32px;
+      border: 1.5px solid var(--line);
+      border-radius: 22px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .card-badge {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: var(--accent);
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    .card p {
+      color: var(--ink);
+      font-size: 42px;
+      line-height: 1.38;
+      font-weight: 650;
+    }
+
+    .detail-trigger {
+      align-self: flex-start;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 2px solid var(--teal);
+      background: #f0fdfa;
+      color: var(--teal);
+      font-size: 32px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .detail-popover {
+      position: absolute;
+      inset: 90px 160px;
+      z-index: 40;
+      background: #ffffff;
+      border: 3px solid var(--accent);
+      border-radius: 24px;
+      padding: 44px 52px;
+      box-shadow: 0 28px 80px rgba(15, 23, 42, 0.28);
+    }
+  </style>
+</head>
+<body>
+  <section class="slide" id="slide" data-slide="01" data-topo-node="1.1">
+    <header class="page-header">
+      <span class="topo-breadcrumb">主线① 原理锚点 ▸ 1.1 核心跃迁</span>
+      <span>01 / 28</span>
+    </header>
+
+    <h1 class="slide-title">单句命题主标题直指唯一核心因果关系</h1>
+
+    <main class="content">
+      <div class="visual-box">
+        <svg viewBox="0 0 920 560" width="100%" height="100%" role="img" aria-label="核心机理图">
+          <rect x="40" y="60" width="840" height="440" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"></rect>
+          <text x="460" y="295" text-anchor="middle" font-size="38" font-weight="800" fill="#1e3a8a">① 高清原图或 ≥32px 矢量图主视觉</text>
+        </svg>
+      </div>
+
+      <article class="card" data-parent-anchor="左图①核心主视觉">
+        <span class="card-badge">对照左图①</span>
+        <p>主画布仅留最核心跃迁结论，单页可见字符 ≤ 260 字。</p>
+        <button type="button" class="detail-trigger" data-detail-id="pop-01">+ 实验与对照详情</button>
+        <template data-detail-id="pop-01">完整实验条件、补充对照证据（Suppl. Fig.）与公式推导无损收纳于可点击弹窗中，按 Esc 或点击关闭。</template>
+      </article>
+    </main>
+
+    <div class="detail-popover" id="slide-detail-modal" hidden></div>
+    <aside class="notes" hidden>隐藏逐页口播讲稿。</aside>
+
+    <script>
+      (function () {
+        const slide = document.getElementById("slide");
+        const fit = () => {
+          const sc = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+          slide.style.transform = `translate(-50%, -50%) scale(${sc.toFixed(5)})`;
+        };
+        window.addEventListener("resize", fit, { passive: true });
+        fit();
+      })();
+    </script>
+  </section>
+</body>
+</html>

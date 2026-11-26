@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "workflows": {
-    "design-anti-goodhart": "1.0.0-rc.24",
-    "anti-goodhart-verification": "3.7.0-rc.8",
-    "adaptive-interactive-tutor": "1.0.0-rc.37",
-    "html-ppt": "1.0.0-rc.23",
+    "design-anti-goodhart": "1.0.0-rc.26",
+    "anti-goodhart-verification": "3.9.0-rc.1",
+    "adaptive-interactive-tutor": "1.0.0-rc.40",
+    "html-ppt": "1.0.0-rc.25",
     "scientific-report-authoring": "1.0.0-rc.13",
     "editable-figure-pptx": "1.0.0-rc.2"
   },
   "locked_skills": {
-    "design-anti-goodhart": "1.0.0-rc.24",
-    "anti-goodhart-verification": "3.7.0-rc.8",
-    "adaptive-interactive-tutor": "1.0.0-rc.37",
-    "html-ppt": "1.0.0-rc.26",
+    "design-anti-goodhart": "1.0.0-rc.26",
+    "anti-goodhart-verification": "3.9.0-rc.1",
+    "adaptive-interactive-tutor": "1.0.0-rc.40",
+    "html-ppt": "1.0.0-rc.28",
     "edit-scientific-article": "1.0.0-rc.10",
     "build-scientific-docx": "1.0.0-rc.12",
     "build-editable-figure-pptx": "1.0.0-rc.2"
@@ -35,12 +35,12 @@
       "sha256": "fbf6c25c156dbcfc1eab57bdf5140ed91ffe3c4aeacbe53073ab617c1615a8e7"
     },
     "README.md": {
-      "bytes": 9946,
-      "sha256": "2580323d03820879f2b7bcaacbd0064cfb9a478e35efafdab32bcd9171881580"
+      "bytes": 6576,
+      "sha256": "a8c089b1d132c84a305debd62f1148af91018e931248259ab660fda3794d6a21"
     },
     "awf/components/skills/adaptive-interactive-tutor/component.yaml": {
-      "bytes": 77589,
-      "sha256": "b9d10f4d4617f9320ba74ab8667dc4e3e082ceb6edeb190001134f516d788679"
+      "bytes": 99564,
+      "sha256": "06ac8bfe0a03e1784e74b25a695734d902486133d9f53ee95f0a2fbc63105fc5"
     },
     "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.26/source/SKILL.md": {
       "bytes": 16338,
@@ -138,9 +138,33 @@
       "bytes": 15353,
       "sha256": "37957aa4c41922722bfed443d41f24bada8efa09cca5af54a1e01d4e77c8dbfb"
     },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.38/source/SKILL.md": {
+      "bytes": 26338,
+      "sha256": "d421d81576f58dc9fc4cfdfcf38f96ff4ed4a2277fad6ce65a5936387333f83f"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.38/source/provenance/legacy-registration/register_adaptive_tutor_rc24.py": {
+      "bytes": 15353,
+      "sha256": "37957aa4c41922722bfed443d41f24bada8efa09cca5af54a1e01d4e77c8dbfb"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.39/source/SKILL.md": {
+      "bytes": 27715,
+      "sha256": "7d68a872e93ccbbd5b0bcf1fca76b30a5b1eae1be89e67135e6497e66f84a57b"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.39/source/provenance/legacy-registration/register_adaptive_tutor_rc24.py": {
+      "bytes": 15353,
+      "sha256": "37957aa4c41922722bfed443d41f24bada8efa09cca5af54a1e01d4e77c8dbfb"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.40/source/SKILL.md": {
+      "bytes": 27715,
+      "sha256": "34975813fcbcf1bec4e48d1b134bd09ee7b5e97ad1dd35ddcd2e5f10603e2e55"
+    },
+    "awf/components/skills/adaptive-interactive-tutor/releases/1.0.0-rc.40/source/provenance/legacy-registration/register_adaptive_tutor_rc24.py": {
+      "bytes": 15353,
+      "sha256": "37957aa4c41922722bfed443d41f24bada8efa09cca5af54a1e01d4e77c8dbfb"
+    },
     "awf/components/skills/anti-goodhart-verification/component.yaml": {
-      "bytes": 21128,
-      "sha256": "70dd51a09612d2792f586664404daef048add9d12227495be134d5c1cb96e5e9"
+      "bytes": 44570,
+      "sha256": "a6bff798d09c0d1af1cfa1c6957dba4414ba00b5b99ff888d5d41f7151972d93"
     },
     "awf/components/skills/anti-goodhart-verification/releases/3.7.0-rc.7/source/ARCHITECTURE.md": {
       "bytes": 5717,
@@ -862,6 +886,770 @@
       "bytes": 4218,
       "sha256": "fe760a70333600ce69b1e2ce8e6997ea8f38a92f8ac53006a962b9158aec9850"
     },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/ARCHITECTURE.md": {
+      "bytes": 7134,
+      "sha256": "8699fe8f63b723edb62a24a5a999fbd9381bcebdbd944a4c7fd82001114fad7c"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/SKILL.md": {
+      "bytes": 34490,
+      "sha256": "f039d35ed457a80a8611fdb4a39daf6ec139778e8af606d21d9925f3e5418fe2"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/fixture-numeric-policy.json": {
+      "bytes": 14035,
+      "sha256": "48b29004f35444796e0e0dfe75cbe7ae97617b7dd67735abe6f182b0632eaac1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/module-map.json": {
+      "bytes": 18176,
+      "sha256": "152054afe4b2012b1b44738234cb33264320fee3327b407dc8b7879037109060"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/public-contract.json": {
+      "bytes": 3847,
+      "sha256": "b7285759c5ef7ed5dd8658a685ab14284686ce05611d4fb66c0c313bbbeb9f67"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_anti_goodhart_mutation_adequacy.py": {
+      "bytes": 9382,
+      "sha256": "f0c7de8f9550fafba395a276d9b424c2ca90c08b22f1087e1fbca7be20fe86ff"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_anti_goodhart_negative_controls.py": {
+      "bytes": 34034,
+      "sha256": "89a27f5b1cf187e29bce8d63cf137056e31dc64a692db240c0a6bd579b9ab69a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_anti_goodhart_selftest_suite.py": {
+      "bytes": 1212,
+      "sha256": "6bf43460136b292e9e5f001a67813d242e39002287a041bfa0c4020d29ce3194"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/__init__.py": {
+      "bytes": 82,
+      "sha256": "f5a6ef4747ff8e661a87f11459d69532f7762d6f71961c21cf0e238f29963a68"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/agent_security.py": {
+      "bytes": 14778,
+      "sha256": "6836be8d3c717db9383db835bbfc0c1c785a759e2bc4a6cab71af7e43eeae69b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/api.py": {
+      "bytes": 9003,
+      "sha256": "5f11b11832f49643a9b794a7eb9ee3fde16f65f3a330d46fc31ed1e278117064"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/ast_dataflow.py": {
+      "bytes": 20350,
+      "sha256": "1ee737ab7344062defadc26f57b9e6137e5ec4d0386c830769413183fb09b9a3"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/ast_mutation.py": {
+      "bytes": 17456,
+      "sha256": "55155716f7d38a1937650638486d2534dd988a91cff8771bd36488d36d463f98"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/ast_structure.py": {
+      "bytes": 29299,
+      "sha256": "a8fcaa4c313d57ca8e657058ddc077fa8a98250103937e94e696b95d6a2dc44d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/ast_utils.py": {
+      "bytes": 2122,
+      "sha256": "d89f76920168d240e665e93712ad5acb743a978f953450efc7ec1f105278b78f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/atoms.py": {
+      "bytes": 15833,
+      "sha256": "ac98594b595bec0426807d39864976007ce1a428a37197504ffa756be583ee8c"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/benchmark.py": {
+      "bytes": 19124,
+      "sha256": "c543173d115e127ab0f5ff76c93a5fdbb0bfa79bc8f7431083bb3d5dc47bc92c"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/canary.py": {
+      "bytes": 10719,
+      "sha256": "3f76f4cef8bf51f0449261555b58d9194b1bf29486eeb35fc1d09aa452635f88"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/claims.py": {
+      "bytes": 23613,
+      "sha256": "26621b0283ddb4b7d047ee5415df48f6a9253dc56d766050643dbc0ad56b0b55"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/cli.py": {
+      "bytes": 6769,
+      "sha256": "b2e473500f09227c082fb0d42c84ecd0a8b388d1d953a8c81364ae9ab960d34f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/command_receipts.py": {
+      "bytes": 11241,
+      "sha256": "49b6b329fca98f59252d2309130b0f5130fbe083182bac4477e4bad8479a3c8b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/data_leakage.py": {
+      "bytes": 9012,
+      "sha256": "f6cfd1ca9d6272139a18822215744ad9cf3588bed1b943d7b0fed473b556c255"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/declarative.py": {
+      "bytes": 8389,
+      "sha256": "752201ef6524f4c084dc49a44cc291cf3963696dcff1945246a6bf4d6cc6acce"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/differential_checks.py": {
+      "bytes": 12019,
+      "sha256": "f03e3fb5b835291d2c88a3c50a01b37425a639ff289287f0def770868b4324d1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/errors.py": {
+      "bytes": 1039,
+      "sha256": "052a0941c8f56b131bffb84c5228e528b597680d1427712b75f27f913200a9ae"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/evidence_contracts.py": {
+      "bytes": 5242,
+      "sha256": "c4bbc9ba1ebcdf0f62cc039cdee7116e7e9c695705bb5b08a415735628588e13"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/evolution.py": {
+      "bytes": 1065,
+      "sha256": "7006c440a1f0358e07e3ff66b7c5c2e5eab9d3ab10025d032432233fb5430de5"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/execution_flow.py": {
+      "bytes": 1859,
+      "sha256": "be78d4055b44dee48858f3f450674043ea87c702488f5663b34f665a23ce4b1a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/fixture_policy.py": {
+      "bytes": 688,
+      "sha256": "171031526c4dec81063a6dd1bb2e74cce9c9cfd9d0be6734ee0dddb04d91b366"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/geometry.py": {
+      "bytes": 15034,
+      "sha256": "647af635dee91aa66e9f416ca300816984c9ee1255fc6b1dae5a9f35ad55eea6"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/harness.py": {
+      "bytes": 12326,
+      "sha256": "90b43228d365c3757aa9e8f652b15600da0a8db329682d197224a8b4e15a26e1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/holdout_stages.py": {
+      "bytes": 6712,
+      "sha256": "ac8dca1ea5e4ea16ccad6175c1c0acd07926f234b23030b819acc7c92a7fd4b8"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/information.py": {
+      "bytes": 11932,
+      "sha256": "752ae1841c1ee33a0414e4cf802fce757173401cafd8724fde9cc68bcf54d11b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/input_contracts.py": {
+      "bytes": 6493,
+      "sha256": "8308f2b009a7cb0c2691d3fdf3e460b4551684ae19aaf6e0fac26ab066a6176f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/invariant_stages.py": {
+      "bytes": 25196,
+      "sha256": "f0e7b3cb95e881693732a1e003943eed07008d4e2691a2dfb80295ff158d357d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/matrix_checks.py": {
+      "bytes": 15614,
+      "sha256": "ef5095cb06b09305f5b20fa1045169ebe2ba8e0e589dbe3905100c90936581cb"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/metamorphic.py": {
+      "bytes": 18873,
+      "sha256": "e11645ac0d7aed1aa00da2432844a522e286cdc2ebf52ff87fb3ce46c0df47b9"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/model_physics_and_glue.py": {
+      "bytes": 15971,
+      "sha256": "4f523622ac568a6df94386b092b53129f3e24ae3a79701fcdf1be7a860f0810f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/numeric_inputs.py": {
+      "bytes": 4880,
+      "sha256": "7dcae9ab932ac686edd77beecd219290051c425d00185630f10734deca618c9a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/numerical_stability.py": {
+      "bytes": 12151,
+      "sha256": "2e5a173666afb5ec3057a8006c40cdef3ebfed1e5076d25c177ac45658f4f24b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/optimization_checks.py": {
+      "bytes": 2465,
+      "sha256": "f8a260f550ecd35f533906edc92bf19a9abc0ef838bbe8ed7b248a1be4b2fc66"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/post_hoc_redteam.py": {
+      "bytes": 19807,
+      "sha256": "217274c9b9713f43bcfe2ad79f0847052ce68cbd2c5a26248fbf9cd4f68680f2"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/provenance_stages.py": {
+      "bytes": 11613,
+      "sha256": "1981e5c045ff2f1ecfd6f38bf0014f448367d414ea88e6de2c37ae25fa1caa48"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/remediation.py": {
+      "bytes": 15232,
+      "sha256": "d33ad612b5c7f9a95fcec5a433552f05ed028be6afa3ef38147d21e930c5ec03"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/runtime.py": {
+      "bytes": 7743,
+      "sha256": "e5b1287b3d011ea1b314ece797c342d1b17cd335f798e269a45bc848ceb29d0a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/scientific_stages.py": {
+      "bytes": 17454,
+      "sha256": "646543d1854b47ec93ca645adfb4d614ad1ed263db6bf85987171e59562ae3ae"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/self_audit.py": {
+      "bytes": 10013,
+      "sha256": "07b97f611b75a1ef086b854997125c77b38846bbddd4e00bd9fc1893ab432c37"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/shape_contracts.py": {
+      "bytes": 12165,
+      "sha256": "475cfa7a4e18dc42d1bb905825a7a473b970b035783562cf4b3250a4c28f957e"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/slot_receipts.py": {
+      "bytes": 9781,
+      "sha256": "e7042966923521a29ea1d68cd6db409027cd73465ff455a84ca855c808e8807f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/source_quality.py": {
+      "bytes": 13261,
+      "sha256": "99ea2a3d3225e035cb87389e05f4414bd306fef1a9d52211b4c59808dfbaf252"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/spec_integrity.py": {
+      "bytes": 7164,
+      "sha256": "9340422c39572c1732ea9c7f8e5ba35d33502b5461375bb8d68ee372e52a3d0a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/static_audit.py": {
+      "bytes": 8992,
+      "sha256": "44df74201dc0154f96b0fd5c9f129882e4f5507a1c14d19049313823f887ae57"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/station_spec.py": {
+      "bytes": 8116,
+      "sha256": "7900b2ee8b52180c6eadf4883cd6cbe6d8782ecabdb56ea888c85bdca317d9db"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/statistical_checks.py": {
+      "bytes": 14292,
+      "sha256": "24ef073463f7a49d82afb9f3bad684abd2866649f80f0b1c44bbdf85e068d846"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/symmetry_checks.py": {
+      "bytes": 11249,
+      "sha256": "ae6913d31fe05429eca757f00b91da5b1101c21c848a1e40f5917422beeb779c"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/task_guardrails.py": {
+      "bytes": 15168,
+      "sha256": "e10e55e690aae3526b53aef69f17b21ea9c18f031e7c22e38edcfa7a19ff052d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/tensor_contracts.py": {
+      "bytes": 6890,
+      "sha256": "69d5c62479916588524b5f674a241fec5030944d08166b16a5db4b65ebc23b01"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/test_quality.py": {
+      "bytes": 14251,
+      "sha256": "01938eb52c700cb2d47a69132bb82741c5320f3b76a7feb84beadded2eff1691"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/test_reachability.py": {
+      "bytes": 4270,
+      "sha256": "73901043ec2d27ac9a9b4a7683e9a41b3b7598169ebf6a2d7d8ffda61f642945"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/trajectory.py": {
+      "bytes": 16469,
+      "sha256": "064583d7d23151a1cbea475f12d01a48985d3ad534674eab308fb2f84d3e0724"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard/verifier_safety.py": {
+      "bytes": 8105,
+      "sha256": "b537f54e1eaafed571a8926f538318d5aa72c50ebd70955761eed7b14e9cf104"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_numeric_contracts.py": {
+      "bytes": 2581,
+      "sha256": "af8ac08d5d7455ccf642909b437b73264fb1d0b818c38e5950e502958f1f44d9"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_radius_probes.py": {
+      "bytes": 1909,
+      "sha256": "84238aa7f2ab468d9f47ee5bfb5252c08de48f229a6703178fe92cb03a9d1c29"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/__init__.py": {
+      "bytes": 68,
+      "sha256": "7d024e1345d0006ec565f02d82e95da914998f371fbd5803e4bbfabeb00b86a6"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/ast_and_truth.py": {
+      "bytes": 6593,
+      "sha256": "b3eff7471dcb89cf37fcd5e41c1625e7c6b04b1c94587ab94ca3910c1ecfe81a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/build_selftest_atoms_and_oracle.py": {
+      "bytes": 2616,
+      "sha256": "553cc80f34d3bf0d24d44ba3b4023d56d5123ae7b5815c8ff0b68d07e829d3ce"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/calibrated_morph_and_optics_pack.py": {
+      "bytes": 862,
+      "sha256": "c63446575e3c3d23df117a8a5081b7d8fad533bd448b5886bf33caef027b8a24"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/calibrated_scientific_pack_v34.py": {
+      "bytes": 5687,
+      "sha256": "10400f3cbf70f7318ba5ea51f8f3c465f35490b7be3d1a37c9c21fd791387d75"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/coupled_declarative_scenario.py": {
+      "bytes": 2656,
+      "sha256": "b7f1e1c21248e3d0fe5ad96e080d14634639435f83002da405b8040c36db11b3"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/gemtest_benchjack_and_goodhart.py": {
+      "bytes": 8898,
+      "sha256": "096e31983a6c565dc8cc94e66dea4457c169444235184947b1afbb27f499ea8f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/geometry_checks.py": {
+      "bytes": 2141,
+      "sha256": "2c263d2ee46fb53fc5cd74e57d74aaaad9932c6c35523da6bdcaccf8f8026dda"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/geometry_fixtures.py": {
+      "bytes": 4799,
+      "sha256": "6b01d3e4c2a3960225770e0d79c10d4c6fb5875e81cc7f992d1338b3782adde0"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/guardrails_aurite_impossible_and_falsegreen.py": {
+      "bytes": 7920,
+      "sha256": "1d4d0825ebd59b08398d5ae54149469a1c5b91d247b504591d5a359af0db9ad1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/matrix_checks.py": {
+      "bytes": 1483,
+      "sha256": "b8251c3e2c22a3f440866fbc4a58a24027d728587bdb33848474d170ec3cdc5a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/mutmut_dbc_splitguard_and_pitfallsfp.py": {
+      "bytes": 5659,
+      "sha256": "21d4447e43a1649fff0b13bbe121eff8bd4eff4828a685e7673e5f7f0cd6cf79"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/physics_redteam_and_glue_pack.py": {
+      "bytes": 8599,
+      "sha256": "831bf1e1cb8103fe18c64ddf4ca111a1d512704fe60a2ce10c7847402640baec"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/runner.py": {
+      "bytes": 11422,
+      "sha256": "16542403c1f0068a6ced3be05839ea730257d8c534c1ea4022f33ab646e61e96"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/scientific_computing_pack.py": {
+      "bytes": 6785,
+      "sha256": "04cc94e8695a8c22314b456c3a84bf9731f7933a9596fd485888bac8954f287e"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/statistical_checks.py": {
+      "bytes": 1304,
+      "sha256": "7b88064eb98fb58e7b584bbc1feddf987f2c90dd6e194049545800ad7baedafe"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/trajectory_and_evilgenie.py": {
+      "bytes": 5930,
+      "sha256": "adab171ddfa52e2f3b28474d9d888e927330e5ad7cde7b229fae0aca7a2083de"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_selftests/tutor_implementation_goodhart.py": {
+      "bytes": 4908,
+      "sha256": "eb9df991504ef3ef91d943162ba9a5bb1fe934b27c42de0e58a602aea190ea29"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_guard_test_bindings.py": {
+      "bytes": 872,
+      "sha256": "e929bef57a1de72fcdaedff8984ba6ce03f20833dcb4056fb27bbf0fc7599701"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py": {
+      "bytes": 18559,
+      "sha256": "cefa0917b5e311b9c2f356b69983dd75a8bf32a0d36996848799edbaf76149a9"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/patch_callback_boundaries.py": {
+      "bytes": 1955,
+      "sha256": "633fa584e3a01c3c98427d7b5e6395844bd4cc479107efcddff1f2e8e936248d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/patch_rc3.py": {
+      "bytes": 5138,
+      "sha256": "5fb3ae76aa0985c15311b8213a927e08092d1add74cb23e75c8e4ae1ba36e46d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/probe_ag_v37.py": {
+      "bytes": 10422,
+      "sha256": "c90b0b3f355f530c4b20a416d36c80ec20c1e35dc93f47e175ba209aa88b1131"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/register_anti_goodhart_v3_7_rc2.py": {
+      "bytes": 13521,
+      "sha256": "3ae0a9a785f8422783071760de8af0eabd5b2d8acf219711103bdafd30ad16a9"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/test_evidence_escapes.py": {
+      "bytes": 9643,
+      "sha256": "71cfdae95f02a28be161b8b8675674cfc68b3a0682c1af6b6486660219fe36b6"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/test_execution_flow.py": {
+      "bytes": 2159,
+      "sha256": "3c5c8fcc6556ecb9c7dc932b4b7d4c8076f4155f993fcb343e0f879f117a262a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/test_function_line_limit.py": {
+      "bytes": 4525,
+      "sha256": "935948fbbdaf70f712ff8210499bf55fbc67340b5b3c5776a8e0b40db1818d71"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/test_modular_integrity.py": {
+      "bytes": 5108,
+      "sha256": "2b622948718bb68502c4b4de7cddde9b23ed8cbb7d7ab8d9832b643972108fd1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/test_nonfinite_campaign.py": {
+      "bytes": 5391,
+      "sha256": "f0b5ff79be0c995a4587e461dccd14133b874b9f0746aba6fe11952285e4b949"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.8.0-rc.1/source/scripts/test_rc3_contracts.py": {
+      "bytes": 4218,
+      "sha256": "fe760a70333600ce69b1e2ce8e6997ea8f38a92f8ac53006a962b9158aec9850"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/ARCHITECTURE.md": {
+      "bytes": 7134,
+      "sha256": "8699fe8f63b723edb62a24a5a999fbd9381bcebdbd944a4c7fd82001114fad7c"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/SKILL.md": {
+      "bytes": 34394,
+      "sha256": "2c237f38e86fb6202fdbbad54d474767fdf96aeb411dac3f0d536f78f04d6002"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/fixture-numeric-policy.json": {
+      "bytes": 15180,
+      "sha256": "50063063c239aa52d332a9b24b3242b0510211a0d1d8bed54e26090eb3dc24eb"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/module-map.json": {
+      "bytes": 18593,
+      "sha256": "1db5e8940cfd22f39dc1fa05a8583ac21c28ddd9059f3fe403209b5975845563"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/public-contract.json": {
+      "bytes": 4143,
+      "sha256": "e833c9568afe6e900705033a685a6735b323757c5469f36c479a72c4443946df"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_anti_goodhart_mutation_adequacy.py": {
+      "bytes": 9382,
+      "sha256": "f0c7de8f9550fafba395a276d9b424c2ca90c08b22f1087e1fbca7be20fe86ff"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_anti_goodhart_negative_controls.py": {
+      "bytes": 39475,
+      "sha256": "f1c8fad92957114edfee7c0d11c1198cc5a737b4f38d2ec8a926eb9110a301f8"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_anti_goodhart_selftest_suite.py": {
+      "bytes": 1212,
+      "sha256": "6bf43460136b292e9e5f001a67813d242e39002287a041bfa0c4020d29ce3194"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/__init__.py": {
+      "bytes": 82,
+      "sha256": "f5a6ef4747ff8e661a87f11459d69532f7762d6f71961c21cf0e238f29963a68"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/agent_security.py": {
+      "bytes": 14778,
+      "sha256": "6836be8d3c717db9383db835bbfc0c1c785a759e2bc4a6cab71af7e43eeae69b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/api.py": {
+      "bytes": 9709,
+      "sha256": "fb7dff05a53caca13dd027497272ae05612b8346cf44c1a7c869d55f1427c560"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/ast_dataflow.py": {
+      "bytes": 20350,
+      "sha256": "1ee737ab7344062defadc26f57b9e6137e5ec4d0386c830769413183fb09b9a3"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/ast_mutation.py": {
+      "bytes": 17456,
+      "sha256": "55155716f7d38a1937650638486d2534dd988a91cff8771bd36488d36d463f98"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/ast_structure.py": {
+      "bytes": 29299,
+      "sha256": "a8fcaa4c313d57ca8e657058ddc077fa8a98250103937e94e696b95d6a2dc44d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/ast_utils.py": {
+      "bytes": 2122,
+      "sha256": "d89f76920168d240e665e93712ad5acb743a978f953450efc7ec1f105278b78f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/atoms.py": {
+      "bytes": 16706,
+      "sha256": "0ec74c8c69797bf588841890b090e38b2843945de3dfd92f3b140dbd7492f0bc"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/benchmark.py": {
+      "bytes": 19124,
+      "sha256": "c543173d115e127ab0f5ff76c93a5fdbb0bfa79bc8f7431083bb3d5dc47bc92c"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/canary.py": {
+      "bytes": 10719,
+      "sha256": "3f76f4cef8bf51f0449261555b58d9194b1bf29486eeb35fc1d09aa452635f88"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/claims.py": {
+      "bytes": 23613,
+      "sha256": "26621b0283ddb4b7d047ee5415df48f6a9253dc56d766050643dbc0ad56b0b55"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/cli.py": {
+      "bytes": 6769,
+      "sha256": "ed3c2969bb46abbce35442a1ab1efacc23394b576db0e3b75d9de0cf4036de84"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/command_receipts.py": {
+      "bytes": 11241,
+      "sha256": "49b6b329fca98f59252d2309130b0f5130fbe083182bac4477e4bad8479a3c8b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/data_leakage.py": {
+      "bytes": 9012,
+      "sha256": "f6cfd1ca9d6272139a18822215744ad9cf3588bed1b943d7b0fed473b556c255"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/declarative.py": {
+      "bytes": 8389,
+      "sha256": "752201ef6524f4c084dc49a44cc291cf3963696dcff1945246a6bf4d6cc6acce"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/differential_checks.py": {
+      "bytes": 12019,
+      "sha256": "f03e3fb5b835291d2c88a3c50a01b37425a639ff289287f0def770868b4324d1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/errors.py": {
+      "bytes": 1039,
+      "sha256": "052a0941c8f56b131bffb84c5228e528b597680d1427712b75f27f913200a9ae"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/evidence_contracts.py": {
+      "bytes": 5242,
+      "sha256": "c4bbc9ba1ebcdf0f62cc039cdee7116e7e9c695705bb5b08a415735628588e13"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/evolution.py": {
+      "bytes": 1065,
+      "sha256": "7006c440a1f0358e07e3ff66b7c5c2e5eab9d3ab10025d032432233fb5430de5"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/execution_flow.py": {
+      "bytes": 1859,
+      "sha256": "be78d4055b44dee48858f3f450674043ea87c702488f5663b34f665a23ce4b1a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/fixture_policy.py": {
+      "bytes": 688,
+      "sha256": "171031526c4dec81063a6dd1bb2e74cce9c9cfd9d0be6734ee0dddb04d91b366"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/formal_chemistry.py": {
+      "bytes": 11263,
+      "sha256": "a8080942f7fe557d3364248d9f5aeb138d87c9ddfca40c20ea863ae550817e76"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/formal_numerics.py": {
+      "bytes": 12466,
+      "sha256": "249282b4de94fe0c8bc8aeeebfc8dbceab5abb2f8690c4b2d4a18d3d50a61d4a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/geometry.py": {
+      "bytes": 15034,
+      "sha256": "647af635dee91aa66e9f416ca300816984c9ee1255fc6b1dae5a9f35ad55eea6"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/harness.py": {
+      "bytes": 12326,
+      "sha256": "90b43228d365c3757aa9e8f652b15600da0a8db329682d197224a8b4e15a26e1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/holdout_stages.py": {
+      "bytes": 6712,
+      "sha256": "ac8dca1ea5e4ea16ccad6175c1c0acd07926f234b23030b819acc7c92a7fd4b8"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/information.py": {
+      "bytes": 11932,
+      "sha256": "752ae1841c1ee33a0414e4cf802fce757173401cafd8724fde9cc68bcf54d11b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/input_contracts.py": {
+      "bytes": 6493,
+      "sha256": "8308f2b009a7cb0c2691d3fdf3e460b4551684ae19aaf6e0fac26ab066a6176f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/invariant_stages.py": {
+      "bytes": 25196,
+      "sha256": "f0e7b3cb95e881693732a1e003943eed07008d4e2691a2dfb80295ff158d357d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/keymaerax_ode_gate.py": {
+      "bytes": 7561,
+      "sha256": "80d7e8775c7942482b308edaa74d5de3b29ed999cb1b7f3372e29ce32e4f3122"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/lean_symbolic_gate.py": {
+      "bytes": 8169,
+      "sha256": "891cd5e8410a2afaa6410a3f5491c1d4edf3a752de98bedfd58519bb3f400593"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/matrix_checks.py": {
+      "bytes": 15614,
+      "sha256": "ef5095cb06b09305f5b20fa1045169ebe2ba8e0e589dbe3905100c90936581cb"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/metamorphic.py": {
+      "bytes": 18873,
+      "sha256": "e11645ac0d7aed1aa00da2432844a522e286cdc2ebf52ff87fb3ce46c0df47b9"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/model_physics_and_glue.py": {
+      "bytes": 15971,
+      "sha256": "4f523622ac568a6df94386b092b53129f3e24ae3a79701fcdf1be7a860f0810f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/numeric_inputs.py": {
+      "bytes": 4880,
+      "sha256": "7dcae9ab932ac686edd77beecd219290051c425d00185630f10734deca618c9a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/numerical_stability.py": {
+      "bytes": 12151,
+      "sha256": "2e5a173666afb5ec3057a8006c40cdef3ebfed1e5076d25c177ac45658f4f24b"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/optimization_checks.py": {
+      "bytes": 2465,
+      "sha256": "f8a260f550ecd35f533906edc92bf19a9abc0ef838bbe8ed7b248a1be4b2fc66"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/post_hoc_redteam.py": {
+      "bytes": 19807,
+      "sha256": "217274c9b9713f43bcfe2ad79f0847052ce68cbd2c5a26248fbf9cd4f68680f2"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/provenance_stages.py": {
+      "bytes": 11613,
+      "sha256": "1981e5c045ff2f1ecfd6f38bf0014f448367d414ea88e6de2c37ae25fa1caa48"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/remediation.py": {
+      "bytes": 15232,
+      "sha256": "d33ad612b5c7f9a95fcec5a433552f05ed028be6afa3ef38147d21e930c5ec03"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/runtime.py": {
+      "bytes": 7743,
+      "sha256": "e5b1287b3d011ea1b314ece797c342d1b17cd335f798e269a45bc848ceb29d0a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/scientific_stages.py": {
+      "bytes": 21227,
+      "sha256": "66d27d50571305a2dff2e5f80e193fcd2139e4476e26b672764a87558d89b4e4"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/self_audit.py": {
+      "bytes": 10218,
+      "sha256": "8469b5c23ca26a8d35b7dfdc1ab6b4d4473fbaf10ef7e7fc953c3ebb7fdd5a75"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/shape_contracts.py": {
+      "bytes": 12165,
+      "sha256": "475cfa7a4e18dc42d1bb905825a7a473b970b035783562cf4b3250a4c28f957e"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/slot_receipts.py": {
+      "bytes": 10345,
+      "sha256": "78edd2645418835c4867696dc42b91217a2c37d0472d179507e335e32679982d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/source_quality.py": {
+      "bytes": 13261,
+      "sha256": "99ea2a3d3225e035cb87389e05f4414bd306fef1a9d52211b4c59808dfbaf252"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/spec_integrity.py": {
+      "bytes": 7164,
+      "sha256": "9340422c39572c1732ea9c7f8e5ba35d33502b5461375bb8d68ee372e52a3d0a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/static_audit.py": {
+      "bytes": 8992,
+      "sha256": "44df74201dc0154f96b0fd5c9f129882e4f5507a1c14d19049313823f887ae57"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/station_spec.py": {
+      "bytes": 8116,
+      "sha256": "7900b2ee8b52180c6eadf4883cd6cbe6d8782ecabdb56ea888c85bdca317d9db"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/statistical_checks.py": {
+      "bytes": 14292,
+      "sha256": "24ef073463f7a49d82afb9f3bad684abd2866649f80f0b1c44bbdf85e068d846"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/symmetry_checks.py": {
+      "bytes": 11249,
+      "sha256": "ae6913d31fe05429eca757f00b91da5b1101c21c848a1e40f5917422beeb779c"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/task_guardrails.py": {
+      "bytes": 15168,
+      "sha256": "e10e55e690aae3526b53aef69f17b21ea9c18f031e7c22e38edcfa7a19ff052d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/tensor_contracts.py": {
+      "bytes": 16651,
+      "sha256": "27971e346c37704062627771f35ad90c8d657e71a58f9e8097aeeeaf4af203c1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/test_quality.py": {
+      "bytes": 14251,
+      "sha256": "01938eb52c700cb2d47a69132bb82741c5320f3b76a7feb84beadded2eff1691"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/test_reachability.py": {
+      "bytes": 4270,
+      "sha256": "73901043ec2d27ac9a9b4a7683e9a41b3b7598169ebf6a2d7d8ffda61f642945"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/trajectory.py": {
+      "bytes": 16469,
+      "sha256": "064583d7d23151a1cbea475f12d01a48985d3ad534674eab308fb2f84d3e0724"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard/verifier_safety.py": {
+      "bytes": 8105,
+      "sha256": "b537f54e1eaafed571a8926f538318d5aa72c50ebd70955761eed7b14e9cf104"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_numeric_contracts.py": {
+      "bytes": 2581,
+      "sha256": "af8ac08d5d7455ccf642909b437b73264fb1d0b818c38e5950e502958f1f44d9"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_radius_probes.py": {
+      "bytes": 1909,
+      "sha256": "84238aa7f2ab468d9f47ee5bfb5252c08de48f229a6703178fe92cb03a9d1c29"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/__init__.py": {
+      "bytes": 68,
+      "sha256": "7d024e1345d0006ec565f02d82e95da914998f371fbd5803e4bbfabeb00b86a6"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/ast_and_truth.py": {
+      "bytes": 6593,
+      "sha256": "b3eff7471dcb89cf37fcd5e41c1625e7c6b04b1c94587ab94ca3910c1ecfe81a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/build_selftest_atoms_and_oracle.py": {
+      "bytes": 2616,
+      "sha256": "553cc80f34d3bf0d24d44ba3b4023d56d5123ae7b5815c8ff0b68d07e829d3ce"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/calibrated_morph_and_optics_pack.py": {
+      "bytes": 862,
+      "sha256": "c63446575e3c3d23df117a8a5081b7d8fad533bd448b5886bf33caef027b8a24"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/calibrated_scientific_pack_v34.py": {
+      "bytes": 5687,
+      "sha256": "10400f3cbf70f7318ba5ea51f8f3c465f35490b7be3d1a37c9c21fd791387d75"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/coupled_declarative_scenario.py": {
+      "bytes": 2656,
+      "sha256": "b7f1e1c21248e3d0fe5ad96e080d14634639435f83002da405b8040c36db11b3"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/formal_verification_pack_v39.py": {
+      "bytes": 8915,
+      "sha256": "2988f50c6d666468fac1e703038aa795fad6f81e1a3418ed978d21fc868a1cea"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/gemtest_benchjack_and_goodhart.py": {
+      "bytes": 8898,
+      "sha256": "096e31983a6c565dc8cc94e66dea4457c169444235184947b1afbb27f499ea8f"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/geometry_checks.py": {
+      "bytes": 2141,
+      "sha256": "2c263d2ee46fb53fc5cd74e57d74aaaad9932c6c35523da6bdcaccf8f8026dda"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/geometry_fixtures.py": {
+      "bytes": 4799,
+      "sha256": "6b01d3e4c2a3960225770e0d79c10d4c6fb5875e81cc7f992d1338b3782adde0"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/guardrails_aurite_impossible_and_falsegreen.py": {
+      "bytes": 7920,
+      "sha256": "1d4d0825ebd59b08398d5ae54149469a1c5b91d247b504591d5a359af0db9ad1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/matrix_checks.py": {
+      "bytes": 1483,
+      "sha256": "b8251c3e2c22a3f440866fbc4a58a24027d728587bdb33848474d170ec3cdc5a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/mutmut_dbc_splitguard_and_pitfallsfp.py": {
+      "bytes": 5659,
+      "sha256": "21d4447e43a1649fff0b13bbe121eff8bd4eff4828a685e7673e5f7f0cd6cf79"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/physics_redteam_and_glue_pack.py": {
+      "bytes": 8599,
+      "sha256": "831bf1e1cb8103fe18c64ddf4ca111a1d512704fe60a2ce10c7847402640baec"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/runner.py": {
+      "bytes": 11598,
+      "sha256": "f5d14b912702bd1fdcfaaf2ada3ed7bbe7cd250657e18a1a5bfb055bef8e9e9d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/scientific_computing_pack.py": {
+      "bytes": 6785,
+      "sha256": "04cc94e8695a8c22314b456c3a84bf9731f7933a9596fd485888bac8954f287e"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/statistical_checks.py": {
+      "bytes": 1304,
+      "sha256": "7b88064eb98fb58e7b584bbc1feddf987f2c90dd6e194049545800ad7baedafe"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/trajectory_and_evilgenie.py": {
+      "bytes": 5930,
+      "sha256": "adab171ddfa52e2f3b28474d9d888e927330e5ad7cde7b229fae0aca7a2083de"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_selftests/tutor_implementation_goodhart.py": {
+      "bytes": 4908,
+      "sha256": "eb9df991504ef3ef91d943162ba9a5bb1fe934b27c42de0e58a602aea190ea29"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_guard_test_bindings.py": {
+      "bytes": 872,
+      "sha256": "e929bef57a1de72fcdaedff8984ba6ce03f20833dcb4056fb27bbf0fc7599701"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/awf_universal_anti_goodhart_gates.py": {
+      "bytes": 19048,
+      "sha256": "98d4dab75b65d9e17772525e1e02ab6508ec2e4ea24c66353ebf27eeee5d93a5"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/patch_callback_boundaries.py": {
+      "bytes": 1955,
+      "sha256": "633fa584e3a01c3c98427d7b5e6395844bd4cc479107efcddff1f2e8e936248d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/patch_rc3.py": {
+      "bytes": 5138,
+      "sha256": "5fb3ae76aa0985c15311b8213a927e08092d1add74cb23e75c8e4ae1ba36e46d"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/probe_ag_v37.py": {
+      "bytes": 10422,
+      "sha256": "c90b0b3f355f530c4b20a416d36c80ec20c1e35dc93f47e175ba209aa88b1131"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/register_anti_goodhart_v3_7_rc2.py": {
+      "bytes": 13521,
+      "sha256": "3ae0a9a785f8422783071760de8af0eabd5b2d8acf219711103bdafd30ad16a9"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/test_evidence_escapes.py": {
+      "bytes": 9643,
+      "sha256": "71cfdae95f02a28be161b8b8675674cfc68b3a0682c1af6b6486660219fe36b6"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/test_execution_flow.py": {
+      "bytes": 2159,
+      "sha256": "3c5c8fcc6556ecb9c7dc932b4b7d4c8076f4155f993fcb343e0f879f117a262a"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/test_function_line_limit.py": {
+      "bytes": 4525,
+      "sha256": "935948fbbdaf70f712ff8210499bf55fbc67340b5b3c5776a8e0b40db1818d71"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/test_modular_integrity.py": {
+      "bytes": 5108,
+      "sha256": "2b622948718bb68502c4b4de7cddde9b23ed8cbb7d7ab8d9832b643972108fd1"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/test_nonfinite_campaign.py": {
+      "bytes": 5391,
+      "sha256": "f0b5ff79be0c995a4587e461dccd14133b874b9f0746aba6fe11952285e4b949"
+    },
+    "awf/components/skills/anti-goodhart-verification/releases/3.9.0-rc.1/source/scripts/test_rc3_contracts.py": {
+      "bytes": 4218,
+      "sha256": "fe760a70333600ce69b1e2ce8e6997ea8f38a92f8ac53006a962b9158aec9850"
+    },
     "awf/components/skills/build-editable-figure-pptx/component.yaml": {
       "bytes": 1870,
       "sha256": "c8a677b42b3b26dc4c5e444b4c8cddcae74681d9eb5d47a123ac8f1ed5890927"
@@ -935,8 +1723,8 @@
       "sha256": "0c4fd533108eaed4872da48cb75b2530962cf0164cea98037d0ff4c63c9e20ec"
     },
     "awf/components/skills/design-anti-goodhart/component.yaml": {
-      "bytes": 64671,
-      "sha256": "d97474ddbfb575c9a4c2d3550dccf74a1e404364e288826835db6329fdf7b1b6"
+      "bytes": 77337,
+      "sha256": "3cc5ed4f7a83ca5763f985eade86e0be75572b02897dbed8b5a077d6f401f264"
     },
     "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.13/source/SKILL.md": {
       "bytes": 24633,
@@ -1942,6 +2730,206 @@
       "bytes": 43956,
       "sha256": "14226413b04132941c02a313724fce56e173d84e3105858ae6988aba3e1f5382"
     },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/SKILL.md": {
+      "bytes": 31320,
+      "sha256": "deb705abfcdac48e40b1c812a93dd207cd277a8029c319385e05f252be65dc65"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/design_tests/__init__.py": {
+      "bytes": 80,
+      "sha256": "3ebdf6a119c55e5b7f030a5c9e12641045e88276e3995cba391cc1174b3804cc"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/design_tests/evidence_fixtures.py": {
+      "bytes": 5006,
+      "sha256": "72a30ce7b17c09400f2b322a0d9e8cded2ecd33e7252560a2f3b3503be59d6f6"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/design_tests/test_evidence.py": {
+      "bytes": 13111,
+      "sha256": "a45d7fc0ba0ab61638b5e510d1d025f90e189726ed78c1141ee4aa1bced72fd5"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/provenance/legacy-registration/register_design_anti_goodhart_v1_0_rc11.py": {
+      "bytes": 11823,
+      "sha256": "df7466eb399231f51e5f59f6626960457620963f466d894bcefe468f290ee449"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/references/01_optoelectronic_scoring_criteria_v3.md": {
+      "bytes": 122940,
+      "sha256": "971603709c92957c4f6a28aa599212bf5c7b6e173d0a2a6681d746e7b72df559"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/references/02_supermolecule_SCORING_CRITERIA_5dim.md": {
+      "bytes": 17280,
+      "sha256": "e73d996da2c60e98080fabd6ee6dad242ad76e5198ec09ca0e26d434ca199d0d"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/references/evidence-contract.md": {
+      "bytes": 6008,
+      "sha256": "25d521f27dc22425af30daf76f38b05535bdd006892d11ce921fc1c3dfd4c8dd"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/awf_design_ag_selftest_suite.py": {
+      "bytes": 96250,
+      "sha256": "77448d36aabaf5b9b2378279470848e9000fd0dcff33bbeec3643281eb525c46"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/awf_design_anti_goodhart_gates.py": {
+      "bytes": 93361,
+      "sha256": "d6ea173c806b40c7f39aa26245c1726211ee2a3f8a4d021d7a50b016fe5334f4"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/awf_pinned_dependency.py": {
+      "bytes": 1543,
+      "sha256": "b94e4633bae93997d067479e8d040d2289e0aac736e58dfba6bf4a478b7d9857"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_academic_copywriting_guard.py": {
+      "bytes": 4605,
+      "sha256": "22df14a9a693f9cbccea4736101306a0d5d1425000248f1a5d309a21f8dab096"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_acceptance.py": {
+      "bytes": 4382,
+      "sha256": "76832ed4abde05ce1a437c297a6c21f93ee4a8bb65c338d9b02d0cbabd8a60dd"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_background_bridge.py": {
+      "bytes": 38509,
+      "sha256": "5d6e2469b513a64680610e483d3da458ae8dfc256d0a323fcb1059db659df8d2"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_capture_profile.py": {
+      "bytes": 5236,
+      "sha256": "6917949c383e8eb86faeb26bea9bcbac11d323cca5109289d72bd00766cf022a"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_contract.py": {
+      "bytes": 1522,
+      "sha256": "68c2889f4a1de0b4954985004ae3e095d6eb68d00c2f4c46f0c41b010b11fc25"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_evidence.py": {
+      "bytes": 7058,
+      "sha256": "a00240d7dce69dbf5e7fb181d2f27eb9f17e0edf6e730ae9a8ddc9d5286de1b9"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_lossless_popover_and_split.py": {
+      "bytes": 14721,
+      "sha256": "4d4dab668d16ba16832352c7e35c9b5e4117267aabf3d5a2349851223071f728"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_physical_entity_and_evolution.py": {
+      "bytes": 24709,
+      "sha256": "5e5475f20faff1739e4c40f2dd98f5def9288ee0c8b53551861c9657e6a66def"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_policy.py": {
+      "bytes": 820,
+      "sha256": "37801afe2f526b596d77f6e205ed156a7ca87ad0c5f33c8d495766074b6cdfcf"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_scores.py": {
+      "bytes": 6256,
+      "sha256": "9343239e6c9230e9e668005b633c58189e507bc61d0d94e01540f0b834461b61"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_semantic_coherence.py": {
+      "bytes": 35139,
+      "sha256": "740b414aa5c7ad46f6caa71432fef980fe43fdd45d7f706cfef3fb0ac5416e9f"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_test_values.py": {
+      "bytes": 635,
+      "sha256": "c7dea097d61003531b819564800e03757b229ec3e37948be4c9b0801fb75b6f4"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_tutor_pedagogy_guard.py": {
+      "bytes": 8557,
+      "sha256": "8676dc15b6eab56e7f605c0a297d077e361afb988b7c5cce0292c395ef408cb6"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.25/source/scripts/design_viewport_and_redundancy.py": {
+      "bytes": 43956,
+      "sha256": "14226413b04132941c02a313724fce56e173d84e3105858ae6988aba3e1f5382"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/SKILL.md": {
+      "bytes": 31331,
+      "sha256": "8032c68b6b1bd16c1fe1b980da601ef353e39f5538a94c59b83e05f2bedea5d3"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/design_tests/__init__.py": {
+      "bytes": 80,
+      "sha256": "3ebdf6a119c55e5b7f030a5c9e12641045e88276e3995cba391cc1174b3804cc"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/design_tests/evidence_fixtures.py": {
+      "bytes": 5006,
+      "sha256": "72a30ce7b17c09400f2b322a0d9e8cded2ecd33e7252560a2f3b3503be59d6f6"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/design_tests/test_evidence.py": {
+      "bytes": 13111,
+      "sha256": "a45d7fc0ba0ab61638b5e510d1d025f90e189726ed78c1141ee4aa1bced72fd5"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/provenance/legacy-registration/register_design_anti_goodhart_v1_0_rc11.py": {
+      "bytes": 11823,
+      "sha256": "df7466eb399231f51e5f59f6626960457620963f466d894bcefe468f290ee449"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/references/01_optoelectronic_scoring_criteria_v3.md": {
+      "bytes": 122940,
+      "sha256": "971603709c92957c4f6a28aa599212bf5c7b6e173d0a2a6681d746e7b72df559"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/references/02_supermolecule_SCORING_CRITERIA_5dim.md": {
+      "bytes": 17280,
+      "sha256": "e73d996da2c60e98080fabd6ee6dad242ad76e5198ec09ca0e26d434ca199d0d"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/references/evidence-contract.md": {
+      "bytes": 6008,
+      "sha256": "f2c3bd6b2fc70a9a337549fb00bcd0b86d8e2a307713bd56fa7c0430798470df"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/awf_design_ag_selftest_suite.py": {
+      "bytes": 96250,
+      "sha256": "77448d36aabaf5b9b2378279470848e9000fd0dcff33bbeec3643281eb525c46"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/awf_design_anti_goodhart_gates.py": {
+      "bytes": 93361,
+      "sha256": "7451237e0fbdc24139b652f662d5025aaed2c3c009ac7ae64132e62e4005b141"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/awf_pinned_dependency.py": {
+      "bytes": 1543,
+      "sha256": "b94e4633bae93997d067479e8d040d2289e0aac736e58dfba6bf4a478b7d9857"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_academic_copywriting_guard.py": {
+      "bytes": 4605,
+      "sha256": "22df14a9a693f9cbccea4736101306a0d5d1425000248f1a5d309a21f8dab096"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_acceptance.py": {
+      "bytes": 4382,
+      "sha256": "76832ed4abde05ce1a437c297a6c21f93ee4a8bb65c338d9b02d0cbabd8a60dd"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_background_bridge.py": {
+      "bytes": 38509,
+      "sha256": "5d6e2469b513a64680610e483d3da458ae8dfc256d0a323fcb1059db659df8d2"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_capture_profile.py": {
+      "bytes": 5236,
+      "sha256": "6917949c383e8eb86faeb26bea9bcbac11d323cca5109289d72bd00766cf022a"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_contract.py": {
+      "bytes": 1522,
+      "sha256": "68c2889f4a1de0b4954985004ae3e095d6eb68d00c2f4c46f0c41b010b11fc25"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_evidence.py": {
+      "bytes": 7058,
+      "sha256": "a00240d7dce69dbf5e7fb181d2f27eb9f17e0edf6e730ae9a8ddc9d5286de1b9"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_lossless_popover_and_split.py": {
+      "bytes": 14721,
+      "sha256": "4d4dab668d16ba16832352c7e35c9b5e4117267aabf3d5a2349851223071f728"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_physical_entity_and_evolution.py": {
+      "bytes": 24709,
+      "sha256": "5e5475f20faff1739e4c40f2dd98f5def9288ee0c8b53551861c9657e6a66def"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_policy.py": {
+      "bytes": 820,
+      "sha256": "37801afe2f526b596d77f6e205ed156a7ca87ad0c5f33c8d495766074b6cdfcf"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_scores.py": {
+      "bytes": 6256,
+      "sha256": "9343239e6c9230e9e668005b633c58189e507bc61d0d94e01540f0b834461b61"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_semantic_coherence.py": {
+      "bytes": 35139,
+      "sha256": "740b414aa5c7ad46f6caa71432fef980fe43fdd45d7f706cfef3fb0ac5416e9f"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_test_values.py": {
+      "bytes": 635,
+      "sha256": "c7dea097d61003531b819564800e03757b229ec3e37948be4c9b0801fb75b6f4"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_tutor_pedagogy_guard.py": {
+      "bytes": 8557,
+      "sha256": "8676dc15b6eab56e7f605c0a297d077e361afb988b7c5cce0292c395ef408cb6"
+    },
+    "awf/components/skills/design-anti-goodhart/releases/1.0.0-rc.26/source/scripts/design_viewport_and_redundancy.py": {
+      "bytes": 43956,
+      "sha256": "14226413b04132941c02a313724fce56e173d84e3105858ae6988aba3e1f5382"
+    },
     "awf/components/skills/edit-scientific-article/component.yaml": {
       "bytes": 2232,
       "sha256": "e7e93ab4a184b0d3bc5b661e37fda05fe5ea9a8f7f00504e6c1c549c43e3240b"
@@ -1967,8 +2955,8 @@
       "sha256": "a4f0acd4c33bf0c11e8a0fb09b8bb06cc4a957951005878ec5e15710a0f8e001"
     },
     "awf/components/skills/html-ppt/component.yaml": {
-      "bytes": 59451,
-      "sha256": "4d2b59e4c0dff0d80a29276a6b84238d989977c41531acf1ac3792a87a737372"
+      "bytes": 71249,
+      "sha256": "b5a3e491b0b224faac20eeb0b8c37b1029e44f6c98517f66a10ef22c404412f5"
     },
     "awf/components/skills/html-ppt/releases/1.0.0-rc.15/source/PROVENANCE.md": {
       "bytes": 1144,
@@ -2590,9 +3578,113 @@
       "bytes": 832,
       "sha256": "348aeaadc05eb681943ae49341df90c1f942b186feae23d3b10d5ac9544958bd"
     },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/PROVENANCE.md": {
+      "bytes": 1144,
+      "sha256": "db458f6f9a00eea6caaa5079127952953b633ff4a417fe42970c78e1db2674d2"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/SKILL.md": {
+      "bytes": 38087,
+      "sha256": "68bd4d11a4a7d021187a74c69c56ac512207bc7c33c454f9fd5daec85273fd3c"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/agents/openai.yaml": {
+      "bytes": 210,
+      "sha256": "f2428bce09e0e9555261a06168388203a28773a4b34284019bb112c26a3406cf"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/assets/slide-template.html": {
+      "bytes": 4696,
+      "sha256": "dc8d0f95a8e26bff79687eb9f1c2d7ab9e2b8d47989c0bf76a5d8648df0caa98"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/provenance/legacy-registration/register_html_ppt_rc13.py": {
+      "bytes": 11782,
+      "sha256": "56bf2497c2f25b98feef859ce676db386777ae7f17c45c4b613ed5d0f0edb324"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/references/background-synthesis-and-onboarding.md": {
+      "bytes": 21204,
+      "sha256": "fb40828fe275d3ae819186e2314e925ac79c90b17de195e9d1be8d63c1e8cd34"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/references/content-and-evidence.md": {
+      "bytes": 9546,
+      "sha256": "501c2f74e8212385a1f694e82d42e0cf927d3ae2f7507bd55830a2290e72dd9b"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/references/visual-and-interaction-review.md": {
+      "bytes": 6907,
+      "sha256": "f59c8462e84e98219b7bdefd95da4a9e3e4f9faef33e221f0fdefc3b02a0d88b"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/scripts/audit_single_slide_step.py": {
+      "bytes": 167051,
+      "sha256": "8d63e8ad56c397fea1ec71d1c1be77827d58623713698380a7aceb1db7df9320"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/scripts/awf_pinned_dependency.py": {
+      "bytes": 1543,
+      "sha256": "b94e4633bae93997d067479e8d040d2289e0aac736e58dfba6bf4a478b7d9857"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/scripts/design_review_adapter.py": {
+      "bytes": 1271,
+      "sha256": "d79c21bc645076a2a8a671f15c8dc7a43b40747cc12212da9c9e6601f9ba9b75"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/tests/test_concrete_system_semantics.py": {
+      "bytes": 854,
+      "sha256": "367952836aecbf8b4c42c1bcaf24dced32ac321e6be58eb95f0a9e2103258322"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.27/source/tests/test_concrete_title_language.py": {
+      "bytes": 832,
+      "sha256": "348aeaadc05eb681943ae49341df90c1f942b186feae23d3b10d5ac9544958bd"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/PROVENANCE.md": {
+      "bytes": 1144,
+      "sha256": "db458f6f9a00eea6caaa5079127952953b633ff4a417fe42970c78e1db2674d2"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/SKILL.md": {
+      "bytes": 38087,
+      "sha256": "05f5a012db2814b944fd86c1dca96b77bcb2cc9b0881e796d5d70f4932657ac7"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/agents/openai.yaml": {
+      "bytes": 210,
+      "sha256": "f2428bce09e0e9555261a06168388203a28773a4b34284019bb112c26a3406cf"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/assets/slide-template.html": {
+      "bytes": 4696,
+      "sha256": "dc8d0f95a8e26bff79687eb9f1c2d7ab9e2b8d47989c0bf76a5d8648df0caa98"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/provenance/legacy-registration/register_html_ppt_rc13.py": {
+      "bytes": 11782,
+      "sha256": "56bf2497c2f25b98feef859ce676db386777ae7f17c45c4b613ed5d0f0edb324"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/references/background-synthesis-and-onboarding.md": {
+      "bytes": 21204,
+      "sha256": "fb40828fe275d3ae819186e2314e925ac79c90b17de195e9d1be8d63c1e8cd34"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/references/content-and-evidence.md": {
+      "bytes": 9546,
+      "sha256": "501c2f74e8212385a1f694e82d42e0cf927d3ae2f7507bd55830a2290e72dd9b"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/references/visual-and-interaction-review.md": {
+      "bytes": 6907,
+      "sha256": "f59c8462e84e98219b7bdefd95da4a9e3e4f9faef33e221f0fdefc3b02a0d88b"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/scripts/audit_single_slide_step.py": {
+      "bytes": 167051,
+      "sha256": "4f1098f75023d075fab827f4ecfa08c0083ad0ecdcff318a9a2058744d18b956"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/scripts/awf_pinned_dependency.py": {
+      "bytes": 1543,
+      "sha256": "b94e4633bae93997d067479e8d040d2289e0aac736e58dfba6bf4a478b7d9857"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/scripts/design_review_adapter.py": {
+      "bytes": 1271,
+      "sha256": "d79c21bc645076a2a8a671f15c8dc7a43b40747cc12212da9c9e6601f9ba9b75"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/tests/test_concrete_system_semantics.py": {
+      "bytes": 854,
+      "sha256": "367952836aecbf8b4c42c1bcaf24dced32ac321e6be58eb95f0a9e2103258322"
+    },
+    "awf/components/skills/html-ppt/releases/1.0.0-rc.28/source/tests/test_concrete_title_language.py": {
+      "bytes": 832,
+      "sha256": "348aeaadc05eb681943ae49341df90c1f942b186feae23d3b10d5ac9544958bd"
+    },
     "awf/registry.fragment.json": {
-      "bytes": 24408,
-      "sha256": "76adb6bb183c56ac2c3d94ad7bfde20d6e3fbfd4114f47900718ab5246f76a11"
+      "bytes": 27883,
+      "sha256": "7af7284a45fd558392c7a97342bd19a09c93d81f31e0826ac095326ddf092220"
     },
     "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.26/versions.lock": {
       "bytes": 403,
@@ -2690,6 +3782,30 @@
       "bytes": 5831,
       "sha256": "9de6833a2501ac1c214ef88c9a9fe534259acc6f8d87ddbfabb49ad1770a8b5f"
     },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.38/versions.lock": {
+      "bytes": 403,
+      "sha256": "96d8d2e1142bea58d50d71fa341fee0dd5fd823d394156daa2291e7f91a3a310"
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.38/workflow.yaml": {
+      "bytes": 5765,
+      "sha256": "d67cd7e621748adee7ab6e664a9c035e2b02db1ff7849129993941c146078f3f"
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.39/versions.lock": {
+      "bytes": 403,
+      "sha256": "8d1e94ea10ef73f8d8e2accf09587d325ec19d9a8555e796edab3eb64c364692"
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.39/workflow.yaml": {
+      "bytes": 6055,
+      "sha256": "7b538fb77885ba9ec9805bf67745b35130dd9e3b0e7a3557ddd49c66a9bbfa19"
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.40/versions.lock": {
+      "bytes": 403,
+      "sha256": "828305b7610df8805db31cb8cae3b3460fb0e6e411b62d77507abba07c2188e4"
+    },
+    "awf/workflows/adaptive-interactive-tutor/releases/1.0.0-rc.40/workflow.yaml": {
+      "bytes": 6055,
+      "sha256": "cab5797481b68977de00263b0d2e4b56ae627fdbcb21de34537ea1675079c5fa"
+    },
     "awf/workflows/anti-goodhart-verification/releases/3.7.0-rc.8/source/ag_review_rc7.py": {
       "bytes": 9200,
       "sha256": "654335591347f0e3b68ad902b1ebd136d45e5d5e7db40accf549b009b42bca34"
@@ -2725,6 +3841,70 @@
     "awf/workflows/anti-goodhart-verification/releases/3.7.0-rc.8/workflow.yaml": {
       "bytes": 3618,
       "sha256": "f5bb6e26002b757f24791c0d00378ec517247ccb5edbf90081e22eade1d35ccf"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.8.0-rc.1/source/ag_review_rc7.py": {
+      "bytes": 9212,
+      "sha256": "00c2ac40eb305410897c5567f15efc5e3a53adba1b29750272d21696daccc11d"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.8.0-rc.1/source/publish_guard_rc38.py": {
+      "bytes": 20948,
+      "sha256": "260e9f7f6292ba952c4b5e869d13c816abf481aacc804418795856f5aa23b012"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.8.0-rc.1/source/refresh_fixture_policy.py": {
+      "bytes": 1426,
+      "sha256": "0ee1067d84687caa5e2d6ed8ae3d60c490126023e0817e33f264b96d80c3e975"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.8.0-rc.1/source/release_hashes.py": {
+      "bytes": 1894,
+      "sha256": "854d2692d2795ae665a8e71ff1efe9e89b28c12a04c169dbd0be1e3dd0d88037"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.8.0-rc.1/source/verify_full_route_rc38.py": {
+      "bytes": 5033,
+      "sha256": "e78d4ac45940840e964ca74fb742568daf8bc03948f3dd01e610e3c73af90084"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.8.0-rc.1/versions.lock": {
+      "bytes": 306,
+      "sha256": "427805e192c4e8c83b02485dc7b2c22587009783ada790015326091bb204349c"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.8.0-rc.1/workflow.yaml": {
+      "bytes": 4099,
+      "sha256": "391479f02561bb34cb83107d5598157b8cd7495278d23be80639405d3f0f8503"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/source/ag_review_rc7.py": {
+      "bytes": 8656,
+      "sha256": "260d772991e8fe21f38e59e1e1d99f822b380f3cd5e24f5e0101b594c0196664"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/source/bootstrap_rc39.py": {
+      "bytes": 1899,
+      "sha256": "46242d032bc789ba81271a355aada7a7f7d96fdec7d9924c739d12fe4f7874e3"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/source/publish_guard_rc39.py": {
+      "bytes": 17256,
+      "sha256": "0393140c84ee69cf22f3a28532eb6e682e5aff75d172f01b4e1465910bd1a1a2"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/source/refresh_fixture_policy.py": {
+      "bytes": 1426,
+      "sha256": "bb4a432222c8c94a741081ef47783a67ac8b19b811003dae427f7082280382dd"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/source/refresh_valid_receipt_fixture.py": {
+      "bytes": 1514,
+      "sha256": "1a6b8472a9481ebd6b07eee0a5eafcf2fb091cf54cf7f6c9d3419dfb658fc350"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/source/release_hashes.py": {
+      "bytes": 2241,
+      "sha256": "2cbd99676807b28f7db7220793f909501440097f769059c03a23cf9c35fc8a05"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/source/verify_full_route_rc39.py": {
+      "bytes": 5950,
+      "sha256": "9e6c5172723f872ecb2604b026f01c1275e041eac158d17d40f8fa1b9b7757a7"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/versions.lock": {
+      "bytes": 306,
+      "sha256": "964edbaada47568c270c380f651a861cae5e416745ba551710da4c63151e9d48"
+    },
+    "awf/workflows/anti-goodhart-verification/releases/3.9.0-rc.1/workflow.yaml": {
+      "bytes": 4646,
+      "sha256": "66d279c1ad29327af3e5bb201e56d796fd40ef684756519ce260efd7b67b0ff2"
     },
     "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.13/source/README.md": {
       "bytes": 1444,
@@ -3038,6 +4218,54 @@
       "bytes": 5263,
       "sha256": "31bb380100749fd878cb50d12aab2c2fb1c0ce884cf3ed1656983684e39f17e5"
     },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.25/source/README.md": {
+      "bytes": 1021,
+      "sha256": "3696c38dc70484b9dbc26771ccbc2180aafdfa885fd3721173263310f9540dbe"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.25/source/register_rc25_closure.py": {
+      "bytes": 11062,
+      "sha256": "a2412ccc18f7a45386a72e8f648feaa5b648dc7bcd9856870aaa0a53552c73e4"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.25/source/release_hashes.py": {
+      "bytes": 1894,
+      "sha256": "854d2692d2795ae665a8e71ff1efe9e89b28c12a04c169dbd0be1e3dd0d88037"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.25/source/test_public_route.py": {
+      "bytes": 48053,
+      "sha256": "3c62e084c0cfef9fa991aa99391aba313d6782533d6da6cac1eee44309dec962"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.25/versions.lock": {
+      "bytes": 305,
+      "sha256": "06a4fa242340336cb21713224eac8722870fda52bc5028e79e2a44531d3c26b7"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.25/workflow.yaml": {
+      "bytes": 5216,
+      "sha256": "68c063ce75fc88f32882cf61287ac6e78f9d27d311f33a60d56e5f602efd6e2a"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.26/source/README.md": {
+      "bytes": 818,
+      "sha256": "ab4b6031d2986dbd3f9185a97119076b7904c729f1a55b04add6a6c36f98d7da"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.26/source/publish_closure_rc26_rc28_rc40.py": {
+      "bytes": 15206,
+      "sha256": "3b1a87514177f67b052603b8317f0e023365f7404260b53d5c02f2cceae05699"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.26/source/release_hashes.py": {
+      "bytes": 1894,
+      "sha256": "854d2692d2795ae665a8e71ff1efe9e89b28c12a04c169dbd0be1e3dd0d88037"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.26/source/test_public_route.py": {
+      "bytes": 48053,
+      "sha256": "dd7e949f1774edb9cd23f56d8f261c092b932c32d444ccb10c775c53524c5271"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.26/versions.lock": {
+      "bytes": 305,
+      "sha256": "d9be5d01a32a1308d453ba4441d37163d2547cd0e3b1177366d13a69d9bb6b64"
+    },
+    "awf/workflows/design-anti-goodhart/releases/1.0.0-rc.26/workflow.yaml": {
+      "bytes": 5216,
+      "sha256": "4493dcf1f38039ef9808cbee8bae385666d648bcab5e6579fac7078edbc3d6a0"
+    },
     "awf/workflows/editable-figure-pptx/releases/1.0.0-rc.2/versions.lock": {
       "bytes": 215,
       "sha256": "e166c2f808e2c8e68232b37ba630606e793a7cbcaaf4bc843e3fd46f52b0e9fd"
@@ -3142,6 +4370,22 @@
       "bytes": 5315,
       "sha256": "447522d4cf261c976f28ff38d6337cb5a6fbc8903505fda78f6262e3c48838ee"
     },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.24/versions.lock": {
+      "bytes": 330,
+      "sha256": "4435d87263adbadb9253235326cb84b607c5a5cc4bb27020d5de86306b383380"
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.24/workflow.yaml": {
+      "bytes": 5267,
+      "sha256": "ff5e4da8a7a8f23caa7d4bf22ce2807d044fbdaabc87754abb81f39580ecb30f"
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.25/versions.lock": {
+      "bytes": 330,
+      "sha256": "14026cfe1c4c580f164c529a06f538c9dfb0dabc0046e8e58fdf55cd4b93cb78"
+    },
+    "awf/workflows/html-ppt/releases/1.0.0-rc.25/workflow.yaml": {
+      "bytes": 5267,
+      "sha256": "daef739a75747b643025567a9f00330f1beb9eb8eddb47f53265a5454a157327"
+    },
     "awf/workflows/scientific-report-authoring/releases/1.0.0-rc.13/versions.lock": {
       "bytes": 261,
       "sha256": "c9e63cd30ab111fa3a63a94fc59b497eac5c2b202be7bb4ed5ee0ebd328c4537"
@@ -3150,9 +4394,13 @@
       "bytes": 2017,
       "sha256": "78fc99a8ec8978e22f525e7ac3cb149d76ecc7cd7cd6c022d782ae0492f1784e"
     },
+    "scripts/build_public_distribution.py": {
+      "bytes": 22302,
+      "sha256": "5d573db6c9e6e57c0a9bfe155d3ae04a87f02c6f31c33055ad94e87ed6b7bd64"
+    },
     "verify.py": {
-      "bytes": 16591,
-      "sha256": "6cf35f2cddc4950a4a32c09c1fd63ba56ee67103dcdf4f485cedb05541b60cd7"
+      "bytes": 20622,
+      "sha256": "3a495f37026edd312162d3cfee0a8a82c32f54116f039226c036d242de19f75e"
     }
   }
 }
